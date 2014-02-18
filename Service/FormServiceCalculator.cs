@@ -171,7 +171,8 @@ namespace Rapid.Service
 		
 		void Button18Click(object sender, EventArgs e)
 		{
-			TextBoxReturnValue.Text = ClassConversion.StringToMoney(textBox1.Text);
+			if(TextBoxReturnValue.Created)
+				TextBoxReturnValue.Text = ClassConversion.StringToMoney(textBox1.Text);
 			Close();
 		}
 	}
