@@ -1,0 +1,89 @@
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.csprojResolveAssemblyReference.cache
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormSelectLoad.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormSelectUser.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.MainForm.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.csproj.GenerateResource.Cache
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\bin\Debug\Rapid.exe
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\bin\Debug\Rapid.pdb
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.exe
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.pdb
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\bin\Debug\MySql.Data.dll
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormEditListConnect.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormClient.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormAdministrator.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormAdminCreateConfig.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormAdminUsers.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа\RAPID\Rapid\obj\Debug\Rapid.FormAdminUserEdit.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\bin\Debug\Rapid.exe
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\bin\Debug\Rapid.pdb
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\bin\Debug\MySql.Data.dll
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.csprojResolveAssemblyReference.cache
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormAdminCreateConfig.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormAdministrator.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormAdminUserEdit.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormAdminUsers.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormClient.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormEditListConnect.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormSelectLoad.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormSelectUser.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.MainForm.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.csproj.GenerateResource.Cache
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.exe
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.pdb
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormClientConst.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.FormClientConstEdit.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirms.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsFolder.resources
+C:\Users\Catfish\Documents\ВНУ\Ответы\Дипломная работа (!)\RAPID\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsElement.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\bin\Debug\Rapid.exe
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\bin\Debug\Rapid.pdb
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\bin\Debug\MySql.Data.dll
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.csprojResolveAssemblyReference.cache
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormAdminCreateConfig.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormAdministrator.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormAdminUserEdit.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormAdminUsers.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormClientConst.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormClientConstEdit.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirms.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsElement.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsFolder.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormClient.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormEditListConnect.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormSelectLoad.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormSelectUser.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.MainForm.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.csproj.GenerateResource.Cache
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.exe
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.pdb
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormClientTmc.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormClientTmcElement.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.FormClientTmcFolder.resources
+C:\Users\Catfish\Dropbox\Program Code\C#\RAPID\Rapid\obj\Debug\Rapid.Service.FormServiceCalculator.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\bin\Debug\Rapid.exe
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\bin\Debug\Rapid.pdb
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\bin\Debug\MySql.Data.dll
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormAdminCreateConfig.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormAdministrator.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormAdminUserEdit.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormAdminUsers.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormClientConst.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormClientConstEdit.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirms.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsElement.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsFolder.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormClient.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormClientTmc.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormClientTmcElement.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormClientTmcFolder.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormEditListConnect.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormSelectLoad.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.FormSelectUser.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.MainForm.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.Service.FormServiceCalculator.resources
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.exe
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.pdb
+C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\GenerateResource.read.4.tlog

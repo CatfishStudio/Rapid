@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{E324A7C8-5DE4-452E-A454-DF5ED825B240}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Rapid</RootNamespace>
+    <AssemblyName>Rapid</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <ApplicationIcon>images\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ADOX">
+      <HintPath>G:\Program Code\BEE v 1.0\BEEDesigner\bin\Interop.ADOX.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>packages\MySql.Data.6.7.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrator\FormAdminCreateConfig.cs" />
+    <Compile Include="Administrator\FormAdminCreateConfig.Designer.cs">
+      <DependentUpon>FormAdminCreateConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\FormAdministrator.cs" />
+    <Compile Include="Administrator\FormAdministrator.Designer.cs">
+      <DependentUpon>FormAdministrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\FormAdminUserEdit.cs" />
+    <Compile Include="Administrator\FormAdminUserEdit.Designer.cs">
+      <DependentUpon>FormAdminUserEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\FormAdminUsers.cs" />
+    <Compile Include="Administrator\FormAdminUsers.Designer.cs">
+      <DependentUpon>FormAdminUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ClassConfig.cs" />
+    <Compile Include="Classes\ClassConversion.cs" />
+    <Compile Include="Classes\ClassForms.cs" />
+    <Compile Include="Classes\ClassSelectConst.cs" />
+    <Compile Include="Classes\ClassServer.cs" />
+    <Compile Include="Client\Constants\FormClientConst.cs" />
+    <Compile Include="Client\Constants\FormClientConst.Designer.cs">
+      <DependentUpon>FormClientConst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Constants\FormClientConstEdit.cs" />
+    <Compile Include="Client\Constants\FormClientConstEdit.Designer.cs">
+      <DependentUpon>FormClientConstEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Firms\FormClientFirms.cs" />
+    <Compile Include="Client\Firms\FormClientFirms.Designer.cs">
+      <DependentUpon>FormClientFirms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Firms\FormClientFirmsElement.cs" />
+    <Compile Include="Client\Firms\FormClientFirmsElement.Designer.cs">
+      <DependentUpon>FormClientFirmsElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Firms\FormClientFirmsFolder.cs" />
+    <Compile Include="Client\Firms\FormClientFirmsFolder.Designer.cs">
+      <DependentUpon>FormClientFirmsFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\FormClient.cs" />
+    <Compile Include="Client\FormClient.Designer.cs">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Store\FormClientStore.cs" />
+    <Compile Include="Client\Store\FormClientStore.Designer.cs">
+      <DependentUpon>FormClientStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Store\FormClientStoreElement.cs" />
+    <Compile Include="Client\Store\FormClientStoreElement.Designer.cs">
+      <DependentUpon>FormClientStoreElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\TMC\FormClientTmc.cs" />
+    <Compile Include="Client\TMC\FormClientTmc.Designer.cs">
+      <DependentUpon>FormClientTmc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\TMC\FormClientTmcElement.cs" />
+    <Compile Include="Client\TMC\FormClientTmcElement.Designer.cs">
+      <DependentUpon>FormClientTmcElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\TMC\FormClientTmcFolder.cs" />
+    <Compile Include="Client\TMC\FormClientTmcFolder.Designer.cs">
+      <DependentUpon>FormClientTmcFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditListConnect.cs" />
+    <Compile Include="FormEditListConnect.Designer.cs">
+      <DependentUpon>FormEditListConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectLoad.cs" />
+    <Compile Include="FormSelectLoad.Designer.cs">
+      <DependentUpon>FormSelectLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectUser.cs" />
+    <Compile Include="FormSelectUser.Designer.cs">
+      <DependentUpon>FormSelectUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySQL\ClassCreateTableInBase.cs" />
+    <Compile Include="MySQL\ClassMySQL_Full.cs" />
+    <Compile Include="MySQL\ClassMySQL_Short.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\FormServiceCalculator.cs" />
+    <Compile Include="Service\FormServiceCalculator.Designer.cs">
+      <DependentUpon>FormServiceCalculator.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administrator\FormAdminCreateConfig.resx">
+      <DependentUpon>FormAdminCreateConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\FormAdministrator.resx">
+      <DependentUpon>FormAdministrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\FormAdminUserEdit.resx">
+      <DependentUpon>FormAdminUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\FormAdminUsers.resx">
+      <DependentUpon>FormAdminUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Constants\FormClientConst.resx">
+      <DependentUpon>FormClientConst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Constants\FormClientConstEdit.resx">
+      <DependentUpon>FormClientConstEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Firms\FormClientFirms.resx">
+      <DependentUpon>FormClientFirms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Firms\FormClientFirmsElement.resx">
+      <DependentUpon>FormClientFirmsElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Firms\FormClientFirmsFolder.resx">
+      <DependentUpon>FormClientFirmsFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\FormClient.resx">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Store\FormClientStore.resx">
+      <DependentUpon>FormClientStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\TMC\FormClientTmc.resx">
+      <DependentUpon>FormClientTmc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\TMC\FormClientTmcElement.resx">
+      <DependentUpon>FormClientTmcElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\TMC\FormClientTmcFolder.resx">
+      <DependentUpon>FormClientTmcFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditListConnect.resx">
+      <DependentUpon>FormEditListConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectLoad.resx">
+      <DependentUpon>FormSelectLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectUser.resx">
+      <DependentUpon>FormSelectUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service\FormServiceCalculator.resx">
+      <DependentUpon>FormServiceCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Client\Constants" />
+    <Folder Include="Administrator" />
+    <Folder Include="Client" />
+    <Folder Include="Client\Firms" />
+    <Folder Include="Client\TMC" />
+    <Folder Include="Client\Store" />
+    <Folder Include="MySQL" />
+    <Folder Include="Classes" />
+    <Folder Include="Service" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
