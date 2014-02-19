@@ -87,3 +87,29 @@ C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C
 C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.exe
 C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\Rapid.pdb
 C:\Documents and Settings\ADMIN\Мои документы\Dropbox\Program Code\C#\Rapid\Rapid\obj\Debug\GenerateResource.read.4.tlog
+C:\GIT\Rapid\obj\Debug\Rapid.csprojResolveAssemblyReference.cache
+C:\GIT\Rapid\obj\Debug\Rapid.FormAdminCreateConfig.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormAdministrator.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormAdminUserEdit.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormAdminUsers.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientConst.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientConstEdit.resources
+C:\GIT\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirms.resources
+C:\GIT\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsElement.resources
+C:\GIT\Rapid\obj\Debug\Rapid.Client.Firms.FormClientFirmsFolder.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClient.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientStore.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientTmc.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientTmcElement.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientTmcFolder.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormEditListConnect.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormSelectLoad.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormSelectUser.resources
+C:\GIT\Rapid\obj\Debug\Rapid.MainForm.resources
+C:\GIT\Rapid\obj\Debug\Rapid.Service.FormServiceCalculator.resources
+C:\GIT\Rapid\obj\Debug\Rapid.csproj.GenerateResource.Cache
+C:\GIT\Rapid\obj\Debug\Rapid.exe
+C:\GIT\Rapid\bin\Debug\Rapid.exe
+C:\GIT\Rapid\bin\Debug\Rapid.pdb
+C:\GIT\Rapid\bin\Debug\MySql.Data.dll
+C:\GIT\Rapid\obj\Debug\Rapid.pdb

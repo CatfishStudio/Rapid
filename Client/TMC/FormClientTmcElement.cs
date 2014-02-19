@@ -151,7 +151,7 @@ namespace Rapid
 		
 		void Button5Click(object sender, EventArgs e)
 		{
-			FormServiceCalculator Calc = new FormServiceCalculator();
+			FormServiceCalculator Calc = new FormServiceCalculator(true);
 			Calc.TextBoxReturnValue = this.textBox4;
 			Calc.MdiParent = ClassForms.Rapid_Client;
 			Calc.Show();
@@ -159,7 +159,7 @@ namespace Rapid
 		
 		void Button6Click(object sender, EventArgs e)
 		{
-			FormServiceCalculator Calc = new FormServiceCalculator();
+			FormServiceCalculator Calc = new FormServiceCalculator(true);
 			Calc.TextBoxReturnValue = this.textBox5;
 			Calc.MdiParent = ClassForms.Rapid_Client;
 			Calc.Show();

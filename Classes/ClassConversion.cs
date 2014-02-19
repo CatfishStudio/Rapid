@@ -47,7 +47,6 @@ namespace Rapid
 						if(StrResult[j].ToString() == "."){
 							KolSimbolPoslZapat = KolSimbolPoslZapat + 1;
 							KolSimbolPoslZapat = KolSimbol - KolSimbolPoslZapat;
-							MessageBox.Show(KolSimbolPoslZapat.ToString());
 							if(KolSimbolPoslZapat < 2) MenhDvyhDrob = true;
 						}KolSimbolPoslZapat++;
 					}

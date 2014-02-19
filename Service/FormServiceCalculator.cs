@@ -22,8 +22,9 @@ namespace Rapid.Service
 		private bool CalcCLEAR = true;
 		private String MeActivate = "";
 		public TextBox TextBoxReturnValue;
+		private bool valuePaste = false;
 		
-		public FormServiceCalculator()
+		public FormServiceCalculator(bool Paste)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -33,6 +34,7 @@ namespace Rapid.Service
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+			valuePaste = Paste;
 		}
 		
 		void inputValue(String Value)
@@ -171,8 +173,7 @@ namespace Rapid.Service
 		
 		void Button18Click(object sender, EventArgs e)
 		{
-			if(TextBoxReturnValue.Created)
-				TextBoxReturnValue.Text = ClassConversion.StringToMoney(textBox1.Text);
+			if(valuePaste) TextBoxReturnValue.Text = ClassConversion.StringToMoney(textBox1.Text);
 			Close();
 		}
 	}
