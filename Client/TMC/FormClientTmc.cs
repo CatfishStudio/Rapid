@@ -48,7 +48,7 @@ namespace Rapid
 		}
 		
 		/* ТАБЛИЦА: Загружаем данные из базы данных в таблицу ----------------*/
-		public void TableUpdate()
+		public void TableUpdate(String actionFolder)
 		{
 			//Загрузка данных в таблицу
 			try{
