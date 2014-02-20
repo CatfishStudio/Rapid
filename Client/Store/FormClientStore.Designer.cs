@@ -88,7 +88,7 @@ namespace Rapid
 									this.toolStripMenuItem2,
 									this.выбратьЗаписьToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 126);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 148);
 			// 
 			// папкиToolStripMenuItem
 			// 
@@ -100,6 +100,7 @@ namespace Rapid
 			this.папкиToolStripMenuItem.Name = "папкиToolStripMenuItem";
 			this.папкиToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.папкиToolStripMenuItem.Text = "Папки:";
+			this.папкиToolStripMenuItem.Visible = false;
 			// 
 			// создатьПапкуToolStripMenuItem
 			// 
@@ -126,6 +127,7 @@ namespace Rapid
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 6);
+			this.toolStripMenuItem1.Visible = false;
 			// 
 			// создатьЗаписьToolStripMenuItem
 			// 

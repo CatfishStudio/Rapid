@@ -80,6 +80,8 @@ namespace Rapid
 			this.журналЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.отчетПоСчетуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.калькуляторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -113,8 +115,6 @@ namespace Rapid
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.калькуляторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
@@ -220,42 +220,42 @@ namespace Rapid
 			// отменаToolStripMenuItem
 			// 
 			this.отменаToolStripMenuItem.Name = "отменаToolStripMenuItem";
-			this.отменаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.отменаToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.отменаToolStripMenuItem.Text = "Отменить";
 			// 
 			// повторToolStripMenuItem
 			// 
 			this.повторToolStripMenuItem.Name = "повторToolStripMenuItem";
-			this.повторToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.повторToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.повторToolStripMenuItem.Text = "Повторить";
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
 			// 
 			// вырезатьToolStripMenuItem
 			// 
 			this.вырезатьToolStripMenuItem.Name = "вырезатьToolStripMenuItem";
-			this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.вырезатьToolStripMenuItem.Text = "Вырезать.";
 			// 
 			// копироватьToolStripMenuItem
 			// 
 			this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-			this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.копироватьToolStripMenuItem.Text = "Копировать.";
 			// 
 			// вставитьToolStripMenuItem
 			// 
 			this.вставитьToolStripMenuItem.Name = "вставитьToolStripMenuItem";
-			this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.вставитьToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.вставитьToolStripMenuItem.Text = "Вставить.";
 			// 
 			// удалитьToolStripMenuItem
 			// 
 			this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-			this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
 			this.удалитьToolStripMenuItem.Text = "Удалить.";
 			// 
 			// видToolStripMenuItem
@@ -335,6 +335,7 @@ namespace Rapid
 			this.складToolStripMenuItem.Name = "складToolStripMenuItem";
 			this.складToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.складToolStripMenuItem.Text = "Склад";
+			this.складToolStripMenuItem.Click += new System.EventHandler(this.СкладToolStripMenuItemClick);
 			// 
 			// едИзмToolStripMenuItem
 			// 
@@ -450,6 +451,21 @@ namespace Rapid
 			this.отчетПоСчетуToolStripMenuItem.Name = "отчетПоСчетуToolStripMenuItem";
 			this.отчетПоСчетуToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
 			this.отчетПоСчетуToolStripMenuItem.Text = "Оборотная ведомость";
+			// 
+			// сервисToolStripMenuItem
+			// 
+			this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.калькуляторToolStripMenuItem});
+			this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
+			this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+			this.сервисToolStripMenuItem.Text = "Сервис";
+			// 
+			// калькуляторToolStripMenuItem
+			// 
+			this.калькуляторToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("калькуляторToolStripMenuItem.Image")));
+			this.калькуляторToolStripMenuItem.Name = "калькуляторToolStripMenuItem";
+			this.калькуляторToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.калькуляторToolStripMenuItem.Text = "Калькулятор.";
 			// 
 			// справкаToolStripMenuItem
 			// 
@@ -750,21 +766,6 @@ namespace Rapid
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
-			// 
-			// сервисToolStripMenuItem
-			// 
-			this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.калькуляторToolStripMenuItem});
-			this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
-			this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-			this.сервисToolStripMenuItem.Text = "Сервис";
-			// 
-			// калькуляторToolStripMenuItem
-			// 
-			this.калькуляторToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("калькуляторToolStripMenuItem.Image")));
-			this.калькуляторToolStripMenuItem.Name = "калькуляторToolStripMenuItem";
-			this.калькуляторToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.калькуляторToolStripMenuItem.Text = "Калькулятор.";
 			// 
 			// FormClient
 			// 

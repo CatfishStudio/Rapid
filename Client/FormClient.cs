@@ -114,5 +114,16 @@ namespace Rapid
 				ClassForms.Rapid_ClientTmc.Show();
 			}
 		}
+		
+		/* Склады */
+		void СкладToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			// Отображение окна склады
+			if(!ClassForms.OpenCloseFormStore){
+				ClassForms.Rapid_ClientStore = new FormClientStore();
+				ClassForms.Rapid_ClientStore.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientStore.Show();
+			}
+		}
 	}
 }

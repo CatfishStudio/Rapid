@@ -45,5 +45,42 @@ namespace Rapid
 			TableUpdate(); // Загрузка данных из базы данных
 		}
 		
+		/* ТАБЛИЦА: Загружаем данные из базы данных в таблицу ----------------*/
+		public void TableUpdate()
+		{
+			//Загрузка данных в таблицу
+			try{
+				listView1.Items.Clear();
+				
+				// ОТБОР: "Элементов"
+				_storeElementDataSet.Clear();
+				_storeElementDataSet.DataSetName = "store";
+				_storeMySQL.SelectSqlCommand = "SELECT * FROM store ORDER BY store_name ASC";
+				if(_storeMySQL.ExecuteFill(_storeElementDataSet, "store") == false){
+					ClassForms.Rapid_Client.MessageConsole("Склады: Ошибка выполнения запроса к таблице 'Склады' при отборе элементов.", true);
+					return;
+				}
+				DataTable _tableElements = _storeElementDataSet.Tables["store"];
+			
+				// ОТОБРАЖЕНИЕ "Элементов"
+				foreach(DataRow rowElement in _tableElements.Rows)
+        		{
+					ListViewItem ListViewItem_add = new ListViewItem();
+					ListViewItem_add.SubItems.Add(rowElement["store_name"].ToString());
+					if(rowElement["store_delete"].ToString() == "0") //отметка удаления папки
+						ListViewItem_add.StateImageIndex = 2; // папка не удалена
+					else ListViewItem_add.StateImageIndex = 3; // папка удалена
+					ListViewItem_add.SubItems.Add("");
+					ListViewItem_add.SubItems.Add(rowElement["id_store"].ToString());
+					listView1.Items.Add(ListViewItem_add);
+				}
+				
+				// ВЫБОР: выдиляем ранее выбранный элемент.
+				//listView1.SelectedIndices.IndexOf(selectTableLine);
+			}catch{
+				ClassForms.Rapid_Client.MessageConsole("Склады: Ошибка вывода информации выбранной из таблицы 'Склады'.", true);
+			}
+		}
+		
 	}
 }
