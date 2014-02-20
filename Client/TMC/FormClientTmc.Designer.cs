@@ -232,7 +232,7 @@ namespace Rapid
 									this.toolStripMenuItem2,
 									this.выбратьЗаписьToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 148);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 126);
 			// 
 			// папкиToolStripMenuItem
 			// 

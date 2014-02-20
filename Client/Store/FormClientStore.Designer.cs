@@ -51,13 +51,13 @@ namespace Rapid
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
 			this.выбратьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
 			this.button7 = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -161,29 +161,6 @@ namespace Rapid
 			this.выбратьЗаписьToolStripMenuItem.Text = "Выбрать запись.";
 			this.выбратьЗаписьToolStripMenuItem.Visible = false;
 			// 
-			// panel1
-			// 
-			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.panel1.Controls.Add(this.panel3);
-			this.panel1.Controls.Add(this.button7);
-			this.panel1.Controls.Add(this.textBox1);
-			this.panel1.Controls.Add(this.button6);
-			this.panel1.Controls.Add(this.button5);
-			this.panel1.Controls.Add(this.button4);
-			this.panel1.Location = new System.Drawing.Point(2, 2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(579, 41);
-			this.panel1.TabIndex = 3;
-			// 
-			// panel3
-			// 
-			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel3.Location = new System.Drawing.Point(101, 13);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(4, 20);
-			this.panel3.TabIndex = 9;
-			// 
 			// button7
 			// 
 			this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
@@ -194,13 +171,6 @@ namespace Rapid
 			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button7, "Поиск.");
 			this.button7.UseVisualStyleBackColor = true;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(111, 13);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(384, 20);
-			this.textBox1.TabIndex = 6;
 			// 
 			// button6
 			// 
@@ -234,6 +204,36 @@ namespace Rapid
 			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button4, "Создать запись.");
 			this.button4.UseVisualStyleBackColor = true;
+			// 
+			// panel1
+			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.panel1.Controls.Add(this.panel3);
+			this.panel1.Controls.Add(this.button7);
+			this.panel1.Controls.Add(this.textBox1);
+			this.panel1.Controls.Add(this.button6);
+			this.panel1.Controls.Add(this.button5);
+			this.panel1.Controls.Add(this.button4);
+			this.panel1.Location = new System.Drawing.Point(2, 2);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(579, 41);
+			this.panel1.TabIndex = 3;
+			// 
+			// panel3
+			// 
+			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel3.Location = new System.Drawing.Point(101, 13);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(4, 20);
+			this.panel3.TabIndex = 9;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(111, 13);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(384, 20);
+			this.textBox1.TabIndex = 6;
 			// 
 			// listView1
 			// 
@@ -300,6 +300,7 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientStore";
 			this.Text = "Склады:";
+			this.Load += new System.EventHandler(this.FormClientStoreLoad);
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

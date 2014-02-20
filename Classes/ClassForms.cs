@@ -27,6 +27,7 @@ namespace Rapid
 		public static FormClientConst Rapid_ClientConst; // форма "константы"
 		public static FormClientFirms Rapid_ClientFirms; // форма "фирмы"
 		public static FormClientTmc Rapid_ClientTmc; // форма "ТМЦ"
+		public static FormClientStore Rapid_ClientStore; // форма "склады"
 		//------------------------------------------------------------
 		//формы Администратора ---------------------------------------
 		public static FormAdministrator Rapid_Administrator;
@@ -40,6 +41,13 @@ namespace Rapid
 		public static bool OpenCloseFormConst; 	// флаг открытия формы "Константы"
 		public static bool OpenCloseFormFirms; 	// флаг открытия форма "Фирмы"
 		public static bool OpenCloseFormTmc;	// флаг открытия форма "ТМЦ"
+		public static bool OpenCloseFormStore;	// флаг открытия форма "Склады"
+		public static bool OpenCloseFormUnits;	// флаг открытия форма "Ед. изм"
+		public static bool OpenCloseFormTypeTax;// флаг открытия форма "Вид НДС"
+		public static bool OpenCloseFormStaff;	// флаг открытия форма "Сотрудники"
+		public static bool OpenCloseFormJournal;// флаг открытия форма "Журнал документов"
+		public static bool OpenCloseFormOperations;		// флаг открытия форма "Операции"
+		public static bool OpenCloseFormPlanAccounts;	// флаг открытия форма "План счетов"
 		//------------------------------------------------------------
 	}
 }

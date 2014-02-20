@@ -181,6 +181,9 @@
     <EmbeddedResource Include="Client\Store\FormClientStore.resx">
       <DependentUpon>FormClientStore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\Store\FormClientStoreElement.resx">
+      <DependentUpon>FormClientStoreElement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\TMC\FormClientTmc.resx">
       <DependentUpon>FormClientTmc.cs</DependentUpon>
     </EmbeddedResource>
