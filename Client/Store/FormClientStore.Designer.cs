@@ -135,6 +135,7 @@ namespace Rapid
 			this.создатьЗаписьToolStripMenuItem.Name = "создатьЗаписьToolStripMenuItem";
 			this.создатьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.создатьЗаписьToolStripMenuItem.Text = "Создать запись.";
+			this.создатьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.СоздатьЗаписьToolStripMenuItemClick);
 			// 
 			// изменитьЗаписьToolStripMenuItem
 			// 
@@ -142,6 +143,7 @@ namespace Rapid
 			this.изменитьЗаписьToolStripMenuItem.Name = "изменитьЗаписьToolStripMenuItem";
 			this.изменитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.изменитьЗаписьToolStripMenuItem.Text = "Изменить запись.";
+			this.изменитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьЗаписьToolStripMenuItemClick);
 			// 
 			// удалитьЗаписьToolStripMenuItem
 			// 
@@ -149,6 +151,7 @@ namespace Rapid
 			this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
 			this.удалитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись.";
+			this.удалитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.УдалитьЗаписьToolStripMenuItemClick);
 			// 
 			// toolStripMenuItem2
 			// 
@@ -162,6 +165,7 @@ namespace Rapid
 			this.выбратьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.выбратьЗаписьToolStripMenuItem.Text = "Выбрать запись.";
 			this.выбратьЗаписьToolStripMenuItem.Visible = false;
+			this.выбратьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.ВыбратьЗаписьToolStripMenuItemClick);
 			// 
 			// button7
 			// 
@@ -173,6 +177,7 @@ namespace Rapid
 			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button7, "Поиск.");
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// button6
 			// 
@@ -184,6 +189,7 @@ namespace Rapid
 			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button6, "Удалить или восстановить запись.");
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// button5
 			// 
@@ -195,6 +201,7 @@ namespace Rapid
 			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button5, "Изменить запись.");
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// button4
 			// 
@@ -206,6 +213,7 @@ namespace Rapid
 			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button4, "Создать запись.");
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// panel1
 			// 
@@ -261,6 +269,7 @@ namespace Rapid
 			this.listView1.TabIndex = 6;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
+			this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -290,6 +299,7 @@ namespace Rapid
 			this.button8.TabIndex = 8;
 			this.button8.Text = "Закрыть.";
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// FormClientStore
 			// 
@@ -302,6 +312,7 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientStore";
 			this.Text = "Склады:";
+			this.Closed += new System.EventHandler(this.FormClientStoreClosed);
 			this.Load += new System.EventHandler(this.FormClientStoreLoad);
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);

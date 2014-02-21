@@ -48,7 +48,7 @@ namespace Rapid
 			if(this.Text == "Изменить запись."){
 				_storeDataSet.Clear();
 				_storeDataSet.DataSetName = "store";
-				_storeMySQL.SelectSqlCommand = "SELECT * FROM tmc WHERE (id_store = " + ActionID + ")";
+				_storeMySQL.SelectSqlCommand = "SELECT * FROM store WHERE (id_store = " + ActionID + ")";
 				if(_storeMySQL.ExecuteFill(_storeDataSet, "store")){
 					DataTable table = _storeDataSet.Tables["store"];
 					textBox1.Text = table.Rows[0]["store_name"].ToString();
