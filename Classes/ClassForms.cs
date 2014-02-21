@@ -23,11 +23,12 @@ namespace Rapid
 		//форма выбора пользователя и ввода пароля
 		public static FormSelectUser Rapid_SelectUser;
 		//формы Клиента ----------------------------------------------
-		public static FormClient Rapid_Client; // главная форма клиента
-		public static FormClientConst Rapid_ClientConst; // форма "константы"
-		public static FormClientFirms Rapid_ClientFirms; // форма "фирмы"
-		public static FormClientTmc Rapid_ClientTmc; // форма "ТМЦ"
-		public static FormClientStore Rapid_ClientStore; // форма "склады"
+		public static FormClient Rapid_Client; 				// главная форма клиента
+		public static FormClientConst Rapid_ClientConst; 	// форма "константы"
+		public static FormClientFirms Rapid_ClientFirms; 	// форма "фирмы"
+		public static FormClientTmc Rapid_ClientTmc; 		// форма "ТМЦ"
+		public static FormClientStore Rapid_ClientStore; 	// форма "склады"
+		public static FormClientUnits Rapid_ClientUnits;	// форма "ед. измерения"
 		//------------------------------------------------------------
 		//формы Администратора ---------------------------------------
 		public static FormAdministrator Rapid_Administrator;

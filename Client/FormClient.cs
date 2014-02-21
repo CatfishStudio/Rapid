@@ -125,5 +125,15 @@ namespace Rapid
 				ClassForms.Rapid_ClientStore.Show();
 			}
 		}
+		
+		/* Единицы измерения */
+		void ЕдИзмToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormUnits){
+				ClassForms.Rapid_ClientUnits = new FormClientUnits();
+				ClassForms.Rapid_ClientUnits.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientUnits.Show();
+			}
+		}
 	}
 }

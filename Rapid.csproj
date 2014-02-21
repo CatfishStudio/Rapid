@@ -121,6 +121,14 @@
     <Compile Include="Client\TMC\FormClientTmcFolder.Designer.cs">
       <DependentUpon>FormClientTmcFolder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Units\FormClientUnits.cs" />
+    <Compile Include="Client\Units\FormClientUnits.Designer.cs">
+      <DependentUpon>FormClientUnits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Units\FormClientUnitsElement.cs" />
+    <Compile Include="Client\Units\FormClientUnitsElement.Designer.cs">
+      <DependentUpon>FormClientUnitsElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditListConnect.cs" />
     <Compile Include="FormEditListConnect.Designer.cs">
       <DependentUpon>FormEditListConnect.cs</DependentUpon>
@@ -193,6 +201,12 @@
     <EmbeddedResource Include="Client\TMC\FormClientTmcFolder.resx">
       <DependentUpon>FormClientTmcFolder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\Units\FormClientUnits.resx">
+      <DependentUpon>FormClientUnits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Units\FormClientUnitsElement.resx">
+      <DependentUpon>FormClientUnitsElement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditListConnect.resx">
       <DependentUpon>FormEditListConnect.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +233,7 @@
     <Folder Include="Client\Firms" />
     <Folder Include="Client\TMC" />
     <Folder Include="Client\Store" />
+    <Folder Include="Client\Units" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />
     <Folder Include="Service" />

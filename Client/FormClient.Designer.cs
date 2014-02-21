@@ -343,6 +343,7 @@ namespace Rapid
 			this.едИзмToolStripMenuItem.Name = "едИзмToolStripMenuItem";
 			this.едИзмToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.едИзмToolStripMenuItem.Text = "Ед. изм.";
+			this.едИзмToolStripMenuItem.Click += new System.EventHandler(this.ЕдИзмToolStripMenuItemClick);
 			// 
 			// toolStripSeparator3
 			// 
