@@ -246,6 +246,7 @@ namespace Rapid
 			toolStripMenuItem2.Visible = true;
 			выбратьЗаписьToolStripMenuItem.Visible = true;
 		}
+		
 		public void ReturnValue()
 		{
 			TextBoxReturnValue.Text = listView1.Items[listView1.SelectedIndices[0]].SubItems[1].Text.ToString();

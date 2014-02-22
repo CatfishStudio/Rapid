@@ -51,13 +51,13 @@ namespace Rapid
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
 			this.выбратьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
 			this.button7 = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -88,7 +88,7 @@ namespace Rapid
 									this.toolStripMenuItem2,
 									this.выбратьЗаписьToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 126);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 148);
 			// 
 			// папкиToolStripMenuItem
 			// 
@@ -135,6 +135,7 @@ namespace Rapid
 			this.создатьЗаписьToolStripMenuItem.Name = "создатьЗаписьToolStripMenuItem";
 			this.создатьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.создатьЗаписьToolStripMenuItem.Text = "Создать запись.";
+			this.создатьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.СоздатьЗаписьToolStripMenuItemClick);
 			// 
 			// изменитьЗаписьToolStripMenuItem
 			// 
@@ -142,6 +143,7 @@ namespace Rapid
 			this.изменитьЗаписьToolStripMenuItem.Name = "изменитьЗаписьToolStripMenuItem";
 			this.изменитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.изменитьЗаписьToolStripMenuItem.Text = "Изменить запись.";
+			this.изменитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьЗаписьToolStripMenuItemClick);
 			// 
 			// удалитьЗаписьToolStripMenuItem
 			// 
@@ -149,6 +151,7 @@ namespace Rapid
 			this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
 			this.удалитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись.";
+			this.удалитьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.УдалитьЗаписьToolStripMenuItemClick);
 			// 
 			// toolStripMenuItem2
 			// 
@@ -162,6 +165,55 @@ namespace Rapid
 			this.выбратьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.выбратьЗаписьToolStripMenuItem.Text = "Выбрать запись.";
 			this.выбратьЗаписьToolStripMenuItem.Visible = false;
+			this.выбратьЗаписьToolStripMenuItem.Click += new System.EventHandler(this.ВыбратьЗаписьToolStripMenuItemClick);
+			// 
+			// button7
+			// 
+			this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+			this.button7.Location = new System.Drawing.Point(501, 11);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(25, 23);
+			this.button7.TabIndex = 7;
+			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button7, "Поиск.");
+			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
+			// 
+			// button6
+			// 
+			this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+			this.button6.Location = new System.Drawing.Point(70, 11);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(25, 23);
+			this.button6.TabIndex = 5;
+			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button6, "Удалить или восстановить запись.");
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
+			// 
+			// button5
+			// 
+			this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+			this.button5.Location = new System.Drawing.Point(39, 10);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(25, 23);
+			this.button5.TabIndex = 4;
+			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button5, "Изменить запись.");
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
+			// 
+			// button4
+			// 
+			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+			this.button4.Location = new System.Drawing.Point(8, 10);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(25, 23);
+			this.button4.TabIndex = 3;
+			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button4, "Создать запись.");
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// panel1
 			// 
@@ -186,56 +238,12 @@ namespace Rapid
 			this.panel3.Size = new System.Drawing.Size(4, 20);
 			this.panel3.TabIndex = 9;
 			// 
-			// button7
-			// 
-			this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-			this.button7.Location = new System.Drawing.Point(501, 11);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(25, 23);
-			this.button7.TabIndex = 7;
-			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button7, "Поиск.");
-			this.button7.UseVisualStyleBackColor = true;
-			// 
 			// textBox1
 			// 
 			this.textBox1.Location = new System.Drawing.Point(111, 13);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(384, 20);
 			this.textBox1.TabIndex = 6;
-			// 
-			// button6
-			// 
-			this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-			this.button6.Location = new System.Drawing.Point(70, 11);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(25, 23);
-			this.button6.TabIndex = 5;
-			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button6, "Удалить или восстановить запись.");
-			this.button6.UseVisualStyleBackColor = true;
-			// 
-			// button5
-			// 
-			this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-			this.button5.Location = new System.Drawing.Point(39, 10);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(25, 23);
-			this.button5.TabIndex = 4;
-			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button5, "Изменить запись.");
-			this.button5.UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-			this.button4.Location = new System.Drawing.Point(8, 10);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(25, 23);
-			this.button4.TabIndex = 3;
-			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button4, "Создать запись.");
-			this.button4.UseVisualStyleBackColor = true;
 			// 
 			// listView1
 			// 
@@ -261,6 +269,7 @@ namespace Rapid
 			this.listView1.TabIndex = 7;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
+			this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -290,6 +299,7 @@ namespace Rapid
 			this.button8.TabIndex = 9;
 			this.button8.Text = "Закрыть.";
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// FormClientUnits
 			// 
@@ -302,6 +312,8 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientUnits";
 			this.Text = "Единицы измерения:";
+			this.Closed += new System.EventHandler(this.FormClientStoreClosed);
+			this.Load += new System.EventHandler(this.FormClientUnitsLoad);
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

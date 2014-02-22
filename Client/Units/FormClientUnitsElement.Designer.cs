@@ -118,6 +118,7 @@ namespace Rapid
 			this.button2.TabIndex = 11;
 			this.button2.Text = "Отмена.";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// button1
 			// 
@@ -128,6 +129,7 @@ namespace Rapid
 			this.button1.TabIndex = 10;
 			this.button1.Text = "ОК.";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// FormClientUnitsElement
 			// 
@@ -142,6 +144,8 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientUnitsElement";
 			this.Text = "Елемент";
+			this.Closed += new System.EventHandler(this.FormClientUnitsElementClosed);
+			this.Load += new System.EventHandler(this.FormClientUnitsElementLoad);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();

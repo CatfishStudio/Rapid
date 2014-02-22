@@ -90,6 +90,8 @@ namespace Rapid
 			if(idTable == 4 && ClassForms.OpenCloseFormTmc)	ClassForms.Rapid_ClientTmc.TableUpdate(ClassForms.Rapid_ClientTmc.openFolder);
 			// обновление справочника "склады"
 			if(idTable == 5 && ClassForms.OpenCloseFormStore) ClassForms.Rapid_ClientStore.TableUpdate();
+			// обновление справочника "ед. изм."
+			if(idTable == 6 && ClassForms.OpenCloseFormUnits) ClassForms.Rapid_ClientUnits.TableUpdate();
 		}
 	}
 }

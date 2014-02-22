@@ -57,6 +57,7 @@ namespace Rapid
 				}else ClassForms.Rapid_Client.MessageConsole("Склады: Ошибка выполнения запроса к таблице 'Склады' обращение к записи с идентификатором " + ActionID + " тип записи 'Запись'.", true);
 			}
 		}
+		
 		void FormClientStoreElementLoad(object sender, EventArgs e)
 		{
 			WindowLoad(); // Загрузка окна			
@@ -68,6 +69,7 @@ namespace Rapid
 		{
 			Close();
 		}
+		
 		void FormClientStoreElementClosed(object sender, EventArgs e)
 		{
 			ClassForms.Rapid_Client.MessageConsole("Склады: закрыто окно обработки записи.", false);
@@ -105,6 +107,7 @@ namespace Rapid
 				}
 			}
 		}
+		
 		void Button1Click(object sender, EventArgs e)
 		{
 			SaveData(); // созранение данных			
