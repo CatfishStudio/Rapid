@@ -135,5 +135,15 @@ namespace Rapid
 				ClassForms.Rapid_ClientUnits.Show();
 			}
 		}
+		
+		/* Вид налога */
+		void ВидНалогаToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormTypeTax){
+				ClassForms.Rapid_ClientTypeTax = new FormClientTypeTax();
+				ClassForms.Rapid_ClientTypeTax.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientTypeTax.Show();
+			}
+		}
 	}
 }

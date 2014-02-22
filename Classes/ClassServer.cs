@@ -92,6 +92,9 @@ namespace Rapid
 			if(idTable == 5 && ClassForms.OpenCloseFormStore) ClassForms.Rapid_ClientStore.TableUpdate();
 			// обновление справочника "ед. изм."
 			if(idTable == 6 && ClassForms.OpenCloseFormUnits) ClassForms.Rapid_ClientUnits.TableUpdate();
+			// обновление справочника "вид налога"
+			if(idTable == 7 && ClassForms.OpenCloseFormTypeTax) ClassForms.Rapid_ClientTypeTax.TableUpdate();
+			// обновление справлчник ""
 		}
 	}
 }

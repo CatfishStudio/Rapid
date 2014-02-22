@@ -272,7 +272,7 @@ namespace Rapid.Client.Firms
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientFirmsElement";
-			this.Text = "Елемент";
+			this.Text = "Элемент";
 			this.Closed += new System.EventHandler(this.FormClientFirmsElementClosed);
 			this.Load += new System.EventHandler(this.FormClientFirmsElementLoad);
 			this.tabControl1.ResumeLayout(false);

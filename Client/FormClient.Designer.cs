@@ -356,6 +356,7 @@ namespace Rapid
 			this.видНалогаToolStripMenuItem.Name = "видНалогаToolStripMenuItem";
 			this.видНалогаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.видНалогаToolStripMenuItem.Text = "Вид налога";
+			this.видНалогаToolStripMenuItem.Click += new System.EventHandler(this.ВидНалогаToolStripMenuItemClick);
 			// 
 			// сотрудникиToolStripMenuItem
 			// 

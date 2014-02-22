@@ -158,6 +158,7 @@ namespace Rapid
 			this.button9.TabIndex = 13;
 			this.button9.Text = "X";
 			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
 			// button8
 			// 
@@ -168,6 +169,7 @@ namespace Rapid
 			this.button8.TabIndex = 12;
 			this.button8.Text = "X";
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// button6
 			// 
@@ -389,7 +391,7 @@ namespace Rapid
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientTmcElement";
-			this.Text = "Елемент";
+			this.Text = "Элемент";
 			this.Closed += new System.EventHandler(this.FormClientTmcElementClosed);
 			this.Load += new System.EventHandler(this.FormClientTmcElementLoad);
 			this.tabControl1.ResumeLayout(false);

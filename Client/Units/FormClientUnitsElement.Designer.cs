@@ -143,7 +143,7 @@ namespace Rapid
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientUnitsElement";
-			this.Text = "Елемент";
+			this.Text = "Элемент";
 			this.Closed += new System.EventHandler(this.FormClientUnitsElementClosed);
 			this.Load += new System.EventHandler(this.FormClientUnitsElementLoad);
 			this.tabControl1.ResumeLayout(false);

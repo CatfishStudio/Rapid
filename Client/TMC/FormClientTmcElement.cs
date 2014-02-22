@@ -142,6 +142,8 @@ namespace Rapid
 			textBox4.Clear();
 			textBox4.Text = ClassConversion.StringToMoney(Money);
 		}
+		
+		/* Коррекция дробных чисел */
 		void TextBox5TextLostFocus(object sender, EventArgs e)
 		{
 			String Money = textBox5.Text;
@@ -149,6 +151,7 @@ namespace Rapid
 			textBox5.Text = ClassConversion.StringToMoney(Money);
 		}
 		
+		/* Калькулятор */
 		void Button5Click(object sender, EventArgs e)
 		{
 			FormServiceCalculator Calc = new FormServiceCalculator(true);
@@ -157,12 +160,23 @@ namespace Rapid
 			Calc.Show();
 		}
 		
+		/* Калькулятор */
 		void Button6Click(object sender, EventArgs e)
 		{
 			FormServiceCalculator Calc = new FormServiceCalculator(true);
 			Calc.TextBoxReturnValue = this.textBox5;
 			Calc.MdiParent = ClassForms.Rapid_Client;
 			Calc.Show();
+		}
+		
+		void Button8Click(object sender, EventArgs e)
+		{
+			textBox4.Text = "0.00";			
+		}
+		
+		void Button9Click(object sender, EventArgs e)
+		{
+			textBox5.Text = "0.00";				
 		}
 	}
 }

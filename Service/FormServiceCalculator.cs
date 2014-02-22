@@ -20,7 +20,7 @@ namespace Rapid.Service
 		private Double memory = 0;
 		private String ActionEvent = "";
 		private bool CalcCLEAR = true;
-		private String MeActivate = "";
+		//private String MeActivate = "";
 		public TextBox TextBoxReturnValue;
 		private bool valuePaste = false;
 		

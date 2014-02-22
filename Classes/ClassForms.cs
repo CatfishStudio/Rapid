@@ -29,6 +29,7 @@ namespace Rapid
 		public static FormClientTmc Rapid_ClientTmc; 		// форма "ТМЦ"
 		public static FormClientStore Rapid_ClientStore; 	// форма "склады"
 		public static FormClientUnits Rapid_ClientUnits;	// форма "ед. измерения"
+		public static FormClientTypeTax Rapid_ClientTypeTax;// форма "вид налога"
 		//------------------------------------------------------------
 		//формы Администратора ---------------------------------------
 		public static FormAdministrator Rapid_Administrator;

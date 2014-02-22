@@ -116,3 +116,5 @@ C:\GIT\Rapid\obj\Debug\Rapid.pdb
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientStoreElement.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientUnits.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientUnitsElement.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientTypeTax.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientTypeTaxElement.resources
