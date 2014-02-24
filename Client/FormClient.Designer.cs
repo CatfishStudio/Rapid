@@ -115,6 +115,7 @@ namespace Rapid
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.остаткиТМЦToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
@@ -442,7 +443,8 @@ namespace Rapid
 			// отчетыToolStripMenuItem
 			// 
 			this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.отчетПоСчетуToolStripMenuItem});
+									this.отчетПоСчетуToolStripMenuItem,
+									this.остаткиТМЦToolStripMenuItem});
 			this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
 			this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
 			this.отчетыToolStripMenuItem.Text = "Отчеты";
@@ -769,6 +771,12 @@ namespace Rapid
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
 			// 
+			// остаткиТМЦToolStripMenuItem
+			// 
+			this.остаткиТМЦToolStripMenuItem.Name = "остаткиТМЦToolStripMenuItem";
+			this.остаткиТМЦToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.остаткиТМЦToolStripMenuItem.Text = "Остатки ТМЦ";
+			// 
 			// FormClient
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,6 +804,7 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem остаткиТМЦToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem калькуляторToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
 		private System.Windows.Forms.Timer timer1;

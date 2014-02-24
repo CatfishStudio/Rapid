@@ -106,6 +106,10 @@ namespace Rapid
 			if(this.Text == "Новая запись."){
 				SQlCommand.SqlCommand = "INSERT INTO tmc (tmc_name, tmc_type_tax, tmc_units, tmc_buy, tmc_sale, tmc_store, tmc_additionally, tmc_type, tmc_folder, tmc_delete) VALUE ('" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', " + textBox4.Text + ", " + textBox5.Text + ", '" + textBox7.Text + "', '" + textBox6.Text + "', 0, '" + comboBox1.Text + "', 0)";
 				if(SQlCommand.ExecuteNonQuery()){
+					ClassMySQL_Short SqlCommandBalance = new ClassMySQL_Short();
+					String DateInsert = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+					SqlCommandBalance.SqlCommand = "INSERT INTO balance (balance_tmc, balance_date, balance_number) VALUE ('" + textBox1.Text + "', '" + DateInsert + "', 0)";
+					if(!SqlCommandBalance.ExecuteNonQuery()) ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка ввода новой записи в таблицу 'Остатки'", true);
 					// ИСТОРИЯ: Запись в журнал истории обновлений
 					ClassServer.SaveUpdateInBase(4, DateTime.Now.ToString(), "", "Создание новой записи.", "");
 					ClassForms.Rapid_Client.MessageConsole("ТМЦ: успешное создание новой записи.", false);
