@@ -101,6 +101,18 @@
     <Compile Include="Client\FormClient.Designer.cs">
       <DependentUpon>FormClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Staff\FormClientStaff.cs" />
+    <Compile Include="Client\Staff\FormClientStaff.Designer.cs">
+      <DependentUpon>FormClientStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Staff\FormClientStaffElement.cs" />
+    <Compile Include="Client\Staff\FormClientStaffElement.Designer.cs">
+      <DependentUpon>FormClientStaffElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Staff\FormClientStaffFolder.cs" />
+    <Compile Include="Client\Staff\FormClientStaffFolder.Designer.cs">
+      <DependentUpon>FormClientStaffFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Store\FormClientStore.cs" />
     <Compile Include="Client\Store\FormClientStore.Designer.cs">
       <DependentUpon>FormClientStore.cs</DependentUpon>
@@ -194,6 +206,15 @@
     <EmbeddedResource Include="Client\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\Staff\FormClientStaff.resx">
+      <DependentUpon>FormClientStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Staff\FormClientStaffElement.resx">
+      <DependentUpon>FormClientStaffElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Staff\FormClientStaffFolder.resx">
+      <DependentUpon>FormClientStaffFolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\Store\FormClientStore.resx">
       <DependentUpon>FormClientStore.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +270,7 @@
     <Folder Include="Client\Store" />
     <Folder Include="Client\Units" />
     <Folder Include="Client\TypeTax" />
+    <Folder Include="Client\Staff" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />
     <Folder Include="Service" />

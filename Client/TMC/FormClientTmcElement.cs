@@ -24,7 +24,7 @@ namespace Rapid
 		public FormClientTmc Rapid_ClientTmc;
 		private ClassMySQL_Full _tmcMySQL = new ClassMySQL_Full();
 		private DataSet _tmcDataSet = new DataSet();
-		
+		private String editName = "";
 		
 		public FormClientTmcElement()
 		{
@@ -77,9 +77,10 @@ namespace Rapid
 					comboBox1.Text = table.Rows[0]["tmc_folder"].ToString();
 					ClassForms.Rapid_Client.MessageConsole("ТМЦ: запись №" + ActionID + " успешно открыта для редактирования.", false);
 				}else ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка выполнения запроса к таблице 'ТМЦ' обращение к записи с идентификатором " + ActionID + " тип записи 'Запись'.", true);
-				
+				editName = textBox1.Text;
 			}
 		}
+		
 		void FormClientTmcElementLoad(object sender, EventArgs e)
 		{
 			WindowLoad(); // Загрузка окна			
@@ -91,6 +92,7 @@ namespace Rapid
 		{
 			Close();
 		}
+		
 		void FormClientTmcElementClosed(object sender, EventArgs e)
 		{
 			ClassForms.Rapid_Client.MessageConsole("ТМЦ: закрыто окно обработки записи.", false);
@@ -106,6 +108,7 @@ namespace Rapid
 			if(this.Text == "Новая запись."){
 				SQlCommand.SqlCommand = "INSERT INTO tmc (tmc_name, tmc_type_tax, tmc_units, tmc_buy, tmc_sale, tmc_store, tmc_additionally, tmc_type, tmc_folder, tmc_delete) VALUE ('" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', " + textBox4.Text + ", " + textBox5.Text + ", '" + textBox7.Text + "', '" + textBox6.Text + "', 0, '" + comboBox1.Text + "', 0)";
 				if(SQlCommand.ExecuteNonQuery()){
+					// Создание записи в остатках
 					ClassMySQL_Short SqlCommandBalance = new ClassMySQL_Short();
 					String DateInsert = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
 					SqlCommandBalance.SqlCommand = "INSERT INTO balance (balance_tmc, balance_date, balance_number) VALUE ('" + textBox1.Text + "', '" + DateInsert + "', 0)";
@@ -121,6 +124,10 @@ namespace Rapid
 				if(ClassConfig.Rapid_Client_UserRight == "admin"){
 					SQlCommand.SqlCommand = "UPDATE tmc SET tmc_name = '" + textBox1.Text + "', tmc_type_tax = '" + textBox2.Text + "', tmc_units = '" + textBox3.Text + "', tmc_buy = " + textBox4.Text + ", tmc_sale = " + textBox5.Text + ", tmc_store = '" + textBox7.Text + "', tmc_additionally = '" + textBox6.Text + "', tmc_folder = '" + comboBox1.Text + "' WHERE (id_tmc = " + ActionID + ") ";
 					if(SQlCommand.ExecuteNonQuery()){
+						// Изменение записей в остатках
+						ClassMySQL_Short SqlCommandBalance = new ClassMySQL_Short();
+						SqlCommandBalance.SqlCommand = "UPDATE balance SET balance_tmc = '" + textBox1.Text + "' WHERE (balance_tmc = '"+editName+"')";
+						if(!SqlCommandBalance.ExecuteNonQuery()) ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка изменений в таблице 'Остатки', переименование тмц.", true);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(4, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("ТМЦ: успешное изменение записи.", false);
@@ -128,10 +135,11 @@ namespace Rapid
 					} else ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка выполнения запроса к таблице 'ТМЦ' при изменении записи.", true);
 				}else{
 					MessageBox.Show("Извините но вы '" + ClassConfig.Rapid_Client_UserName + "' не обладаете достаточными правами для ввода изменений.","Сообщение");
-					ClassForms.Rapid_Client.MessageConsole("Фирмы: у вас недостаточно прав для ввода изменений.", false);
+					ClassForms.Rapid_Client.MessageConsole("Сотрудники: у вас недостаточно прав для ввода изменений.", false);
 				}
 			}
 		}
+		
 		void Button1Click(object sender, EventArgs e)
 		{
 			SaveData(); // созранение данных			

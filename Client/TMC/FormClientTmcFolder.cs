@@ -61,6 +61,7 @@ namespace Rapid
 				} else ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка выполнения запроса к таблице 'ТМЦ' обращение к записи с идентификатором " + ActionID + " тип записи 'Папка'.", true);
 			}
 		}
+		
 		void FormClientTmcFolderLoad(object sender, EventArgs e)
 		{
 			WindowLoad(); // Загрузка окна
@@ -109,6 +110,7 @@ namespace Rapid
 				} else ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка выполнения изменения имени папки." + ActionID, true);
 			}
 		}
+		
 		void Button1Click(object sender, EventArgs e)
 		{
 			SaveData(); // созранение данных			

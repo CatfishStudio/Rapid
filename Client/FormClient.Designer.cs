@@ -80,6 +80,7 @@ namespace Rapid
 			this.журналЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.отчетПоСчетуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.остаткиТМЦToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.калькуляторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,7 +116,6 @@ namespace Rapid
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.остаткиТМЦToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
@@ -365,6 +365,7 @@ namespace Rapid
 			this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
 			this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
+			this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.СотрудникиToolStripMenuItemClick);
 			// 
 			// документыToolStripMenuItem
 			// 
@@ -455,6 +456,12 @@ namespace Rapid
 			this.отчетПоСчетуToolStripMenuItem.Name = "отчетПоСчетуToolStripMenuItem";
 			this.отчетПоСчетуToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
 			this.отчетПоСчетуToolStripMenuItem.Text = "Оборотная ведомость";
+			// 
+			// остаткиТМЦToolStripMenuItem
+			// 
+			this.остаткиТМЦToolStripMenuItem.Name = "остаткиТМЦToolStripMenuItem";
+			this.остаткиТМЦToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+			this.остаткиТМЦToolStripMenuItem.Text = "Остатки ТМЦ";
 			// 
 			// сервисToolStripMenuItem
 			// 
@@ -770,12 +777,6 @@ namespace Rapid
 			// 
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
-			// 
-			// остаткиТМЦToolStripMenuItem
-			// 
-			this.остаткиТМЦToolStripMenuItem.Name = "остаткиТМЦToolStripMenuItem";
-			this.остаткиТМЦToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-			this.остаткиТМЦToolStripMenuItem.Text = "Остатки ТМЦ";
 			// 
 			// FormClient
 			// 

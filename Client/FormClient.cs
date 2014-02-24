@@ -145,5 +145,15 @@ namespace Rapid
 				ClassForms.Rapid_ClientTypeTax.Show();
 			}
 		}
+		
+		/* Сотрудники */
+		void СотрудникиToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormStaff){
+				ClassForms.Rapid_ClientStaff = new FormClientStaff();
+				ClassForms.Rapid_ClientStaff.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientStaff.Show();
+			}
+		}
 	}
 }

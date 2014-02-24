@@ -256,6 +256,7 @@ namespace Rapid
 				 * staff_address_phone	- адрес и телефон
 				 * staff_date_hired		- нанят на работу
 				 * staff_date_fired		- уволен с работы
+				 * staff_fired			- флаг увольнения
 				 * staff_salary			- зарплата
 				 * staff_additionally	- дополнительно
 				 * staff_type			- флаг тип записи (папка / запись)
@@ -267,6 +268,7 @@ namespace Rapid
 					"staff_details TEXT DEFAULT '', " +
 					"staff_address_phone TEXT DEFAULT '', " +
 					"staff_date_hired DATE, staff_date_fired DATE, " +
+					"staff_fired INT(1) DEFAULT 0, " +
 					"staff_salary DOUBLE(10,2) DEFAULT 0.00, " +
 					"staff_additionally TEXT DEFAULT '', " +
 					"staff_type INT(1) DEFAULT 0, " +
