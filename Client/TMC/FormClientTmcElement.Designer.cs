@@ -202,6 +202,7 @@ namespace Rapid
 			this.button4.TabIndex = 9;
 			this.button4.Text = "...";
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// button3
 			// 
@@ -212,6 +213,7 @@ namespace Rapid
 			this.button3.TabIndex = 8;
 			this.button3.Text = "...";
 			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
 			// textBox5
 			// 
@@ -311,6 +313,7 @@ namespace Rapid
 			this.button7.TabIndex = 12;
 			this.button7.Text = "...";
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// textBox7
 			// 

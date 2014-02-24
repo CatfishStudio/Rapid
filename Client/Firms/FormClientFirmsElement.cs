@@ -129,11 +129,11 @@ namespace Rapid.Client.Firms
 		/* Обращение к справочнику "Сотрудники" */
 		void SelectStaff() // выбрать сотрудника
 		{
-			FormClientFirms Rapid_FCF = new FormClientFirms();
-			Rapid_FCF.ShowMenuReturnValue();
-			Rapid_FCF.MdiParent = ClassForms.Rapid_Client;
-			Rapid_FCF.TextBoxReturnValue = textBox2;
-			Rapid_FCF.Show();
+			ClassForms.Rapid_ClientStaff = new FormClientStaff();
+			ClassForms.Rapid_ClientStaff.ShowMenuReturnValue();
+			ClassForms.Rapid_ClientStaff.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientStaff.TextBoxReturnValue = textBox2;
+			ClassForms.Rapid_ClientStaff.Show();
 		}
 		void Button3Click(object sender, EventArgs e)
 		{

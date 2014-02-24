@@ -88,6 +88,7 @@ namespace Rapid
 			this.button1.TabIndex = 4;
 			this.button1.Text = "...";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// button2
 			// 
@@ -144,8 +145,8 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientConstEdit";
 			this.Text = "Константа";
-			this.Load += new System.EventHandler(this.FormClientConstEditLoad);
 			this.Closed += new System.EventHandler(this.FormClientConstEditClosed);
+			this.Load += new System.EventHandler(this.FormClientConstEditLoad);
 			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();

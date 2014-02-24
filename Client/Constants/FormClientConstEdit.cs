@@ -10,6 +10,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data;
+using Rapid.Client.Firms;
 
 namespace Rapid
 {
@@ -77,6 +78,52 @@ namespace Rapid
 				Close();
 			} else ClassForms.Rapid_Client.MessageConsole("Константы: Ошибка выполнения запроса к таблице 'Константы' обновление записи с идентификатором " + ActionID, true);
 			
+		}
+		
+		/* Обращение к справочникам */
+		void InsertValue()
+		{
+			if(textBox1.Text == "Наша фирма" || textBox1.Text == "Поставщик" || textBox1.Text == "Покупатель"){
+				ClassForms.Rapid_ClientFirms = new FormClientFirms();
+				ClassForms.Rapid_ClientFirms.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientFirms.ShowMenuReturnValue();
+				ClassForms.Rapid_ClientFirms.TextBoxReturnValue = textBox2;
+				ClassForms.Rapid_ClientFirms.Show();
+			}
+			
+			if(textBox1.Text == "Вид НДС") {
+				ClassForms.Rapid_ClientTypeTax = new FormClientTypeTax();
+				ClassForms.Rapid_ClientTypeTax.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientTypeTax.ShowMenuReturnValue();
+				ClassForms.Rapid_ClientTypeTax.TextBoxReturnValue = textBox2;
+				ClassForms.Rapid_ClientTypeTax.Show();
+			}
+			if(textBox1.Text == "Основной склад"){
+				ClassForms.Rapid_ClientStore = new FormClientStore();
+				ClassForms.Rapid_ClientStore.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientStore.ShowMenuReturnValue();
+				ClassForms.Rapid_ClientStore.TextBoxReturnValue = textBox2;
+				ClassForms.Rapid_ClientStore.Show();
+			}
+			if(textBox1.Text == "Ед. измерения"){
+				ClassForms.Rapid_ClientUnits = new FormClientUnits();
+				ClassForms.Rapid_ClientUnits.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientUnits.ShowMenuReturnValue();
+				ClassForms.Rapid_ClientUnits.TextBoxReturnValue = textBox2;
+				ClassForms.Rapid_ClientUnits.Show();
+			}
+			if(textBox1.Text == "Директор" || textBox1.Text == "Главный бухгалтер"){
+				ClassForms.Rapid_ClientStaff = new FormClientStaff();
+				ClassForms.Rapid_ClientStaff.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientStaff.ShowMenuReturnValue();
+				ClassForms.Rapid_ClientStaff.TextBoxReturnValue = textBox2;
+				ClassForms.Rapid_ClientStaff.Show();
+			}
+		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			InsertValue();
 		}
 	}
 }

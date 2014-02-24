@@ -190,5 +190,20 @@ namespace Rapid
 		{
 			textBox5.Text = "0.00";				
 		}
+		
+		void Button7Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void Button3Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void Button4Click(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }
