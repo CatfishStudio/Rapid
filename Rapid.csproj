@@ -101,6 +101,14 @@
     <Compile Include="Client\FormClient.Designer.cs">
       <DependentUpon>FormClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\PlanAccounts\FormClientPlanAccounts.cs" />
+    <Compile Include="Client\PlanAccounts\FormClientPlanAccounts.Designer.cs">
+      <DependentUpon>FormClientPlanAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\PlanAccounts\FormClientPlanAccountsElement.cs" />
+    <Compile Include="Client\PlanAccounts\FormClientPlanAccountsElement.Designer.cs">
+      <DependentUpon>FormClientPlanAccountsElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Staff\FormClientStaff.cs" />
     <Compile Include="Client\Staff\FormClientStaff.Designer.cs">
       <DependentUpon>FormClientStaff.cs</DependentUpon>
@@ -206,6 +214,12 @@
     <EmbeddedResource Include="Client\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\PlanAccounts\FormClientPlanAccounts.resx">
+      <DependentUpon>FormClientPlanAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\PlanAccounts\FormClientPlanAccountsElement.resx">
+      <DependentUpon>FormClientPlanAccountsElement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\Staff\FormClientStaff.resx">
       <DependentUpon>FormClientStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +285,7 @@
     <Folder Include="Client\Units" />
     <Folder Include="Client\TypeTax" />
     <Folder Include="Client\Staff" />
+    <Folder Include="Client\PlanAccounts" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />
     <Folder Include="Service" />

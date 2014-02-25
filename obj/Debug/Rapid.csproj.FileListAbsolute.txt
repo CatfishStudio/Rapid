@@ -121,3 +121,5 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientTypeTaxElement.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientStaff.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientStaffElement.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientStaffFolder.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientPlanAccounts.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientPlanAccountsElement.resources

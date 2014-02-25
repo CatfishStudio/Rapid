@@ -29,7 +29,7 @@ namespace Rapid
 		 * 		7. активность
 		 * 		8. дополнительно 		
 		*/
-		public static String[,] TableUpdate = new string[12,9]; //12 - строк, 9 - полей
+		public static String[,] TableUpdate = new string[13,9]; //13 - строк, 9 - полей
 		
 		/* ПРОВЕРКА ОБНОВЛЕНИЙ НА СЕРВЕРЕ */
 		private static ClassMySQL_Full _serverMySQL = new ClassMySQL_Full();
@@ -45,7 +45,7 @@ namespace Rapid
 			}
 			DataTable _table = _serverDataSet.Tables["historyupdate"];
 			
-			for (int i = 0; i < 12; i++){
+			for (int i = 0; i < 13; i++){
 				if(_table.Rows[i]["history_datetime"].ToString() != ClassServer.TableUpdate[i,3]){
 					ClassServer.TableUpdate[i,0] = _table.Rows[i]["id_history"].ToString();
 					ClassServer.TableUpdate[i,1] = _table.Rows[i]["history_table_name"].ToString();
@@ -96,6 +96,9 @@ namespace Rapid
 			if(idTable == 7 && ClassForms.OpenCloseFormTypeTax) ClassForms.Rapid_ClientTypeTax.TableUpdate();
 			// обновление справлчник "Сотрудники"
 			if(idTable == 8 && ClassForms.OpenCloseFormStaff) ClassForms.Rapid_ClientStaff.TableUpdate(ClassForms.Rapid_ClientStaff.openFolder);
+			// обновление справлчник "План счетов"
+			if(idTable == 13 && ClassForms.OpenCloseFormPlanAccounts) ClassForms.Rapid_ClientPlanAccounts.TableUpdate();
+			
 		}
 	}
 }

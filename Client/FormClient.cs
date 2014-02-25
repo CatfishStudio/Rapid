@@ -155,5 +155,15 @@ namespace Rapid
 				ClassForms.Rapid_ClientStaff.Show();
 			}
 		}
+		
+		/* План счетов */
+		void ПранСчетовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormPlanAccounts){
+				ClassForms.Rapid_ClientPlanAccounts = new FormClientPlanAccounts();
+				ClassForms.Rapid_ClientPlanAccounts.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientPlanAccounts.Show();
+			}
+		}
 	}
 }

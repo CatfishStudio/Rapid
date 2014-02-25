@@ -31,6 +31,7 @@ namespace Rapid
 		public static FormClientUnits Rapid_ClientUnits;	// форма "ед. измерения"
 		public static FormClientTypeTax Rapid_ClientTypeTax;// форма "вид налога"
 		public static FormClientStaff Rapid_ClientStaff;	// форма "сотрудники"
+		public static FormClientPlanAccounts Rapid_ClientPlanAccounts;	// форма "план счетов"
 		//------------------------------------------------------------
 		//формы Администратора ---------------------------------------
 		public static FormAdministrator Rapid_Administrator;
