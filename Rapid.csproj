@@ -77,84 +77,92 @@
     <Compile Include="Classes\ClassForms.cs" />
     <Compile Include="Classes\ClassSelectConst.cs" />
     <Compile Include="Classes\ClassServer.cs" />
-    <Compile Include="Client\Constants\FormClientConst.cs" />
-    <Compile Include="Client\Constants\FormClientConst.Designer.cs">
+    <Compile Include="Client\Directories\Constants\FormClientConst.cs" />
+    <Compile Include="Client\Directories\Constants\FormClientConst.Designer.cs">
       <DependentUpon>FormClientConst.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Constants\FormClientConstEdit.cs" />
-    <Compile Include="Client\Constants\FormClientConstEdit.Designer.cs">
+    <Compile Include="Client\Directories\Constants\FormClientConstEdit.cs" />
+    <Compile Include="Client\Directories\Constants\FormClientConstEdit.Designer.cs">
       <DependentUpon>FormClientConstEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Firms\FormClientFirms.cs" />
-    <Compile Include="Client\Firms\FormClientFirms.Designer.cs">
+    <Compile Include="Client\Directories\Firms\FormClientFirms.cs" />
+    <Compile Include="Client\Directories\Firms\FormClientFirms.Designer.cs">
       <DependentUpon>FormClientFirms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Firms\FormClientFirmsElement.cs" />
-    <Compile Include="Client\Firms\FormClientFirmsElement.Designer.cs">
+    <Compile Include="Client\Directories\Firms\FormClientFirmsElement.cs" />
+    <Compile Include="Client\Directories\Firms\FormClientFirmsElement.Designer.cs">
       <DependentUpon>FormClientFirmsElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Firms\FormClientFirmsFolder.cs" />
-    <Compile Include="Client\Firms\FormClientFirmsFolder.Designer.cs">
+    <Compile Include="Client\Directories\Firms\FormClientFirmsFolder.cs" />
+    <Compile Include="Client\Directories\Firms\FormClientFirmsFolder.Designer.cs">
       <DependentUpon>FormClientFirmsFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Documentation\FormClientJournalDoc.cs" />
+    <Compile Include="Client\Documentation\FormClientJournalDoc.Designer.cs">
+      <DependentUpon>FormClientJournalDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Documentation\Order\FormClientDocOrder.cs" />
+    <Compile Include="Client\Documentation\Order\FormClientDocOrder.Designer.cs">
+      <DependentUpon>FormClientDocOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\FormClient.cs" />
     <Compile Include="Client\FormClient.Designer.cs">
       <DependentUpon>FormClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\PlanAccounts\FormClientPlanAccounts.cs" />
-    <Compile Include="Client\PlanAccounts\FormClientPlanAccounts.Designer.cs">
+    <Compile Include="Client\Directories\PlanAccounts\FormClientPlanAccounts.cs" />
+    <Compile Include="Client\Directories\PlanAccounts\FormClientPlanAccounts.Designer.cs">
       <DependentUpon>FormClientPlanAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\PlanAccounts\FormClientPlanAccountsElement.cs" />
-    <Compile Include="Client\PlanAccounts\FormClientPlanAccountsElement.Designer.cs">
+    <Compile Include="Client\Directories\PlanAccounts\FormClientPlanAccountsElement.cs" />
+    <Compile Include="Client\Directories\PlanAccounts\FormClientPlanAccountsElement.Designer.cs">
       <DependentUpon>FormClientPlanAccountsElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Staff\FormClientStaff.cs" />
-    <Compile Include="Client\Staff\FormClientStaff.Designer.cs">
+    <Compile Include="Client\Directories\Staff\FormClientStaff.cs" />
+    <Compile Include="Client\Directories\Staff\FormClientStaff.Designer.cs">
       <DependentUpon>FormClientStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Staff\FormClientStaffElement.cs" />
-    <Compile Include="Client\Staff\FormClientStaffElement.Designer.cs">
+    <Compile Include="Client\Directories\Staff\FormClientStaffElement.cs" />
+    <Compile Include="Client\Directories\Staff\FormClientStaffElement.Designer.cs">
       <DependentUpon>FormClientStaffElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Staff\FormClientStaffFolder.cs" />
-    <Compile Include="Client\Staff\FormClientStaffFolder.Designer.cs">
+    <Compile Include="Client\Directories\Staff\FormClientStaffFolder.cs" />
+    <Compile Include="Client\Directories\Staff\FormClientStaffFolder.Designer.cs">
       <DependentUpon>FormClientStaffFolder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Store\FormClientStore.cs" />
-    <Compile Include="Client\Store\FormClientStore.Designer.cs">
+    <Compile Include="Client\Directories\Store\FormClientStore.cs" />
+    <Compile Include="Client\Directories\Store\FormClientStore.Designer.cs">
       <DependentUpon>FormClientStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Store\FormClientStoreElement.cs" />
-    <Compile Include="Client\Store\FormClientStoreElement.Designer.cs">
+    <Compile Include="Client\Directories\Store\FormClientStoreElement.cs" />
+    <Compile Include="Client\Directories\Store\FormClientStoreElement.Designer.cs">
       <DependentUpon>FormClientStoreElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\TMC\FormClientTmc.cs" />
-    <Compile Include="Client\TMC\FormClientTmc.Designer.cs">
+    <Compile Include="Client\Directories\TMC\FormClientTmc.cs" />
+    <Compile Include="Client\Directories\TMC\FormClientTmc.Designer.cs">
       <DependentUpon>FormClientTmc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\TMC\FormClientTmcElement.cs" />
-    <Compile Include="Client\TMC\FormClientTmcElement.Designer.cs">
+    <Compile Include="Client\Directories\TMC\FormClientTmcElement.cs" />
+    <Compile Include="Client\Directories\TMC\FormClientTmcElement.Designer.cs">
       <DependentUpon>FormClientTmcElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\TMC\FormClientTmcFolder.cs" />
-    <Compile Include="Client\TMC\FormClientTmcFolder.Designer.cs">
+    <Compile Include="Client\Directories\TMC\FormClientTmcFolder.cs" />
+    <Compile Include="Client\Directories\TMC\FormClientTmcFolder.Designer.cs">
       <DependentUpon>FormClientTmcFolder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\TypeTax\FormClientTypeTax.cs" />
-    <Compile Include="Client\TypeTax\FormClientTypeTax.Designer.cs">
+    <Compile Include="Client\Directories\TypeTax\FormClientTypeTax.cs" />
+    <Compile Include="Client\Directories\TypeTax\FormClientTypeTax.Designer.cs">
       <DependentUpon>FormClientTypeTax.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\TypeTax\FormClientTypeTaxElement.cs" />
-    <Compile Include="Client\TypeTax\FormClientTypeTaxElement.Designer.cs">
+    <Compile Include="Client\Directories\TypeTax\FormClientTypeTaxElement.cs" />
+    <Compile Include="Client\Directories\TypeTax\FormClientTypeTaxElement.Designer.cs">
       <DependentUpon>FormClientTypeTaxElement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Units\FormClientUnits.cs" />
-    <Compile Include="Client\Units\FormClientUnits.Designer.cs">
+    <Compile Include="Client\Directories\Units\FormClientUnits.cs" />
+    <Compile Include="Client\Directories\Units\FormClientUnits.Designer.cs">
       <DependentUpon>FormClientUnits.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Units\FormClientUnitsElement.cs" />
-    <Compile Include="Client\Units\FormClientUnitsElement.Designer.cs">
+    <Compile Include="Client\Directories\Units\FormClientUnitsElement.cs" />
+    <Compile Include="Client\Directories\Units\FormClientUnitsElement.Designer.cs">
       <DependentUpon>FormClientUnitsElement.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditListConnect.cs" />
@@ -196,64 +204,70 @@
     <EmbeddedResource Include="Administrator\FormAdminUsers.resx">
       <DependentUpon>FormAdminUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Constants\FormClientConst.resx">
+    <EmbeddedResource Include="Client\Directories\Constants\FormClientConst.resx">
       <DependentUpon>FormClientConst.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Constants\FormClientConstEdit.resx">
+    <EmbeddedResource Include="Client\Directories\Constants\FormClientConstEdit.resx">
       <DependentUpon>FormClientConstEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Firms\FormClientFirms.resx">
+    <EmbeddedResource Include="Client\Directories\Firms\FormClientFirms.resx">
       <DependentUpon>FormClientFirms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Firms\FormClientFirmsElement.resx">
+    <EmbeddedResource Include="Client\Directories\Firms\FormClientFirmsElement.resx">
       <DependentUpon>FormClientFirmsElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Firms\FormClientFirmsFolder.resx">
+    <EmbeddedResource Include="Client\Directories\Firms\FormClientFirmsFolder.resx">
       <DependentUpon>FormClientFirmsFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\FormClientJournalDoc.resx">
+      <DependentUpon>FormClientJournalDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\Order\FormClientDocOrder.resx">
+      <DependentUpon>FormClientDocOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\PlanAccounts\FormClientPlanAccounts.resx">
+    <EmbeddedResource Include="Client\Directories\PlanAccounts\FormClientPlanAccounts.resx">
       <DependentUpon>FormClientPlanAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\PlanAccounts\FormClientPlanAccountsElement.resx">
+    <EmbeddedResource Include="Client\Directories\PlanAccounts\FormClientPlanAccountsElement.resx">
       <DependentUpon>FormClientPlanAccountsElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Staff\FormClientStaff.resx">
+    <EmbeddedResource Include="Client\Directories\Staff\FormClientStaff.resx">
       <DependentUpon>FormClientStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Staff\FormClientStaffElement.resx">
+    <EmbeddedResource Include="Client\Directories\Staff\FormClientStaffElement.resx">
       <DependentUpon>FormClientStaffElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Staff\FormClientStaffFolder.resx">
+    <EmbeddedResource Include="Client\Directories\Staff\FormClientStaffFolder.resx">
       <DependentUpon>FormClientStaffFolder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Store\FormClientStore.resx">
+    <EmbeddedResource Include="Client\Directories\Store\FormClientStore.resx">
       <DependentUpon>FormClientStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Store\FormClientStoreElement.resx">
+    <EmbeddedResource Include="Client\Directories\Store\FormClientStoreElement.resx">
       <DependentUpon>FormClientStoreElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\TMC\FormClientTmc.resx">
+    <EmbeddedResource Include="Client\Directories\TMC\FormClientTmc.resx">
       <DependentUpon>FormClientTmc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\TMC\FormClientTmcElement.resx">
+    <EmbeddedResource Include="Client\Directories\TMC\FormClientTmcElement.resx">
       <DependentUpon>FormClientTmcElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\TMC\FormClientTmcFolder.resx">
+    <EmbeddedResource Include="Client\Directories\TMC\FormClientTmcFolder.resx">
       <DependentUpon>FormClientTmcFolder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\TypeTax\FormClientTypeTax.resx">
+    <EmbeddedResource Include="Client\Directories\TypeTax\FormClientTypeTax.resx">
       <DependentUpon>FormClientTypeTax.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\TypeTax\FormClientTypeTaxElement.resx">
+    <EmbeddedResource Include="Client\Directories\TypeTax\FormClientTypeTaxElement.resx">
       <DependentUpon>FormClientTypeTaxElement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Units\FormClientUnits.resx">
+    <EmbeddedResource Include="Client\Directories\Units\FormClientUnits.resx">
       <DependentUpon>FormClientUnits.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Units\FormClientUnitsElement.resx">
+    <EmbeddedResource Include="Client\Directories\Units\FormClientUnitsElement.resx">
       <DependentUpon>FormClientUnitsElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditListConnect.resx">
@@ -276,16 +290,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Client\Constants" />
+    <Folder Include="Client\Directories\Constants" />
     <Folder Include="Administrator" />
     <Folder Include="Client" />
-    <Folder Include="Client\Firms" />
-    <Folder Include="Client\TMC" />
-    <Folder Include="Client\Store" />
-    <Folder Include="Client\Units" />
-    <Folder Include="Client\TypeTax" />
-    <Folder Include="Client\Staff" />
-    <Folder Include="Client\PlanAccounts" />
+    <Folder Include="Client\Directories\Firms" />
+    <Folder Include="Client\Directories\TMC" />
+    <Folder Include="Client\Directories\Store" />
+    <Folder Include="Client\Directories\Units" />
+    <Folder Include="Client\Directories\TypeTax" />
+    <Folder Include="Client\Directories\Staff" />
+    <Folder Include="Client\Directories\PlanAccounts" />
+    <Folder Include="Client\Documentation" />
+    <Folder Include="Client\Directories" />
+    <Folder Include="Client\Documentation\Order" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />
     <Folder Include="Service" />

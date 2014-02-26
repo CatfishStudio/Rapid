@@ -32,6 +32,7 @@ namespace Rapid
 		public static FormClientTypeTax Rapid_ClientTypeTax;// форма "вид налога"
 		public static FormClientStaff Rapid_ClientStaff;	// форма "сотрудники"
 		public static FormClientPlanAccounts Rapid_ClientPlanAccounts;	// форма "план счетов"
+		public static FormClientJournalDoc Rapid_ClientJournalDoc;		// форма "Полного журнала"
 		//------------------------------------------------------------
 		//формы Администратора ---------------------------------------
 		public static FormAdministrator Rapid_Administrator;
@@ -43,15 +44,15 @@ namespace Rapid
 		public static bool LoadAdministrator = false; // флаг загрузки администратора
 		public static bool OpenCloseFormUser;  	// флаг открытия формы "Пользователи"
 		public static bool OpenCloseFormConst; 	// флаг открытия формы "Константы"
-		public static bool OpenCloseFormFirms; 	// флаг открытия форма "Фирмы"
-		public static bool OpenCloseFormTmc;	// флаг открытия форма "ТМЦ"
-		public static bool OpenCloseFormStore;	// флаг открытия форма "Склады"
-		public static bool OpenCloseFormUnits;	// флаг открытия форма "Ед. изм"
-		public static bool OpenCloseFormTypeTax;// флаг открытия форма "Вид НДС"
-		public static bool OpenCloseFormStaff;	// флаг открытия форма "Сотрудники"
-		public static bool OpenCloseFormJournal;// флаг открытия форма "Журнал документов"
-		public static bool OpenCloseFormOperations;		// флаг открытия форма "Операции"
-		public static bool OpenCloseFormPlanAccounts;	// флаг открытия форма "План счетов"
+		public static bool OpenCloseFormFirms; 	// флаг открытия формы "Фирмы"
+		public static bool OpenCloseFormTmc;	// флаг открытия формы "ТМЦ"
+		public static bool OpenCloseFormStore;	// флаг открытия формы "Склады"
+		public static bool OpenCloseFormUnits;	// флаг открытия формы "Ед. изм"
+		public static bool OpenCloseFormTypeTax;// флаг открытия формы "Вид НДС"
+		public static bool OpenCloseFormStaff;	// флаг открытия формы "Сотрудники"
+		public static bool OpenCloseFormOperations;		// флаг открытия формы "Операции"
+		public static bool OpenCloseFormPlanAccounts;	// флаг открытия формы "План счетов"
+		public static bool OpenCloseFormJournalDoc;		// флаг открытия формы "Полный журнал"
 		//------------------------------------------------------------
 	}
 }
