@@ -79,13 +79,13 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox1.Location = new System.Drawing.Point(99, 6);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(245, 20);
+			this.textBox1.Size = new System.Drawing.Size(226, 20);
 			this.textBox1.TabIndex = 1;
 			// 
 			// button1
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(348, 4);
+			this.button1.Location = new System.Drawing.Point(329, 4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(25, 23);
 			this.button1.TabIndex = 5;
@@ -95,7 +95,7 @@ namespace Rapid
 			// button2
 			// 
 			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button2.Location = new System.Drawing.Point(375, 4);
+			this.button2.Location = new System.Drawing.Point(356, 4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(25, 23);
 			this.button2.TabIndex = 6;
@@ -116,13 +116,13 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox2.Location = new System.Drawing.Point(64, 31);
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(280, 20);
+			this.textBox2.Size = new System.Drawing.Size(261, 20);
 			this.textBox2.TabIndex = 8;
 			// 
 			// button3
 			// 
 			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button3.Location = new System.Drawing.Point(375, 29);
+			this.button3.Location = new System.Drawing.Point(356, 29);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(25, 23);
 			this.button3.TabIndex = 10;
@@ -132,7 +132,7 @@ namespace Rapid
 			// button4
 			// 
 			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button4.Location = new System.Drawing.Point(348, 29);
+			this.button4.Location = new System.Drawing.Point(329, 29);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(25, 23);
 			this.button4.TabIndex = 9;
@@ -153,7 +153,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox3.Location = new System.Drawing.Point(81, 56);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(263, 20);
+			this.textBox3.Size = new System.Drawing.Size(244, 20);
 			this.textBox3.TabIndex = 12;
 			this.textBox3.Text = "0.00";
 			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -161,7 +161,7 @@ namespace Rapid
 			// button5
 			// 
 			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button5.Location = new System.Drawing.Point(375, 54);
+			this.button5.Location = new System.Drawing.Point(356, 54);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(25, 23);
 			this.button5.TabIndex = 14;
@@ -171,7 +171,7 @@ namespace Rapid
 			// button6
 			// 
 			this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button6.Location = new System.Drawing.Point(348, 54);
+			this.button6.Location = new System.Drawing.Point(329, 54);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(25, 23);
 			this.button6.TabIndex = 13;
@@ -189,7 +189,7 @@ namespace Rapid
 			// button7
 			// 
 			this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button7.Location = new System.Drawing.Point(375, 79);
+			this.button7.Location = new System.Drawing.Point(356, 79);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(25, 23);
 			this.button7.TabIndex = 18;
@@ -199,7 +199,7 @@ namespace Rapid
 			// button8
 			// 
 			this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button8.Location = new System.Drawing.Point(348, 79);
+			this.button8.Location = new System.Drawing.Point(329, 79);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(25, 23);
 			this.button8.TabIndex = 17;
@@ -212,7 +212,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox4.Location = new System.Drawing.Point(110, 81);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(234, 20);
+			this.textBox4.Size = new System.Drawing.Size(215, 20);
 			this.textBox4.TabIndex = 16;
 			this.textBox4.Text = "0.00";
 			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -220,7 +220,7 @@ namespace Rapid
 			// button9
 			// 
 			this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button9.Location = new System.Drawing.Point(375, 104);
+			this.button9.Location = new System.Drawing.Point(356, 104);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(25, 23);
 			this.button9.TabIndex = 22;
@@ -230,7 +230,7 @@ namespace Rapid
 			// button10
 			// 
 			this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button10.Location = new System.Drawing.Point(348, 104);
+			this.button10.Location = new System.Drawing.Point(329, 104);
 			this.button10.Name = "button10";
 			this.button10.Size = new System.Drawing.Size(25, 23);
 			this.button10.TabIndex = 21;
@@ -243,7 +243,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox5.Location = new System.Drawing.Point(45, 106);
 			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(299, 20);
+			this.textBox5.Size = new System.Drawing.Size(280, 20);
 			this.textBox5.TabIndex = 20;
 			this.textBox5.Text = "0.00";
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -259,7 +259,7 @@ namespace Rapid
 			// button11
 			// 
 			this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button11.Location = new System.Drawing.Point(375, 129);
+			this.button11.Location = new System.Drawing.Point(356, 129);
 			this.button11.Name = "button11";
 			this.button11.Size = new System.Drawing.Size(25, 23);
 			this.button11.TabIndex = 26;
@@ -269,7 +269,7 @@ namespace Rapid
 			// button12
 			// 
 			this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button12.Location = new System.Drawing.Point(348, 129);
+			this.button12.Location = new System.Drawing.Point(329, 129);
 			this.button12.Name = "button12";
 			this.button12.Size = new System.Drawing.Size(25, 23);
 			this.button12.TabIndex = 25;
@@ -282,7 +282,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox6.Location = new System.Drawing.Point(64, 131);
 			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(280, 20);
+			this.textBox6.Size = new System.Drawing.Size(261, 20);
 			this.textBox6.TabIndex = 24;
 			this.textBox6.Text = "0.00";
 			this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -298,7 +298,7 @@ namespace Rapid
 			// button13
 			// 
 			this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button13.Location = new System.Drawing.Point(239, 158);
+			this.button13.Location = new System.Drawing.Point(220, 158);
 			this.button13.Name = "button13";
 			this.button13.Size = new System.Drawing.Size(75, 23);
 			this.button13.TabIndex = 27;
@@ -308,7 +308,7 @@ namespace Rapid
 			// button14
 			// 
 			this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button14.Location = new System.Drawing.Point(320, 158);
+			this.button14.Location = new System.Drawing.Point(301, 158);
 			this.button14.Name = "button14";
 			this.button14.Size = new System.Drawing.Size(75, 23);
 			this.button14.TabIndex = 28;
@@ -319,7 +319,7 @@ namespace Rapid
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(403, 191);
+			this.ClientSize = new System.Drawing.Size(384, 191);
 			this.Controls.Add(this.button14);
 			this.Controls.Add(this.button13);
 			this.Controls.Add(this.button11);

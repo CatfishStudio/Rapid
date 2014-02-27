@@ -51,16 +51,10 @@ namespace Rapid
 				OrderMySQL.SelectSqlCommand = "SELECT * FROM tabularsection WHERE (tabularSection_id_doc = '" + DocID + "')";
 				if(OrderMySQL.ExecuteFill(OrderDataSet, "tabularsection")){
 					// формируем табличную часть
-					
 					dataGrid1.DataSource = OrderDataSet.Tables["tabularsection"];
 					//dataGrid1.DataMember = "tabularsection";
 					
-					/*DataGridColumnStyle column;
-					column = new DataGridBoolColumn();
-					column.MappingName = "tabularSection_tmc";
-					column.HeaderText = "Наименование";
-					dataGridTableStyle1.GridColumnStyles.Add(column);*/
-					
+									
 					
 				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка формирования пустой табличной части.", true);
 				
