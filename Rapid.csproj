@@ -105,6 +105,10 @@
     <Compile Include="Client\Documentation\Order\FormClientDocOrder.Designer.cs">
       <DependentUpon>FormClientDocOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Documentation\Order\FormClientDocOrderElement.cs" />
+    <Compile Include="Client\Documentation\Order\FormClientDocOrderElement.Designer.cs">
+      <DependentUpon>FormClientDocOrderElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\FormClient.cs" />
     <Compile Include="Client\FormClient.Designer.cs">
       <DependentUpon>FormClient.cs</DependentUpon>
@@ -224,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Documentation\Order\FormClientDocOrder.resx">
       <DependentUpon>FormClientDocOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\Order\FormClientDocOrderElement.resx">
+      <DependentUpon>FormClientDocOrderElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>

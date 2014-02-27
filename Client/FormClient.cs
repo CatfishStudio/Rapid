@@ -165,5 +165,26 @@ namespace Rapid
 				ClassForms.Rapid_ClientPlanAccounts.Show();
 			}
 		}
+		
+		/* документ Заказ */
+		void ЗаказToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			FormClientDocOrder Rapid_ClientDocOrder = new FormClientDocOrder();
+			Rapid_ClientDocOrder.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocOrder.Text = "Новая документ.";
+			Rapid_ClientDocOrder.Show();
+		}
+		
+		/* документ Приходная накладная */
+		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			//...	
+		}
+		
+		/* документ Расходная накладная */
+		void РасходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			//...
+		}
 	}
 }
