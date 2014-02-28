@@ -43,6 +43,9 @@ namespace Rapid
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.button9 = new System.Windows.Forms.Button();
+			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
 			this.button5 = new System.Windows.Forms.Button();
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -73,16 +76,13 @@ namespace Rapid
 			this.dataGridTextBoxColumn2 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.dataGridTextBoxColumn3 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.dataGridTextBoxColumn4 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.button9 = new System.Windows.Forms.Button();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.label11 = new System.Windows.Forms.Label();
+			this.dataGridTextBoxColumn5 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn6 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn7 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.button10 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.label12 = new System.Windows.Forms.Label();
-			this.dataGridTextBoxColumn5 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn6 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn7 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -157,6 +157,34 @@ namespace Rapid
 			this.tabPage1.Text = "Основные данные.";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// button9
+			// 
+			this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button9.Location = new System.Drawing.Point(450, 230);
+			this.button9.Name = "button9";
+			this.button9.Size = new System.Drawing.Size(25, 23);
+			this.button9.TabIndex = 22;
+			this.button9.Text = "...";
+			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
+			// 
+			// textBox7
+			// 
+			this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox7.Location = new System.Drawing.Point(101, 232);
+			this.textBox7.Name = "textBox7";
+			this.textBox7.Size = new System.Drawing.Size(347, 20);
+			this.textBox7.TabIndex = 21;
+			// 
+			// label11
+			// 
+			this.label11.Location = new System.Drawing.Point(12, 232);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(100, 23);
+			this.label11.TabIndex = 20;
+			this.label11.Text = "Торг. пред.:";
+			// 
 			// button5
 			// 
 			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -166,6 +194,7 @@ namespace Rapid
 			this.button5.TabIndex = 19;
 			this.button5.Text = "...";
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// textBox6
 			// 
@@ -210,6 +239,7 @@ namespace Rapid
 			this.button4.TabIndex = 6;
 			this.button4.Text = "Х";
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// button2
 			// 
@@ -220,6 +250,7 @@ namespace Rapid
 			this.button2.TabIndex = 5;
 			this.button2.Text = "...";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// textBox4
 			// 
@@ -229,6 +260,7 @@ namespace Rapid
 			this.textBox4.Location = new System.Drawing.Point(95, 45);
 			this.textBox4.Multiline = true;
 			this.textBox4.Name = "textBox4";
+			this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.textBox4.Size = new System.Drawing.Size(372, 44);
 			this.textBox4.TabIndex = 3;
 			// 
@@ -248,6 +280,7 @@ namespace Rapid
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(320, 20);
 			this.textBox5.TabIndex = 1;
+			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
 			// label6
 			// 
@@ -283,6 +316,7 @@ namespace Rapid
 			this.button3.TabIndex = 5;
 			this.button3.Text = "Х";
 			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
 			// button1
 			// 
@@ -293,6 +327,7 @@ namespace Rapid
 			this.button1.TabIndex = 4;
 			this.button1.Text = "...";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// textBox3
 			// 
@@ -302,6 +337,7 @@ namespace Rapid
 			this.textBox3.Location = new System.Drawing.Point(95, 45);
 			this.textBox3.Multiline = true;
 			this.textBox3.Name = "textBox3";
+			this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.textBox3.Size = new System.Drawing.Size(372, 44);
 			this.textBox3.TabIndex = 3;
 			// 
@@ -321,6 +357,7 @@ namespace Rapid
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(320, 20);
 			this.textBox2.TabIndex = 1;
+			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
 			// 
 			// label3
 			// 
@@ -473,32 +510,29 @@ namespace Rapid
 			this.dataGridTextBoxColumn4.MappingName = "tabularSection_price";
 			this.dataGridTextBoxColumn4.Width = 75;
 			// 
-			// button9
+			// dataGridTextBoxColumn5
 			// 
-			this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button9.Location = new System.Drawing.Point(450, 230);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(25, 23);
-			this.button9.TabIndex = 22;
-			this.button9.Text = "...";
-			this.button9.UseVisualStyleBackColor = true;
+			this.dataGridTextBoxColumn5.Format = "";
+			this.dataGridTextBoxColumn5.FormatInfo = null;
+			this.dataGridTextBoxColumn5.HeaderText = "НДС";
+			this.dataGridTextBoxColumn5.MappingName = "tabularSection_NDS";
+			this.dataGridTextBoxColumn5.Width = 75;
 			// 
-			// textBox7
+			// dataGridTextBoxColumn6
 			// 
-			this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox7.Location = new System.Drawing.Point(101, 232);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(347, 20);
-			this.textBox7.TabIndex = 21;
+			this.dataGridTextBoxColumn6.Format = "";
+			this.dataGridTextBoxColumn6.FormatInfo = null;
+			this.dataGridTextBoxColumn6.HeaderText = "Сумма без НДС";
+			this.dataGridTextBoxColumn6.MappingName = "tabularSection_sum";
+			this.dataGridTextBoxColumn6.Width = 150;
 			// 
-			// label11
+			// dataGridTextBoxColumn7
 			// 
-			this.label11.Location = new System.Drawing.Point(12, 232);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(100, 23);
-			this.label11.TabIndex = 20;
-			this.label11.Text = "Торг. пред.:";
+			this.dataGridTextBoxColumn7.Format = "";
+			this.dataGridTextBoxColumn7.FormatInfo = null;
+			this.dataGridTextBoxColumn7.HeaderText = "Всего с НДС";
+			this.dataGridTextBoxColumn7.MappingName = "tabularSection_total";
+			this.dataGridTextBoxColumn7.Width = 150;
 			// 
 			// button10
 			// 
@@ -542,30 +576,6 @@ namespace Rapid
 			this.label12.Size = new System.Drawing.Size(170, 23);
 			this.label12.TabIndex = 19;
 			this.label12.Text = "Автор:";
-			// 
-			// dataGridTextBoxColumn5
-			// 
-			this.dataGridTextBoxColumn5.Format = "";
-			this.dataGridTextBoxColumn5.FormatInfo = null;
-			this.dataGridTextBoxColumn5.HeaderText = "НДС";
-			this.dataGridTextBoxColumn5.MappingName = "tabularSection_NDS";
-			this.dataGridTextBoxColumn5.Width = 75;
-			// 
-			// dataGridTextBoxColumn6
-			// 
-			this.dataGridTextBoxColumn6.Format = "";
-			this.dataGridTextBoxColumn6.FormatInfo = null;
-			this.dataGridTextBoxColumn6.HeaderText = "Сумма без НДС";
-			this.dataGridTextBoxColumn6.MappingName = "tabularSection_sum";
-			this.dataGridTextBoxColumn6.Width = 150;
-			// 
-			// dataGridTextBoxColumn7
-			// 
-			this.dataGridTextBoxColumn7.Format = "";
-			this.dataGridTextBoxColumn7.FormatInfo = null;
-			this.dataGridTextBoxColumn7.HeaderText = "Всего с НДС";
-			this.dataGridTextBoxColumn7.MappingName = "tabularSection_total";
-			this.dataGridTextBoxColumn7.Width = 150;
 			// 
 			// FormClientDocOrder
 			// 

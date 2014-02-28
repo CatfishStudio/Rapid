@@ -171,8 +171,8 @@ namespace Rapid
 		void CheckBox1CheckedChanged(object sender, EventArgs e)
 		{
 			if(checkBox1.Checked)
-				dateTimePicker2.Visible = true;
-			else dateTimePicker2.Visible = false;
+				dateTimePicker2.Enabled = true;
+			else dateTimePicker2.Enabled = false;
 		}
 	}
 }

@@ -191,19 +191,51 @@ namespace Rapid
 			textBox5.Text = "0.00";				
 		}
 		
+		/* Обращение к справочнику "Склад" */
+		void SelectStore() // выбрать склад
+		{
+			ClassForms.Rapid_ClientStore = new FormClientStore();
+			ClassForms.Rapid_ClientStore.ShowMenuReturnValue();
+			ClassForms.Rapid_ClientStore.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientStore.TextBoxReturnValue = textBox7;
+			ClassForms.Rapid_ClientStore.Show();
+		}
+		
 		void Button7Click(object sender, EventArgs e)
 		{
-			
+			SelectStore();
+		}
+		/*----------------------------------------------------------------*/
+		
+		/* Обращение к справочнику "Вид налога" */
+		void SelectTax() // выбрать налога
+		{
+			ClassForms.Rapid_ClientTypeTax = new FormClientTypeTax();
+			ClassForms.Rapid_ClientTypeTax.ShowMenuReturnValue();
+			ClassForms.Rapid_ClientTypeTax.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientTypeTax.TextBoxReturnValue = textBox2;
+			ClassForms.Rapid_ClientTypeTax.Show();
 		}
 		
 		void Button3Click(object sender, EventArgs e)
 		{
-			
+			SelectTax();
+		}
+		/*----------------------------------------------------------------*/
+		
+		/* Обращение к справочнику "Ед. изм." */
+		void SelectUnits() // выбрать ед. изм.
+		{
+			ClassForms.Rapid_ClientUnits = new FormClientUnits();
+			ClassForms.Rapid_ClientUnits.ShowMenuReturnValue();
+			ClassForms.Rapid_ClientUnits.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientUnits.TextBoxReturnValue = textBox3;
+			ClassForms.Rapid_ClientUnits.Show();
 		}
 		
 		void Button4Click(object sender, EventArgs e)
 		{
-			
+			SelectUnits();
 		}
 	}
 }
