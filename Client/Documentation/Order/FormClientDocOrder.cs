@@ -193,7 +193,7 @@ namespace Rapid
 		/* Управление таблицной частью */
 		void LineAdd() /* добавить новую строку */
 		{
-			FormClientDocOrderElement Rapid_ClientDocOrderElement = new FormClientDocOrderElement();
+			FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
 			Rapid_ClientDocOrderElement.Text = "Новая строка";
 			Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;
 			Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;

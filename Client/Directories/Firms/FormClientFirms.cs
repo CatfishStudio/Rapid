@@ -153,7 +153,7 @@ namespace Rapid.Client.Firms
 					openFolder = "";
 					TableUpdate(openFolder);
 				}
-			}	
+			}
 		}
 		void ListView1DoubleClick(object sender, EventArgs e)
 		{
@@ -429,6 +429,7 @@ namespace Rapid.Client.Firms
 		{
 			toolStripMenuItem2.Visible = true;
 			выбратьЗаписьToolStripMenuItem.Visible = true;
+			button10.Visible = true;
 		}
 		public void ReturnValue()
 		{
@@ -441,7 +442,11 @@ namespace Rapid.Client.Firms
 		{
 			ReturnValue();
 		}
+				
+		void Button10Click(object sender, EventArgs e)
+		{
+			ReturnValue();		
+		}
 		/*--------------------------------------------------------------------*/
-		
 	}
 }

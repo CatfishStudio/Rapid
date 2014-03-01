@@ -8,7 +8,7 @@
  */
 namespace Rapid
 {
-	partial class FormClientDocOrderElement
+	partial class FormClientDocTableElement
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -36,7 +36,7 @@ namespace Rapid
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientDocOrderElement));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientDocTableElement));
 			this.label1 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
@@ -181,6 +181,7 @@ namespace Rapid
 			this.button5.TabIndex = 14;
 			this.button5.Text = "Х";
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// button6
 			// 
@@ -220,6 +221,7 @@ namespace Rapid
 			this.button8.TabIndex = 17;
 			this.button8.Text = "...";
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// textBox4
 			// 

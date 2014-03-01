@@ -15,15 +15,15 @@ using Rapid.Service;
 namespace Rapid
 {
 	/// <summary>
-	/// Description of FormClientDocOrderElement.
+	/// Description of FormClientDocTableElement.
 	/// </summary>
-	public partial class FormClientDocOrderElement : Form
+	public partial class FormClientDocTableElement : Form
 	{
 		/* Глобальные переменные */
 		public DataSet ParentDataSet;			// родительский объект DataSet
 		public int indexLineParentDataSet;		// индекс строки родительского объекта DataSet
 		
-		public FormClientDocOrderElement()
+		public FormClientDocTableElement()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -125,6 +125,7 @@ namespace Rapid
 		/*----------------------------------------------------------------*/
 		
 		/* Количество ----------------------------------------------------*/
+		/* Калькулятор */
 		void Button6Click(object sender, EventArgs e)
 		{
 			FormServiceCalculator Calc = new FormServiceCalculator(true);
@@ -161,6 +162,24 @@ namespace Rapid
 			if(textBox3.Text != "" && ClassConversion.checkString(textBox3.Text))Calculation();
 			else textBox3.Text = "1.00";
 		}
+		
+		/* Очистка */
+		void Button5Click(object sender, EventArgs e)
+		{
+			textBox3.Text = "1.00";
+			Calculation();
+		}
 		/*----------------------------------------------------------------*/
+		
+		/* Цена реализации -----------------------------------------------*/
+		/* Калькулятор */
+		void Button8Click(object sender, EventArgs e)
+		{
+			FormServiceCalculator Calc = new FormServiceCalculator(true);
+			Calc.TextBoxReturnValue = this.textBox4;
+			Calc.MdiParent = ClassForms.Rapid_Client;
+			Calc.Show();
+		}
+		
 	}
 }

@@ -106,9 +106,9 @@
     <Compile Include="Client\Documentation\Order\FormClientDocOrder.Designer.cs">
       <DependentUpon>FormClientDocOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\Documentation\Order\FormClientDocOrderElement.cs" />
-    <Compile Include="Client\Documentation\Order\FormClientDocOrderElement.Designer.cs">
-      <DependentUpon>FormClientDocOrderElement.cs</DependentUpon>
+    <Compile Include="Client\Documentation\TabularSection\FormClientDocTableElement.cs" />
+    <Compile Include="Client\Documentation\TabularSection\FormClientDocTableElement.Designer.cs">
+      <DependentUpon>FormClientDocTableElement.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\FormClient.cs" />
     <Compile Include="Client\FormClient.Designer.cs">
@@ -230,8 +230,8 @@
     <EmbeddedResource Include="Client\Documentation\Order\FormClientDocOrder.resx">
       <DependentUpon>FormClientDocOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client\Documentation\Order\FormClientDocOrderElement.resx">
-      <DependentUpon>FormClientDocOrderElement.cs</DependentUpon>
+    <EmbeddedResource Include="Client\Documentation\TabularSection\FormClientDocTableElement.resx">
+      <DependentUpon>FormClientDocTableElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
@@ -311,6 +311,7 @@
     <Folder Include="Client\Documentation" />
     <Folder Include="Client\Directories" />
     <Folder Include="Client\Documentation\Order" />
+    <Folder Include="Client\Documentation\TabularSection" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />
     <Folder Include="Service" />

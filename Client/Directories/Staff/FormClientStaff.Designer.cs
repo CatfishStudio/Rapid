@@ -69,6 +69,7 @@ namespace Rapid
 			this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
 			this.button8 = new System.Windows.Forms.Button();
+			this.button10 = new System.Windows.Forms.Button();
 			this.contextMenuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -93,7 +94,7 @@ namespace Rapid
 									this.toolStripMenuItem2,
 									this.выбратьЗаписьToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 148);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 126);
 			// 
 			// папкиToolStripMenuItem
 			// 
@@ -369,11 +370,27 @@ namespace Rapid
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
+			// button10
+			// 
+			this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
+			this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button10.Location = new System.Drawing.Point(415, 331);
+			this.button10.Name = "button10";
+			this.button10.Size = new System.Drawing.Size(75, 23);
+			this.button10.TabIndex = 9;
+			this.button10.Text = "Выбрать.";
+			this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Visible = false;
+			this.button10.Click += new System.EventHandler(this.Button10Click);
+			// 
 			// FormClientStaff
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(583, 366);
+			this.Controls.Add(this.button10);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.panel1);
@@ -387,6 +404,7 @@ namespace Rapid
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button10;
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ColumnHeader columnHeader3;

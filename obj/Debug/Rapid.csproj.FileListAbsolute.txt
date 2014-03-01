@@ -125,4 +125,4 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientPlanAccounts.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientPlanAccountsElement.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalDoc.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocOrder.resources
-C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocOrderElement.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocTableElement.resources

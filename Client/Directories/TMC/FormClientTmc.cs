@@ -440,6 +440,7 @@ namespace Rapid
 		{
 			toolStripMenuItem2.Visible = true;
 			выбратьЗаписьToolStripMenuItem.Visible = true;
+			button10.Visible = true;
 		}
 		
 		public void ReturnValue()
@@ -453,6 +454,11 @@ namespace Rapid
 		void ВыбратьЗаписьToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			ReturnValue();			
+		}
+		
+		void Button10Click(object sender, EventArgs e)
+		{
+			ReturnValue();
 		}
 		/*--------------------------------------------------------------------*/
 	}
