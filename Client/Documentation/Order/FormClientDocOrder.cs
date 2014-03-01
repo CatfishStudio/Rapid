@@ -20,7 +20,7 @@ namespace Rapid
 	public partial class FormClientDocOrder : Form
 	{
 		/*Глобальные переменные */
-		private String DocID = "ORDER:TEST";
+		private String DocID;// = "ORDER:TEST";
 		public String ActionID;
 		public ClassMySQL_Full OrderMySQL = new ClassMySQL_Full();
 		public DataSet OrderDataSet = new DataSet();
@@ -43,9 +43,10 @@ namespace Rapid
 			// При создании новой записи
 			if(this.Text == "Новая документ."){
 				// формируем уникальный идентификатор документа
-				//DocID = "ORDER:" + DateTime.Now.ToString();
+				DocID = "ORDER:" + DateTime.Now.ToString();
 				// Загружаем информацию из констант
 				textBox6.Text = ClassSelectConst.constantValue("Основной склад");
+				label12.Text = ClassConfig.Rapid_Client_UserName;
 				// Формируем табличную часть
 				OrderDataSet.Clear();
 				OrderDataSet.DataSetName = "tabularsection";
@@ -54,8 +55,6 @@ namespace Rapid
 					// формируем табличную часть
 					dataGrid1.DataSource = OrderDataSet.Tables["tabularsection"];
 					//dataGrid1.DataMember = "tabularsection";
-					
-									
 					
 				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка формирования пустой табличной части.", true);
 				ClassForms.Rapid_Client.MessageConsole("Заказ: Создание нового документа.", false);
@@ -188,6 +187,22 @@ namespace Rapid
 		void Button9Click(object sender, EventArgs e)
 		{
 			SelectStaff();
+		}
+		/*---------------------------------------------------------*/
+		
+		/* Управление таблицной частью */
+		void LineAdd() /* добавить новую строку */
+		{
+			FormClientDocOrderElement Rapid_ClientDocOrderElement = new FormClientDocOrderElement();
+			Rapid_ClientDocOrderElement.Text = "новая строка";
+			Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;
+			Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocOrderElement.Show();
+		}
+		
+		void Button6Click(object sender, EventArgs e)
+		{
+			LineAdd(); // добавить новую строку
 		}
 	}
 }

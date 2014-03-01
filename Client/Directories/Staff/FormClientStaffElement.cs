@@ -74,10 +74,10 @@ namespace Rapid
 					dateTimePicker2.Text = table.Rows[0]["staff_date_fired"].ToString();
 					if(table.Rows[0]["staff_fired"].ToString() == "1"){
 						checkBox1.Checked = true;
-						dateTimePicker2.Visible = true;
+						dateTimePicker2.Enabled = true;
 					}else{
 						checkBox1.Checked = false;
-						dateTimePicker2.Visible = false;
+						dateTimePicker2.Enabled = false;
 					}
 					comboBox1.Text = table.Rows[0]["staff_folder"].ToString();
 					ClassForms.Rapid_Client.MessageConsole("ТМЦ: запись №" + ActionID + " успешно открыта для редактирования.", false);

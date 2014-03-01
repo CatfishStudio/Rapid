@@ -36,6 +36,7 @@ namespace Rapid
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientDocOrder));
 			this.label1 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -83,12 +84,17 @@ namespace Rapid
 			this.button11 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.label12 = new System.Windows.Forms.Label();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.новаяСтрокаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.изменитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
+			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -413,6 +419,7 @@ namespace Rapid
 			this.button6.TabIndex = 4;
 			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// label10
 			// 
@@ -453,6 +460,7 @@ namespace Rapid
 			this.dataGrid1.CaptionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.dataGrid1.CaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.dataGrid1.CaptionText = "Табличная часть заказа:";
+			this.dataGrid1.ContextMenuStrip = this.contextMenuStrip1;
 			this.dataGrid1.DataMember = "";
 			this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
 			this.dataGrid1.Location = new System.Drawing.Point(6, 32);
@@ -577,6 +585,36 @@ namespace Rapid
 			this.label12.TabIndex = 19;
 			this.label12.Text = "Автор:";
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.новаяСтрокаToolStripMenuItem,
+									this.изменитьСтрокуToolStripMenuItem,
+									this.удалитьСтрокуToolStripMenuItem});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 70);
+			// 
+			// новаяСтрокаToolStripMenuItem
+			// 
+			this.новаяСтрокаToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("новаяСтрокаToolStripMenuItem.Image")));
+			this.новаяСтрокаToolStripMenuItem.Name = "новаяСтрокаToolStripMenuItem";
+			this.новаяСтрокаToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.новаяСтрокаToolStripMenuItem.Text = "Новая строка.";
+			// 
+			// изменитьСтрокуToolStripMenuItem
+			// 
+			this.изменитьСтрокуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьСтрокуToolStripMenuItem.Image")));
+			this.изменитьСтрокуToolStripMenuItem.Name = "изменитьСтрокуToolStripMenuItem";
+			this.изменитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.изменитьСтрокуToolStripMenuItem.Text = "Изменить строку.";
+			// 
+			// удалитьСтрокуToolStripMenuItem
+			// 
+			this.удалитьСтрокуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалитьСтрокуToolStripMenuItem.Image")));
+			this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
+			this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку.";
+			// 
 			// FormClientDocOrder
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,9 +642,14 @@ namespace Rapid
 			this.groupBox1.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
+			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem удалитьСтрокуToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem изменитьСтрокуToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem новаяСтрокаToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.DataGridTextBoxColumn dataGridTextBoxColumn7;
 		private System.Windows.Forms.DataGridTextBoxColumn dataGridTextBoxColumn6;
 		private System.Windows.Forms.DataGridTextBoxColumn dataGridTextBoxColumn5;

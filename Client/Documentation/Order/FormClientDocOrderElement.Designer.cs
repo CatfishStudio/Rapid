@@ -314,6 +314,7 @@ namespace Rapid
 			this.button14.TabIndex = 28;
 			this.button14.Text = "Отмена.";
 			this.button14.UseVisualStyleBackColor = true;
+			this.button14.Click += new System.EventHandler(this.Button14Click);
 			// 
 			// FormClientDocOrderElement
 			// 
@@ -349,6 +350,8 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientDocOrderElement";
 			this.Text = "Строка табличной части.";
+			this.Load += new System.EventHandler(this.FormClientDocOrderElementLoad);
+			this.Closed += new System.EventHandler(this.FormClientDocOrderElementClosed);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
