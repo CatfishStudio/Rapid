@@ -148,6 +148,7 @@ namespace Rapid
 			this.button4.TabIndex = 9;
 			this.button4.Text = "...";
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// label3
 			// 
@@ -167,6 +168,9 @@ namespace Rapid
 			this.textBox3.TabIndex = 12;
 			this.textBox3.Text = "0.00";
 			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox3.TextChanged += new System.EventHandler(this.TextBox3TextChanged);
+			this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox3KeyDown);
+			this.textBox3.LostFocus += new System.EventHandler(this.TextBox3LostFocus);
 			// 
 			// button5
 			// 
@@ -187,6 +191,7 @@ namespace Rapid
 			this.button6.TabIndex = 13;
 			this.button6.Text = "...";
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// label4
 			// 

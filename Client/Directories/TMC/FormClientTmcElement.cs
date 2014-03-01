@@ -146,23 +146,33 @@ namespace Rapid
 		}
 		/*----------------------------------------------------------------*/
 		
-		
-		/* Коррекция дробных чисел */
+		/* Цена покупки --------------------------------------------------*/
+		/* При потере фокуса */
 		void TextBox4TextLostFocus(object sender, EventArgs e)
 		{
 			String Money = textBox4.Text;
 			textBox4.Clear();
 			textBox4.Text = ClassConversion.StringToMoney(Money);
+			if(textBox4.Text == "" || ClassConversion.checkString(textBox4.Text) == false) textBox4.Text = "0.00";
 		}
 		
-		/* Коррекция дробных чисел */
-		void TextBox5TextLostFocus(object sender, EventArgs e)
+		/* При вводе значения */
+		void TextBox4TextChanged(object sender, EventArgs e)
 		{
-			String Money = textBox5.Text;
-			textBox5.Clear();
-			textBox5.Text = ClassConversion.StringToMoney(Money);
+			if(textBox4.Text == "" || ClassConversion.checkString(textBox4.Text) == false) textBox4.Text = "0.00";
 		}
 		
+		/* При нажатии на Интер*/
+		void TextBox4KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
+				String Value = textBox4.Text;
+				textBox4.Clear();
+				textBox4.Text = ClassConversion.StringToMoney(Value);
+				if(textBox4.Text == "" || ClassConversion.checkString(textBox4.Text) == false) textBox4.Text = "0.00";
+			}
+		}
+				
 		/* Калькулятор */
 		void Button5Click(object sender, EventArgs e)
 		{
@@ -170,6 +180,34 @@ namespace Rapid
 			Calc.TextBoxReturnValue = this.textBox4;
 			Calc.MdiParent = ClassForms.Rapid_Client;
 			Calc.Show();
+		}
+		/*----------------------------------------------------------------*/
+		
+		/* Цена покупки --------------------------------------------------*/
+		/* При потере фокуса */
+		void TextBox5TextLostFocus(object sender, EventArgs e)
+		{
+			String Money = textBox5.Text;
+			textBox5.Clear();
+			textBox5.Text = ClassConversion.StringToMoney(Money);
+			if(textBox5.Text == "" || ClassConversion.checkString(textBox5.Text) == false) textBox5.Text = "0.00";
+		}
+		
+		/* При вводе значения */
+		void TextBox5TextChanged(object sender, EventArgs e)
+		{
+			if(textBox5.Text == "" || ClassConversion.checkString(textBox5.Text) == false) textBox5.Text = "0.00";
+		}
+		
+		/* При нажатии на Интер*/
+		void TextBox5KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
+				String Value = textBox5.Text;
+				textBox5.Clear();
+				textBox5.Text = ClassConversion.StringToMoney(Value);
+				if(textBox5.Text == "" || ClassConversion.checkString(textBox5.Text) == false) textBox5.Text = "0.00";
+			}
 		}
 		
 		/* Калькулятор */
@@ -180,6 +218,7 @@ namespace Rapid
 			Calc.MdiParent = ClassForms.Rapid_Client;
 			Calc.Show();
 		}
+		/*----------------------------------------------------------------*/
 		
 		void Button8Click(object sender, EventArgs e)
 		{
@@ -190,6 +229,7 @@ namespace Rapid
 		{
 			textBox5.Text = "0.00";				
 		}
+		/*----------------------------------------------------------------*/
 		
 		/* Обращение к справочнику "Склад" */
 		void SelectStore() // выбрать склад
@@ -237,5 +277,6 @@ namespace Rapid
 		{
 			SelectUnits();
 		}
+		
 	}
 }

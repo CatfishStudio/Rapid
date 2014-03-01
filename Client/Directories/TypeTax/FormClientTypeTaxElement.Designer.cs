@@ -131,7 +131,9 @@ namespace Rapid
 			this.textBox2.TabIndex = 1;
 			this.textBox2.Text = "0.00";
 			this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
 			this.textBox2.LostFocus += new System.EventHandler(this.TextBox2TextLostFocus);
+			this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox2KeyDown);
 			// 
 			// label2
 			// 

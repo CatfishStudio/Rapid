@@ -172,7 +172,9 @@ namespace Rapid
 			this.textBox4.TabIndex = 9;
 			this.textBox4.Text = "0.00";
 			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
 			this.textBox4.LostFocus += new System.EventHandler(this.TextBox4TextLostFocus);
+			this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox4KeyDown);
 			// 
 			// label5
 			// 

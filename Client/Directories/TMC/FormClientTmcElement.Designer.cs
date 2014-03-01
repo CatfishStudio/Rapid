@@ -225,7 +225,9 @@ namespace Rapid
 			this.textBox5.TabIndex = 7;
 			this.textBox5.Text = "0.00";
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			this.textBox5.LostFocus += new System.EventHandler(this.TextBox5TextLostFocus);
+			this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox5KeyDown);
 			// 
 			// textBox4
 			// 
@@ -237,6 +239,8 @@ namespace Rapid
 			this.textBox4.TabIndex = 6;
 			this.textBox4.Text = "0.00";
 			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
+			this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox4KeyDown);
 			this.textBox4.LostFocus += new System.EventHandler(this.TextBox4TextLostFocus);
 			// 
 			// textBox3

@@ -21,6 +21,24 @@ namespace Rapid
 			// ...
 		}*/
 		
+		/* Проверка числа на отсутствие запрешенных символов*/
+		public static bool checkString(String Str)
+		{
+			bool point = false;
+			for(int i = 0; i < Str.Length; i++)
+			{
+				if(Str[i].ToString() != "," && Str[i].ToString() != "." && Str[i].ToString() != "1" && Str[i].ToString() != "2" && Str[i].ToString() != "3" && Str[i].ToString() != "4" && Str[i].ToString() != "5" && Str[i].ToString() != "6" && Str[i].ToString() != "7" && Str[i].ToString() != "8" && Str[i].ToString() != "9" && Str[i].ToString() != "0"){
+					return false; // число седержит запрещенные символы.
+				}
+				if(Str[i].ToString() == "," || Str[i].ToString() == "."){
+					if(point)return false; // число седержит больше одного разделительного знака
+					else point = true;
+				}
+				
+			}
+			return true; // проверка прошла успешно.
+		}
+		
 		/* Перевод строки в денежное выражение */
 		public static String StringToMoney(String Str)
 		{

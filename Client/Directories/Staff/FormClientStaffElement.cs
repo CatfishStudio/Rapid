@@ -143,13 +143,32 @@ namespace Rapid
 			SaveData(); // созранение данных			
 		}
 		/*----------------------------------------------------------------*/
-				
-		/* Коррекция дробных чисел */
+		
+		/* Зарплата ------------------------------------------------------*/		
+		/* При потере фокуса */
 		void TextBox4TextLostFocus(object sender, EventArgs e)
 		{
 			String Money = textBox4.Text;
 			textBox4.Clear();
 			textBox4.Text = ClassConversion.StringToMoney(Money);
+			if(textBox4.Text == "" || ClassConversion.checkString(textBox4.Text) == false) textBox4.Text = "0.00";
+		}
+		
+		/* При вводе значения */
+		void TextBox4TextChanged(object sender, EventArgs e)
+		{
+			if(textBox4.Text == "" || ClassConversion.checkString(textBox4.Text) == false) textBox4.Text = "0.00";
+		}
+		
+		/* При нажатии на Интер*/
+		void TextBox4KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
+				String Value = textBox4.Text;
+				textBox4.Clear();
+				textBox4.Text = ClassConversion.StringToMoney(Value);
+				if(textBox4.Text == "" || ClassConversion.checkString(textBox4.Text) == false) textBox4.Text = "0.00";
+			}
 		}
 				
 		/* Калькулятор */
@@ -166,6 +185,7 @@ namespace Rapid
 		{
 			textBox4.Text = "0.00";			
 		}
+		/*----------------------------------------------------------------*/
 		
 		/* Флаг даты увольнения */
 		void CheckBox1CheckedChanged(object sender, EventArgs e)
@@ -174,5 +194,9 @@ namespace Rapid
 				dateTimePicker2.Enabled = true;
 			else dateTimePicker2.Enabled = false;
 		}
+		
+		
+		
+		
 	}
 }

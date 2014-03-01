@@ -116,6 +116,7 @@ namespace Rapid
 		}
 		/*----------------------------------------------------------------*/
 		
+		/* Ставка --------------------------------------------------------*/
 		/* Калькулятор */
 		void Button3Click(object sender, EventArgs e)
 		{
@@ -131,14 +132,32 @@ namespace Rapid
 			textBox2.Text = "0.00";
 		}
 		
-		/* Коррекция дробных чисел */
+		/* При потере фокуса */
 		void TextBox2TextLostFocus(object sender, EventArgs e)
 		{
 			String Money = textBox2.Text;
 			textBox2.Clear();
 			textBox2.Text = ClassConversion.StringToMoney(Money);
+			if(textBox2.Text == "" || ClassConversion.checkString(textBox2.Text) == false) textBox2.Text = "0.00";
 		}
 		
+		/* При вводе значения */
+		void TextBox2TextChanged(object sender, EventArgs e)
+		{
+			if(textBox2.Text == "" || ClassConversion.checkString(textBox2.Text) == false) textBox2.Text = "0.00";
+		}		
+		
+		/* При нажатии на Интер*/
+		void TextBox2KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
+				String Value = textBox2.Text;
+				textBox2.Clear();
+				textBox2.Text = ClassConversion.StringToMoney(Value);
+				if(textBox2.Text == "" || ClassConversion.checkString(textBox2.Text) == false) textBox2.Text = "0.00";
+			}
+		}
+		/*----------------------------------------------------------------*/
 		
 	}
 }

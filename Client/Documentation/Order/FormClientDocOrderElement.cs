@@ -10,6 +10,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Rapid.Service;
 
 namespace Rapid
 {
@@ -104,6 +105,61 @@ namespace Rapid
 		void TextBox1TextChanged(object sender, EventArgs e)
 		{
 			if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
+		}
+		/*----------------------------------------------------------------*/
+		
+		/* Единицы измерения ---------------------------------------------*/
+		void SelectUnits() // выбрать фирму.
+		{
+			ClassForms.Rapid_ClientUnits = new FormClientUnits();
+			ClassForms.Rapid_ClientUnits.ShowMenuReturnValue();
+			ClassForms.Rapid_ClientUnits.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientUnits.TextBoxReturnValue = textBox2;
+			ClassForms.Rapid_ClientUnits.Show();
+		}
+				
+		void Button4Click(object sender, EventArgs e)
+		{
+			SelectUnits();
+		}
+		/*----------------------------------------------------------------*/
+		
+		/* Количество ----------------------------------------------------*/
+		void Button6Click(object sender, EventArgs e)
+		{
+			FormServiceCalculator Calc = new FormServiceCalculator(true);
+			Calc.TextBoxReturnValue = this.textBox3;
+			Calc.MdiParent = ClassForms.Rapid_Client;
+			Calc.Show();			
+		}
+		
+		/* При потере фокуса */
+		void TextBox3LostFocus(object sender, EventArgs e)
+		{
+			String Value = textBox3.Text;
+			textBox3.Clear();
+			textBox3.Text = ClassConversion.StringToMoney(Value);
+			if(textBox3.Text != "" && ClassConversion.checkString(textBox3.Text))Calculation();
+			else textBox3.Text = "1.00";
+		}
+		
+		/* При нажатии на Интер*/
+		void TextBox3KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
+				String Value = textBox3.Text;
+				textBox3.Clear();
+				textBox3.Text = ClassConversion.StringToMoney(Value);
+				if(textBox3.Text != "" && ClassConversion.checkString(textBox3.Text))Calculation();
+				else textBox3.Text = "1.00";
+			}
+		}
+		
+		/* При вводе значения */
+		void TextBox3TextChanged(object sender, EventArgs e)
+		{
+			if(textBox3.Text != "" && ClassConversion.checkString(textBox3.Text))Calculation();
+			else textBox3.Text = "1.00";
 		}
 		/*----------------------------------------------------------------*/
 	}
