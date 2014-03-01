@@ -111,6 +111,7 @@ namespace Rapid
 			this.button2.TabIndex = 6;
 			this.button2.Text = "Х";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// label2
 			// 
@@ -211,6 +212,7 @@ namespace Rapid
 			this.button7.TabIndex = 18;
 			this.button7.Text = "Х";
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// button8
 			// 
@@ -233,10 +235,14 @@ namespace Rapid
 			this.textBox4.TabIndex = 16;
 			this.textBox4.Text = "0.00";
 			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
+			this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox4KeyDown);
+			this.textBox4.LostFocus += new System.EventHandler(this.TextBox4LostFocus);
 			// 
 			// button9
 			// 
 			this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button9.Enabled = false;
 			this.button9.Location = new System.Drawing.Point(356, 104);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(25, 23);
@@ -253,6 +259,7 @@ namespace Rapid
 			this.button10.TabIndex = 21;
 			this.button10.Text = "...";
 			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Click += new System.EventHandler(this.Button10Click);
 			// 
 			// textBox5
 			// 
@@ -263,6 +270,7 @@ namespace Rapid
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(215, 20);
 			this.textBox5.TabIndex = 20;
+			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
 			// label5
 			// 
@@ -270,7 +278,7 @@ namespace Rapid
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(100, 23);
 			this.label5.TabIndex = 19;
-			this.label5.Text = "Ставка НДС в %";
+			this.label5.Text = "Вид НДС:";
 			// 
 			// button11
 			// 
@@ -281,6 +289,7 @@ namespace Rapid
 			this.button11.TabIndex = 26;
 			this.button11.Text = "Х";
 			this.button11.UseVisualStyleBackColor = true;
+			this.button11.Click += new System.EventHandler(this.Button11Click);
 			// 
 			// button12
 			// 
@@ -291,6 +300,7 @@ namespace Rapid
 			this.button12.TabIndex = 25;
 			this.button12.Text = "...";
 			this.button12.UseVisualStyleBackColor = true;
+			this.button12.Click += new System.EventHandler(this.Button12Click);
 			// 
 			// textBox6
 			// 
@@ -302,6 +312,9 @@ namespace Rapid
 			this.textBox6.TabIndex = 24;
 			this.textBox6.Text = "0.00";
 			this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox6.TextChanged += new System.EventHandler(this.TextBox6TextChanged);
+			this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox6KeyDown);
+			this.textBox6.LostFocus += new System.EventHandler(this.TextBox6LostFocus);
 			// 
 			// label6
 			// 
@@ -341,6 +354,7 @@ namespace Rapid
 			this.button15.TabIndex = 32;
 			this.button15.Text = "Х";
 			this.button15.UseVisualStyleBackColor = true;
+			this.button15.Click += new System.EventHandler(this.Button15Click);
 			// 
 			// button16
 			// 
@@ -351,6 +365,7 @@ namespace Rapid
 			this.button16.TabIndex = 31;
 			this.button16.Text = "...";
 			this.button16.UseVisualStyleBackColor = true;
+			this.button16.Click += new System.EventHandler(this.Button16Click);
 			// 
 			// textBox7
 			// 
@@ -362,6 +377,9 @@ namespace Rapid
 			this.textBox7.TabIndex = 30;
 			this.textBox7.Text = "0.00";
 			this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox7.TextChanged += new System.EventHandler(this.TextBox7TextChanged);
+			this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox7KeyDown);
+			this.textBox7.LostFocus += new System.EventHandler(this.TextBox7LostFocus);
 			// 
 			// label7
 			// 
@@ -380,6 +398,7 @@ namespace Rapid
 			this.button17.TabIndex = 36;
 			this.button17.Text = "Х";
 			this.button17.UseVisualStyleBackColor = true;
+			this.button17.Click += new System.EventHandler(this.Button17Click);
 			// 
 			// button18
 			// 
@@ -390,6 +409,7 @@ namespace Rapid
 			this.button18.TabIndex = 35;
 			this.button18.Text = "...";
 			this.button18.UseVisualStyleBackColor = true;
+			this.button18.Click += new System.EventHandler(this.Button18Click);
 			// 
 			// textBox8
 			// 
@@ -401,6 +421,9 @@ namespace Rapid
 			this.textBox8.TabIndex = 34;
 			this.textBox8.Text = "0.00";
 			this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox8.TextChanged += new System.EventHandler(this.TextBox8TextChanged);
+			this.textBox8.LostFocus += new System.EventHandler(this.TextBox8LostFocus);
+			this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox8KeyDown);
 			// 
 			// label8
 			// 
@@ -410,7 +433,7 @@ namespace Rapid
 			this.label8.TabIndex = 33;
 			this.label8.Text = "Всего с НДС:";
 			// 
-			// FormClientDocOrderElement
+			// FormClientDocTableElement
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -450,7 +473,7 @@ namespace Rapid
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "FormClientDocOrderElement";
+			this.Name = "FormClientDocTableElement";
 			this.Text = "Строка табличной части.";
 			this.Closed += new System.EventHandler(this.FormClientDocOrderElementClosed);
 			this.Load += new System.EventHandler(this.FormClientDocOrderElementLoad);
