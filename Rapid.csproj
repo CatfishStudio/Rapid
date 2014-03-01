@@ -72,6 +72,7 @@
     <Compile Include="Administrator\FormAdminUsers.Designer.cs">
       <DependentUpon>FormAdminUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ClassCalculation.cs" />
     <Compile Include="Classes\ClassConfig.cs" />
     <Compile Include="Classes\ClassConversion.cs" />
     <Compile Include="Classes\ClassForms.cs" />

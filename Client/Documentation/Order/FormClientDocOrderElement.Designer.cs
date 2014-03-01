@@ -63,6 +63,14 @@ namespace Rapid
 			this.label6 = new System.Windows.Forms.Label();
 			this.button13 = new System.Windows.Forms.Button();
 			this.button14 = new System.Windows.Forms.Button();
+			this.button15 = new System.Windows.Forms.Button();
+			this.button16 = new System.Windows.Forms.Button();
+			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.button17 = new System.Windows.Forms.Button();
+			this.button18 = new System.Windows.Forms.Button();
+			this.textBox8 = new System.Windows.Forms.TextBox();
+			this.label8 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -77,10 +85,11 @@ namespace Rapid
 			// 
 			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(99, 6);
+			this.textBox1.Location = new System.Drawing.Point(110, 6);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(226, 20);
+			this.textBox1.Size = new System.Drawing.Size(215, 20);
 			this.textBox1.TabIndex = 1;
+			this.textBox1.TextChanged += new System.EventHandler(this.TextBox1TextChanged);
 			// 
 			// button1
 			// 
@@ -91,6 +100,7 @@ namespace Rapid
 			this.button1.TabIndex = 5;
 			this.button1.Text = "...";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// button2
 			// 
@@ -114,9 +124,9 @@ namespace Rapid
 			// 
 			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.Location = new System.Drawing.Point(64, 31);
+			this.textBox2.Location = new System.Drawing.Point(110, 31);
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(261, 20);
+			this.textBox2.Size = new System.Drawing.Size(215, 20);
 			this.textBox2.TabIndex = 8;
 			// 
 			// button3
@@ -151,9 +161,9 @@ namespace Rapid
 			// 
 			this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox3.Location = new System.Drawing.Point(81, 56);
+			this.textBox3.Location = new System.Drawing.Point(110, 56);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(244, 20);
+			this.textBox3.Size = new System.Drawing.Size(215, 20);
 			this.textBox3.TabIndex = 12;
 			this.textBox3.Text = "0.00";
 			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -241,12 +251,11 @@ namespace Rapid
 			// 
 			this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox5.Location = new System.Drawing.Point(45, 106);
+			this.textBox5.Enabled = false;
+			this.textBox5.Location = new System.Drawing.Point(110, 106);
 			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(280, 20);
+			this.textBox5.Size = new System.Drawing.Size(215, 20);
 			this.textBox5.TabIndex = 20;
-			this.textBox5.Text = "0.00";
-			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label5
 			// 
@@ -254,7 +263,7 @@ namespace Rapid
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(100, 23);
 			this.label5.TabIndex = 19;
-			this.label5.Text = "НДС:";
+			this.label5.Text = "Ставка НДС в %";
 			// 
 			// button11
 			// 
@@ -280,9 +289,9 @@ namespace Rapid
 			// 
 			this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox6.Location = new System.Drawing.Point(64, 131);
+			this.textBox6.Location = new System.Drawing.Point(110, 131);
 			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(261, 20);
+			this.textBox6.Size = new System.Drawing.Size(215, 20);
 			this.textBox6.TabIndex = 24;
 			this.textBox6.Text = "0.00";
 			this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -293,12 +302,12 @@ namespace Rapid
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(100, 23);
 			this.label6.TabIndex = 23;
-			this.label6.Text = "Сумма:";
+			this.label6.Text = "НДС:";
 			// 
 			// button13
 			// 
 			this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button13.Location = new System.Drawing.Point(220, 158);
+			this.button13.Location = new System.Drawing.Point(216, 223);
 			this.button13.Name = "button13";
 			this.button13.Size = new System.Drawing.Size(75, 23);
 			this.button13.TabIndex = 27;
@@ -308,7 +317,7 @@ namespace Rapid
 			// button14
 			// 
 			this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button14.Location = new System.Drawing.Point(301, 158);
+			this.button14.Location = new System.Drawing.Point(297, 223);
 			this.button14.Name = "button14";
 			this.button14.Size = new System.Drawing.Size(75, 23);
 			this.button14.TabIndex = 28;
@@ -316,11 +325,97 @@ namespace Rapid
 			this.button14.UseVisualStyleBackColor = true;
 			this.button14.Click += new System.EventHandler(this.Button14Click);
 			// 
+			// button15
+			// 
+			this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button15.Location = new System.Drawing.Point(356, 155);
+			this.button15.Name = "button15";
+			this.button15.Size = new System.Drawing.Size(25, 23);
+			this.button15.TabIndex = 32;
+			this.button15.Text = "Х";
+			this.button15.UseVisualStyleBackColor = true;
+			// 
+			// button16
+			// 
+			this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button16.Location = new System.Drawing.Point(329, 155);
+			this.button16.Name = "button16";
+			this.button16.Size = new System.Drawing.Size(25, 23);
+			this.button16.TabIndex = 31;
+			this.button16.Text = "...";
+			this.button16.UseVisualStyleBackColor = true;
+			// 
+			// textBox7
+			// 
+			this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox7.Location = new System.Drawing.Point(110, 156);
+			this.textBox7.Name = "textBox7";
+			this.textBox7.Size = new System.Drawing.Size(215, 20);
+			this.textBox7.TabIndex = 30;
+			this.textBox7.Text = "0.00";
+			this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// label7
+			// 
+			this.label7.Location = new System.Drawing.Point(12, 160);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(100, 23);
+			this.label7.TabIndex = 29;
+			this.label7.Text = "Сумма без НДС:";
+			// 
+			// button17
+			// 
+			this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button17.Location = new System.Drawing.Point(356, 180);
+			this.button17.Name = "button17";
+			this.button17.Size = new System.Drawing.Size(25, 23);
+			this.button17.TabIndex = 36;
+			this.button17.Text = "Х";
+			this.button17.UseVisualStyleBackColor = true;
+			// 
+			// button18
+			// 
+			this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button18.Location = new System.Drawing.Point(329, 180);
+			this.button18.Name = "button18";
+			this.button18.Size = new System.Drawing.Size(25, 23);
+			this.button18.TabIndex = 35;
+			this.button18.Text = "...";
+			this.button18.UseVisualStyleBackColor = true;
+			// 
+			// textBox8
+			// 
+			this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox8.Location = new System.Drawing.Point(110, 181);
+			this.textBox8.Name = "textBox8";
+			this.textBox8.Size = new System.Drawing.Size(215, 20);
+			this.textBox8.TabIndex = 34;
+			this.textBox8.Text = "0.00";
+			this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// label8
+			// 
+			this.label8.Location = new System.Drawing.Point(12, 185);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(100, 23);
+			this.label8.TabIndex = 33;
+			this.label8.Text = "Всего с НДС:";
+			// 
 			// FormClientDocOrderElement
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(384, 191);
+			this.ClientSize = new System.Drawing.Size(384, 258);
+			this.Controls.Add(this.button17);
+			this.Controls.Add(this.button18);
+			this.Controls.Add(this.textBox8);
+			this.Controls.Add(this.label8);
+			this.Controls.Add(this.button15);
+			this.Controls.Add(this.button16);
+			this.Controls.Add(this.textBox7);
+			this.Controls.Add(this.label7);
 			this.Controls.Add(this.button14);
 			this.Controls.Add(this.button13);
 			this.Controls.Add(this.button11);
@@ -350,11 +445,19 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientDocOrderElement";
 			this.Text = "Строка табличной части.";
-			this.Load += new System.EventHandler(this.FormClientDocOrderElementLoad);
 			this.Closed += new System.EventHandler(this.FormClientDocOrderElementClosed);
+			this.Load += new System.EventHandler(this.FormClientDocOrderElementLoad);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.Button button18;
+		private System.Windows.Forms.Button button17;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.Button button16;
+		private System.Windows.Forms.Button button15;
 		private System.Windows.Forms.Button button14;
 		private System.Windows.Forms.Button button13;
 		private System.Windows.Forms.Label label6;

@@ -62,17 +62,17 @@ namespace Rapid
 		}
 		
 		/* Перевод строки в дробное число */
-		/*public static Double StringToDouble(String Str){
-			String StrResult;
-			Double DResult;
+		public static double StringToDouble(String Str){
+			String StrResult = "";
+			double DResult;
 			for(int i = 0; i < Str.Length; i++){
-				if(Str[i] == ".")
+				if(Str[i].ToString() == ".")
 					StrResult = StrResult + ",";
-				else StrResult = StrResult + Str[i];
+				else StrResult = StrResult + Str[i].ToString();
 			}
-			DResult = (Double)StrResult;
+			DResult = Convert.ToDouble(StrResult);
 			return DResult;
-		}*/
+		}
 		
 		/* Перевод дробного числа в строку */
 		/*public static String DoubleToString(Double Dbl){
