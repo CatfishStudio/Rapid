@@ -32,11 +32,12 @@ namespace Rapid
 			typetaxMySQL.SelectSqlCommand = "SELECT * FROM typetax WHERE (typeTax_name = '" + _ndsName + "')";
 			if(typetaxMySQL.ExecuteFill(typetaxDataSet, "typetax")){
 				DataTable table = typetaxDataSet.Tables["typetax"];
-				// НДС (в %) = Сумма без НДС * Ставка НДС / 100
-				_nds = ClassConversion.StringToDouble(_sum) * ClassConversion.StringToDouble(table.Rows[0]["typeTax_rating"].ToString()) / 100.00;
-				_nds = Math.Round(_nds, 2);
-				return ClassConversion.StringToMoney(_nds.ToString());
-				
+				if(table.Rows.Count > 0){
+					// НДС (в %) = Сумма без НДС * Ставка НДС / 100
+					_nds = ClassConversion.StringToDouble(_sum) * ClassConversion.StringToDouble(table.Rows[0]["typeTax_rating"].ToString()) / 100.00;
+					_nds = Math.Round(_nds, 2);
+					return ClassConversion.StringToMoney(_nds.ToString());
+				} else return "0.00";
 			}else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка получения ставки НДС при вычислении.", true);
 			return "0.00";
 		}
@@ -96,13 +97,15 @@ namespace Rapid
 			typetaxMySQL.SelectSqlCommand = "SELECT * FROM typetax WHERE (typeTax_name = '" + _ndsName + "')";
 			if(typetaxMySQL.ExecuteFill(typetaxDataSet, "typetax")){
 				DataTable table = typetaxDataSet.Tables["typetax"];
-				if(ClassConversion.StringToDouble(table.Rows[0]["typeTax_rating"].ToString()) > 0)
-				{
-					double _nds;
-					// НДС = Всего с НДС / 6
-					_nds = ClassConversion.StringToDouble(_total) / 6;
-					_nds = Math.Round(_nds, 2);
-					return ClassConversion.StringToMoney(_nds.ToString());
+				if(table.Rows.Count > 0){
+					if(ClassConversion.StringToDouble(table.Rows[0]["typeTax_rating"].ToString()) > 0)
+					{
+						double _nds;
+						// НДС = Всего с НДС / 6
+						_nds = ClassConversion.StringToDouble(_total) / 6;
+						_nds = Math.Round(_nds, 2);
+						return ClassConversion.StringToMoney(_nds.ToString());
+					} else return "0.00";
 				} else return "0.00";
 				
 			}else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка получения ставки НДС при вычислении.", true);

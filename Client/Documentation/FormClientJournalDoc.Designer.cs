@@ -51,7 +51,23 @@ namespace Rapid
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
 			this.выбратьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
+			this.button7 = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.label1 = new System.Windows.Forms.Label();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.panel2 = new System.Windows.Forms.Panel();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -60,22 +76,6 @@ namespace Rapid
 			this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.button4 = new System.Windows.Forms.Button();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.button5 = new System.Windows.Forms.Button();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.button6 = new System.Windows.Forms.Button();
-			this.panel5 = new System.Windows.Forms.Panel();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.button7 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.contextMenuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -174,6 +174,84 @@ namespace Rapid
 			this.выбратьЗаписьToolStripMenuItem.Text = "Выбрать запись.";
 			this.выбратьЗаписьToolStripMenuItem.Visible = false;
 			// 
+			// button1
+			// 
+			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+			this.button1.Location = new System.Drawing.Point(10, 10);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(25, 23);
+			this.button1.TabIndex = 1;
+			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button1, "Создать папку.");
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+			this.button2.Location = new System.Drawing.Point(41, 10);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(25, 23);
+			this.button2.TabIndex = 2;
+			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button2, "Создать папку.");
+			this.button2.UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+			this.button3.Location = new System.Drawing.Point(72, 10);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(25, 23);
+			this.button3.TabIndex = 3;
+			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button3, "Создать папку.");
+			this.button3.UseVisualStyleBackColor = true;
+			// 
+			// button4
+			// 
+			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+			this.button4.Location = new System.Drawing.Point(113, 10);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(25, 23);
+			this.button4.TabIndex = 10;
+			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button4, "Создать папку.");
+			this.button4.UseVisualStyleBackColor = true;
+			// 
+			// button5
+			// 
+			this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+			this.button5.Location = new System.Drawing.Point(388, 10);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(25, 23);
+			this.button5.TabIndex = 15;
+			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button5, "Создать папку.");
+			this.button5.UseVisualStyleBackColor = true;
+			// 
+			// button6
+			// 
+			this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+			this.button6.Location = new System.Drawing.Point(540, 10);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(25, 23);
+			this.button6.TabIndex = 18;
+			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button6, "Создать папку.");
+			this.button6.UseVisualStyleBackColor = true;
+			// 
+			// button7
+			// 
+			this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+			this.button7.Location = new System.Drawing.Point(699, 10);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(25, 23);
+			this.button7.TabIndex = 21;
+			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.toolTip1.SetToolTip(this.button7, "Поиск.");
+			this.button7.UseVisualStyleBackColor = true;
+			// 
 			// panel1
 			// 
 			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -198,6 +276,87 @@ namespace Rapid
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(745, 41);
 			this.panel1.TabIndex = 1;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox1.Location = new System.Drawing.Point(581, 12);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(112, 20);
+			this.textBox1.TabIndex = 20;
+			// 
+			// panel5
+			// 
+			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel5.Location = new System.Drawing.Point(571, 13);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(4, 20);
+			this.panel5.TabIndex = 19;
+			// 
+			// comboBox1
+			// 
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Items.AddRange(new object[] {
+									"Все",
+									"Заказ",
+									"Приходная накладная",
+									"Расходная накладная"});
+			this.comboBox1.Location = new System.Drawing.Point(429, 12);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(105, 21);
+			this.comboBox1.TabIndex = 17;
+			this.comboBox1.Text = "Все";
+			// 
+			// panel4
+			// 
+			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel4.Location = new System.Drawing.Point(419, 13);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(4, 20);
+			this.panel4.TabIndex = 16;
+			// 
+			// dateTimePicker2
+			// 
+			this.dateTimePicker2.CustomFormat = "yyyy-MM-dd";
+			this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePicker2.Location = new System.Drawing.Point(286, 12);
+			this.dateTimePicker2.Name = "dateTimePicker2";
+			this.dateTimePicker2.Size = new System.Drawing.Size(96, 20);
+			this.dateTimePicker2.TabIndex = 14;
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePicker1.Location = new System.Drawing.Point(168, 12);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
+			this.dateTimePicker1.TabIndex = 11;
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(154, 18);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(138, 15);
+			this.label1.TabIndex = 13;
+			this.label1.Text = "с                                    по";
+			// 
+			// panel3
+			// 
+			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel3.Location = new System.Drawing.Point(144, 13);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(4, 20);
+			this.panel3.TabIndex = 12;
+			// 
+			// panel2
+			// 
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel2.Location = new System.Drawing.Point(103, 13);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(4, 20);
+			this.panel2.TabIndex = 9;
 			// 
 			// listView1
 			// 
@@ -260,165 +419,6 @@ namespace Rapid
 			// columnHeader7
 			// 
 			this.columnHeader7.Text = "№";
-			// 
-			// button1
-			// 
-			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-			this.button1.Location = new System.Drawing.Point(10, 10);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(25, 23);
-			this.button1.TabIndex = 1;
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button1, "Создать папку.");
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-			this.button2.Location = new System.Drawing.Point(41, 10);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(25, 23);
-			this.button2.TabIndex = 2;
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button2, "Создать папку.");
-			this.button2.UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-			this.button3.Location = new System.Drawing.Point(72, 10);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(25, 23);
-			this.button3.TabIndex = 3;
-			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button3, "Создать папку.");
-			this.button3.UseVisualStyleBackColor = true;
-			// 
-			// panel2
-			// 
-			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel2.Location = new System.Drawing.Point(103, 13);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(4, 20);
-			this.panel2.TabIndex = 9;
-			// 
-			// button4
-			// 
-			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-			this.button4.Location = new System.Drawing.Point(113, 10);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(25, 23);
-			this.button4.TabIndex = 10;
-			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button4, "Создать папку.");
-			this.button4.UseVisualStyleBackColor = true;
-			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.CustomFormat = "yyyy-MM-d";
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker1.Location = new System.Drawing.Point(168, 12);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
-			this.dateTimePicker1.TabIndex = 11;
-			// 
-			// panel3
-			// 
-			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel3.Location = new System.Drawing.Point(144, 13);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(4, 20);
-			this.panel3.TabIndex = 12;
-			// 
-			// label1
-			// 
-			this.label1.Location = new System.Drawing.Point(154, 18);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(138, 15);
-			this.label1.TabIndex = 13;
-			this.label1.Text = "с                                    по";
-			// 
-			// dateTimePicker2
-			// 
-			this.dateTimePicker2.CustomFormat = "yyyy-MM-d";
-			this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker2.Location = new System.Drawing.Point(286, 12);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(96, 20);
-			this.dateTimePicker2.TabIndex = 14;
-			// 
-			// button5
-			// 
-			this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-			this.button5.Location = new System.Drawing.Point(388, 10);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(25, 23);
-			this.button5.TabIndex = 15;
-			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button5, "Создать папку.");
-			this.button5.UseVisualStyleBackColor = true;
-			// 
-			// panel4
-			// 
-			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel4.Location = new System.Drawing.Point(419, 13);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(4, 20);
-			this.panel4.TabIndex = 16;
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
-									"Все",
-									"Заказ",
-									"Приходная накладная",
-									"Расходная накладная"});
-			this.comboBox1.Location = new System.Drawing.Point(429, 12);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(105, 21);
-			this.comboBox1.TabIndex = 17;
-			this.comboBox1.Text = "Все";
-			// 
-			// button6
-			// 
-			this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-			this.button6.Location = new System.Drawing.Point(540, 10);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(25, 23);
-			this.button6.TabIndex = 18;
-			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button6, "Создать папку.");
-			this.button6.UseVisualStyleBackColor = true;
-			// 
-			// panel5
-			// 
-			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel5.Location = new System.Drawing.Point(571, 13);
-			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(4, 20);
-			this.panel5.TabIndex = 19;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(581, 12);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(112, 20);
-			this.textBox1.TabIndex = 20;
-			// 
-			// button7
-			// 
-			this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-			this.button7.Location = new System.Drawing.Point(699, 10);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(25, 23);
-			this.button7.TabIndex = 21;
-			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button7, "Поиск.");
-			this.button7.UseVisualStyleBackColor = true;
 			// 
 			// button8
 			// 

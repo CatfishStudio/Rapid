@@ -65,6 +65,9 @@ namespace Rapid
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.labelTotal = new System.Windows.Forms.Label();
+			this.labelNDS = new System.Windows.Forms.Label();
+			this.labelSum = new System.Windows.Forms.Label();
 			this.button8 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
@@ -72,6 +75,10 @@ namespace Rapid
 			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.dataGrid1 = new System.Windows.Forms.DataGrid();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.новаяСтрокаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.изменитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dataGridTableStyle1 = new System.Windows.Forms.DataGridTableStyle();
 			this.dataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.dataGridTextBoxColumn2 = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -84,10 +91,6 @@ namespace Rapid
 			this.button11 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.label12 = new System.Windows.Forms.Label();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.новаяСтрокаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.изменитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -125,7 +128,7 @@ namespace Rapid
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.CustomFormat = "yyyy-MM-d";
+			this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
 			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dateTimePicker1.Location = new System.Drawing.Point(229, 12);
 			this.dateTimePicker1.Name = "dateTimePicker1";
@@ -375,6 +378,9 @@ namespace Rapid
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.labelTotal);
+			this.tabPage2.Controls.Add(this.labelNDS);
+			this.tabPage2.Controls.Add(this.labelSum);
 			this.tabPage2.Controls.Add(this.button8);
 			this.tabPage2.Controls.Add(this.button7);
 			this.tabPage2.Controls.Add(this.button6);
@@ -390,6 +396,36 @@ namespace Rapid
 			this.tabPage2.Text = "Табличная часть.";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
+			// labelTotal
+			// 
+			this.labelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.labelTotal.Location = new System.Drawing.Point(57, 231);
+			this.labelTotal.Name = "labelTotal";
+			this.labelTotal.Size = new System.Drawing.Size(424, 23);
+			this.labelTotal.TabIndex = 9;
+			this.labelTotal.Text = "0";
+			// 
+			// labelNDS
+			// 
+			this.labelNDS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.labelNDS.Location = new System.Drawing.Point(57, 208);
+			this.labelNDS.Name = "labelNDS";
+			this.labelNDS.Size = new System.Drawing.Size(424, 23);
+			this.labelNDS.TabIndex = 8;
+			this.labelNDS.Text = "0";
+			// 
+			// labelSum
+			// 
+			this.labelSum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.labelSum.Location = new System.Drawing.Point(57, 185);
+			this.labelSum.Name = "labelSum";
+			this.labelSum.Size = new System.Drawing.Size(424, 23);
+			this.labelSum.TabIndex = 7;
+			this.labelSum.Text = "0";
+			// 
 			// button8
 			// 
 			this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
@@ -399,6 +435,7 @@ namespace Rapid
 			this.button8.TabIndex = 6;
 			this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// button7
 			// 
@@ -409,6 +446,7 @@ namespace Rapid
 			this.button7.TabIndex = 5;
 			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// button6
 			// 
@@ -423,31 +461,28 @@ namespace Rapid
 			// 
 			// label10
 			// 
-			this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label10.Location = new System.Drawing.Point(6, 231);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(475, 23);
+			this.label10.Size = new System.Drawing.Size(45, 23);
 			this.label10.TabIndex = 3;
 			this.label10.Text = "Всего:";
 			// 
 			// label9
 			// 
-			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label9.Location = new System.Drawing.Point(6, 208);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(475, 23);
+			this.label9.Size = new System.Drawing.Size(45, 23);
 			this.label9.TabIndex = 2;
 			this.label9.Text = "НДС:";
 			// 
 			// label8
 			// 
-			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label8.Location = new System.Drawing.Point(6, 185);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(475, 23);
+			this.label8.Size = new System.Drawing.Size(45, 23);
 			this.label8.TabIndex = 1;
 			this.label8.Text = "Сумма:";
 			// 
@@ -470,6 +505,36 @@ namespace Rapid
 			this.dataGrid1.TabIndex = 0;
 			this.dataGrid1.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
 									this.dataGridTableStyle1});
+			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.новаяСтрокаToolStripMenuItem,
+									this.изменитьСтрокуToolStripMenuItem,
+									this.удалитьСтрокуToolStripMenuItem});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 70);
+			// 
+			// новаяСтрокаToolStripMenuItem
+			// 
+			this.новаяСтрокаToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("новаяСтрокаToolStripMenuItem.Image")));
+			this.новаяСтрокаToolStripMenuItem.Name = "новаяСтрокаToolStripMenuItem";
+			this.новаяСтрокаToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.новаяСтрокаToolStripMenuItem.Text = "Новая строка.";
+			// 
+			// изменитьСтрокуToolStripMenuItem
+			// 
+			this.изменитьСтрокуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьСтрокуToolStripMenuItem.Image")));
+			this.изменитьСтрокуToolStripMenuItem.Name = "изменитьСтрокуToolStripMenuItem";
+			this.изменитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.изменитьСтрокуToolStripMenuItem.Text = "Изменить строку.";
+			// 
+			// удалитьСтрокуToolStripMenuItem
+			// 
+			this.удалитьСтрокуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалитьСтрокуToolStripMenuItem.Image")));
+			this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
+			this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+			this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку.";
 			// 
 			// dataGridTableStyle1
 			// 
@@ -585,36 +650,6 @@ namespace Rapid
 			this.label12.TabIndex = 19;
 			this.label12.Text = "Автор:";
 			// 
-			// contextMenuStrip1
-			// 
-			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.новаяСтрокаToolStripMenuItem,
-									this.изменитьСтрокуToolStripMenuItem,
-									this.удалитьСтрокуToolStripMenuItem});
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 70);
-			// 
-			// новаяСтрокаToolStripMenuItem
-			// 
-			this.новаяСтрокаToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("новаяСтрокаToolStripMenuItem.Image")));
-			this.новаяСтрокаToolStripMenuItem.Name = "новаяСтрокаToolStripMenuItem";
-			this.новаяСтрокаToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.новаяСтрокаToolStripMenuItem.Text = "Новая строка.";
-			// 
-			// изменитьСтрокуToolStripMenuItem
-			// 
-			this.изменитьСтрокуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьСтрокуToolStripMenuItem.Image")));
-			this.изменитьСтрокуToolStripMenuItem.Name = "изменитьСтрокуToolStripMenuItem";
-			this.изменитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.изменитьСтрокуToolStripMenuItem.Text = "Изменить строку.";
-			// 
-			// удалитьСтрокуToolStripMenuItem
-			// 
-			this.удалитьСтрокуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалитьСтрокуToolStripMenuItem.Image")));
-			this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
-			this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку.";
-			// 
 			// FormClientDocOrder
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,6 +681,9 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label labelTotal;
+		private System.Windows.Forms.Label labelNDS;
+		private System.Windows.Forms.Label labelSum;
 		private System.Windows.Forms.ToolStripMenuItem удалитьСтрокуToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem изменитьСтрокуToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem новаяСтрокаToolStripMenuItem;

@@ -21,8 +21,14 @@ namespace Rapid
 	{
 		/* Глобальные переменные */
 		public DataSet ParentDataSet;			// родительский объект DataSet
+		public Label labelSum;					// родительская метка "сумма"
+		public Label labelNDS;					// родительская метка "ндс"
+		public Label labelTotal;				// родительская метка "всего"
 		public int indexLineParentDataSet;		// индекс строки родительского объекта DataSet
-		
+		public bool BuyOrSell;					// флаг: покупка-true; продажа-false;
+		public String ActualDate;				// актуальная дата для получения остатка тмц
+		public String DocID;					// идентификатор документа
+				
 		public FormClientDocTableElement()
 		{
 			//
@@ -35,7 +41,7 @@ namespace Rapid
 			//
 		}
 		
-		/* ВЫЧИСЛЕНИЕ */
+		/* ВЫЧИСЛЕНИЕ ----------------------------------------------------*/
 		void Calculation()
 		{
 			// Сумма без НДС (Цена, Количество)
@@ -46,6 +52,44 @@ namespace Rapid
 			textBox8.Text = ClassCalculation.Total(textBox7.Text, textBox6.Text);
 		}
 		/*----------------------------------------------------------------*/
+		
+		/* Остаток на складе ---------------------------------------------*/
+		String balance(String _tmcName, String _actualDate)
+		{
+			ClassMySQL_Full balanceMySQL = new ClassMySQL_Full();
+			DataSet balanceDataSet = new DataSet();
+			balanceDataSet.Clear();
+			balanceDataSet.DataSetName = "balance";
+			balanceMySQL.SelectSqlCommand = "SELECT * FROM balance WHERE (balance_tmc = '" + _tmcName + "' AND balance_date <= '" + _actualDate + "')";
+			if(balanceMySQL.ExecuteFill(balanceDataSet, "balance")){
+				DataTable table = balanceDataSet.Tables["balance"];
+				if(table.Rows.Count > 0){
+					return table.Rows[0]["balance_number"].ToString();
+				} else return "--";
+			} else return "--";
+		}
+		/*----------------------------------------------------------------*/
+		
+		/* Расчет итогов -------------------------------------------------*/
+		void CalculationResults()
+		{
+			double _sum = 0;
+			double _nds = 0;
+			double _total = 0;
+			for(int i = 0; i < ParentDataSet.Tables["tabularsection"].Rows.Count; i++)
+			{
+				_sum = _sum + ClassConversion.StringToDouble(ParentDataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
+				_nds = _nds + ClassConversion.StringToDouble(ParentDataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
+				_total = _total + ClassConversion.StringToDouble(ParentDataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+			}
+			_sum = Math.Round(_sum, 2);
+			_nds = Math.Round(_nds, 2);
+			_total = Math.Round(_total, 2);
+			
+			labelSum.Text = ClassConversion.StringToMoney(_sum.ToString());
+			labelNDS.Text = ClassConversion.StringToMoney(_nds.ToString());
+			labelTotal.Text = ClassConversion.StringToMoney(_total.ToString());
+		}
 		
 		/* Закрытие окна*/
 		void Button14Click(object sender, EventArgs e)
@@ -64,7 +108,9 @@ namespace Rapid
 		{
 			// Загружаем информацию из констант
 			textBox2.Text = ClassSelectConst.constantValue("Ед. измерения");
-			textBox5.Text = ClassSelectConst.constantValue("Вид НДС");
+			if(this.Text == "Новая строка")	textBox5.Text = ClassSelectConst.constantValue("Вид НДС");
+			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			ClassForms.Rapid_Client.MessageConsole("Строка заказа: открыто окно обработки строки табличной части документа Заказ.", false);
 		}
 		/*----------------------------------------------------------------*/
 		
@@ -94,25 +140,66 @@ namespace Rapid
 			if(tmcMySQL.ExecuteFill(tmcDataSet, "tmc")){
 				DataTable table = tmcDataSet.Tables["tmc"];
 				if(table.Rows.Count > 0){
+					// Наименование ТМЦ
 			   		textBox2.Text = table.Rows[0]["tmc_units"].ToString();
+			   		// Количество ТМЦ на складе
 			   		textBox3.Text = "1.00";
-			   		textBox4.Text = ClassConversion.StringToMoney(table.Rows[0]["tmc_sale"].ToString());
+			   		label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			   		// Цена (покупка или продажа)
+			   		if(BuyOrSell)textBox4.Text = ClassConversion.StringToMoney(table.Rows[0]["tmc_buy"].ToString());
+			   		else textBox4.Text = ClassConversion.StringToMoney(table.Rows[0]["tmc_sale"].ToString());
+			   		// Вид НДС
 			   		textBox5.Text = table.Rows[0]["tmc_type_tax"].ToString();
 			   		//Вычисление
 			   		Calculation();
+				}else{
+					//ТМЦ не найден
+					textBox2.Clear();
+					textBox3.Text = "0.00";
+					textBox4.Text = "0.00";
+					textBox5.Text = ClassSelectConst.constantValue("Вид НДС");
+					textBox6.Text = "0.00";
+					textBox7.Text = "0.00";
+					textBox8.Text = "0.00";
 				}
 			}else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка при загрузке данных о тмц.", true);
 		}
 		
+		/* При вводе значения */
 		void TextBox1TextChanged(object sender, EventArgs e)
 		{
 			if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
+			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+		}
+		
+		/* При потере фокуса */
+		void TextBox1LostFocus(object sender, EventArgs e)
+		{
+			//(Ошибка при открытии на редактирование)// if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
+			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+		}
+		
+		/* При нажатии на Интер*/
+		void TextBox1KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
+				if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
+				label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			}
 		}
 		
 		/* Очистка */
 		void Button2Click(object sender, EventArgs e)
 		{
 			textBox1.Clear();
+			textBox2.Clear();
+			textBox3.Text = "0.00";
+			textBox4.Text = "0.00";
+			textBox5.Text = ClassSelectConst.constantValue("Вид НДС");
+			textBox6.Text = "0.00";
+			textBox7.Text = "0.00";
+			textBox8.Text = "0.00";
+			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 		}
 		/*----------------------------------------------------------------*/
 		
@@ -286,7 +373,7 @@ namespace Rapid
 		void TextBox6TextChanged(object sender, EventArgs e)
 		{
 			if(textBox6.Text != "" && ClassConversion.checkString(textBox6.Text)){
-				if(textBox3.Text != "0.00" && textBox3.Text != "0") textBox4.Text = ClassCalculation.ChangeNDS_ReturnPrice(textBox3.Text, textBox6.Text);
+				//(Ошибка перечсёта)// if(textBox3.Text != "0.00" && textBox3.Text != "0") textBox4.Text = ClassCalculation.ChangeNDS_ReturnPrice(textBox3.Text, textBox6.Text);
 			} else textBox6.Text = "0.00";
 		}
 		
@@ -347,7 +434,6 @@ namespace Rapid
 		/*----------------------------------------------------------------*/
 		
 		/* Всего с НДС ---------------------------------------------------*/
-		
 		/* Калькулятор */
 		void Button18Click(object sender, EventArgs e)
 		{
@@ -394,5 +480,51 @@ namespace Rapid
 		{
 			textBox8.Text = "0.00";
 		}
+		/*----------------------------------------------------------------*/
+		
+		/* Сохранение данных ---------------------------------------------*/
+		void SaveInTable()
+		{
+			// Сохранение новой строки в таблице документа
+			if(this.Text == "Новая строка"){
+				// ввод строки в таблицу
+				DataRow _row = ParentDataSet.Tables["tabularsection"].NewRow();
+				_row["tabularSection_tmc"] = textBox1.Text;
+				_row["tabularSection_units"] = textBox2.Text;
+				_row["tabularSection_number"] = ClassConversion.StringToDouble(textBox3.Text);
+				_row["tabularSection_price"] = ClassConversion.StringToDouble(textBox4.Text);
+				_row["tabularSection_NDS"] = ClassConversion.StringToDouble(textBox6.Text);
+				_row["tabularSection_sum"] = ClassConversion.StringToDouble(textBox7.Text);
+				_row["tabularSection_total"] = ClassConversion.StringToDouble(textBox8.Text);
+				_row["tabularSection_id_doc"] = DocID;
+				ParentDataSet.Tables["tabularsection"].Rows.Add(_row);
+				// подсчет итогов
+				CalculationResults();
+				// Закрываем окно
+				Close();
+			}
+			
+			// Сохранение изменённой строки в таблице документа
+			if(this.Text == "Изменить строку"){
+				//ParentDataSet
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"] = textBox1.Text;
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"] = textBox2.Text;
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"] = ClassConversion.StringToDouble(textBox3.Text);
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_price"] = ClassConversion.StringToDouble(textBox4.Text);
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_NDS"] = ClassConversion.StringToDouble(textBox6.Text);
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"] = ClassConversion.StringToDouble(textBox7.Text);
+				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"] = ClassConversion.StringToDouble(textBox8.Text);
+				// подсчет итогов
+				CalculationResults();
+				// Закрываем окно
+				Close();
+			}
+		}
+		
+		void Button13Click(object sender, EventArgs e)
+		{
+			SaveInTable(); // сохранить данные в таблицу.
+		}
+		/*----------------------------------------------------------------*/
 	}
 }

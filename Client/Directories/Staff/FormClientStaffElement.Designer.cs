@@ -173,8 +173,8 @@ namespace Rapid
 			this.textBox4.Text = "0.00";
 			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
-			this.textBox4.LostFocus += new System.EventHandler(this.TextBox4TextLostFocus);
 			this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox4KeyDown);
+			this.textBox4.LostFocus += new System.EventHandler(this.TextBox4TextLostFocus);
 			// 
 			// label5
 			// 
@@ -186,7 +186,7 @@ namespace Rapid
 			// 
 			// dateTimePicker2
 			// 
-			this.dateTimePicker2.CustomFormat = "yyyy-MM-d";
+			this.dateTimePicker2.CustomFormat = "yyyy-MM-dd";
 			this.dateTimePicker2.Enabled = false;
 			this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dateTimePicker2.Location = new System.Drawing.Point(276, 142);
@@ -206,7 +206,7 @@ namespace Rapid
 			// 
 			// dateTimePicker1
 			// 
-			this.dateTimePicker1.CustomFormat = "yyyy-MM-d";
+			this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
 			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dateTimePicker1.Location = new System.Drawing.Point(102, 142);
 			this.dateTimePicker1.Name = "dateTimePicker1";

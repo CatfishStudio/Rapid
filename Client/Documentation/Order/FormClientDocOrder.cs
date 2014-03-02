@@ -37,6 +37,28 @@ namespace Rapid
 			//
 		}
 		
+		/* Расчет итогов -------------------------------------------------*/
+		void CalculationResults()
+		{
+			double _sum = 0;
+			double _nds = 0;
+			double _total = 0;
+			for(int i = 0; i < OrderDataSet.Tables["tabularsection"].Rows.Count; i++)
+			{
+				_sum = _sum + ClassConversion.StringToDouble(OrderDataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
+				_nds = _nds + ClassConversion.StringToDouble(OrderDataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
+				_total = _total + ClassConversion.StringToDouble(OrderDataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+			}
+			_sum = Math.Round(_sum, 2);
+			_nds = Math.Round(_nds, 2);
+			_total = Math.Round(_total, 2);
+			
+			labelSum.Text = ClassConversion.StringToMoney(_sum.ToString());
+			labelNDS.Text = ClassConversion.StringToMoney(_nds.ToString());
+			labelTotal.Text = ClassConversion.StringToMoney(_total.ToString());
+		}
+		/*---------------------------------------------------------*/
+		
 		/* ЗАГРУЗКА: Загрузка окна */
 		void WindowLoad() // Загрузка окна
 		{
@@ -190,12 +212,19 @@ namespace Rapid
 		}
 		/*---------------------------------------------------------*/
 		
-		/* Управление таблицной частью */
+		/* УПРАВЛЕНИЕ ТАБЛИЧНОЙ ЧАСТЬЮ ----------------------------*/
+		/* ДОБАВИТЬ СТРОКУ */
 		void LineAdd() /* добавить новую строку */
 		{
 			FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
 			Rapid_ClientDocOrderElement.Text = "Новая строка";
-			Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;
+			Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
+			Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
+			Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;		// родительский DataSet
+			Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
+			Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
+			Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
+			Rapid_ClientDocOrderElement.DocID = DocID;						// идентификатор документа
 			Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;
 			Rapid_ClientDocOrderElement.Show();
 		}
@@ -203,6 +232,48 @@ namespace Rapid
 		void Button6Click(object sender, EventArgs e)
 		{
 			LineAdd(); // добавить новую строку
+		}
+		
+		/* ИЗМЕНИТЬ СТРОКУ */
+		void LineEdit(int indexLineParentDataSet) /* изменить строку */
+		{
+			if(OrderDataSet.Tables["tabularsection"].Rows.Count > 0){
+				FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
+				Rapid_ClientDocOrderElement.Text = "Изменить строку";
+				Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
+				Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
+				Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;		// родительский DataSet
+				Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
+				Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
+				Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
+				Rapid_ClientDocOrderElement.DocID = DocID;						// идентификатор документа
+				Rapid_ClientDocOrderElement.indexLineParentDataSet = indexLineParentDataSet; // индекс выбраной строки
+				Rapid_ClientDocOrderElement.textBox1.Text = OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"].ToString();
+				Rapid_ClientDocOrderElement.textBox2.Text = OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"].ToString();
+				Rapid_ClientDocOrderElement.textBox3.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"].ToString());
+				Rapid_ClientDocOrderElement.textBox4.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_price"].ToString());
+				Rapid_ClientDocOrderElement.textBox6.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_NDS"].ToString());
+				Rapid_ClientDocOrderElement.textBox7.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"].ToString());
+				Rapid_ClientDocOrderElement.textBox8.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"].ToString());
+				Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;
+				Rapid_ClientDocOrderElement.Show();
+			}
+		}
+		
+		void Button7Click(object sender, EventArgs e)
+		{
+			LineEdit(dataGrid1.CurrentRowIndex); // Изменить строку
+		}
+		
+		/* УДАЛИТЬ СТРОКУ */
+		void LineDelete(int indexLineParentDataSet) // удалить строку
+		{
+			if(OrderDataSet.Tables["tabularsection"].Rows.Count > 0) OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet].Delete();
+		}
+		void Button8Click(object sender, EventArgs e)
+		{
+			LineDelete(dataGrid1.CurrentRowIndex); // удалить строку.
+			CalculationResults(); // Перерасчёт итогов.
 		}
 	}
 }
