@@ -20,10 +20,11 @@ namespace Rapid
 	public partial class FormClientDocOrder : Form
 	{
 		/*Глобальные переменные */
-		private String DocID;// = "ORDER:TEST";
+		private String DocID;
 		public String ActionID;
-		public ClassMySQL_Full OrderMySQL = new ClassMySQL_Full();
-		public DataSet OrderDataSet = new DataSet();
+		public ClassMySQL_Short OrderMySQL = new ClassMySQL_Short();
+		public ClassMySQL_Full OrderTS_MySQL = new ClassMySQL_Full();
+		public DataSet OrderTS_DataSet = new DataSet();
 		
 		public FormClientDocOrder()
 		{
@@ -43,11 +44,11 @@ namespace Rapid
 			double _sum = 0;
 			double _nds = 0;
 			double _total = 0;
-			for(int i = 0; i < OrderDataSet.Tables["tabularsection"].Rows.Count; i++)
+			for(int i = 0; i < OrderTS_DataSet.Tables["tabularsection"].Rows.Count; i++)
 			{
-				_sum = _sum + ClassConversion.StringToDouble(OrderDataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
-				_nds = _nds + ClassConversion.StringToDouble(OrderDataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
-				_total = _total + ClassConversion.StringToDouble(OrderDataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+				_sum = _sum + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
+				_nds = _nds + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
+				_total = _total + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
 			}
 			_sum = Math.Round(_sum, 2);
 			_nds = Math.Round(_nds, 2);
@@ -70,13 +71,32 @@ namespace Rapid
 				textBox6.Text = ClassSelectConst.constantValue("Основной склад");
 				label12.Text = ClassConfig.Rapid_Client_UserName;
 				// Формируем табличную часть
-				OrderDataSet.Clear();
-				OrderDataSet.DataSetName = "tabularsection";
-				OrderMySQL.SelectSqlCommand = "SELECT * FROM tabularsection WHERE (tabularSection_id_doc = '" + DocID + "')";
-				if(OrderMySQL.ExecuteFill(OrderDataSet, "tabularsection")){
+				OrderTS_DataSet.Clear();
+				OrderTS_DataSet.DataSetName = "tabularsection";
+				OrderTS_MySQL.SelectSqlCommand = "SELECT id_tabularSection, tabularSection_tmc, tabularSection_units, tabularSection_number, tabularSection_price, tabularSection_NDS, tabularSection_sum, tabularSection_total, tabularSection_id_doc  FROM tabularsection WHERE (tabularSection_id_doc = '" + DocID + "')";
+				OrderTS_MySQL.InsertSqlCommand = "INSERT INTO tabularsection (tabularSection_tmc, tabularSection_units, tabularSection_number, tabularSection_price, tabularSection_NDS, tabularSection_sum, tabularSection_total, tabularSection_id_doc) VALUE (?,?,?,?,?,?,?,?)";
+				OrderTS_MySQL.UpdateSqlCommand = "UPDATE tabularsection SET tabularSection_tmc = ?, tabularSection_units = ?, tabularSection_number = ?, tabularSection_price = ?, tabularSection_NDS = ?, tabularSection_sum = ?, tabularSection_total = ?, tabularSection_id_doc = ? WHERE (id_tabularSection = ?)" +
+												" AND (tabularSection_tmc = ? OR ? IS NULL AND tabularSection_tmc IS NULL)" +
+												" AND (tabularSection_units = ? OR ? IS NULL AND tabularSection_units IS NULL)" +
+												" AND (tabularSection_number = ? OR ? IS NULL AND tabularSection_number IS NULL)" +
+												" AND (tabularSection_price = ? OR ? IS NULL AND tabularSection_price IS NULL)" +
+												" AND (tabularSection_NDS = ? OR ? IS NULL AND tabularSection_NDS IS NULL)" +
+												" AND (tabularSection_sum = ? OR ? IS NULL AND tabularSection_sum IS NULL)" +
+												" AND (tabularSection_total = ? OR ? IS NULL AND tabularSection_total IS NULL)" +
+												" AND (tabularSection_id_doc = ? OR ? IS NULL AND tabularSection_id_doc IS NULL)";
+				OrderTS_MySQL.DeleteSqlCommand = "DELETE FROM tabularsection WHERE (id_tabularSection = ?)" +
+												" AND (tabularSection_tmc = ? OR ? IS NULL AND tabularSection_tmc IS NULL)" +
+												" AND (tabularSection_units = ? OR ? IS NULL AND tabularSection_units IS NULL)" +
+												" AND (tabularSection_number = ? OR ? IS NULL AND tabularSection_number IS NULL)" +
+												" AND (tabularSection_price = ? OR ? IS NULL AND tabularSection_price IS NULL)" +
+												" AND (tabularSection_NDS = ? OR ? IS NULL AND tabularSection_NDS IS NULL)" +
+												" AND (tabularSection_sum = ? OR ? IS NULL AND tabularSection_sum IS NULL)" +
+												" AND (tabularSection_total = ? OR ? IS NULL AND tabularSection_total IS NULL)" +
+												" AND (tabularSection_id_doc = ? OR ? IS NULL AND tabularSection_id_doc IS NULL)";
+				if(OrderTS_MySQL.ExecuteFill(OrderTS_DataSet, "tabularsection")){
 					// формируем табличную часть
-					dataGrid1.DataSource = OrderDataSet.Tables["tabularsection"];
-					//dataGrid1.DataMember = "tabularsection";
+					dataGrid1.DataSource = OrderTS_DataSet;		//.Tables["tabularsection"];
+					dataGrid1.DataMember = "tabularsection";
 					
 				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка формирования пустой табличной части.", true);
 				ClassForms.Rapid_Client.MessageConsole("Заказ: Создание нового документа.", false);
@@ -176,7 +196,7 @@ namespace Rapid
 				
 		void TextBox5TextChanged(object sender, EventArgs e)
 		{
-			if(textBox5.Text != "") FirmSellerDataLoad(textBox2.Text); // Загрузка данных			
+			if(textBox5.Text != "") FirmSellerDataLoad(textBox5.Text); // Загрузка данных			
 		}
 		/*---------------------------------------------------------*/
 		
@@ -220,7 +240,7 @@ namespace Rapid
 			Rapid_ClientDocOrderElement.Text = "Новая строка";
 			Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
 			Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
-			Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;		// родительский DataSet
+			Rapid_ClientDocOrderElement.ParentDataSet = OrderTS_DataSet;		// родительский DataSet
 			Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
 			Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
 			Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
@@ -234,27 +254,32 @@ namespace Rapid
 			LineAdd(); // добавить новую строку
 		}
 		
+		void НоваяСтрокаToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			LineAdd(); // добавить новую строку
+		}
+		
 		/* ИЗМЕНИТЬ СТРОКУ */
 		void LineEdit(int indexLineParentDataSet) /* изменить строку */
 		{
-			if(OrderDataSet.Tables["tabularsection"].Rows.Count > 0){
+			if(OrderTS_DataSet.Tables["tabularsection"].Rows.Count > 0){
 				FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
 				Rapid_ClientDocOrderElement.Text = "Изменить строку";
 				Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
 				Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
-				Rapid_ClientDocOrderElement.ParentDataSet = OrderDataSet;		// родительский DataSet
+				Rapid_ClientDocOrderElement.ParentDataSet = OrderTS_DataSet;		// родительский DataSet
 				Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
 				Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
 				Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
 				Rapid_ClientDocOrderElement.DocID = DocID;						// идентификатор документа
 				Rapid_ClientDocOrderElement.indexLineParentDataSet = indexLineParentDataSet; // индекс выбраной строки
-				Rapid_ClientDocOrderElement.textBox1.Text = OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"].ToString();
-				Rapid_ClientDocOrderElement.textBox2.Text = OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"].ToString();
-				Rapid_ClientDocOrderElement.textBox3.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"].ToString());
-				Rapid_ClientDocOrderElement.textBox4.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_price"].ToString());
-				Rapid_ClientDocOrderElement.textBox6.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_NDS"].ToString());
-				Rapid_ClientDocOrderElement.textBox7.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"].ToString());
-				Rapid_ClientDocOrderElement.textBox8.Text = ClassConversion.StringToMoney(OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"].ToString());
+				Rapid_ClientDocOrderElement.textBox1.Text = OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"].ToString();
+				Rapid_ClientDocOrderElement.textBox2.Text = OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"].ToString();
+				Rapid_ClientDocOrderElement.textBox3.Text = ClassConversion.StringToMoney(OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"].ToString());
+				Rapid_ClientDocOrderElement.textBox4.Text = ClassConversion.StringToMoney(OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_price"].ToString());
+				Rapid_ClientDocOrderElement.textBox6.Text = ClassConversion.StringToMoney(OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_NDS"].ToString());
+				Rapid_ClientDocOrderElement.textBox7.Text = ClassConversion.StringToMoney(OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"].ToString());
+				Rapid_ClientDocOrderElement.textBox8.Text = ClassConversion.StringToMoney(OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"].ToString());
 				Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;
 				Rapid_ClientDocOrderElement.Show();
 			}
@@ -265,15 +290,75 @@ namespace Rapid
 			LineEdit(dataGrid1.CurrentRowIndex); // Изменить строку
 		}
 		
+		void ИзменитьСтрокуToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			LineEdit(dataGrid1.CurrentRowIndex); // Изменить строку
+		}
+		
 		/* УДАЛИТЬ СТРОКУ */
 		void LineDelete(int indexLineParentDataSet) // удалить строку
 		{
-			if(OrderDataSet.Tables["tabularsection"].Rows.Count > 0) OrderDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet].Delete();
+			if(OrderTS_DataSet.Tables["tabularsection"].Rows.Count > 0) OrderTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet].Delete();
 		}
+		
 		void Button8Click(object sender, EventArgs e)
 		{
 			LineDelete(dataGrid1.CurrentRowIndex); // удалить строку.
 			CalculationResults(); // Перерасчёт итогов.
 		}
+				
+		void УдалитьСтрокуToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			LineDelete(dataGrid1.CurrentRowIndex); // удалить строку.
+			CalculationResults(); // Перерасчёт итогов.
+		}
+		/*---------------------------------------------------------*/
+		
+		/* Закрыть окно */
+		void Button10Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+		
+		void FormClientDocOrderClosed(object sender, EventArgs e)
+		{
+			ClassForms.Rapid_Client.MessageConsole("Заказ: Закрытие документа.", false);
+		}
+		/*---------------------------------------------------------*/
+		
+		/* Печать */
+		void Button12Click(object sender, EventArgs e)
+		{
+			
+		}
+		/*---------------------------------------------------------*/
+		
+		/* Созранить документ */
+		void SaveDoc()
+		{
+			// При создании новой записи
+			if(this.Text == "Новая документ."){
+				OrderMySQL.SqlCommand = "INSERT INTO journal (journal_id_doc, journal_date, journal_number, journal_user_autor, journal_type, journal_store, journal_firm_buyer, journal_firm_buyer_details, journal_firm_seller, journal_firm_seller_details, journal_staff_trade_representative, journal_typeTax, journal_sum, journal_tax, journal_total, journal_delete) " +
+					"VALUE ('" + DocID + "', '" + dateTimePicker1.Text + "', '" + textBox1.Text + "', '" + label12.Text + "', 'Заказ', '" + textBox6.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox5.Text + "', '" + textBox4.Text + "', '" + textBox7.Text + "', '', " + labelSum.Text + ", " + labelNDS.Text + ", "+ labelTotal.Text + ", 0)";
+				if(OrderMySQL.ExecuteNonQuery()){
+					if(OrderTS_MySQL.ExecuteUpdate(OrderTS_DataSet, "tabularsection")){
+						
+						// Закрыть окно
+						//Close();
+					} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка сохранения табличной части.", true);
+				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка сохранения данных о документе в журнале документов.", true);
+			}
+			
+			// При изменении записи
+			if(this.Text == "Изменить документ."){
+				
+			}
+		}
+		
+		void Button11Click(object sender, EventArgs e)
+		{
+			SaveDoc(); //сохранение документа.
+		}
+		/*---------------------------------------------------------*/
 	}
 }

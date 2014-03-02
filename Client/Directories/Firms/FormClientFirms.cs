@@ -119,6 +119,7 @@ namespace Rapid.Client.Firms
 			ClassForms.Rapid_Client.MessageConsole("Фирмы: закрыты.", false);
 			ClassForms.OpenCloseFormFirms = false; // форма закрыта
 		}
+		
 		void Button8Click(object sender, EventArgs e)
 		{
 			Close();

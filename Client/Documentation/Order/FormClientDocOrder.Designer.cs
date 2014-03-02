@@ -232,7 +232,7 @@ namespace Rapid
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this.textBox5);
 			this.groupBox2.Controls.Add(this.label6);
-			this.groupBox2.Location = new System.Drawing.Point(6, 101);
+			this.groupBox2.Location = new System.Drawing.Point(6, 6);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(475, 95);
 			this.groupBox2.TabIndex = 16;
@@ -309,7 +309,7 @@ namespace Rapid
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this.textBox2);
 			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Location = new System.Drawing.Point(6, 6);
+			this.groupBox1.Location = new System.Drawing.Point(6, 101);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(475, 95);
 			this.groupBox1.TabIndex = 15;
@@ -521,6 +521,7 @@ namespace Rapid
 			this.новаяСтрокаToolStripMenuItem.Name = "новаяСтрокаToolStripMenuItem";
 			this.новаяСтрокаToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.новаяСтрокаToolStripMenuItem.Text = "Новая строка.";
+			this.новаяСтрокаToolStripMenuItem.Click += new System.EventHandler(this.НоваяСтрокаToolStripMenuItemClick);
 			// 
 			// изменитьСтрокуToolStripMenuItem
 			// 
@@ -528,6 +529,7 @@ namespace Rapid
 			this.изменитьСтрокуToolStripMenuItem.Name = "изменитьСтрокуToolStripMenuItem";
 			this.изменитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.изменитьСтрокуToolStripMenuItem.Text = "Изменить строку.";
+			this.изменитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьСтрокуToolStripMenuItemClick);
 			// 
 			// удалитьСтрокуToolStripMenuItem
 			// 
@@ -535,6 +537,7 @@ namespace Rapid
 			this.удалитьСтрокуToolStripMenuItem.Name = "удалитьСтрокуToolStripMenuItem";
 			this.удалитьСтрокуToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
 			this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку.";
+			this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.УдалитьСтрокуToolStripMenuItemClick);
 			// 
 			// dataGridTableStyle1
 			// 
@@ -616,6 +619,7 @@ namespace Rapid
 			this.button10.TabIndex = 16;
 			this.button10.Text = "Отмена.";
 			this.button10.UseVisualStyleBackColor = true;
+			this.button10.Click += new System.EventHandler(this.Button10Click);
 			// 
 			// button11
 			// 
@@ -626,6 +630,7 @@ namespace Rapid
 			this.button11.TabIndex = 17;
 			this.button11.Text = "ОК.";
 			this.button11.UseVisualStyleBackColor = true;
+			this.button11.Click += new System.EventHandler(this.Button11Click);
 			// 
 			// button12
 			// 
@@ -639,6 +644,7 @@ namespace Rapid
 			this.button12.Text = "Печать.";
 			this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button12.UseVisualStyleBackColor = true;
+			this.button12.Click += new System.EventHandler(this.Button12Click);
 			// 
 			// label12
 			// 
