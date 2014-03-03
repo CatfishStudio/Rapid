@@ -76,7 +76,7 @@ namespace Rapid
 				return true;
 			}catch(Exception ex){
 				_MySql_Connection.Close();
-				if(MessageBox.Show("Ошибка выполнения SQL запроса. Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
+				if(MessageBox.Show("Ошибка выполнения SQL запроса." + System.Environment.NewLine + "Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
 				{
 					MessageBox.Show(ex.ToString());
 				}
@@ -102,7 +102,7 @@ namespace Rapid
 				return true;
 			}catch(Exception ex){
 				_MySql_Connection.Close();
-				if(MessageBox.Show("Ошибка выполнения SQL запроса. Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
+				if(MessageBox.Show("Ошибка выполнения SQL запроса." + System.Environment.NewLine + "Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
 				{
 					MessageBox.Show(ex.ToString());
 				}
