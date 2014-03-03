@@ -110,6 +110,31 @@ namespace Rapid
 			}
 		}
 		
+		public void SelectParametersAdd(String parameterName, MySqlDbType dbType, int size, String sourceColumn, UpdateRowSource urs)
+		{
+			_MySql_Select_Command.Parameters.Add(parameterName, dbType, size, sourceColumn);
+			//_MySql_Select_Command.UpdatedRowSource = urs;
+		}
+		
+		public void InsertParametersAdd(String parameterName, MySqlDbType dbType, int size, String sourceColumn, UpdateRowSource urs)
+		{
+			_MySql_Insert_Command.Parameters.Add(parameterName, dbType, size, sourceColumn);
+			//_MySql_Insert_Command.UpdatedRowSource = urs;
+		}
+		
+		public void UpdateParametersAdd(String parameterName, MySqlDbType dbType, int size, String sourceColumn, UpdateRowSource urs)
+		{
+			_MySql_Update_Command.Parameters.Add(parameterName, dbType, size, sourceColumn);
+			//_MySql_Update_Command.UpdatedRowSource = urs;			
+		}
+		
+		public void DeleteParametersAdd(String parameterName, MySqlDbType dbType, int size, String sourceColumn, UpdateRowSource urs)
+		{
+			_MySql_Delete_Command.Parameters.Add(parameterName, dbType, size, sourceColumn);
+			//_MySql_Delete_Command.UpdatedRowSource = urs;
+		}
+		
+		
 		//поля ----------------------------
 		private MySqlConnection _MySql_Connection;
 		private MySqlCommand _MySql_Select_Command;

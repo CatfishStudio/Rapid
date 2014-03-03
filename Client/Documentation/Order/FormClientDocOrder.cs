@@ -10,6 +10,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using Rapid.Client.Firms;
 
 namespace Rapid
@@ -74,7 +75,19 @@ namespace Rapid
 				OrderTS_DataSet.Clear();
 				OrderTS_DataSet.DataSetName = "tabularsection";
 				OrderTS_MySQL.SelectSqlCommand = "SELECT id_tabularSection, tabularSection_tmc, tabularSection_units, tabularSection_number, tabularSection_price, tabularSection_NDS, tabularSection_sum, tabularSection_total, tabularSection_id_doc  FROM tabularsection WHERE (tabularSection_id_doc = '" + DocID + "')";
-				OrderTS_MySQL.InsertSqlCommand = "INSERT INTO tabularsection (tabularSection_tmc, tabularSection_units, tabularSection_number, tabularSection_price, tabularSection_NDS, tabularSection_sum, tabularSection_total, tabularSection_id_doc) VALUE (?,?,?,?,?,?,?,?)";
+				
+				OrderTS_MySQL.InsertSqlCommand = "INSERT INTO tabularsection (tabularSection_tmc, tabularSection_units, tabularSection_number, tabularSection_price, tabularSection_NDS, tabularSection_sum, tabularSection_total, tabularSection_id_doc) " +
+														"VALUE (@tabularSection_tmc, @tabularSection_units, @tabularSection_number, @tabularSection_price, @tabularSection_NDS, @tabularSection_sum, @tabularSection_total, @tabularSection_id_doc)";
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_tmc", MySqlDbType.VarChar, 250, "tabularSection_tmc", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_units", MySqlDbType.VarChar, 250, "tabularSection_units", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_number", MySqlDbType.Double, 10, "tabularSection_number", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_price", MySqlDbType.Double, 10, "tabularSection_price", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_NDS", MySqlDbType.Double, 10, "tabularSection_NDS", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_sum", MySqlDbType.Double, 10, "tabularSection_sum", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_total", MySqlDbType.Double, 10, "tabularSection_total", UpdateRowSource.None);
+				OrderTS_MySQL.InsertParametersAdd("@tabularSection_id_doc", MySqlDbType.VarChar, 250, "tabularSection_id_doc", UpdateRowSource.None);
+						
+				/*
 				OrderTS_MySQL.UpdateSqlCommand = "UPDATE tabularsection SET tabularSection_tmc = ?, tabularSection_units = ?, tabularSection_number = ?, tabularSection_price = ?, tabularSection_NDS = ?, tabularSection_sum = ?, tabularSection_total = ?, tabularSection_id_doc = ? WHERE (id_tabularSection = ?)" +
 												" AND (tabularSection_tmc = ? OR ? IS NULL AND tabularSection_tmc IS NULL)" +
 												" AND (tabularSection_units = ? OR ? IS NULL AND tabularSection_units IS NULL)" +
@@ -93,6 +106,7 @@ namespace Rapid
 												" AND (tabularSection_sum = ? OR ? IS NULL AND tabularSection_sum IS NULL)" +
 												" AND (tabularSection_total = ? OR ? IS NULL AND tabularSection_total IS NULL)" +
 												" AND (tabularSection_id_doc = ? OR ? IS NULL AND tabularSection_id_doc IS NULL)";
+				*/
 				if(OrderTS_MySQL.ExecuteFill(OrderTS_DataSet, "tabularsection")){
 					// формируем табличную часть
 					dataGrid1.DataSource = OrderTS_DataSet;		//.Tables["tabularsection"];
