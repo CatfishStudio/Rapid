@@ -438,6 +438,7 @@ namespace Rapid
 			this.полныйЖурналToolStripMenuItem.Name = "полныйЖурналToolStripMenuItem";
 			this.полныйЖурналToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
 			this.полныйЖурналToolStripMenuItem.Text = "Полный журнал";
+			this.полныйЖурналToolStripMenuItem.Click += new System.EventHandler(this.ПолныйЖурналToolStripMenuItemClick);
 			// 
 			// toolStripSeparator8
 			// 

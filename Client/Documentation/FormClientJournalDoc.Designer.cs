@@ -39,17 +39,6 @@ namespace Rapid
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientJournalDoc));
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.папкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.создатьПапкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.изменитьПапкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.удалитьПапкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-			this.создатьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.изменитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.удалитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-			this.выбратьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
@@ -76,8 +65,8 @@ namespace Rapid
 			this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.button8 = new System.Windows.Forms.Button();
-			this.contextMenuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -89,90 +78,6 @@ namespace Rapid
 			this.imageList1.Images.SetKeyName(1, "folder_delete.png");
 			this.imageList1.Images.SetKeyName(2, "application.png");
 			this.imageList1.Images.SetKeyName(3, "application_delete.png");
-			// 
-			// contextMenuStrip1
-			// 
-			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.папкиToolStripMenuItem,
-									this.toolStripMenuItem1,
-									this.создатьЗаписьToolStripMenuItem,
-									this.изменитьЗаписьToolStripMenuItem,
-									this.удалитьЗаписьToolStripMenuItem,
-									this.toolStripMenuItem2,
-									this.выбратьЗаписьToolStripMenuItem});
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(172, 126);
-			// 
-			// папкиToolStripMenuItem
-			// 
-			this.папкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.создатьПапкуToolStripMenuItem,
-									this.изменитьПапкуToolStripMenuItem,
-									this.удалитьПапкуToolStripMenuItem});
-			this.папкиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("папкиToolStripMenuItem.Image")));
-			this.папкиToolStripMenuItem.Name = "папкиToolStripMenuItem";
-			this.папкиToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.папкиToolStripMenuItem.Text = "Папки:";
-			// 
-			// создатьПапкуToolStripMenuItem
-			// 
-			this.создатьПапкуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("создатьПапкуToolStripMenuItem.Image")));
-			this.создатьПапкуToolStripMenuItem.Name = "создатьПапкуToolStripMenuItem";
-			this.создатьПапкуToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-			this.создатьПапкуToolStripMenuItem.Text = "Создать папку.";
-			// 
-			// изменитьПапкуToolStripMenuItem
-			// 
-			this.изменитьПапкуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьПапкуToolStripMenuItem.Image")));
-			this.изменитьПапкуToolStripMenuItem.Name = "изменитьПапкуToolStripMenuItem";
-			this.изменитьПапкуToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-			this.изменитьПапкуToolStripMenuItem.Text = "Изменить папку.";
-			// 
-			// удалитьПапкуToolStripMenuItem
-			// 
-			this.удалитьПапкуToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалитьПапкуToolStripMenuItem.Image")));
-			this.удалитьПапкуToolStripMenuItem.Name = "удалитьПапкуToolStripMenuItem";
-			this.удалитьПапкуToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-			this.удалитьПапкуToolStripMenuItem.Text = "Удалить папку.";
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 6);
-			// 
-			// создатьЗаписьToolStripMenuItem
-			// 
-			this.создатьЗаписьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("создатьЗаписьToolStripMenuItem.Image")));
-			this.создатьЗаписьToolStripMenuItem.Name = "создатьЗаписьToolStripMenuItem";
-			this.создатьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.создатьЗаписьToolStripMenuItem.Text = "Создать запись.";
-			// 
-			// изменитьЗаписьToolStripMenuItem
-			// 
-			this.изменитьЗаписьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("изменитьЗаписьToolStripMenuItem.Image")));
-			this.изменитьЗаписьToolStripMenuItem.Name = "изменитьЗаписьToolStripMenuItem";
-			this.изменитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.изменитьЗаписьToolStripMenuItem.Text = "Изменить запись.";
-			// 
-			// удалитьЗаписьToolStripMenuItem
-			// 
-			this.удалитьЗаписьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалитьЗаписьToolStripMenuItem.Image")));
-			this.удалитьЗаписьToolStripMenuItem.Name = "удалитьЗаписьToolStripMenuItem";
-			this.удалитьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.удалитьЗаписьToolStripMenuItem.Text = "Удалить запись.";
-			// 
-			// toolStripMenuItem2
-			// 
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(168, 6);
-			this.toolStripMenuItem2.Visible = false;
-			// 
-			// выбратьЗаписьToolStripMenuItem
-			// 
-			this.выбратьЗаписьToolStripMenuItem.Name = "выбратьЗаписьToolStripMenuItem";
-			this.выбратьЗаписьToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-			this.выбратьЗаписьToolStripMenuItem.Text = "Выбрать запись.";
-			this.выбратьЗаписьToolStripMenuItem.Visible = false;
 			// 
 			// button1
 			// 
@@ -228,6 +133,7 @@ namespace Rapid
 			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button5, "Создать папку.");
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// button6
 			// 
@@ -239,6 +145,7 @@ namespace Rapid
 			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button6, "Создать папку.");
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// button7
 			// 
@@ -251,6 +158,7 @@ namespace Rapid
 			this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.toolTip1.SetToolTip(this.button7, "Поиск.");
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// panel1
 			// 
@@ -420,6 +328,11 @@ namespace Rapid
 			// 
 			this.columnHeader7.Text = "№";
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			// 
 			// button8
 			// 
 			this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -429,6 +342,7 @@ namespace Rapid
 			this.button8.TabIndex = 7;
 			this.button8.Text = "Закрыть.";
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// FormClientJournalDoc
 			// 
@@ -441,7 +355,8 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientJournalDoc";
 			this.Text = "Полный журнал";
-			this.contextMenuStrip1.ResumeLayout(false);
+			this.Closed += new System.EventHandler(this.FormClientJournalDocClosed);
+			this.Load += new System.EventHandler(this.FormClientJournalDocLoad);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -473,16 +388,6 @@ namespace Rapid
 		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.ToolTip toolTip1;
-		private System.Windows.Forms.ToolStripMenuItem выбратьЗаписьToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-		private System.Windows.Forms.ToolStripMenuItem удалитьЗаписьToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem изменитьЗаписьToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem создатьЗаписьToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem удалитьПапкуToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem изменитьПапкуToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem создатьПапкуToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem папкиToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ImageList imageList1;
 	}

@@ -87,6 +87,21 @@ namespace Rapid
 				OrderTS_MySQL.InsertParametersAdd("@tabularSection_total", MySqlDbType.Double, 10, "tabularSection_total", UpdateRowSource.None);
 				OrderTS_MySQL.InsertParametersAdd("@tabularSection_id_doc", MySqlDbType.VarChar, 250, "tabularSection_id_doc", UpdateRowSource.None);
 						
+				
+				OrderTS_MySQL.UpdateSqlCommand = "UPDATE tabularsection SET tabularSection_tmc = @tabularSection_tmc, tabularSection_units = @tabularSection_units, tabularSection_number = @tabularSection_number, tabularSection_price = @tabularSection_price, tabularSection_NDS = @tabularSection_NDS, tabularSection_sum = @tabularSection_sum, tabularSection_total = @tabularSection_total, tabularSection_id_doc = @tabularSection_id_doc WHERE (id_tabularSection = @id_tabularSection)";
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_tmc", MySqlDbType.VarChar, 250, "tabularSection_tmc", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_units", MySqlDbType.VarChar, 250, "tabularSection_units", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_number", MySqlDbType.Double, 10, "tabularSection_number", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_price", MySqlDbType.Double, 10, "tabularSection_price", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_NDS", MySqlDbType.Double, 10, "tabularSection_NDS", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_sum", MySqlDbType.Double, 10, "tabularSection_sum", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_total", MySqlDbType.Double, 10, "tabularSection_total", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_id_doc", MySqlDbType.VarChar, 250, "tabularSection_id_doc", UpdateRowSource.None);
+				OrderTS_MySQL.UpdateParametersAdd("@id_tabularSection", MySqlDbType.Int16, 11, "id_tabularSection", UpdateRowSource.None);
+				
+				OrderTS_MySQL.DeleteSqlCommand = "DELETE FROM tabularsection WHERE (id_tabularSection = ?)";
+				OrderTS_MySQL.DeleteParametersAdd("@id_tabularSection", MySqlDbType.Int16, 11, "id_tabularSection", UpdateRowSource.None);
+				
 				/*
 				OrderTS_MySQL.UpdateSqlCommand = "UPDATE tabularsection SET tabularSection_tmc = ?, tabularSection_units = ?, tabularSection_number = ?, tabularSection_price = ?, tabularSection_NDS = ?, tabularSection_sum = ?, tabularSection_total = ?, tabularSection_id_doc = ? WHERE (id_tabularSection = ?)" +
 												" AND (tabularSection_tmc = ? OR ? IS NULL AND tabularSection_tmc IS NULL)" +
@@ -356,9 +371,11 @@ namespace Rapid
 					"VALUE ('" + DocID + "', '" + dateTimePicker1.Text + "', '" + textBox1.Text + "', '" + label12.Text + "', 'Заказ', '" + textBox6.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox5.Text + "', '" + textBox4.Text + "', '" + textBox7.Text + "', '', " + labelSum.Text + ", " + labelNDS.Text + ", "+ labelTotal.Text + ", 0)";
 				if(OrderMySQL.ExecuteNonQuery()){
 					if(OrderTS_MySQL.ExecuteUpdate(OrderTS_DataSet, "tabularsection")){
-						
+						// ИСТОРИЯ: Запись в журнал истории обновлений
+						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
+						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное создание нового документа Заказ.", false);
 						// Закрыть окно
-						//Close();
+						Close();
 					} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка сохранения табличной части.", true);
 				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка сохранения данных о документе в журнале документов.", true);
 			}

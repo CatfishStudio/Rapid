@@ -96,6 +96,8 @@ namespace Rapid
 			if(idTable == 7 && ClassForms.OpenCloseFormTypeTax) ClassForms.Rapid_ClientTypeTax.TableUpdate();
 			// обновление справлчник "Сотрудники"
 			if(idTable == 8 && ClassForms.OpenCloseFormStaff) ClassForms.Rapid_ClientStaff.TableUpdate(ClassForms.Rapid_ClientStaff.openFolder);
+			// обновление журнала "Полный журнал"
+			if(idTable == 9 && ClassForms.OpenCloseFormJournalDoc) ClassForms.Rapid_ClientJournalDoc.TableUpdate();
 			// обновление справлчник "План счетов"
 			if(idTable == 13 && ClassForms.OpenCloseFormPlanAccounts) ClassForms.Rapid_ClientPlanAccounts.TableUpdate();
 			

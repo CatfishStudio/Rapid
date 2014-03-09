@@ -186,5 +186,15 @@ namespace Rapid
 		{
 			//...
 		}
+		
+		/* журпан: Полный журнал */
+		void ПолныйЖурналToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormJournalDoc){
+				ClassForms.Rapid_ClientJournalDoc = new FormClientJournalDoc();
+				ClassForms.Rapid_ClientJournalDoc.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientJournalDoc.Show();
+			}
+		}
 	}
 }
