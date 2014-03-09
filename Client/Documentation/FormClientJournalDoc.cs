@@ -119,5 +119,82 @@ namespace Rapid
 		}
 		/*--------------------------------------------------------------------*/
 		
+		/* Создание документов ---------------------------------------------- */
+		/* документ: Заказ */
+		void CreateOrder()
+		{
+			FormClientDocOrder Rapid_ClientDocOrder = new FormClientDocOrder();
+			Rapid_ClientDocOrder.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocOrder.Text = "Новая документ.";
+			Rapid_ClientDocOrder.Show();
+		}
+		void Button1Click(object sender, EventArgs e)
+		{
+			CreateOrder();
+		}
+		
+		void СоздатьНовыйДокументToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			CreateOrder();
+		}
+		
+		/* ввод на основании: приход */
+		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			
+		}
+		
+		/* ввод на основании: расход */
+		void РасходнаяНакладнаяToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		/* документ: Приходная накладная */
+		void Button2Click(object sender, EventArgs e)
+		{
+			
+		}
+				
+		void СоздатьДокументToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			
+		}
+		
+		/* документ: Расходная накладная */
+		void Button3Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void СоздатьДокументToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		/*--------------------------------------------------------------------*/
+		
+		/* Редактировать выбранный документ ----------------------------------*/
+		void OpenEditDoc()
+		{
+			if(listView1.SelectedIndices.Count > 0){ // проверка выбранного элемента
+				if(listView1.SelectedItems[0].StateImageIndex == 2){ // документ не удалён.
+					// редактируем заказ
+					if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Заказ")
+					{
+						FormClientDocOrder Rapid_ClientDocOrder = new FormClientDocOrder();
+						Rapid_ClientDocOrder.MdiParent = ClassForms.Rapid_Client;
+						Rapid_ClientDocOrder.Text = "Изменить документ.";
+						Rapid_ClientDocOrder.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
+						Rapid_ClientDocOrder.Show();
+					}
+				}
+			}
+		}
+		
+		void Button4Click(object sender, EventArgs e)
+		{
+			OpenEditDoc();
+		}
 	}
 }

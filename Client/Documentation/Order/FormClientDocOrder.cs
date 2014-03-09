@@ -26,6 +26,9 @@ namespace Rapid
 		public ClassMySQL_Short OrderMySQL = new ClassMySQL_Short();
 		public ClassMySQL_Full OrderTS_MySQL = new ClassMySQL_Full();
 		public DataSet OrderTS_DataSet = new DataSet();
+		// для редактирования основной информации
+		private ClassMySQL_Full JurnalMySQL = new ClassMySQL_Full();
+		private DataSet JurnalDataSet = new DataSet();
 		
 		public FormClientDocOrder()
 		{
@@ -45,7 +48,7 @@ namespace Rapid
 			double _sum = 0;
 			double _nds = 0;
 			double _total = 0;
-			for(int i = 0; i < OrderTS_DataSet.Tables["tabularsection"].Rows.Count; i++)
+			for(int i = 0; i < dataGrid1.VisibleRowCount; i++)
 			{
 				_sum = _sum + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
 				_nds = _nds + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
@@ -61,17 +64,10 @@ namespace Rapid
 		}
 		/*---------------------------------------------------------*/
 		
-		/* ЗАГРУЗКА: Загрузка окна */
-		void WindowLoad() // Загрузка окна
+		/* Загрузка табличной части */
+		void LoadTabularSection()
 		{
-			// При создании новой записи
-			if(this.Text == "Новая документ."){
-				// формируем уникальный идентификатор документа
-				DocID = "ORDER:" + DateTime.Now.ToString();
-				// Загружаем информацию из констант
-				textBox6.Text = ClassSelectConst.constantValue("Основной склад");
-				label12.Text = ClassConfig.Rapid_Client_UserName;
-				// Формируем табличную часть
+			// Формируем табличную часть
 				OrderTS_DataSet.Clear();
 				OrderTS_DataSet.DataSetName = "tabularsection";
 				OrderTS_MySQL.SelectSqlCommand = "SELECT id_tabularSection, tabularSection_tmc, tabularSection_units, tabularSection_number, tabularSection_price, tabularSection_NDS, tabularSection_sum, tabularSection_total, tabularSection_id_doc  FROM tabularsection WHERE (tabularSection_id_doc = '" + DocID + "')";
@@ -128,11 +124,54 @@ namespace Rapid
 					dataGrid1.DataMember = "tabularsection";
 					
 				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка формирования пустой табличной части.", true);
+		}
+		
+		/* ЗАГРУЗКА: Загрузка окна */
+		void WindowLoad() // Загрузка окна
+		{
+			// При создании новой записи
+			if(this.Text == "Новая документ."){
+				// формируем уникальный идентификатор документа
+				DocID = "ORDER:" + DateTime.Now.ToString();
+				// Загружаем информацию из констант
+				textBox6.Text = ClassSelectConst.constantValue("Основной склад");
+				label12.Text = ClassConfig.Rapid_Client_UserName;
+				//формируем табличную часть
+				LoadTabularSection();
 				ClassForms.Rapid_Client.MessageConsole("Заказ: Создание нового документа.", false);
 			}
 			// При изменении записи
 			if(this.Text == "Изменить документ."){
+				// Загружаем основные данные.
+				JurnalDataSet.Clear();
+				JurnalDataSet.DataSetName = "journal";
+				JurnalMySQL.SelectSqlCommand = "SELECT * FROM journal WHERE (id_journal = " + ActionID + ")";
+				if(JurnalMySQL.ExecuteFill(JurnalDataSet, "journal")){
+					// загрузка полученной информации
+					DataTable _table = JurnalDataSet.Tables["journal"];
+					DocID = _table.Rows[0]["journal_id_doc"].ToString();
+					textBox1.Text = _table.Rows[0]["journal_number"].ToString();
+					dateTimePicker1.Text = _table.Rows[0]["journal_date"].ToString();
+					label12.Text = _table.Rows[0]["journal_user_autor"].ToString();
+					// информация о продавец
+					textBox5.Text = _table.Rows[0]["journal_firm_seller"].ToString();
+					textBox4.Text = _table.Rows[0]["journal_firm_seller_details"].ToString();
+					// информация о покупателе
+					textBox2.Text = _table.Rows[0]["journal_firm_buyer"].ToString();
+					textBox3.Text = _table.Rows[0]["journal_firm_buyer_details"].ToString();
+					// информация: склад и торг. представитель.
+					textBox6.Text = _table.Rows[0]["journal_store"].ToString();
+					textBox7.Text = _table.Rows[0]["journal_staff_trade_representative"].ToString();
+					// Загрузка информации итогов
+					labelSum.Text = ClassConversion.StringToMoney(_table.Rows[0]["journal_sum"].ToString());
+					labelNDS.Text = ClassConversion.StringToMoney(_table.Rows[0]["journal_tax"].ToString());
+					labelTotal.Text = ClassConversion.StringToMoney(_table.Rows[0]["journal_total"].ToString());
+					// Загрузка информации табличной части.
+					LoadTabularSection();
+					
+				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка загрузки основной информации.", true);
 				
+				ClassForms.Rapid_Client.MessageConsole("Заказ: Открытие документа для ввода изменений.", false);
 			}
 		}
 		
@@ -174,7 +213,7 @@ namespace Rapid
 			firmMySQL.SelectSqlCommand = "SELECT * FROM firms WHERE (firm_name = '" + firmName + "')";
 			if(firmMySQL.ExecuteFill(firmDataSet, "firms")){
 				DataTable table = firmDataSet.Tables["firms"];
-			   	textBox3.Text = table.Rows[0]["firm_details"].ToString() + System.Environment.NewLine + "Адрес и телефон:" + System.Environment.NewLine + table.Rows[0]["firm_address_phone"].ToString();
+				if(table.Rows.Count > 0) textBox3.Text = table.Rows[0]["firm_details"].ToString() + System.Environment.NewLine + "Адрес и телефон:" + System.Environment.NewLine + table.Rows[0]["firm_address_phone"].ToString();
 			   	
 			}else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка при загрузке данных о фирме.", true);
 		}
@@ -218,7 +257,7 @@ namespace Rapid
 			firmMySQL.SelectSqlCommand = "SELECT * FROM firms WHERE (firm_name = '" + firmName + "')";
 			if(firmMySQL.ExecuteFill(firmDataSet, "firms")){
 				DataTable table = firmDataSet.Tables["firms"];
-			   	textBox4.Text = table.Rows[0]["firm_details"].ToString() + System.Environment.NewLine + "Адрес и телефон:" + System.Environment.NewLine + table.Rows[0]["firm_address_phone"].ToString();
+			   	if(table.Rows.Count > 0) textBox4.Text = table.Rows[0]["firm_details"].ToString() + System.Environment.NewLine + "Адрес и телефон:" + System.Environment.NewLine + table.Rows[0]["firm_address_phone"].ToString();
 			   	
 			}else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка при загрузке данных о фирме.", true);
 		}
@@ -382,7 +421,16 @@ namespace Rapid
 			
 			// При изменении записи
 			if(this.Text == "Изменить документ."){
-				
+				OrderMySQL.SqlCommand = "UPDATE journal SET journal_date = '" + dateTimePicker1.Text + "', journal_number = '" + textBox1.Text + "', journal_user_autor = '" + ClassConfig.Rapid_Client_UserName + "', journal_store = '" + textBox6.Text + "', journal_firm_buyer = '" + textBox2.Text + "', journal_firm_buyer_details = '" + textBox3.Text + "', journal_firm_seller = '" + textBox5.Text + "', journal_firm_seller_details = '" + textBox4.Text + "', journal_staff_trade_representative = '" + textBox7.Text + "', journal_sum = " + labelSum.Text + ", journal_tax = " + labelNDS.Text + ", journal_total = " + labelTotal.Text + " WHERE (id_journal = " + ActionID + ")";
+				if(OrderMySQL.ExecuteNonQuery()){
+					if(OrderTS_MySQL.ExecuteUpdate(OrderTS_DataSet, "tabularsection")){
+						// ИСТОРИЯ: Запись в журнал истории обновлений
+						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
+						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное сохранены изменения документа Заказ.", false);
+						// Закрыть окно
+						Close();
+					} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка сохранения табличной части.", true);
+				} else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка сохранения данных о документе в журнале документов.", true);
 			}
 		}
 		
