@@ -98,26 +98,6 @@ namespace Rapid
 				OrderTS_MySQL.DeleteSqlCommand = "DELETE FROM tabularsection WHERE (id_tabularSection = ?)";
 				OrderTS_MySQL.DeleteParametersAdd("@id_tabularSection", MySqlDbType.Int16, 11, "id_tabularSection", UpdateRowSource.None);
 				
-				/*
-				OrderTS_MySQL.UpdateSqlCommand = "UPDATE tabularsection SET tabularSection_tmc = ?, tabularSection_units = ?, tabularSection_number = ?, tabularSection_price = ?, tabularSection_NDS = ?, tabularSection_sum = ?, tabularSection_total = ?, tabularSection_id_doc = ? WHERE (id_tabularSection = ?)" +
-												" AND (tabularSection_tmc = ? OR ? IS NULL AND tabularSection_tmc IS NULL)" +
-												" AND (tabularSection_units = ? OR ? IS NULL AND tabularSection_units IS NULL)" +
-												" AND (tabularSection_number = ? OR ? IS NULL AND tabularSection_number IS NULL)" +
-												" AND (tabularSection_price = ? OR ? IS NULL AND tabularSection_price IS NULL)" +
-												" AND (tabularSection_NDS = ? OR ? IS NULL AND tabularSection_NDS IS NULL)" +
-												" AND (tabularSection_sum = ? OR ? IS NULL AND tabularSection_sum IS NULL)" +
-												" AND (tabularSection_total = ? OR ? IS NULL AND tabularSection_total IS NULL)" +
-												" AND (tabularSection_id_doc = ? OR ? IS NULL AND tabularSection_id_doc IS NULL)";
-				OrderTS_MySQL.DeleteSqlCommand = "DELETE FROM tabularsection WHERE (id_tabularSection = ?)" +
-												" AND (tabularSection_tmc = ? OR ? IS NULL AND tabularSection_tmc IS NULL)" +
-												" AND (tabularSection_units = ? OR ? IS NULL AND tabularSection_units IS NULL)" +
-												" AND (tabularSection_number = ? OR ? IS NULL AND tabularSection_number IS NULL)" +
-												" AND (tabularSection_price = ? OR ? IS NULL AND tabularSection_price IS NULL)" +
-												" AND (tabularSection_NDS = ? OR ? IS NULL AND tabularSection_NDS IS NULL)" +
-												" AND (tabularSection_sum = ? OR ? IS NULL AND tabularSection_sum IS NULL)" +
-												" AND (tabularSection_total = ? OR ? IS NULL AND tabularSection_total IS NULL)" +
-												" AND (tabularSection_id_doc = ? OR ? IS NULL AND tabularSection_id_doc IS NULL)";
-				*/
 				if(OrderTS_MySQL.ExecuteFill(OrderTS_DataSet, "tabularsection")){
 					// формируем табличную часть
 					dataGrid1.DataSource = OrderTS_DataSet;		//.Tables["tabularsection"];
@@ -135,6 +115,8 @@ namespace Rapid
 				DocID = "ORDER:" + DateTime.Now.ToString();
 				// Загружаем информацию из констант
 				textBox6.Text = ClassSelectConst.constantValue("Основной склад");
+				textBox5.Text = ClassSelectConst.constantValue("Наша фирма");
+				textBox2.Text = ClassSelectConst.constantValue("Покупатель");
 				label12.Text = ClassConfig.Rapid_Client_UserName;
 				//формируем табличную часть
 				LoadTabularSection();
@@ -201,6 +183,7 @@ namespace Rapid
 		{
 			textBox2.Clear();
 			textBox3.Clear();
+			textBox7.Clear();
 		}
 		
 		/* Загрузка данных из таблицы фирмы*/
@@ -213,7 +196,10 @@ namespace Rapid
 			firmMySQL.SelectSqlCommand = "SELECT * FROM firms WHERE (firm_name = '" + firmName + "')";
 			if(firmMySQL.ExecuteFill(firmDataSet, "firms")){
 				DataTable table = firmDataSet.Tables["firms"];
-				if(table.Rows.Count > 0) textBox3.Text = table.Rows[0]["firm_details"].ToString() + System.Environment.NewLine + "Адрес и телефон:" + System.Environment.NewLine + table.Rows[0]["firm_address_phone"].ToString();
+				if(table.Rows.Count > 0){
+					textBox3.Text = table.Rows[0]["firm_details"].ToString() + System.Environment.NewLine + "Адрес и телефон:" + System.Environment.NewLine + table.Rows[0]["firm_address_phone"].ToString();
+					textBox7.Text = table.Rows[0]["firm_trade_representative"].ToString();
+				}
 			   	
 			}else ClassForms.Rapid_Client.MessageConsole("Заказ: Ошибка при загрузке данных о фирме.", true);
 		}
@@ -282,6 +268,11 @@ namespace Rapid
 		{
 			SelectStore();
 		}
+		
+		void Button13Click(object sender, EventArgs e)
+		{
+			textBox6.Clear();
+		}
 		/*---------------------------------------------------------*/
 		
 		/* Обращение к справочнику "Сотрудник" */
@@ -297,6 +288,11 @@ namespace Rapid
 		void Button9Click(object sender, EventArgs e)
 		{
 			SelectStaff();
+		}
+		
+		void Button14Click(object sender, EventArgs e)
+		{
+			textBox7.Clear();
 		}
 		/*---------------------------------------------------------*/
 		
@@ -439,5 +435,9 @@ namespace Rapid
 			SaveDoc(); //сохранение документа.
 		}
 		/*---------------------------------------------------------*/
+		
+		
+		
+		
 	}
 }

@@ -196,5 +196,77 @@ namespace Rapid
 		{
 			OpenEditDoc();
 		}
+		
+		void ИзменитьДокументToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			OpenEditDoc();
+		}
+		/*--------------------------------------------------------------------*/
+		
+		/* ВЫБОР: при выборе строки в таблице */
+		void ListView1SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// выбранная строка таблицы
+			if(listView1.SelectedItems.Count > 0)
+				selectTableLine = listView1.SelectedItems[0].Index; // индекс выбраной строки
+			// удалить или восстановить
+			if(listView1.SelectedIndices.Count > 0){ // проверка выбранного элемента
+				// документ
+				if(listView1.SelectedItems[0].StateImageIndex == 3)
+					удалитьДокументToolStripMenuItem.Text = "Восстановить документ.";
+				else удалитьДокументToolStripMenuItem.Text = "Удалить документ.";
+			}
+		}
+		/*--------------------------------------------------------------------*/
+		
+		/* Удаление выбранного документа */
+		void DeleteDoc()
+		{
+			if(ClassConfig.Rapid_Client_UserRight == "admin" || ClassConfig.Rapid_Client_UserName == listView1.Items[listView1.SelectedIndices[0]].SubItems[5].Text.ToString()){
+				if(listView1.SelectedIndices.Count > 0){ // проверка выбранного элемента
+					// Удалить документ Заказ ***************************************
+					if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Заказ")
+					{
+						if(listView1.SelectedItems[0].StateImageIndex == 2){ // не удалён
+							// Установка отметки удаления 
+							if(MessageBox.Show("Пометить документ на удаление?", "Вопрос:", MessageBoxButtons.YesNo) == DialogResult.Yes){
+								ClassMySQL_Short SQLCommand = new ClassMySQL_Short();
+								SQLCommand.SqlCommand = "UPDATE journal SET journal_delete = 1 WHERE (id_journal = " + listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString() + ")";
+								if(SQLCommand.ExecuteNonQuery()){
+									// ИСТОРИЯ: Запись в журнал истории обновлений
+									ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Удаление документа.", "");
+									ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное удаление документа.", false);
+								} else ClassForms.Rapid_Client.MessageConsole("Полный журнал: Ошибка выполнения запроса к таблице 'Журнал' при удалении документа.", true);
+							}
+						}else{ // уже уданён
+							// Восстановление записи
+							if(MessageBox.Show("Восстановить запись?", "Вопрос:", MessageBoxButtons.YesNo) == DialogResult.Yes){
+								ClassMySQL_Short SQLCommand = new ClassMySQL_Short();
+								SQLCommand.SqlCommand = "UPDATE journal SET journal_delete = 0 WHERE (id_journal = " + listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString() + ")";
+								if(SQLCommand.ExecuteNonQuery()){
+									// ИСТОРИЯ: Запись в журнал истории обновлений
+									ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Восстановление документа.", "");
+									ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное восстановление документа.", false);
+								} else ClassForms.Rapid_Client.MessageConsole("Склады: Ошибка выполнения запроса к таблице 'Журнал' при восстановлении документа.", true);
+							}
+						}
+					}
+					//*************************************************
+				}
+			}else ClassForms.Rapid_Client.MessageConsole("Полный журнал: у вас недостаточно прав для удаления выбранного документа.", false);
+					
+		}
+		
+		void Button9Click(object sender, EventArgs e)
+		{
+			DeleteDoc();
+		}
+		
+		void УдалитьДокументToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			DeleteDoc();
+		}
+		/*--------------------------------------------------------------------*/
+		
 	}
 }

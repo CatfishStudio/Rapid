@@ -44,6 +44,8 @@ namespace Rapid
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.button14 = new System.Windows.Forms.Button();
+			this.button13 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
 			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
@@ -150,6 +152,8 @@ namespace Rapid
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.button14);
+			this.tabPage1.Controls.Add(this.button13);
 			this.tabPage1.Controls.Add(this.button9);
 			this.tabPage1.Controls.Add(this.textBox7);
 			this.tabPage1.Controls.Add(this.label11);
@@ -166,10 +170,32 @@ namespace Rapid
 			this.tabPage1.Text = "Основные данные.";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// button14
+			// 
+			this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button14.Location = new System.Drawing.Point(450, 230);
+			this.button14.Name = "button14";
+			this.button14.Size = new System.Drawing.Size(25, 23);
+			this.button14.TabIndex = 24;
+			this.button14.Text = "Х";
+			this.button14.UseVisualStyleBackColor = true;
+			this.button14.Click += new System.EventHandler(this.Button14Click);
+			// 
+			// button13
+			// 
+			this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button13.Location = new System.Drawing.Point(450, 204);
+			this.button13.Name = "button13";
+			this.button13.Size = new System.Drawing.Size(25, 23);
+			this.button13.TabIndex = 23;
+			this.button13.Text = "Х";
+			this.button13.UseVisualStyleBackColor = true;
+			this.button13.Click += new System.EventHandler(this.Button13Click);
+			// 
 			// button9
 			// 
 			this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button9.Location = new System.Drawing.Point(450, 230);
+			this.button9.Location = new System.Drawing.Point(423, 230);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(25, 23);
 			this.button9.TabIndex = 22;
@@ -183,7 +209,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox7.Location = new System.Drawing.Point(101, 232);
 			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(347, 20);
+			this.textBox7.Size = new System.Drawing.Size(320, 20);
 			this.textBox7.TabIndex = 21;
 			// 
 			// label11
@@ -197,7 +223,7 @@ namespace Rapid
 			// button5
 			// 
 			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button5.Location = new System.Drawing.Point(450, 204);
+			this.button5.Location = new System.Drawing.Point(423, 204);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(25, 23);
 			this.button5.TabIndex = 19;
@@ -211,7 +237,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox6.Location = new System.Drawing.Point(101, 206);
 			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(347, 20);
+			this.textBox6.Size = new System.Drawing.Size(320, 20);
 			this.textBox6.TabIndex = 18;
 			// 
 			// label7
@@ -687,6 +713,8 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button13;
+		private System.Windows.Forms.Button button14;
 		private System.Windows.Forms.Label labelTotal;
 		private System.Windows.Forms.Label labelNDS;
 		private System.Windows.Forms.Label labelSum;

@@ -102,7 +102,7 @@ namespace Rapid
 			this.button1.Size = new System.Drawing.Size(25, 23);
 			this.button1.TabIndex = 1;
 			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button1, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button1, "Создать Заказ");
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
@@ -114,7 +114,7 @@ namespace Rapid
 			this.button2.Size = new System.Drawing.Size(25, 23);
 			this.button2.TabIndex = 2;
 			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button2, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button2, "Создать Приходную накладную");
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
@@ -126,7 +126,7 @@ namespace Rapid
 			this.button3.Size = new System.Drawing.Size(25, 23);
 			this.button3.TabIndex = 3;
 			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button3, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button3, "Создать Расходную накладную.");
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
@@ -138,7 +138,7 @@ namespace Rapid
 			this.button4.Size = new System.Drawing.Size(25, 23);
 			this.button4.TabIndex = 10;
 			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button4, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button4, "Редактировать документ.");
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
@@ -150,7 +150,7 @@ namespace Rapid
 			this.button5.Size = new System.Drawing.Size(25, 23);
 			this.button5.TabIndex = 15;
 			this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button5, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button5, "Применить период.");
 			this.button5.UseVisualStyleBackColor = true;
 			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
@@ -162,7 +162,7 @@ namespace Rapid
 			this.button6.Size = new System.Drawing.Size(25, 23);
 			this.button6.TabIndex = 18;
 			this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button6, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button6, "Выбрать тип документа.");
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
@@ -187,8 +187,9 @@ namespace Rapid
 			this.button9.Size = new System.Drawing.Size(25, 23);
 			this.button9.TabIndex = 22;
 			this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip1.SetToolTip(this.button9, "Создать папку.");
+			this.toolTip1.SetToolTip(this.button9, "Удалить документ.");
 			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
 			// panel1
 			// 
@@ -324,6 +325,7 @@ namespace Rapid
 			this.listView1.TabIndex = 5;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
+			this.listView1.SelectedIndexChanged += new System.EventHandler(this.ListView1SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -460,6 +462,7 @@ namespace Rapid
 			this.изменитьДокументToolStripMenuItem.Name = "изменитьДокументToolStripMenuItem";
 			this.изменитьДокументToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
 			this.изменитьДокументToolStripMenuItem.Text = "Изменить документ.";
+			this.изменитьДокументToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьДокументToolStripMenuItemClick);
 			// 
 			// удалитьДокументToolStripMenuItem
 			// 
@@ -467,6 +470,7 @@ namespace Rapid
 			this.удалитьДокументToolStripMenuItem.Name = "удалитьДокументToolStripMenuItem";
 			this.удалитьДокументToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
 			this.удалитьДокументToolStripMenuItem.Text = "Удалить документ.";
+			this.удалитьДокументToolStripMenuItem.Click += new System.EventHandler(this.УдалитьДокументToolStripMenuItemClick);
 			// 
 			// button8
 			// 
