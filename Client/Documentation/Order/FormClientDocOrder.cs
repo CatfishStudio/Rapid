@@ -9,9 +9,11 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Rapid.Client.Firms;
+using Rapid.Service;
 
 namespace Rapid
 {
@@ -391,9 +393,102 @@ namespace Rapid
 		/*---------------------------------------------------------*/
 		
 		/* Печать */
+		/* построение отчёта для печати */
+		void PrintDocument1PrintPage(object sender, PrintPageEventArgs e)
+		{
+			// ЗАГОЛОВОК ДОКУМЕНТА: Заказ №  Дата
+			e.Graphics.DrawString("ЗАКАЗ № " + textBox1.Text + "   дата: " + dateTimePicker1.Text, new Font("Microsoft Sans Serif", 14, FontStyle.Regular), Brushes.Black, 20, 20);
+			// ЧАСТЬ ДОКУМЕНТА: Продавец
+			e.Graphics.DrawString("Продавец: " + textBox5.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 60);
+			e.Graphics.DrawLine(new Pen(Color.Black), 110, 85, 600, 85);
+			e.Graphics.DrawString(textBox4.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 95);
+			// ЧАСТЬ ДОКУМЕНТА: Прокупатель
+			e.Graphics.DrawString("Покупатель: " + textBox2.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 190);
+			e.Graphics.DrawLine(new Pen(Color.Black), 110, 215, 600, 215);
+			e.Graphics.DrawString(textBox3.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 225);
+			// ЧАСТЬ ДОКУМЕНТА: Склад
+			e.Graphics.DrawString("Склад: " + textBox6.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 300);
+			// ТАБЛИЧНАЯ ЧАСТЬ: Заголовоки столбцов
+			//    Наименование
+			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(0, 340, 200, 25));
+			e.Graphics.DrawString("Наименование:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 5, 340);
+			//    Ед. изм.
+			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(205, 340, 65, 25));
+			e.Graphics.DrawString("Ед.изм:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 210, 340);
+			//    Количество.
+			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(275, 340, 65, 25));
+			e.Graphics.DrawString("Кол-во:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 280, 340);
+			//    Цена.
+			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(345, 340, 100, 25));
+			e.Graphics.DrawString("Цена:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 350, 340);
+			//    НДС.
+			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(450, 340, 100, 25));
+			e.Graphics.DrawString("НДС:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 455, 340);
+			//    Сумма.
+			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(555, 340, 100, 25));
+			e.Graphics.DrawString("Сумма:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 560, 340);
+			// ТАБЛИЧНАЯ ЧАСТЬ: Загрузка данных из таблицы
+			int PosY = 340;
+			foreach(DataRow row in OrderTS_DataSet.Tables["tabularsection"].Rows)
+        	{
+				PosY += 30;
+				//    Наименование
+				e.Graphics.DrawString(row["tabularSection_tmc"].ToString(), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 5, PosY);
+				//    Ед. изм.
+				e.Graphics.DrawString(row["tabularSection_units"].ToString(), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 210, PosY);
+				//    Количество.
+				e.Graphics.DrawString(row["tabularSection_number"].ToString(), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 280, PosY);
+				//    Цена.
+				e.Graphics.DrawString(ClassConversion.StringToMoney(row["tabularSection_price"].ToString()), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 350, PosY);
+				//    НДС.
+				e.Graphics.DrawString(ClassConversion.StringToMoney(row["tabularSection_NDS"].ToString()), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 455, PosY);
+				//    Сумма.
+				e.Graphics.DrawString(ClassConversion.StringToMoney(row["tabularSection_sum"].ToString()), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 560, PosY);
+			}
+			PosY += 30;
+			e.Graphics.DrawLine(new Pen(Color.Black), 0, PosY, 650, PosY);
+			// ТАБЛИЧНАЯ ЧАСТЬ: Подвал
+			//    Итого (по сумме)
+			PosY += 15;
+			e.Graphics.DrawString("Итого:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 455, PosY);
+			e.Graphics.DrawString(labelSum.Text, new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 560, PosY);
+			//    НДС (по ндс)
+			PosY += 30;
+			e.Graphics.DrawString("НДС:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 455, PosY);
+			e.Graphics.DrawString(labelNDS.Text, new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 560, PosY);
+			//    Всего
+			PosY += 30;
+			e.Graphics.DrawString("Всего:", new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 455, PosY);
+			e.Graphics.DrawString(labelTotal.Text, new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 560, PosY);
+			// ПОДВАЛ ДОКУМЕНТА: торг. пред. и подписи.
+			//    Подпись продавца / покупателя
+			PosY += 70;
+			e.Graphics.DrawLine(new Pen(Color.Black), 20, PosY, 150, PosY);
+			e.Graphics.DrawLine(new Pen(Color.Black), 450, PosY, 580, PosY);
+			PosY += 5;
+			e.Graphics.DrawString("Подпись (продавеца)", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Black, 30, PosY);
+			e.Graphics.DrawString("Подпись (покупателя)", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Black, 460, PosY);
+			// Торговый представитель
+			PosY += 30;
+			e.Graphics.DrawString("Заказ оформил (торг. пред.): " + textBox7.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 0, PosY);
+		}
+		
 		void Button12Click(object sender, EventArgs e)
 		{
-			
+			if(printDialog1.ShowDialog() == DialogResult.OK)
+			{
+				printDocument1.PrinterSettings = printDialog1.PrinterSettings;
+				printDocument1.Print();
+			}
+		}
+		
+		void Button17Click(object sender, EventArgs e)
+		{
+			// просмотр бланка отчета
+			PrintPreviewDialog ppd = new PrintPreviewDialog();
+			ppd.Document = printDocument1;
+			ppd.MdiParent = ClassForms.Rapid_Client;
+			ppd.Show();			
 		}
 		/*---------------------------------------------------------*/
 		
@@ -435,6 +530,8 @@ namespace Rapid
 			SaveDoc(); //сохранение документа.
 		}
 		/*---------------------------------------------------------*/
+		
+		
 		
 		
 		

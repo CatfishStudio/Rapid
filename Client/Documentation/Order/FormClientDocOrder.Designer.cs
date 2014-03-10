@@ -93,6 +93,9 @@ namespace Rapid
 			this.button11 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.label12 = new System.Windows.Forms.Label();
+			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+			this.printDialog1 = new System.Windows.Forms.PrintDialog();
+			this.button17 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -682,11 +685,36 @@ namespace Rapid
 			this.label12.TabIndex = 19;
 			this.label12.Text = "Автор:";
 			// 
+			// printDocument1
+			// 
+			this.printDocument1.OriginAtMargins = true;
+			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
+			// 
+			// printDialog1
+			// 
+			this.printDialog1.Document = this.printDocument1;
+			this.printDialog1.UseEXDialog = true;
+			// 
+			// button17
+			// 
+			this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
+			this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button17.Location = new System.Drawing.Point(179, 327);
+			this.button17.Name = "button17";
+			this.button17.Size = new System.Drawing.Size(85, 23);
+			this.button17.TabIndex = 22;
+			this.button17.Text = "Просмотр";
+			this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button17.UseVisualStyleBackColor = true;
+			this.button17.Click += new System.EventHandler(this.Button17Click);
+			// 
 			// FormClientDocOrder
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(519, 357);
+			this.Controls.Add(this.button17);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.button12);
 			this.Controls.Add(this.button11);
@@ -713,6 +741,9 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button17;
+		private System.Windows.Forms.PrintDialog printDialog1;
+		private System.Drawing.Printing.PrintDocument printDocument1;
 		private System.Windows.Forms.Button button13;
 		private System.Windows.Forms.Button button14;
 		private System.Windows.Forms.Label labelTotal;
