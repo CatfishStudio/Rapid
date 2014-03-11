@@ -72,6 +72,7 @@
     <Compile Include="Administrator\FormAdminUsers.Designer.cs">
       <DependentUpon>FormAdminUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ClassBalance.cs" />
     <Compile Include="Classes\ClassCalculation.cs" />
     <Compile Include="Classes\ClassConfig.cs" />
     <Compile Include="Classes\ClassConversion.cs" />
@@ -109,6 +110,10 @@
     <Compile Include="Client\Documentation\TabularSection\FormClientDocTableElement.cs" />
     <Compile Include="Client\Documentation\TabularSection\FormClientDocTableElement.Designer.cs">
       <DependentUpon>FormClientDocTableElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Documentation\Сoming\FormClientDocComing.cs" />
+    <Compile Include="Client\Documentation\Сoming\FormClientDocComing.Designer.cs">
+      <DependentUpon>FormClientDocComing.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\FormClient.cs" />
     <Compile Include="Client\FormClient.Designer.cs">
@@ -233,6 +238,9 @@
     <EmbeddedResource Include="Client\Documentation\TabularSection\FormClientDocTableElement.resx">
       <DependentUpon>FormClientDocTableElement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\Сoming\FormClientDocComing.resx">
+      <DependentUpon>FormClientDocComing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +320,8 @@
     <Folder Include="Client\Directories" />
     <Folder Include="Client\Documentation\Order" />
     <Folder Include="Client\Documentation\TabularSection" />
+    <Folder Include="Client\Documentation\Expense" />
+    <Folder Include="Client\Documentation\Сoming" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />
     <Folder Include="Service" />

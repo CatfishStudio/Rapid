@@ -54,7 +54,7 @@ namespace Rapid
 		/*----------------------------------------------------------------*/
 		
 		/* Остаток на складе ---------------------------------------------*/
-		String balance(String _tmcName, String _actualDate)
+		/*String balance(String _tmcName, String _actualDate)
 		{
 			ClassMySQL_Full balanceMySQL = new ClassMySQL_Full();
 			DataSet balanceDataSet = new DataSet();
@@ -67,7 +67,7 @@ namespace Rapid
 					return table.Rows[0]["balance_number"].ToString();
 				} else return "--";
 			} else return "--";
-		}
+		}*/
 		/*----------------------------------------------------------------*/
 		
 		/* Расчет итогов -------------------------------------------------*/
@@ -109,7 +109,7 @@ namespace Rapid
 			// Загружаем информацию из констант
 			textBox2.Text = ClassSelectConst.constantValue("Ед. измерения");
 			if(this.Text == "Новая строка")	textBox5.Text = ClassSelectConst.constantValue("Вид НДС");
-			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			label9.Text = "Остаток на складе: " + ClassBalance.BalanceShow(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 			ClassForms.Rapid_Client.MessageConsole("Строка заказа: открыто окно обработки строки табличной части документа Заказ.", false);
 		}
 		/*----------------------------------------------------------------*/
@@ -144,7 +144,7 @@ namespace Rapid
 			   		textBox2.Text = table.Rows[0]["tmc_units"].ToString();
 			   		// Количество ТМЦ на складе
 			   		textBox3.Text = "1.00";
-			   		label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			   		label9.Text = "Остаток на складе: " + ClassBalance.BalanceShow(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 			   		// Цена (покупка или продажа)
 			   		if(BuyOrSell)textBox4.Text = ClassConversion.StringToMoney(table.Rows[0]["tmc_buy"].ToString());
 			   		else textBox4.Text = ClassConversion.StringToMoney(table.Rows[0]["tmc_sale"].ToString());
@@ -169,14 +169,14 @@ namespace Rapid
 		void TextBox1TextChanged(object sender, EventArgs e)
 		{
 			if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
-			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			label9.Text = "Остаток на складе: " + ClassBalance.BalanceShow(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 		}
 		
 		/* При потере фокуса */
 		void TextBox1LostFocus(object sender, EventArgs e)
 		{
 			//(Ошибка при открытии на редактирование)// if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
-			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			label9.Text = "Остаток на складе: " + ClassBalance.BalanceShow(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 		}
 		
 		/* При нажатии на Интер*/
@@ -184,7 +184,7 @@ namespace Rapid
 		{
 			if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab){
 				if(textBox1.Text != "") TmcDataLoad(textBox1.Text); // Загрузка данных
-				label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+				label9.Text = "Остаток на складе: " + ClassBalance.BalanceShow(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 			}
 		}
 		
@@ -199,7 +199,7 @@ namespace Rapid
 			textBox6.Text = "0.00";
 			textBox7.Text = "0.00";
 			textBox8.Text = "0.00";
-			label9.Text = "Остаток на складе: " + balance(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
+			label9.Text = "Остаток на складе: " + ClassBalance.BalanceShow(textBox1.Text, ActualDate) + " на дату: " + ActualDate;
 		}
 		/*----------------------------------------------------------------*/
 		
@@ -506,7 +506,6 @@ namespace Rapid
 			
 			// Сохранение изменённой строки в таблице документа
 			if(this.Text == "Изменить строку"){
-				//ParentDataSet
 				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"] = textBox1.Text;
 				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"] = textBox2.Text;
 				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"] = ClassConversion.StringToDouble(textBox3.Text);

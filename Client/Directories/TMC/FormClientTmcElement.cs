@@ -109,10 +109,8 @@ namespace Rapid
 				SQlCommand.SqlCommand = "INSERT INTO tmc (tmc_name, tmc_type_tax, tmc_units, tmc_buy, tmc_sale, tmc_store, tmc_additionally, tmc_type, tmc_folder, tmc_delete) VALUE ('" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', " + textBox4.Text + ", " + textBox5.Text + ", '" + textBox7.Text + "', '" + textBox6.Text + "', 0, '" + comboBox1.Text + "', 0)";
 				if(SQlCommand.ExecuteNonQuery()){
 					// Создание записи в остатках
-					ClassMySQL_Short SqlCommandBalance = new ClassMySQL_Short();
-					String DateInsert = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
-					SqlCommandBalance.SqlCommand = "INSERT INTO balance (balance_tmc, balance_date, balance_number) VALUE ('" + textBox1.Text + "', '" + DateInsert + "', 0)";
-					if(!SqlCommandBalance.ExecuteNonQuery()) ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка ввода новой записи в таблицу 'Остатки'", true);
+					ClassBalance.BalanceNew(textBox1.Text);
+					
 					// ИСТОРИЯ: Запись в журнал истории обновлений
 					ClassServer.SaveUpdateInBase(4, DateTime.Now.ToString(), "", "Создание новой записи.", "");
 					ClassForms.Rapid_Client.MessageConsole("ТМЦ: успешное создание новой записи.", false);
@@ -125,9 +123,8 @@ namespace Rapid
 					SQlCommand.SqlCommand = "UPDATE tmc SET tmc_name = '" + textBox1.Text + "', tmc_type_tax = '" + textBox2.Text + "', tmc_units = '" + textBox3.Text + "', tmc_buy = " + textBox4.Text + ", tmc_sale = " + textBox5.Text + ", tmc_store = '" + textBox7.Text + "', tmc_additionally = '" + textBox6.Text + "', tmc_folder = '" + comboBox1.Text + "' WHERE (id_tmc = " + ActionID + ") ";
 					if(SQlCommand.ExecuteNonQuery()){
 						// Изменение записей в остатках
-						ClassMySQL_Short SqlCommandBalance = new ClassMySQL_Short();
-						SqlCommandBalance.SqlCommand = "UPDATE balance SET balance_tmc = '" + textBox1.Text + "' WHERE (balance_tmc = '"+editName+"')";
-						if(!SqlCommandBalance.ExecuteNonQuery()) ClassForms.Rapid_Client.MessageConsole("ТМЦ: Ошибка изменений в таблице 'Остатки', переименование тмц.", true);
+						ClassBalance.BalanceEdit(textBox1.Text, editName);
+						
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(4, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("ТМЦ: успешное изменение записи.", false);
