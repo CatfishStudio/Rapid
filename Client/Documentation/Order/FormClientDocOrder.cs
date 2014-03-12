@@ -97,7 +97,7 @@ namespace Rapid
 				OrderTS_MySQL.UpdateParametersAdd("@tabularSection_id_doc", MySqlDbType.VarChar, 250, "tabularSection_id_doc", UpdateRowSource.None);
 				OrderTS_MySQL.UpdateParametersAdd("@id_tabularSection", MySqlDbType.Int16, 11, "id_tabularSection", UpdateRowSource.None);
 				
-				OrderTS_MySQL.DeleteSqlCommand = "DELETE FROM tabularsection WHERE (id_tabularSection = ?)";
+				OrderTS_MySQL.DeleteSqlCommand = "DELETE FROM tabularsection WHERE (id_tabularSection = @id_tabularSection)";
 				OrderTS_MySQL.DeleteParametersAdd("@id_tabularSection", MySqlDbType.Int16, 11, "id_tabularSection", UpdateRowSource.None);
 				
 				if(OrderTS_MySQL.ExecuteFill(OrderTS_DataSet, "tabularsection")){
