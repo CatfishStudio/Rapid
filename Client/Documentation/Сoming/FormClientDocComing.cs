@@ -24,7 +24,6 @@ namespace Rapid
 		/*Глобальные переменные */
 		private String DocID;	// Уникальный идентификатор документа (связь с табличной частью)
 		public String ActionID; // идентификатор документа для редактирования
-		public String DocBase; 	// идентификатор документа являющегося основанием
 		public ClassMySQL_Short ComingMySQL = new ClassMySQL_Short();
 		public ClassMySQL_Full ComingTS_MySQL = new ClassMySQL_Full();
 		public DataSet ComingTS_DataSet = new DataSet();
@@ -125,7 +124,7 @@ namespace Rapid
 				ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Создание нового документа.", false);
 			}
 			// При изменении записи
-			if(this.Text == "Изменить документ."){
+			if(this.Text == "Изменить документ." || this.Text == "Ввод на основании Заказа."){
 				// Загружаем основные данные.
 				JurnalDataSet.Clear();
 				JurnalDataSet.DataSetName = "journal";
@@ -158,7 +157,12 @@ namespace Rapid
 			}
 			// При вводе документа за основании Заказ
 			if(this.Text == "Ввод на основании Заказа."){
-				
+				// формируем уникальный идентификатор документа
+				DocID = "COMING:" + DateTime.Now.ToString();
+				foreach(DataRow row in ComingTS_DataSet.Tables["tabularsection"].Rows)
+        		{
+					row["tabularSection_id_doc"] = DocID;
+				}
 			}
 		}
 		
@@ -483,9 +487,11 @@ namespace Rapid
 			// При создании новой записи
 			if(this.Text == "Новая документ." || this.Text == "Ввод на основании Заказа."){
 				ComingMySQL.SqlCommand = "INSERT INTO journal (journal_id_doc, journal_date, journal_number, journal_user_autor, journal_type, journal_store, journal_firm_buyer, journal_firm_buyer_details, journal_firm_seller, journal_firm_seller_details, journal_staff_trade_representative, journal_typeTax, journal_sum, journal_tax, journal_total, journal_delete) " +
-					"VALUE ('" + DocID + "', '" + dateTimePicker1.Text + "', '" + textBox1.Text + "', '" + label12.Text + "', 'Заказ', '" + textBox6.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox5.Text + "', '" + textBox4.Text + "', '', '', " + labelSum.Text + ", " + labelNDS.Text + ", "+ labelTotal.Text + ", 0)";
+					"VALUE ('" + DocID + "', '" + dateTimePicker1.Text + "', '" + textBox1.Text + "', '" + label12.Text + "', 'Приходная Накладная', '" + textBox6.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox5.Text + "', '" + textBox4.Text + "', '', '', " + labelSum.Text + ", " + labelNDS.Text + ", "+ labelTotal.Text + ", 0)";
 				if(ComingMySQL.ExecuteNonQuery()){
 					if(ComingTS_MySQL.ExecuteUpdate(ComingTS_DataSet, "tabularsection")){
+						// ОСТАТКИ: Увеличение остатков
+						ClassBalance.BalancePlus(ComingTS_DataSet);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное создание нового документа Заказ.", false);
@@ -500,6 +506,8 @@ namespace Rapid
 				ComingMySQL.SqlCommand = "UPDATE journal SET journal_date = '" + dateTimePicker1.Text + "', journal_number = '" + textBox1.Text + "', journal_user_autor = '" + ClassConfig.Rapid_Client_UserName + "', journal_store = '" + textBox6.Text + "', journal_firm_buyer = '" + textBox2.Text + "', journal_firm_buyer_details = '" + textBox3.Text + "', journal_firm_seller = '" + textBox5.Text + "', journal_firm_seller_details = '" + textBox4.Text + "', journal_staff_trade_representative = '', journal_sum = " + labelSum.Text + ", journal_tax = " + labelNDS.Text + ", journal_total = " + labelTotal.Text + " WHERE (id_journal = " + ActionID + ")";
 				if(ComingMySQL.ExecuteNonQuery()){
 					if(ComingTS_MySQL.ExecuteUpdate(ComingTS_DataSet, "tabularsection")){
+						// ОСТАТКИ:  обновление остатков после изменений
+						ClassBalance.BalanceUpdate();
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное сохранены изменения документа Заказ.", false);

@@ -78,6 +78,13 @@ namespace Rapid
 			this.изменитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dataGridTableStyle1 = new System.Windows.Forms.DataGridTableStyle();
+			this.dataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn2 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn3 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn4 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn5 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn6 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dataGridTextBoxColumn7 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.button17 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
@@ -86,13 +93,6 @@ namespace Rapid
 			this.printDialog1 = new System.Windows.Forms.PrintDialog();
 			this.label12 = new System.Windows.Forms.Label();
 			this.button9 = new System.Windows.Forms.Button();
-			this.dataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn2 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn3 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn4 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn5 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn6 = new System.Windows.Forms.DataGridTextBoxColumn();
-			this.dataGridTextBoxColumn7 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -125,7 +125,7 @@ namespace Rapid
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(100, 20);
 			this.textBox1.TabIndex = 14;
-			this.textBox1.Text = "ЗК-0000";
+			this.textBox1.Text = "ПН-0000";
 			// 
 			// label1
 			// 
@@ -536,6 +536,62 @@ namespace Rapid
 			this.dataGridTableStyle1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
 			this.dataGridTableStyle1.MappingName = "tabularsection";
 			// 
+			// dataGridTextBoxColumn1
+			// 
+			this.dataGridTextBoxColumn1.Format = "";
+			this.dataGridTextBoxColumn1.FormatInfo = null;
+			this.dataGridTextBoxColumn1.HeaderText = "Наименование";
+			this.dataGridTextBoxColumn1.MappingName = "tabularSection_tmc";
+			this.dataGridTextBoxColumn1.Width = 300;
+			// 
+			// dataGridTextBoxColumn2
+			// 
+			this.dataGridTextBoxColumn2.Format = "";
+			this.dataGridTextBoxColumn2.FormatInfo = null;
+			this.dataGridTextBoxColumn2.HeaderText = "Ед.изм.";
+			this.dataGridTextBoxColumn2.MappingName = "tabularSection_units";
+			this.dataGridTextBoxColumn2.Width = 75;
+			// 
+			// dataGridTextBoxColumn3
+			// 
+			this.dataGridTextBoxColumn3.Format = "";
+			this.dataGridTextBoxColumn3.FormatInfo = null;
+			this.dataGridTextBoxColumn3.HeaderText = "Кол-во";
+			this.dataGridTextBoxColumn3.MappingName = "tabularSection_number";
+			this.dataGridTextBoxColumn3.Width = 75;
+			// 
+			// dataGridTextBoxColumn4
+			// 
+			this.dataGridTextBoxColumn4.Format = "";
+			this.dataGridTextBoxColumn4.FormatInfo = null;
+			this.dataGridTextBoxColumn4.HeaderText = "Цена";
+			this.dataGridTextBoxColumn4.MappingName = "tabularSection_price";
+			this.dataGridTextBoxColumn4.Width = 75;
+			// 
+			// dataGridTextBoxColumn5
+			// 
+			this.dataGridTextBoxColumn5.Format = "";
+			this.dataGridTextBoxColumn5.FormatInfo = null;
+			this.dataGridTextBoxColumn5.HeaderText = "НДС";
+			this.dataGridTextBoxColumn5.MappingName = "tabularSection_NDS";
+			this.dataGridTextBoxColumn5.Width = 75;
+			// 
+			// dataGridTextBoxColumn6
+			// 
+			this.dataGridTextBoxColumn6.Format = "";
+			this.dataGridTextBoxColumn6.FormatInfo = null;
+			this.dataGridTextBoxColumn6.HeaderText = "Сумма без НДС";
+			this.dataGridTextBoxColumn6.MappingName = "tabularSection_sum";
+			this.dataGridTextBoxColumn6.Width = 150;
+			// 
+			// dataGridTextBoxColumn7
+			// 
+			this.dataGridTextBoxColumn7.Format = "";
+			this.dataGridTextBoxColumn7.FormatInfo = null;
+			this.dataGridTextBoxColumn7.HeaderText = "Всего с НДС";
+			this.dataGridTextBoxColumn7.MappingName = "tabularSection_total";
+			this.dataGridTextBoxColumn7.Width = 150;
+			// 
 			// button17
 			// 
 			this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -618,62 +674,6 @@ namespace Rapid
 			this.button9.Text = "Дт/Кт";
 			this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button9.UseVisualStyleBackColor = true;
-			// 
-			// dataGridTextBoxColumn1
-			// 
-			this.dataGridTextBoxColumn1.Format = "";
-			this.dataGridTextBoxColumn1.FormatInfo = null;
-			this.dataGridTextBoxColumn1.HeaderText = "Наименование";
-			this.dataGridTextBoxColumn1.MappingName = "tabularSection_tmc";
-			this.dataGridTextBoxColumn1.Width = 300;
-			// 
-			// dataGridTextBoxColumn2
-			// 
-			this.dataGridTextBoxColumn2.Format = "";
-			this.dataGridTextBoxColumn2.FormatInfo = null;
-			this.dataGridTextBoxColumn2.HeaderText = "Ед.изм.";
-			this.dataGridTextBoxColumn2.MappingName = "tabularSection_units";
-			this.dataGridTextBoxColumn2.Width = 75;
-			// 
-			// dataGridTextBoxColumn3
-			// 
-			this.dataGridTextBoxColumn3.Format = "";
-			this.dataGridTextBoxColumn3.FormatInfo = null;
-			this.dataGridTextBoxColumn3.HeaderText = "Кол-во";
-			this.dataGridTextBoxColumn3.MappingName = "tabularSection_number";
-			this.dataGridTextBoxColumn3.Width = 75;
-			// 
-			// dataGridTextBoxColumn4
-			// 
-			this.dataGridTextBoxColumn4.Format = "";
-			this.dataGridTextBoxColumn4.FormatInfo = null;
-			this.dataGridTextBoxColumn4.HeaderText = "Цена";
-			this.dataGridTextBoxColumn4.MappingName = "tabularSection_price";
-			this.dataGridTextBoxColumn4.Width = 75;
-			// 
-			// dataGridTextBoxColumn5
-			// 
-			this.dataGridTextBoxColumn5.Format = "";
-			this.dataGridTextBoxColumn5.FormatInfo = null;
-			this.dataGridTextBoxColumn5.HeaderText = "НДС";
-			this.dataGridTextBoxColumn5.MappingName = "tabularSection_NDS";
-			this.dataGridTextBoxColumn5.Width = 75;
-			// 
-			// dataGridTextBoxColumn6
-			// 
-			this.dataGridTextBoxColumn6.Format = "";
-			this.dataGridTextBoxColumn6.FormatInfo = null;
-			this.dataGridTextBoxColumn6.HeaderText = "Сумма без НДС";
-			this.dataGridTextBoxColumn6.MappingName = "tabularSection_sum";
-			this.dataGridTextBoxColumn6.Width = 150;
-			// 
-			// dataGridTextBoxColumn7
-			// 
-			this.dataGridTextBoxColumn7.Format = "";
-			this.dataGridTextBoxColumn7.FormatInfo = null;
-			this.dataGridTextBoxColumn7.HeaderText = "Всего с НДС";
-			this.dataGridTextBoxColumn7.MappingName = "tabularSection_total";
-			this.dataGridTextBoxColumn7.Width = 150;
 			// 
 			// FormClientDocComing
 			// 

@@ -55,7 +55,17 @@ namespace Rapid
 		}
 		
 		/* Обновление данных в остатках */
-		public static void BalanceUpdate(DataSet ResourceDS)
+		public static void BalancePlus(DataSet ResourceDS)
+		{
+			
+		}
+		
+		public static void BalanceMinus()
+		{
+			
+		}
+		
+		public static void BalanceUpdate()
 		{
 			
 		}

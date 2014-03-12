@@ -141,7 +141,14 @@ namespace Rapid
 		/* ввод на основании: приход */
 		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			
+			if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Заказ")
+			{
+				FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
+				Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
+				Rapid_ClientDocComing.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
+				Rapid_ClientDocComing.Text = "Ввод на основании Заказа.";
+				Rapid_ClientDocComing.Show();	
+			}
 		}
 		
 		/* ввод на основании: расход */
@@ -153,12 +160,18 @@ namespace Rapid
 		/* документ: Приходная накладная */
 		void Button2Click(object sender, EventArgs e)
 		{
-			
+			FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
+			Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocComing.Text = "Новая документ.";
+			Rapid_ClientDocComing.Show();			
 		}
 				
 		void СоздатьДокументToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			
+			FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
+			Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocComing.Text = "Новая документ.";
+			Rapid_ClientDocComing.Show();			
 		}
 		
 		/* документ: Расходная накладная */
@@ -187,6 +200,14 @@ namespace Rapid
 						Rapid_ClientDocOrder.Text = "Изменить документ.";
 						Rapid_ClientDocOrder.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
 						Rapid_ClientDocOrder.Show();
+					}
+					if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Приходная Накладная")
+					{
+						FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
+						Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
+						Rapid_ClientDocComing.Text = "Изменить документ.";
+						Rapid_ClientDocComing.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
+						Rapid_ClientDocComing.Show();
 					}
 				}
 			}
