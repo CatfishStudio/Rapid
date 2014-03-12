@@ -178,7 +178,10 @@ namespace Rapid
 		/* документ Приходная накладная */
 		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			//...	
+			FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
+			Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocComing.Text = "Новая документ.";
+			Rapid_ClientDocComing.Show();
 		}
 		
 		/* документ Расходная накладная */

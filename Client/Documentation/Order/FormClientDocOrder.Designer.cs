@@ -642,7 +642,7 @@ namespace Rapid
 			// button10
 			// 
 			this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button10.Location = new System.Drawing.Point(432, 327);
+			this.button10.Location = new System.Drawing.Point(430, 327);
 			this.button10.Name = "button10";
 			this.button10.Size = new System.Drawing.Size(75, 23);
 			this.button10.TabIndex = 16;
@@ -653,7 +653,7 @@ namespace Rapid
 			// button11
 			// 
 			this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button11.Location = new System.Drawing.Point(351, 327);
+			this.button11.Location = new System.Drawing.Point(349, 327);
 			this.button11.Name = "button11";
 			this.button11.Size = new System.Drawing.Size(75, 23);
 			this.button11.TabIndex = 17;
@@ -666,7 +666,7 @@ namespace Rapid
 			this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
 			this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button12.Location = new System.Drawing.Point(270, 327);
+			this.button12.Location = new System.Drawing.Point(268, 327);
 			this.button12.Name = "button12";
 			this.button12.Size = new System.Drawing.Size(75, 23);
 			this.button12.TabIndex = 18;
@@ -700,7 +700,7 @@ namespace Rapid
 			this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
 			this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button17.Location = new System.Drawing.Point(179, 327);
+			this.button17.Location = new System.Drawing.Point(177, 327);
 			this.button17.Name = "button17";
 			this.button17.Size = new System.Drawing.Size(85, 23);
 			this.button17.TabIndex = 22;

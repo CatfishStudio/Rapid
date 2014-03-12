@@ -433,16 +433,22 @@ namespace Rapid
         	{
 				PosY += 30;
 				//    Наименование
+				e.Graphics.FillRectangle(Brushes.White, new Rectangle(0, PosY, 200, 25));
 				e.Graphics.DrawString(row["tabularSection_tmc"].ToString(), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 5, PosY);
 				//    Ед. изм.
+				e.Graphics.FillRectangle(Brushes.White, new Rectangle(205, PosY, 65, 25));
 				e.Graphics.DrawString(row["tabularSection_units"].ToString(), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 210, PosY);
 				//    Количество.
+				e.Graphics.FillRectangle(Brushes.White, new Rectangle(275, PosY, 65, 25));
 				e.Graphics.DrawString(row["tabularSection_number"].ToString(), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 280, PosY);
 				//    Цена.
+				e.Graphics.FillRectangle(Brushes.White, new Rectangle(345, PosY, 100, 25));
 				e.Graphics.DrawString(ClassConversion.StringToMoney(row["tabularSection_price"].ToString()), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 350, PosY);
 				//    НДС.
+				e.Graphics.FillRectangle(Brushes.White, new Rectangle(450, PosY, 100, 25));
 				e.Graphics.DrawString(ClassConversion.StringToMoney(row["tabularSection_NDS"].ToString()), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 455, PosY);
 				//    Сумма.
+				e.Graphics.FillRectangle(Brushes.White, new Rectangle(555, PosY, 100, 25));
 				e.Graphics.DrawString(ClassConversion.StringToMoney(row["tabularSection_sum"].ToString()), new Font("Microsoft Sans Serif", 10, FontStyle.Regular), Brushes.Black, 560, PosY);
 			}
 			PosY += 30;
