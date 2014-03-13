@@ -8,6 +8,7 @@
  */
 using System;
 using System.Data;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Rapid
@@ -62,19 +63,20 @@ namespace Rapid
 			DataSet _dataSet = new DataSet();
 			_dataSet.Clear();
 			_dataSet.DataSetName = "balance";
-			_mySql.SelectSqlCommand = "SELECT balance_tmc, balance_date, balance_number FROM balance";
+			_mySql.SelectSqlCommand = "SELECT id_balance, balance_tmc, balance_date, balance_number FROM balance";
 			_mySql.InsertSqlCommand = "INSERT INTO balance (balance_tmc, balance_date, balance_number) VALUE (@balance_tmc, @balance_date, @balance_number)";
 			_mySql.InsertParametersAdd("@balance_tmc", MySqlDbType.VarChar, 250, "balance_tmc", UpdateRowSource.None);
 			_mySql.InsertParametersAdd("@balance_date", MySqlDbType.Date, 10, "balance_date", UpdateRowSource.None);
 			_mySql.InsertParametersAdd("@balance_number", MySqlDbType.Double, 10, "balance_number", UpdateRowSource.None);
 			_mySql.UpdateSqlCommand = "UPDATE balance SET balance_tmc = @balance_tmc, balance_date = @balance_date, balance_number = @balance_number WHERE (id_balance = @id_balance)";
-			_mySql.UpdateParametersAdd("@id_balance", MySqlDbType.Int16, 11, "id_balance", UpdateRowSource.None);
 			_mySql.UpdateParametersAdd("@balance_tmc", MySqlDbType.VarChar, 250, "balance_tmc", UpdateRowSource.None);
 			_mySql.UpdateParametersAdd("@balance_date", MySqlDbType.Date, 10, "balance_date", UpdateRowSource.None);
 			_mySql.UpdateParametersAdd("@balance_number", MySqlDbType.Double, 10, "balance_number", UpdateRowSource.None);
+			_mySql.UpdateParametersAdd("@id_balance", MySqlDbType.Int16, 11, "id_balance", UpdateRowSource.None);
 			_mySql.DeleteSqlCommand = "DELETE FROM balance WHERE (id_balance = @id_balance)";
 			_mySql.DeleteParametersAdd("@id_balance", MySqlDbType.Int16, 11, "id_balance", UpdateRowSource.None);
 			if(_mySql.ExecuteFill(_dataSet, "balance")){
+				
 				// Ввод остатков
 				foreach (DataRow rowTS in ResourceDS.Tables["tabularsection"].Rows)
         		{
@@ -85,8 +87,10 @@ namespace Rapid
 						}
 					}
 				}
-				if(!_mySql.ExecuteUpdate(_dataSet, "balance"))
-					ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка ввод и сохранения новых остатков.", true);
+								
+				if(_mySql.ExecuteUpdate(_dataSet, "balance")){
+					ClassForms.Rapid_Client.MessageConsole("Остатки: Успешное обновление остатков.", false);
+				}else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка ввод и сохранения новых остатков.", true);
 			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к остаткам.", true);
 		}
 		
