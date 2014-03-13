@@ -30,6 +30,8 @@ namespace Rapid
 		// для редактирования основной информации
 		private ClassMySQL_Full JurnalMySQL = new ClassMySQL_Full();
 		private DataSet JurnalDataSet = new DataSet();
+		// исходная табличная часть
+		private DataSet OldDS;
 		
 		public FormClientDocComing()
 		{
@@ -150,7 +152,7 @@ namespace Rapid
 					labelTotal.Text = ClassConversion.StringToMoney(_table.Rows[0]["journal_total"].ToString());
 					// Загрузка информации табличной части.
 					LoadTabularSection();
-					
+					OldDS = ComingTS_DataSet; // исходная табличная часть
 				} else ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Ошибка загрузки основной информации.", true);
 				
 				ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Открытие документа для ввода изменений.", false);
@@ -291,7 +293,8 @@ namespace Rapid
 			Rapid_ClientDocOrderElement.Text = "Новая строка";
 			Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
 			Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
-			Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;		// родительский DataSet
+			Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
+			Rapid_ClientDocOrderElement.ParentDataGrid = dataGrid1;			// родительский DataGrid
 			Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
 			Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
 			Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
@@ -318,7 +321,8 @@ namespace Rapid
 				Rapid_ClientDocOrderElement.Text = "Изменить строку";
 				Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
 				Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
-				Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;		// родительский DataSet
+				Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
+				Rapid_ClientDocOrderElement.ParentDataGrid = dataGrid1;			// родительский DataGrid
 				Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
 				Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
 				Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
@@ -507,7 +511,7 @@ namespace Rapid
 				if(ComingMySQL.ExecuteNonQuery()){
 					if(ComingTS_MySQL.ExecuteUpdate(ComingTS_DataSet, "tabularsection")){
 						// ОСТАТКИ:  обновление остатков после изменений
-						ClassBalance.BalanceUpdate();
+						ClassBalance.BalanceUpdatePlus(OldDS, ComingTS_DataSet);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное сохранены изменения документа Заказ.", false);

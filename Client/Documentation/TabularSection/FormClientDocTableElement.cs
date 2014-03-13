@@ -21,6 +21,7 @@ namespace Rapid
 	{
 		/* Глобальные переменные */
 		public DataSet ParentDataSet;			// родительский объект DataSet
+		public DataGrid ParentDataGrid;			// родительский объект DataGrid
 		public Label labelSum;					// родительская метка "сумма"
 		public Label labelNDS;					// родительская метка "ндс"
 		public Label labelTotal;				// родительская метка "всего"
@@ -53,29 +54,13 @@ namespace Rapid
 		}
 		/*----------------------------------------------------------------*/
 		
-		/* Остаток на складе ---------------------------------------------*/
-		/*String balance(String _tmcName, String _actualDate)
-		{
-			ClassMySQL_Full balanceMySQL = new ClassMySQL_Full();
-			DataSet balanceDataSet = new DataSet();
-			balanceDataSet.Clear();
-			balanceDataSet.DataSetName = "balance";
-			balanceMySQL.SelectSqlCommand = "SELECT * FROM balance WHERE (balance_tmc = '" + _tmcName + "' AND balance_date <= '" + _actualDate + "')";
-			if(balanceMySQL.ExecuteFill(balanceDataSet, "balance")){
-				DataTable table = balanceDataSet.Tables["balance"];
-				if(table.Rows.Count > 0){
-					return table.Rows[0]["balance_number"].ToString();
-				} else return "--";
-			} else return "--";
-		}*/
-		/*----------------------------------------------------------------*/
-		
 		/* Расчет итогов -------------------------------------------------*/
 		void CalculationResults()
 		{
 			double _sum = 0;
 			double _nds = 0;
 			double _total = 0;
+			//for(int i = 0; i < ParentDataGrid.VisibleRowCount; i++)
 			for(int i = 0; i < ParentDataSet.Tables["tabularsection"].Rows.Count; i++)
 			{
 				_sum = _sum + ClassConversion.StringToDouble(ParentDataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
