@@ -48,22 +48,26 @@ namespace Rapid
 		/* Расчет итогов -------------------------------------------------*/
 		void CalculationResults()
 		{
-			double _sum = 0;
-			double _nds = 0;
-			double _total = 0;
-			for(int i = 0; i < dataGrid1.VisibleRowCount; i++)
-			{
-				_sum = _sum + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
-				_nds = _nds + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
-				_total = _total + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
-			}
-			_sum = Math.Round(_sum, 2);
-			_nds = Math.Round(_nds, 2);
-			_total = Math.Round(_total, 2);
+			try{
+				double _sum = 0;
+				double _nds = 0;
+				double _total = 0;
+				for(int i = 0; i < dataGrid1.VisibleRowCount; i++)
+				{
+					_sum = _sum + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
+					_nds = _nds + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
+					_total = _total + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+				}
+				_sum = Math.Round(_sum, 2);
+				_nds = Math.Round(_nds, 2);
+				_total = Math.Round(_total, 2);
 			
-			labelSum.Text = ClassConversion.StringToMoney(_sum.ToString());
-			labelNDS.Text = ClassConversion.StringToMoney(_nds.ToString());
-			labelTotal.Text = ClassConversion.StringToMoney(_total.ToString());
+				labelSum.Text = ClassConversion.StringToMoney(_sum.ToString());
+				labelNDS.Text = ClassConversion.StringToMoney(_nds.ToString());
+				labelTotal.Text = ClassConversion.StringToMoney(_total.ToString());
+			}catch(Exception ex){
+				MessageBox.Show(ex.ToString());
+			}
 		}
 		/*---------------------------------------------------------*/
 		
@@ -109,6 +113,18 @@ namespace Rapid
 				} else ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Ошибка формирования пустой табличной части.", true);
 		}
 		
+		/* Копия исходной табличной части */
+		void OldTabularSection()
+		{
+			OldDS = new DataSet();
+			OldDS.Clear();
+			OldDS.DataSetName = "tabularsection";
+			if(ComingTS_MySQL.ExecuteFill(OldDS, "tabularsection")){
+				// формируем табличную часть
+				ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Успешно сформированиа копии табличной части.", false);	
+			} else ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Ошибка формирования копии табличной части.", true);
+		}
+		
 		/* ЗАГРУЗКА: Загрузка окна */
 		void WindowLoad() // Загрузка окна
 		{
@@ -152,7 +168,8 @@ namespace Rapid
 					labelTotal.Text = ClassConversion.StringToMoney(_table.Rows[0]["journal_total"].ToString());
 					// Загрузка информации табличной части.
 					LoadTabularSection();
-					OldDS = ComingTS_DataSet; // исходная табличная часть
+					// Создаём копию табличной части
+					OldTabularSection();
 				} else ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Ошибка загрузки основной информации.", true);
 				
 				ClassForms.Rapid_Client.MessageConsole("Приходная Накладная: Открытие документа для ввода изменений.", false);
@@ -294,7 +311,6 @@ namespace Rapid
 			Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
 			Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
 			Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
-			Rapid_ClientDocOrderElement.ParentDataGrid = dataGrid1;			// родительский DataGrid
 			Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
 			Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
 			Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
@@ -322,7 +338,6 @@ namespace Rapid
 				Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
 				Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
 				Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
-				Rapid_ClientDocOrderElement.ParentDataGrid = dataGrid1;			// родительский DataGrid
 				Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
 				Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
 				Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
@@ -528,5 +543,13 @@ namespace Rapid
 			SaveDoc(); //сохранение документа.			
 		}
 		/*---------------------------------------------------------*/
+		
+		/* Расчёт итогов табличной части */	
+		void DataGrid1Test(object sender, PaintEventArgs e)
+		{
+			CalculationResults(); // Перерасчёт итогов.
+		}
+		/*---------------------------------------------------------*/
+		
 	}
 }

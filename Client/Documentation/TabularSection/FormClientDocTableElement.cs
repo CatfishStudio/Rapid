@@ -21,7 +21,6 @@ namespace Rapid
 	{
 		/* Глобальные переменные */
 		public DataSet ParentDataSet;			// родительский объект DataSet
-		public DataGrid ParentDataGrid;			// родительский объект DataGrid
 		public Label labelSum;					// родительская метка "сумма"
 		public Label labelNDS;					// родительская метка "ндс"
 		public Label labelTotal;				// родительская метка "всего"
@@ -60,7 +59,6 @@ namespace Rapid
 			double _sum = 0;
 			double _nds = 0;
 			double _total = 0;
-			//for(int i = 0; i < ParentDataGrid.VisibleRowCount; i++)
 			for(int i = 0; i < ParentDataSet.Tables["tabularsection"].Rows.Count; i++)
 			{
 				_sum = _sum + ClassConversion.StringToDouble(ParentDataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
@@ -484,7 +482,7 @@ namespace Rapid
 				_row["tabularSection_id_doc"] = DocID;
 				ParentDataSet.Tables["tabularsection"].Rows.Add(_row);
 				// подсчет итогов
-				CalculationResults();
+				//CalculationResults();
 				// Закрываем окно
 				Close();
 			}
@@ -499,7 +497,7 @@ namespace Rapid
 				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"] = ClassConversion.StringToDouble(textBox7.Text);
 				ParentDataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"] = ClassConversion.StringToDouble(textBox8.Text);
 				// подсчет итогов
-				CalculationResults();
+				//CalculationResults();
 				// Закрываем окно
 				Close();
 			}
