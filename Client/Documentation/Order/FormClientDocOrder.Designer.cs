@@ -534,6 +534,7 @@ namespace Rapid
 			this.dataGrid1.TabIndex = 0;
 			this.dataGrid1.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
 									this.dataGridTableStyle1});
+			this.dataGrid1.Paint += new System.Windows.Forms.PaintEventHandler(this.DataGrid1Paint);
 			// 
 			// contextMenuStrip1
 			// 

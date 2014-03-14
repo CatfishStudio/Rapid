@@ -47,22 +47,31 @@ namespace Rapid
 		/* Расчет итогов -------------------------------------------------*/
 		void CalculationResults()
 		{
-			double _sum = 0;
-			double _nds = 0;
-			double _total = 0;
-			for(int i = 0; i < dataGrid1.VisibleRowCount; i++)
-			{
-				_sum = _sum + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
-				_nds = _nds + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
-				_total = _total + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
-			}
-			_sum = Math.Round(_sum, 2);
-			_nds = Math.Round(_nds, 2);
-			_total = Math.Round(_total, 2);
+			try{
+				double _sum = 0;
+				double _nds = 0;
+				double _total = 0;
+				//dataGrid1.VisibleRowCount;
+				for(int i = 0; i < OrderTS_DataSet.Tables["tabularsection"].Rows.Count; i++)
+				{
+					try{
+						_sum = _sum + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
+						_nds = _nds + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
+						_total = _total + ClassConversion.StringToDouble(OrderTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+					}catch(Exception ex){
+						//i++;
+					}
+				}
+				_sum = Math.Round(_sum, 2);
+				_nds = Math.Round(_nds, 2);
+				_total = Math.Round(_total, 2);
 			
-			labelSum.Text = ClassConversion.StringToMoney(_sum.ToString());
-			labelNDS.Text = ClassConversion.StringToMoney(_nds.ToString());
-			labelTotal.Text = ClassConversion.StringToMoney(_total.ToString());
+				labelSum.Text = ClassConversion.StringToMoney(_sum.ToString());
+				labelNDS.Text = ClassConversion.StringToMoney(_nds.ToString());
+				labelTotal.Text = ClassConversion.StringToMoney(_total.ToString());
+			}catch(Exception ex){
+				MessageBox.Show(ex.ToString());
+			}
 		}
 		/*---------------------------------------------------------*/
 		
@@ -538,7 +547,12 @@ namespace Rapid
 		/*---------------------------------------------------------*/
 		
 		
-		
+		/* Расчёт итогов табличной части */	
+		void DataGrid1Paint(object sender, PaintEventArgs e)
+		{
+			CalculationResults(); // Перерасчёт итогов.
+		}
+		/*---------------------------------------------------------*/
 		
 		
 		

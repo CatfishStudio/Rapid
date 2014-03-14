@@ -52,11 +52,16 @@ namespace Rapid
 				double _sum = 0;
 				double _nds = 0;
 				double _total = 0;
-				for(int i = 0; i < dataGrid1.VisibleRowCount; i++)
+				//dataGrid1.VisibleRowCount;
+				for(int i = 0; i < ComingTS_DataSet.Tables["tabularsection"].Rows.Count; i++)
 				{
-					_sum = _sum + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
-					_nds = _nds + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
-					_total = _total + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+					try{
+						_sum = _sum + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_sum"].ToString());
+						_nds = _nds + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_NDS"].ToString());
+						_total = _total + ClassConversion.StringToDouble(ComingTS_DataSet.Tables["tabularsection"].Rows[i]["tabularSection_total"].ToString());
+					}catch(Exception ex){
+						//i++;
+					}
 				}
 				_sum = Math.Round(_sum, 2);
 				_nds = Math.Round(_nds, 2);
@@ -545,7 +550,7 @@ namespace Rapid
 		/*---------------------------------------------------------*/
 		
 		/* Расчёт итогов табличной части */	
-		void DataGrid1Test(object sender, PaintEventArgs e)
+		void DataGrid1Paint(object sender, PaintEventArgs e)
 		{
 			CalculationResults(); // Перерасчёт итогов.
 		}
