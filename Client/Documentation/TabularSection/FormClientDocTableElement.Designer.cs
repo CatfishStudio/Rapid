@@ -441,6 +441,7 @@ namespace Rapid
 			// 
 			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
+			this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
 			this.label9.Location = new System.Drawing.Point(12, 76);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(372, 17);

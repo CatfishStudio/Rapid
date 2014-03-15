@@ -371,7 +371,7 @@ namespace Rapid
 									this.изменитьДокументToolStripMenuItem,
 									this.удалитьДокументToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(195, 120);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(195, 142);
 			// 
 			// заказToolStripMenuItem
 			// 
@@ -426,7 +426,7 @@ namespace Rapid
 			this.приходнаяНакландаяToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("приходнаяНакландаяToolStripMenuItem.Image")));
 			this.приходнаяНакландаяToolStripMenuItem.Name = "приходнаяНакландаяToolStripMenuItem";
 			this.приходнаяНакландаяToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-			this.приходнаяНакландаяToolStripMenuItem.Text = "Приходная накландая";
+			this.приходнаяНакландаяToolStripMenuItem.Text = "Приходная накладная";
 			// 
 			// создатьДокументToolStripMenuItem
 			// 

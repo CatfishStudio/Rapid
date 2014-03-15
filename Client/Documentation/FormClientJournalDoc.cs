@@ -169,37 +169,41 @@ namespace Rapid
 		}
 		
 		/* документ: Приходная накладная */
-		void Button2Click(object sender, EventArgs e)
+		void CreateComing()
 		{
 			FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
 			Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
 			Rapid_ClientDocComing.Text = "Новая документ.";
-			Rapid_ClientDocComing.Show();			
+			Rapid_ClientDocComing.Show();
+		}
+		
+		void Button2Click(object sender, EventArgs e)
+		{
+			CreateComing();			
 		}
 				
 		void СоздатьДокументToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
-			Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
-			Rapid_ClientDocComing.Text = "Новая документ.";
-			Rapid_ClientDocComing.Show();			
+			CreateComing();			
 		}
 		
 		/* документ: Расходная накладная */
-		void Button3Click(object sender, EventArgs e)
+		void CreateExpense()
 		{
 			FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
 			Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
 			Rapid_ClientDocExpense.Text = "Новая документ.";
-			Rapid_ClientDocExpense.Show();			
+			Rapid_ClientDocExpense.Show();	
+		}
+		
+		void Button3Click(object sender, EventArgs e)
+		{
+			CreateExpense();		
 		}
 		
 		void СоздатьДокументToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
-			Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
-			Rapid_ClientDocExpense.Text = "Новая документ.";
-			Rapid_ClientDocExpense.Show();			
+			CreateExpense();		
 		}
 		
 		/*--------------------------------------------------------------------*/

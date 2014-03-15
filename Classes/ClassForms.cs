@@ -33,6 +33,9 @@ namespace Rapid
 		public static FormClientStaff Rapid_ClientStaff;	// форма "сотрудники"
 		public static FormClientPlanAccounts Rapid_ClientPlanAccounts;	// форма "план счетов"
 		public static FormClientJournalDoc Rapid_ClientJournalDoc;		// форма "Полного журнала"
+		public static FormClientJournalOrder Rapid_ClientJournalOrder;	// форма "Журнал Заказов"
+		public static FormClientJournalComing Rapid_ClientJournalComing;// форма "Журнал Приходных накладных"
+		public static FormClientJournalExpense Rapid_ClientJournalExpense;	// форма "Журнал Расходных накладных"
 		//------------------------------------------------------------
 		//формы Администратора ---------------------------------------
 		public static FormAdministrator Rapid_Administrator;
@@ -53,6 +56,9 @@ namespace Rapid
 		public static bool OpenCloseFormOperations;		// флаг открытия формы "Операции"
 		public static bool OpenCloseFormPlanAccounts;	// флаг открытия формы "План счетов"
 		public static bool OpenCloseFormJournalDoc;		// флаг открытия формы "Полный журнал"
+		public static bool OpenCloseFormJournalOrder;	// флаг открытия формы "Журнал заказов"
+		public static bool OpenCloseFormJournalComing;	// флаг открытия формы "Журнал приходных накладных"
+		public static bool OpenCloseFormJournalExpense;	// флаг открытия формы "Журнал расходных накладных"
 		//------------------------------------------------------------
 	}
 }

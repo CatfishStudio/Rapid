@@ -22,7 +22,7 @@ namespace Rapid.Service
 		private bool CalcCLEAR = true;
 		//private String MeActivate = "";
 		public TextBox TextBoxReturnValue;
-		private bool valuePaste = false;
+		public bool valuePaste = true;
 		
 		public FormServiceCalculator(bool Paste)
 		{
@@ -34,7 +34,6 @@ namespace Rapid.Service
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
-			valuePaste = Paste;
 		}
 		
 		void inputValue(String Value)

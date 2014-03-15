@@ -10,6 +10,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Rapid.Client.Firms;
+using Rapid.Service;
 
 namespace Rapid
 {
@@ -193,7 +194,7 @@ namespace Rapid
 			Rapid_ClientDocExpense.Show();
 		}
 		
-		/* журпан: Полный журнал */
+		/* журнал: Полный журнал */
 		void ПолныйЖурналToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			if(!ClassForms.OpenCloseFormJournalDoc){
@@ -201,6 +202,51 @@ namespace Rapid
 				ClassForms.Rapid_ClientJournalDoc.MdiParent = ClassForms.Rapid_Client;
 				ClassForms.Rapid_ClientJournalDoc.Show();
 			}
+		}
+		
+		/* журнал: Заказов */
+		void ЖурналЗаказовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormJournalOrder){
+				ClassForms.Rapid_ClientJournalOrder = new FormClientJournalOrder();
+				ClassForms.Rapid_ClientJournalOrder.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientJournalOrder.Show();
+			}
+		}
+		
+		/* журнал: приходных накладных */
+		void ЖурналНакладныхToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormJournalComing){
+				ClassForms.Rapid_ClientJournalComing = new FormClientJournalComing();
+				ClassForms.Rapid_ClientJournalComing.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientJournalComing.Show();
+			}
+		}
+		
+		/* журнал: расходных накладных */
+		void ЖурналРасходныхНакладныхToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(!ClassForms.OpenCloseFormJournalExpense){
+				ClassForms.Rapid_ClientJournalExpense = new FormClientJournalExpense();
+				ClassForms.Rapid_ClientJournalExpense.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientJournalExpense.Show();
+			}
+		}
+		
+		/* журнал: бухгалтерские операции*/
+		void БухгалтерскиеОперацииToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			
+		}
+		
+		/* калькулятор */
+		void КалькуляторToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			FormServiceCalculator Calc = new FormServiceCalculator(true);
+			Calc.valuePaste = false;
+			Calc.MdiParent = ClassForms.Rapid_Client;
+			Calc.Show();
 		}
 	}
 }

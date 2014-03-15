@@ -98,6 +98,12 @@ namespace Rapid
 			if(idTable == 8 && ClassForms.OpenCloseFormStaff) ClassForms.Rapid_ClientStaff.TableUpdate(ClassForms.Rapid_ClientStaff.openFolder);
 			// обновление журнала "Полный журнал"
 			if(idTable == 9 && ClassForms.OpenCloseFormJournalDoc) ClassForms.Rapid_ClientJournalDoc.TableUpdate();
+			// обновление журнала "Журнал Заказов"
+			if(idTable == 9 && ClassForms.OpenCloseFormJournalOrder) ClassForms.Rapid_ClientJournalOrder.TableUpdate();
+			// обновление журнала "Журнал Приходных накладных"
+			if(idTable == 9 && ClassForms.OpenCloseFormJournalComing) ClassForms.Rapid_ClientJournalComing.TableUpdate();
+			// обновление журнала "Журнал Расходных накладных"
+			if(idTable == 9 && ClassForms.OpenCloseFormJournalExpense) ClassForms.Rapid_ClientJournalExpense.TableUpdate();
 			// обновление справлчник "План счетов"
 			if(idTable == 13 && ClassForms.OpenCloseFormPlanAccounts) ClassForms.Rapid_ClientPlanAccounts.TableUpdate();
 			

@@ -129,3 +129,6 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocTableElement.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocComing.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormAdminQuerySQL.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocExpense.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalComing.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalExpense.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalOrder.resources
