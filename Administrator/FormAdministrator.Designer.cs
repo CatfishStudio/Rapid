@@ -61,6 +61,9 @@ namespace Rapid
 			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.конструкторЗапросовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.мониторАктивностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -139,6 +142,7 @@ namespace Rapid
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.файлToolStripMenuItem,
 									this.конфигурацияToolStripMenuItem,
+									this.сервисToolStripMenuItem,
 									this.справкаToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
@@ -247,6 +251,30 @@ namespace Rapid
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
 			// 
+			// сервисToolStripMenuItem
+			// 
+			this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.конструкторЗапросовToolStripMenuItem,
+									this.мониторАктивностиToolStripMenuItem});
+			this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
+			this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+			this.сервисToolStripMenuItem.Text = "Сервис";
+			// 
+			// конструкторЗапросовToolStripMenuItem
+			// 
+			this.конструкторЗапросовToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("конструкторЗапросовToolStripMenuItem.Image")));
+			this.конструкторЗапросовToolStripMenuItem.Name = "конструкторЗапросовToolStripMenuItem";
+			this.конструкторЗапросовToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+			this.конструкторЗапросовToolStripMenuItem.Text = "Конструктор запросов.";
+			this.конструкторЗапросовToolStripMenuItem.Click += new System.EventHandler(this.КонструкторЗапросовToolStripMenuItemClick);
+			// 
+			// мониторАктивностиToolStripMenuItem
+			// 
+			this.мониторАктивностиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("мониторАктивностиToolStripMenuItem.Image")));
+			this.мониторАктивностиToolStripMenuItem.Name = "мониторАктивностиToolStripMenuItem";
+			this.мониторАктивностиToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+			this.мониторАктивностиToolStripMenuItem.Text = "Монитор активности.";
+			// 
 			// FormAdministrator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +298,9 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem мониторАктивностиToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem конструкторЗапросовToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;

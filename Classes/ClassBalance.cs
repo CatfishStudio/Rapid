@@ -56,7 +56,8 @@ namespace Rapid
 			} else return "--";
 		}
 		
-		/* Обновление данных в остатках */
+		/* Обновление данных в остатках ----------------------------------------*/
+		/* Увеличение остатков */
 		public static void BalancePlus(DataSet ResourceDS)
 		{
 			ClassMySQL_Full _mySql = new ClassMySQL_Full();
@@ -94,6 +95,7 @@ namespace Rapid
 			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к остаткам.", true);
 		}
 		
+		/* Уменьшение остатков */
 		public static void BalanceMinus(DataSet ResourceDS)
 		{
 			ClassMySQL_Full _mySql = new ClassMySQL_Full();
@@ -131,6 +133,7 @@ namespace Rapid
 			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к остаткам.", true);
 		}
 		
+		/* Увеличение остатков после изменений табличной части документа */
 		public static void BalanceUpdatePlus(DataSet OldDS, DataSet NewDS)
 		{
 			ClassMySQL_Full _mySql = new ClassMySQL_Full();
@@ -179,7 +182,8 @@ namespace Rapid
 				}else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка ввод и сохранения новых остатков.", true);
 			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к остаткам.", true);
 		}
-				
+		
+		/* Уменьшение остатков после изменений табличной части документа */		
 		public static void BalanceUpdateMinus(DataSet OldDS, DataSet NewDS)
 		{
 			ClassMySQL_Full _mySql = new ClassMySQL_Full();
@@ -229,5 +233,32 @@ namespace Rapid
 			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к остаткам.", true);
 		}
 		
+		/* Щстатки после восстановления документа */
+		public static void BalanceRecovery(String docID, bool actionPlus)
+		{
+			ClassMySQL_Full _mySql = new ClassMySQL_Full();
+			DataSet _dataSet = new DataSet();
+			_dataSet.Clear();
+			_dataSet.DataSetName = "tabularsection";
+			_mySql.SelectSqlCommand = "SELECT tabularsection.*, journal.* FROM tabularsection, journal WHERE (journal.id_journal = " + docID + " AND tabularsection.tabularSection_id_doc = journal.journal_id_doc)";
+			if(_mySql.ExecuteFill(_dataSet, "tabularsection")){
+				if(actionPlus) BalancePlus(_dataSet);
+				else BalanceMinus(_dataSet);
+			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к табличной части документа.", true);
+		}
+		
+		/* Остатки после удаления документа */
+		public static void BalanceRemoval(String docID, bool actionPlus)
+		{
+			ClassMySQL_Full _mySql = new ClassMySQL_Full();
+			DataSet _dataSet = new DataSet();
+			_dataSet.Clear();
+			_dataSet.DataSetName = "tabularsection";
+			_mySql.SelectSqlCommand = "SELECT tabularsection.*, journal.* FROM tabularsection, journal WHERE (journal.id_journal = " + docID + " AND tabularsection.tabularSection_id_doc = journal.journal_id_doc)";
+			if(_mySql.ExecuteFill(_dataSet, "tabularsection")){
+				if(actionPlus) BalancePlus(_dataSet);
+				else BalanceMinus(_dataSet);
+			} else ClassForms.Rapid_Client.MessageConsole("Остатки: Ошибка обращения к табличной части документа.", true);
+		}
 	}
 }

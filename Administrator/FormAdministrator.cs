@@ -63,5 +63,12 @@ namespace Rapid
 		{
 			ClassServer.CheckBaseUpdate();
 		}
+		
+		void КонструкторЗапросовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			FormAdminQuerySQL Rapid_AdminQuerySQL = new FormAdminQuerySQL();
+			Rapid_AdminQuerySQL.MdiParent = ClassForms.Rapid_Administrator;
+			Rapid_AdminQuerySQL.Show();
+		}
 	}
 }
