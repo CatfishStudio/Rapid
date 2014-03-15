@@ -132,3 +132,5 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientDocExpense.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalComing.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalExpense.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalOrder.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalOperations.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientOperation.resources

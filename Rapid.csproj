@@ -81,6 +81,7 @@
     <Compile Include="Classes\ClassConfig.cs" />
     <Compile Include="Classes\ClassConversion.cs" />
     <Compile Include="Classes\ClassForms.cs" />
+    <Compile Include="Classes\ClassOperations.cs" />
     <Compile Include="Classes\ClassSelectConst.cs" />
     <Compile Include="Classes\ClassServer.cs" />
     <Compile Include="Client\Directories\Constants\FormClientConst.cs" />
@@ -122,6 +123,14 @@
     <Compile Include="Client\Documentation\FormClientJournalOrder.cs" />
     <Compile Include="Client\Documentation\FormClientJournalOrder.Designer.cs">
       <DependentUpon>FormClientJournalOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Documentation\Operations\FormClientJournalOperations.cs" />
+    <Compile Include="Client\Documentation\Operations\FormClientJournalOperations.Designer.cs">
+      <DependentUpon>FormClientJournalOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Documentation\Operations\FormClientOperation.cs" />
+    <Compile Include="Client\Documentation\Operations\FormClientOperation.Designer.cs">
+      <DependentUpon>FormClientOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\Documentation\Order\FormClientDocOrder.cs" />
     <Compile Include="Client\Documentation\Order\FormClientDocOrder.Designer.cs">
@@ -267,6 +276,12 @@
     <EmbeddedResource Include="Client\Documentation\FormClientJournalOrder.resx">
       <DependentUpon>FormClientJournalOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\Operations\FormClientJournalOperations.resx">
+      <DependentUpon>FormClientJournalOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\Operations\FormClientOperation.resx">
+      <DependentUpon>FormClientOperation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\Documentation\Order\FormClientDocOrder.resx">
       <DependentUpon>FormClientDocOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +371,7 @@
     <Folder Include="Client\Documentation\Order" />
     <Folder Include="Client\Documentation\TabularSection" />
     <Folder Include="Client\Documentation\Expense" />
+    <Folder Include="Client\Documentation\Operations" />
     <Folder Include="Client\Documentation\Сoming" />
     <Folder Include="MySQL" />
     <Folder Include="Classes" />

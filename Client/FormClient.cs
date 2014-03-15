@@ -237,7 +237,11 @@ namespace Rapid
 		/* журнал: бухгалтерские операции*/
 		void БухгалтерскиеОперацииToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			
+			if(!ClassForms.OpenCloseFormJournalOperations){
+				ClassForms.Rapid_ClientJournalOperations = new FormClientJournalOperations();
+				ClassForms.Rapid_ClientJournalOperations.MdiParent = ClassForms.Rapid_Client;
+				ClassForms.Rapid_ClientJournalOperations.Show();
+			}
 		}
 		
 		/* калькулятор */
