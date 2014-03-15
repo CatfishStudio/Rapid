@@ -41,12 +41,45 @@ namespace Rapid
 		
 		void Button2Click(object sender, EventArgs e)
 		{
-			// Запрос Select
+			
 			try{
-				
+				// Запрос Select
 				if(checkBox1.Checked){
 					_mySQL.SelectSqlCommand = textBox1.Text;
 					if(_mySQL.ExecuteFill(_dataSet, comboBox1.Text)){
+						dataGrid1.DataSource = _dataSet;
+					}else { 
+						MessageBox.Show("Ошибка выполнения запроса.");
+						_dataSet.Clear();
+						dataGrid1.DataSource = _dataSet;
+					}
+				}
+				// Запрос Insert
+				if(checkBox2.Checked){
+					_mySQL.InsertSqlCommand = textBox1.Text;
+					if(_mySQL.ExecuteUpdate(_dataSet, comboBox1.Text)){
+						dataGrid1.DataSource = _dataSet;
+					}else { 
+						MessageBox.Show("Ошибка выполнения запроса.");
+						_dataSet.Clear();
+						dataGrid1.DataSource = _dataSet;
+					}
+				}
+				// Запрос Update
+				if(checkBox3.Checked){
+					_mySQL.UpdateSqlCommand = textBox1.Text;
+					if(_mySQL.ExecuteUpdate(_dataSet, comboBox1.Text)){
+						dataGrid1.DataSource = _dataSet;
+					}else { 
+						MessageBox.Show("Ошибка выполнения запроса.");
+						_dataSet.Clear();
+						dataGrid1.DataSource = _dataSet;
+					}
+				}
+				// Запрос Delete
+				if(checkBox4.Checked){
+					_mySQL.DeleteSqlCommand = textBox1.Text;
+					if(_mySQL.ExecuteUpdate(_dataSet, comboBox1.Text)){
 						dataGrid1.DataSource = _dataSet;
 					}else { 
 						MessageBox.Show("Ошибка выполнения запроса.");

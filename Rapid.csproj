@@ -103,6 +103,10 @@
     <Compile Include="Client\Directories\Firms\FormClientFirmsFolder.Designer.cs">
       <DependentUpon>FormClientFirmsFolder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Documentation\Expense\FormClientDocExpense.cs" />
+    <Compile Include="Client\Documentation\Expense\FormClientDocExpense.Designer.cs">
+      <DependentUpon>FormClientDocExpense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Documentation\FormClientJournalDoc.cs" />
     <Compile Include="Client\Documentation\FormClientJournalDoc.Designer.cs">
       <DependentUpon>FormClientJournalDoc.cs</DependentUpon>
@@ -235,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Directories\Firms\FormClientFirmsFolder.resx">
       <DependentUpon>FormClientFirmsFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Documentation\Expense\FormClientDocExpense.resx">
+      <DependentUpon>FormClientDocExpense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Documentation\FormClientJournalDoc.resx">
       <DependentUpon>FormClientJournalDoc.cs</DependentUpon>

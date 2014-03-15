@@ -187,7 +187,10 @@ namespace Rapid
 		/* документ Расходная накладная */
 		void РасходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			//...
+			FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
+			Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocExpense.Text = "Новая документ.";
+			Rapid_ClientDocExpense.Show();
 		}
 		
 		/* журпан: Полный журнал */

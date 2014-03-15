@@ -141,20 +141,31 @@ namespace Rapid
 		/* ввод на основании: приход */
 		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Заказ")
-			{
-				FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
-				Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
-				Rapid_ClientDocComing.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
-				Rapid_ClientDocComing.Text = "Ввод на основании Заказа.";
-				Rapid_ClientDocComing.Show();	
+			if(listView1.SelectedIndices.Count > 0){ // проверка выбранного элемента
+				if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Заказ")
+				{
+					FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
+					Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
+					Rapid_ClientDocComing.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
+					Rapid_ClientDocComing.Text = "Ввод на основании Заказа.";
+					Rapid_ClientDocComing.Show();	
+				}
 			}
 		}
 		
 		/* ввод на основании: расход */
 		void РасходнаяНакладнаяToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			
+			if(listView1.SelectedIndices.Count > 0){ // проверка выбранного элемента
+				if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Заказ")
+				{
+					FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
+					Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
+					Rapid_ClientDocExpense.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
+					Rapid_ClientDocExpense.Text = "Ввод на основании Заказа.";
+					Rapid_ClientDocExpense.Show();	
+				}
+			}
 		}
 		
 		/* документ: Приходная накладная */
@@ -177,12 +188,18 @@ namespace Rapid
 		/* документ: Расходная накладная */
 		void Button3Click(object sender, EventArgs e)
 		{
-			
+			FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
+			Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocExpense.Text = "Новая документ.";
+			Rapid_ClientDocExpense.Show();			
 		}
 		
 		void СоздатьДокументToolStripMenuItem1Click(object sender, EventArgs e)
 		{
-			
+			FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
+			Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientDocExpense.Text = "Новая документ.";
+			Rapid_ClientDocExpense.Show();			
 		}
 		
 		/*--------------------------------------------------------------------*/
@@ -208,6 +225,14 @@ namespace Rapid
 						Rapid_ClientDocComing.Text = "Изменить документ.";
 						Rapid_ClientDocComing.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
 						Rapid_ClientDocComing.Show();
+					}
+					if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Расходная Накладная")
+					{
+						FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
+						Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
+						Rapid_ClientDocExpense.Text = "Изменить документ.";
+						Rapid_ClientDocExpense.ActionID = listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString();
+						Rapid_ClientDocExpense.Show();
 					}
 				}
 			}
@@ -291,12 +316,44 @@ namespace Rapid
 							}
 						}else{ // уже уданён
 							// Восстановление записи
-							if(MessageBox.Show("Восстановить запись?", "Вопрос:", MessageBoxButtons.YesNo) == DialogResult.Yes){
+							if(MessageBox.Show("Восстановить документ?", "Вопрос:", MessageBoxButtons.YesNo) == DialogResult.Yes){
 								ClassMySQL_Short SQLCommand = new ClassMySQL_Short();
 								SQLCommand.SqlCommand = "UPDATE journal SET journal_delete = 0 WHERE (id_journal = " + listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString() + ")";
 								if(SQLCommand.ExecuteNonQuery()){
 									// ОСТАТКИ: увеличиваем остатки при восстановлении
 									ClassBalance.BalanceRecovery(listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString(), true);
+									// ИСТОРИЯ: Запись в журнал истории обновлений
+									ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Восстановление документа.", "");
+									ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное восстановление документа.", false);
+								} else ClassForms.Rapid_Client.MessageConsole("Склады: Ошибка выполнения запроса к таблице 'Журнал' при восстановлении документа.", true);
+							}
+						}
+					}
+					//***************************************************************
+					// Удалить документ Расходная Накладная *************************
+					if(listView1.Items[listView1.SelectedIndices[0]].SubItems[3].Text.ToString() == "Расходная Накладная")
+					{
+						if(listView1.SelectedItems[0].StateImageIndex == 2){ // не удалён
+							// Установка отметки удаления 
+							if(MessageBox.Show("Пометить документ на удаление?", "Вопрос:", MessageBoxButtons.YesNo) == DialogResult.Yes){
+								ClassMySQL_Short SQLCommand = new ClassMySQL_Short();
+								SQLCommand.SqlCommand = "UPDATE journal SET journal_delete = 1 WHERE (id_journal = " + listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString() + ")";
+								if(SQLCommand.ExecuteNonQuery()){
+									// ОСТАТКИ: увеличить остатки при удалении
+									ClassBalance.BalanceRemoval(listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString(), true);
+									// ИСТОРИЯ: Запись в журнал истории обновлений
+									ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Удаление документа.", "");
+									ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное удаление документа.", false);
+								} else ClassForms.Rapid_Client.MessageConsole("Полный журнал: Ошибка выполнения запроса к таблице 'Журнал' при удалении документа.", true);
+							}
+						}else{ // уже уданён
+							// Восстановление записи
+							if(MessageBox.Show("Восстановить документ?", "Вопрос:", MessageBoxButtons.YesNo) == DialogResult.Yes){
+								ClassMySQL_Short SQLCommand = new ClassMySQL_Short();
+								SQLCommand.SqlCommand = "UPDATE journal SET journal_delete = 0 WHERE (id_journal = " + listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString() + ")";
+								if(SQLCommand.ExecuteNonQuery()){
+									// ОСТАТКИ: уменьшить остатки при восстановлении
+									ClassBalance.BalanceRecovery(listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text.ToString(), false);
 									// ИСТОРИЯ: Запись в журнал истории обновлений
 									ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Восстановление документа.", "");
 									ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное восстановление документа.", false);
