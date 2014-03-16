@@ -94,7 +94,7 @@ namespace Rapid
 		{
 			if(openFileDialog1.ShowDialog() == DialogResult.OK){
 				FormNotePad NotePad = new FormNotePad();
-				NotePad.MdiParent = ClassForms.Rapid_Client;
+				NotePad.MdiParent = ClassForms.Rapid_Administrator;
 				NotePad.pathFile = openFileDialog1.FileName;
 				NotePad.richTextBox1.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.PlainText);
 				NotePad.Show();

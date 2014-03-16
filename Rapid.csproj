@@ -204,6 +204,10 @@
     <Compile Include="Client\Directories\Units\FormClientUnitsElement.Designer.cs">
       <DependentUpon>FormClientUnitsElement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Reports\FormClientReportAccount.cs" />
+    <Compile Include="Client\Reports\FormClientReportAccount.Designer.cs">
+      <DependentUpon>FormClientReportAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Reports\FormClientReportBalance.cs" />
     <Compile Include="Client\Reports\FormClientReportBalance.Designer.cs">
       <DependentUpon>FormClientReportBalance.cs</DependentUpon>
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Directories\Units\FormClientUnitsElement.resx">
       <DependentUpon>FormClientUnitsElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Reports\FormClientReportAccount.resx">
+      <DependentUpon>FormClientReportAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Reports\FormClientReportBalance.resx">
       <DependentUpon>FormClientReportBalance.cs</DependentUpon>

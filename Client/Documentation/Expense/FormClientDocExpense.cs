@@ -550,7 +550,7 @@ namespace Rapid
 						*/
 						ClassOperations.OperationAdd(dateTimePicker1.Text, "36", "70", labelSum.Text, "Отгружен товар покупателю и отражен доход от реализации", DocID);
 						ClassOperations.OperationAdd(dateTimePicker1.Text, "70", "64", labelNDS.Text, "Отражено налоговое обязательство по НДС", DocID);
-						ClassOperations.OperationAdd(dateTimePicker1.Text, "31", "361", labelTotal.Text, "Получена оплата от покупателя", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "31", "36", labelTotal.Text, "Получена оплата от покупателя", DocID);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное создание нового документа Расходная накладная.", false);
@@ -576,7 +576,7 @@ namespace Rapid
 						ClassOperations.OperationDelete(DocID, "");
 						ClassOperations.OperationAdd(dateTimePicker1.Text, "36", "70", labelSum.Text, "Отгружен товар покупателю и отражен доход от реализации", DocID);
 						ClassOperations.OperationAdd(dateTimePicker1.Text, "70", "64", labelNDS.Text, "Отражено налоговое обязательство по НДС", DocID);
-						ClassOperations.OperationAdd(dateTimePicker1.Text, "31", "361", labelTotal.Text, "Получена оплата от покупателя", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "31", "36", labelTotal.Text, "Получена оплата от покупателя", DocID);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное сохранены изменения документа Расходная Накладная.", false);

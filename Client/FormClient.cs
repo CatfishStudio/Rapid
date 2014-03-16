@@ -323,7 +323,8 @@ namespace Rapid
 		}
 		/* -------------------------------------------------------------------- */
 		
-		/* ОТЧЁТЫ */
+		/* ОТЧЁТЫ ------------------------------------------------------------- */
+		/* Остатки ТМЦ */
 		void ReportBalance()
 		{
 			FormClientReportBalance Rapid_ClientReportBalance = new FormClientReportBalance();
@@ -334,6 +335,19 @@ namespace Rapid
 		void ОстаткиТМЦToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			ReportBalance();
+		}
+		
+		/* Оборотная ведомость по счёту */
+		void ReportAccount()
+		{
+			FormClientReportAccount Rapid_ClientReportAccount = new FormClientReportAccount();
+			Rapid_ClientReportAccount.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientReportAccount.Show();
+		}
+		
+		void ОтчетПоСчетуToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ReportAccount();
 		}
 	}
 }

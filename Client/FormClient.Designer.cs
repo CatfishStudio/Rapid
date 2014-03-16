@@ -544,6 +544,7 @@ namespace Rapid
 			this.отчетПоСчетуToolStripMenuItem.Name = "отчетПоСчетуToolStripMenuItem";
 			this.отчетПоСчетуToolStripMenuItem.Size = new System.Drawing.Size(330, 22);
 			this.отчетПоСчетуToolStripMenuItem.Text = "Оборотная ведомость по счёту";
+			this.отчетПоСчетуToolStripMenuItem.Click += new System.EventHandler(this.ОтчетПоСчетуToolStripMenuItemClick);
 			// 
 			// оборотнаяВедомостьПоТоргПредставителюToolStripMenuItem
 			// 

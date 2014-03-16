@@ -38,7 +38,6 @@ namespace Rapid.Service
 		void FormNotePadActivated(object sender, EventArgs e)
 		{
 			ClassForms.NotePad = this;
-			ClassForms.Rapid_Client.MessageConsole("Блокнот: открыт.", false);
 		}
 	}
 }
