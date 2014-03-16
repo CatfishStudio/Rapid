@@ -72,7 +72,7 @@ namespace Rapid
 			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dateTimePicker1.Location = new System.Drawing.Point(46, 41);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
+			this.dateTimePicker1.Size = new System.Drawing.Size(399, 20);
 			this.dateTimePicker1.TabIndex = 16;
 			// 
 			// label2
@@ -90,7 +90,7 @@ namespace Rapid
 			this.textBox1.Location = new System.Drawing.Point(119, 12);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(283, 20);
+			this.textBox1.Size = new System.Drawing.Size(326, 20);
 			this.textBox1.TabIndex = 14;
 			// 
 			// label1
@@ -118,7 +118,7 @@ namespace Rapid
 			this.textBox2.Location = new System.Drawing.Point(68, 71);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.ReadOnly = true;
-			this.textBox2.Size = new System.Drawing.Size(334, 20);
+			this.textBox2.Size = new System.Drawing.Size(377, 20);
 			this.textBox2.TabIndex = 18;
 			// 
 			// groupBox1
@@ -139,7 +139,7 @@ namespace Rapid
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Location = new System.Drawing.Point(12, 97);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(390, 109);
+			this.groupBox1.Size = new System.Drawing.Size(433, 109);
 			this.groupBox1.TabIndex = 19;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Проводка (Дт/Кт)";
@@ -147,22 +147,24 @@ namespace Rapid
 			// button7
 			// 
 			this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button7.Location = new System.Drawing.Point(359, 77);
+			this.button7.Location = new System.Drawing.Point(402, 77);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(25, 23);
 			this.button7.TabIndex = 11;
 			this.button7.Text = "Х";
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// button8
 			// 
 			this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button8.Location = new System.Drawing.Point(332, 77);
+			this.button8.Location = new System.Drawing.Point(375, 77);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(25, 23);
 			this.button8.TabIndex = 10;
 			this.button8.Text = "...";
 			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
 			// textBox5
 			// 
@@ -170,10 +172,13 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox5.Location = new System.Drawing.Point(56, 79);
 			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(273, 20);
+			this.textBox5.Size = new System.Drawing.Size(316, 20);
 			this.textBox5.TabIndex = 9;
 			this.textBox5.Text = "0.00";
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
+			this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox5KeyDown);
+			this.textBox5.LostFocus += new System.EventHandler(this.TextBox5TextLostFocus);
 			// 
 			// label6
 			// 
@@ -186,22 +191,24 @@ namespace Rapid
 			// button5
 			// 
 			this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button5.Location = new System.Drawing.Point(359, 46);
+			this.button5.Location = new System.Drawing.Point(402, 46);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(25, 23);
 			this.button5.TabIndex = 7;
 			this.button5.Text = "Х";
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// button6
 			// 
 			this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button6.Location = new System.Drawing.Point(332, 46);
+			this.button6.Location = new System.Drawing.Point(375, 46);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(25, 23);
 			this.button6.TabIndex = 6;
 			this.button6.Text = "...";
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// textBox4
 			// 
@@ -209,7 +216,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox4.Location = new System.Drawing.Point(34, 48);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(295, 20);
+			this.textBox4.Size = new System.Drawing.Size(338, 20);
 			this.textBox4.TabIndex = 5;
 			// 
 			// label5
@@ -223,22 +230,24 @@ namespace Rapid
 			// button4
 			// 
 			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button4.Location = new System.Drawing.Point(359, 17);
+			this.button4.Location = new System.Drawing.Point(402, 17);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(25, 23);
 			this.button4.TabIndex = 3;
 			this.button4.Text = "Х";
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// button3
 			// 
 			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button3.Location = new System.Drawing.Point(332, 17);
+			this.button3.Location = new System.Drawing.Point(375, 17);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(25, 23);
 			this.button3.TabIndex = 2;
 			this.button3.Text = "...";
 			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
 			// textBox3
 			// 
@@ -246,7 +255,7 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox3.Location = new System.Drawing.Point(34, 19);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(295, 20);
+			this.textBox3.Size = new System.Drawing.Size(338, 20);
 			this.textBox3.TabIndex = 1;
 			// 
 			// label4
@@ -260,32 +269,33 @@ namespace Rapid
 			// button1
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(327, 326);
+			this.button1.Location = new System.Drawing.Point(370, 263);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 20;
 			this.button1.Text = "Отмена.";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// button2
 			// 
 			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button2.Location = new System.Drawing.Point(246, 326);
+			this.button2.Location = new System.Drawing.Point(289, 263);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 21;
 			this.button2.Text = "ОК.";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-									| System.Windows.Forms.AnchorStyles.Left) 
+			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox2.Controls.Add(this.textBox6);
-			this.groupBox2.Location = new System.Drawing.Point(11, 212);
+			this.groupBox2.Location = new System.Drawing.Point(11, 208);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(391, 105);
+			this.groupBox2.Size = new System.Drawing.Size(434, 48);
 			this.groupBox2.TabIndex = 22;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Описание:";
@@ -296,16 +306,15 @@ namespace Rapid
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox6.Location = new System.Drawing.Point(7, 19);
-			this.textBox6.Multiline = true;
 			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(378, 80);
+			this.textBox6.Size = new System.Drawing.Size(421, 20);
 			this.textBox6.TabIndex = 0;
 			// 
 			// FormClientOperation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(414, 361);
+			this.ClientSize = new System.Drawing.Size(457, 298);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
@@ -319,6 +328,7 @@ namespace Rapid
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormClientOperation";
 			this.Text = "Операция";
+			this.Closed += new System.EventHandler(this.FormClientOperationClosed);
 			this.Load += new System.EventHandler(this.FormClientOperationLoad);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();

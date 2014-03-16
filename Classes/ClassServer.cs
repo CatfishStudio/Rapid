@@ -104,6 +104,8 @@ namespace Rapid
 			if(idTable == 9 && ClassForms.OpenCloseFormJournalComing) ClassForms.Rapid_ClientJournalComing.TableUpdate();
 			// обновление журнала "Журнал Расходных накладных"
 			if(idTable == 9 && ClassForms.OpenCloseFormJournalExpense) ClassForms.Rapid_ClientJournalExpense.TableUpdate();
+			// обновление журнала "Бухгалтерские операции"
+			if(idTable == 12 && ClassForms.OpenCloseFormJournalOperations) ClassForms.Rapid_ClientJournalOperations.TableUpdate();
 			// обновление справлчник "План счетов"
 			if(idTable == 13 && ClassForms.OpenCloseFormPlanAccounts) ClassForms.Rapid_ClientPlanAccounts.TableUpdate();
 			
