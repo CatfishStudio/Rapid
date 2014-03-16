@@ -8,6 +8,7 @@
  */
 using System;
 using Rapid.Client.Firms;
+using Rapid.Service;
 
 namespace Rapid
 {
@@ -43,6 +44,9 @@ namespace Rapid
 		public static FormAdminCreateConfig Rapid_CreateConfig;
 		public static FormAdminUsers Rapid_Users;
 		public static FormAdminUserEdit Rapid_UserEdit;
+		//------------------------------------------------------------
+		//Формы Сервиса ----------------------------------------------
+		public static FormNotePad NotePad;
 		//------------------------------------------------------------
 		//Флаги открытых форм ----------------------------------------
 		public static bool LoadAdministrator = false; // флаг загрузки администратора

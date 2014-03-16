@@ -114,6 +114,8 @@ namespace Rapid
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
@@ -172,21 +174,22 @@ namespace Rapid
 			this.открытьФайлToolStripMenuItem.Name = "открытьФайлToolStripMenuItem";
 			this.открытьФайлToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
 			this.открытьФайлToolStripMenuItem.Text = "Открыть файл.";
+			this.открытьФайлToolStripMenuItem.Click += new System.EventHandler(this.ОткрытьФайлToolStripMenuItemClick);
 			// 
 			// сохранитьФайлToolStripMenuItem
 			// 
-			this.сохранитьФайлToolStripMenuItem.Enabled = false;
 			this.сохранитьФайлToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьФайлToolStripMenuItem.Image")));
 			this.сохранитьФайлToolStripMenuItem.Name = "сохранитьФайлToolStripMenuItem";
 			this.сохранитьФайлToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
 			this.сохранитьФайлToolStripMenuItem.Text = "Сохранить файл.";
+			this.сохранитьФайлToolStripMenuItem.Click += new System.EventHandler(this.СохранитьФайлToolStripMenuItemClick);
 			// 
 			// сохранитьКакToolStripMenuItem
 			// 
-			this.сохранитьКакToolStripMenuItem.Enabled = false;
 			this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
 			this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
 			this.сохранитьКакToolStripMenuItem.Text = "Сохранить как...";
+			this.сохранитьКакToolStripMenuItem.Click += new System.EventHandler(this.СохранитьКакToolStripMenuItemClick);
 			// 
 			// toolStripSeparator7
 			// 
@@ -518,7 +521,7 @@ namespace Rapid
 			// 
 			this.калькуляторToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("калькуляторToolStripMenuItem.Image")));
 			this.калькуляторToolStripMenuItem.Name = "калькуляторToolStripMenuItem";
-			this.калькуляторToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.калькуляторToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.калькуляторToolStripMenuItem.Text = "Калькулятор.";
 			this.калькуляторToolStripMenuItem.Click += new System.EventHandler(this.КалькуляторToolStripMenuItemClick);
 			// 
@@ -764,6 +767,14 @@ namespace Rapid
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
 			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.Filter = "*.*|*.*";
+			// 
+			// saveFileDialog1
+			// 
+			this.saveFileDialog1.Filter = "*.txt|*.txt";
+			// 
 			// FormClient
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -777,7 +788,7 @@ namespace Rapid
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "FormClient";
-			this.Text = "Rapid Sales Client v 1.0";
+			this.Text = "Rapid Sales Client v 1.0 (GNU)";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Closed += new System.EventHandler(this.FormClientClosed);
 			this.Load += new System.EventHandler(this.FormClientLoad);
@@ -791,6 +802,8 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.ToolStripMenuItem журналРасходныхНакладныхToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
 		private System.Windows.Forms.ToolStripButton toolStripButton13;

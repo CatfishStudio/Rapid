@@ -70,5 +70,48 @@ namespace Rapid
 			Rapid_AdminQuerySQL.MdiParent = ClassForms.Rapid_Administrator;
 			Rapid_AdminQuerySQL.Show();
 		}
+		
+		/* КОНСОЛЬ: отображение сообщений */
+		public void MessageConsole(String Message, bool Error, String UserIP)
+		{
+			if(panel1.Visible == false && Error == true){
+				panel1.Visible = true;
+				richTextBox1.Text = "ОШИБКА ["+ DateTime.Now.ToString() + "] " + Message + System.Environment.NewLine + richTextBox1.Text;
+			}else{
+				richTextBox1.Text = "["+ DateTime.Now.ToString() + "] " + Message + "			[IP - " + UserIP + "]" + System.Environment.NewLine + richTextBox1.Text;
+			}
+		}
+		
+		void МониторАктивностиToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(panel1.Visible) panel1.Visible = false;
+			else panel1.Visible = true;
+		}
+		
+		/* Открыть текстовый документ */
+		void ОткрытьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(openFileDialog1.ShowDialog() == DialogResult.OK){
+				FormNotePad NotePad = new FormNotePad();
+				NotePad.MdiParent = ClassForms.Rapid_Client;
+				NotePad.pathFile = openFileDialog1.FileName;
+				NotePad.richTextBox1.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+				NotePad.Show();
+			}
+		}
+		
+		/* Сохранить текстовый документ */
+		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.SaveFile(ClassForms.NotePad.pathFile, RichTextBoxStreamType.PlainText);			
+		}
+		
+		void СохранитьФайлКакToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(saveFileDialog1.ShowDialog() == DialogResult.OK){
+				ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+				ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
+			}			
+		}
 	}
 }

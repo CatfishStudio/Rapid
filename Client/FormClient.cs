@@ -252,5 +252,31 @@ namespace Rapid
 			Calc.MdiParent = ClassForms.Rapid_Client;
 			Calc.Show();
 		}
+		
+		/* Открыть текстовый документ */
+		void ОткрытьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(openFileDialog1.ShowDialog() == DialogResult.OK){
+				FormNotePad NotePad = new FormNotePad();
+				NotePad.MdiParent = ClassForms.Rapid_Client;
+				NotePad.pathFile = openFileDialog1.FileName;
+				NotePad.richTextBox1.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+				NotePad.Show();
+			}
+		}
+		
+		/* Сохранить текстовый документ */
+		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.SaveFile(ClassForms.NotePad.pathFile, RichTextBoxStreamType.PlainText);
+		}
+		
+		void СохранитьКакToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(saveFileDialog1.ShowDialog() == DialogResult.OK){
+				ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+				ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
+			}
+		}
 	}
 }

@@ -58,6 +58,7 @@ namespace Rapid
 					ClassServer.TableUpdate[i,8] = _table.Rows[i]["history_additionally"].ToString();
 					ShowUpdateInTable(Int32.Parse(_table.Rows[i]["id_history"].ToString()));
 					if(ClassForms.LoadAdministrator == false) ClassForms.Rapid_Client.MessageConsole("Сервер: обновление журнала таблица: '" + ClassServer.TableUpdate[i,2] + "'  (дата и время: " + ClassServer.TableUpdate[i,3] + ").", false);
+					else ClassForms.Rapid_Administrator.MessageConsole("Сервер: обновление журнала таблица: '" + ClassServer.TableUpdate[i,2] + "'  (дата и время: " + ClassServer.TableUpdate[i,3] + ").", false, _table.Rows[i]["history_client"].ToString());
 				}	
 			}
 		}

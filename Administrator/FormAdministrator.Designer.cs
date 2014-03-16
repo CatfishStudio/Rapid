@@ -58,14 +58,19 @@ namespace Rapid
 			this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.создатьКонфигурациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.конструкторЗапросовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.мониторАктивностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.toolStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// statusStrip1
@@ -169,6 +174,7 @@ namespace Rapid
 			this.открытьФайлToolStripMenuItem.Name = "открытьФайлToolStripMenuItem";
 			this.открытьФайлToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
 			this.открытьФайлToolStripMenuItem.Text = "Открыть файл.";
+			this.открытьФайлToolStripMenuItem.Click += new System.EventHandler(this.ОткрытьФайлToolStripMenuItemClick);
 			// 
 			// toolStripSeparator1
 			// 
@@ -181,12 +187,14 @@ namespace Rapid
 			this.сохранитьФайлToolStripMenuItem.Name = "сохранитьФайлToolStripMenuItem";
 			this.сохранитьФайлToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
 			this.сохранитьФайлToolStripMenuItem.Text = "Сохранить файл.";
+			this.сохранитьФайлToolStripMenuItem.Click += new System.EventHandler(this.СохранитьФайлToolStripMenuItemClick);
 			// 
 			// сохранитьФайлКакToolStripMenuItem
 			// 
 			this.сохранитьФайлКакToolStripMenuItem.Name = "сохранитьФайлКакToolStripMenuItem";
 			this.сохранитьФайлКакToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
 			this.сохранитьФайлКакToolStripMenuItem.Text = "Сохранить файл как...";
+			this.сохранитьФайлКакToolStripMenuItem.Click += new System.EventHandler(this.СохранитьФайлКакToolStripMenuItemClick);
 			// 
 			// toolStripSeparator2
 			// 
@@ -231,26 +239,6 @@ namespace Rapid
 			this.создатьКонфигурациюToolStripMenuItem.Text = "Создать конфигурацию.";
 			this.создатьКонфигурациюToolStripMenuItem.Click += new System.EventHandler(this.СоздатьКонфигурациюToolStripMenuItemClick);
 			// 
-			// справкаToolStripMenuItem
-			// 
-			this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.оПрограммеToolStripMenuItem});
-			this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-			this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-			this.справкаToolStripMenuItem.Text = "Справка";
-			// 
-			// оПрограммеToolStripMenuItem
-			// 
-			this.оПрограммеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("оПрограммеToolStripMenuItem.Image")));
-			this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-			this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.оПрограммеToolStripMenuItem.Text = "О программе.";
-			// 
-			// timer1
-			// 
-			this.timer1.Interval = 1000;
-			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
-			// 
 			// сервисToolStripMenuItem
 			// 
 			this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -274,12 +262,64 @@ namespace Rapid
 			this.мониторАктивностиToolStripMenuItem.Name = "мониторАктивностиToolStripMenuItem";
 			this.мониторАктивностиToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
 			this.мониторАктивностиToolStripMenuItem.Text = "Монитор активности.";
+			this.мониторАктивностиToolStripMenuItem.Click += new System.EventHandler(this.МониторАктивностиToolStripMenuItemClick);
+			// 
+			// справкаToolStripMenuItem
+			// 
+			this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.оПрограммеToolStripMenuItem});
+			this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+			this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+			this.справкаToolStripMenuItem.Text = "Справка";
+			// 
+			// оПрограммеToolStripMenuItem
+			// 
+			this.оПрограммеToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("оПрограммеToolStripMenuItem.Image")));
+			this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+			this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.оПрограммеToolStripMenuItem.Text = "О программе.";
+			// 
+			// timer1
+			// 
+			this.timer1.Interval = 1000;
+			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
+			// 
+			// panel1
+			// 
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel1.Controls.Add(this.richTextBox1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel1.Location = new System.Drawing.Point(0, 401);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(784, 138);
+			this.panel1.TabIndex = 5;
+			this.panel1.Visible = false;
+			// 
+			// richTextBox1
+			// 
+			this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+									| System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+			this.richTextBox1.Name = "richTextBox1";
+			this.richTextBox1.Size = new System.Drawing.Size(774, 130);
+			this.richTextBox1.TabIndex = 0;
+			this.richTextBox1.Text = "";
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.Filter = "*.*|*.*";
+			// 
+			// saveFileDialog1
+			// 
+			this.saveFileDialog1.Filter = "*.txt|*.txt";
 			// 
 			// FormAdministrator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(784, 561);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
@@ -295,9 +335,14 @@ namespace Rapid
 			this.toolStrip1.PerformLayout();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.RichTextBox richTextBox1;
+		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.ToolStripMenuItem мониторАктивностиToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem конструкторЗапросовToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;

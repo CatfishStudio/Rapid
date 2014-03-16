@@ -338,25 +338,29 @@ namespace Rapid
 		void LineEdit(int indexLineParentDataSet) /* изменить строку */
 		{
 			if(ComingTS_DataSet.Tables["tabularsection"].Rows.Count > 0){
-				FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
-				Rapid_ClientDocOrderElement.Text = "Изменить строку";
-				Rapid_ClientDocOrderElement.BuyOrSell = true;					// флаг продажа
-				Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
-				Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
-				Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
-				Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
-				Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
-				Rapid_ClientDocOrderElement.DocID = DocID;						// идентификатор документа
-				Rapid_ClientDocOrderElement.indexLineParentDataSet = indexLineParentDataSet; // индекс выбраной строки
-				Rapid_ClientDocOrderElement.textBox1.Text = ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"].ToString();
-				Rapid_ClientDocOrderElement.textBox2.Text = ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"].ToString();
-				Rapid_ClientDocOrderElement.textBox3.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"].ToString());
-				Rapid_ClientDocOrderElement.textBox4.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_price"].ToString());
-				Rapid_ClientDocOrderElement.textBox6.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_NDS"].ToString());
-				Rapid_ClientDocOrderElement.textBox7.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"].ToString());
-				Rapid_ClientDocOrderElement.textBox8.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"].ToString());
-				Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;
-				Rapid_ClientDocOrderElement.Show();
+				try{
+					FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
+					Rapid_ClientDocOrderElement.Text = "Изменить строку";
+					Rapid_ClientDocOrderElement.BuyOrSell = true;					// флаг продажа
+					Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
+					Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
+					Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
+					Rapid_ClientDocOrderElement.labelNDS = labelNDS;				// родительская метка "ндс"
+					Rapid_ClientDocOrderElement.labelTotal = labelTotal;			// родительская метка "всего"
+					Rapid_ClientDocOrderElement.DocID = DocID;						// идентификатор документа
+					Rapid_ClientDocOrderElement.indexLineParentDataSet = indexLineParentDataSet; // индекс выбраной строки
+					Rapid_ClientDocOrderElement.textBox1.Text = ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_tmc"].ToString();
+					Rapid_ClientDocOrderElement.textBox2.Text = ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_units"].ToString();
+					Rapid_ClientDocOrderElement.textBox3.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_number"].ToString());
+					Rapid_ClientDocOrderElement.textBox4.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_price"].ToString());
+					Rapid_ClientDocOrderElement.textBox6.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_NDS"].ToString());
+					Rapid_ClientDocOrderElement.textBox7.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_sum"].ToString());
+					Rapid_ClientDocOrderElement.textBox8.Text = ClassConversion.StringToMoney(ComingTS_DataSet.Tables["tabularsection"].Rows[indexLineParentDataSet]["tabularSection_total"].ToString());
+					Rapid_ClientDocOrderElement.MdiParent = ClassForms.Rapid_Client;
+					Rapid_ClientDocOrderElement.Show();
+				}catch{
+					
+				}
 			}
 		}
 		
