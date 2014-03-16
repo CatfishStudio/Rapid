@@ -52,6 +52,18 @@ namespace Rapid
 			Application.Exit();	//закрытие приложения
 		}
 		
+		/*ПАНЕЛЬ ИНСТРУМЕНТОВ */
+		void ПанельИнструментовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			if(панельИнструментовToolStripMenuItem.Checked == true){
+				панельИнструментовToolStripMenuItem.Checked = false;
+				toolStrip1.Visible = false;
+			}else{
+				панельИнструментовToolStripMenuItem.Checked = true;
+				toolStrip1.Visible = true;
+			}
+		}
+		
 		/* КОНСОЛЬ: открытие */
 		void КонсольСообщенийToolStripMenuItemClick(object sender, EventArgs e)
 		{
@@ -277,6 +289,51 @@ namespace Rapid
 				ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
 				ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
 			}
+		}
+		
+		void ОтменаToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.Undo();
+		}
+		
+		void ПовторToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.Redo();
+		}
+		
+		void ВырезатьToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.Cut();
+		}
+		
+		void КопироватьToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.Copy();
+		}
+		
+		void ВставитьToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ClassForms.NotePad.richTextBox1.Paste();
+		}
+		
+		void УдалитьToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			Clipboard.SetDataObject("");
+			ClassForms.NotePad.richTextBox1.Paste();
+		}
+		/* -------------------------------------------------------------------- */
+		
+		/* ОТЧЁТЫ */
+		void ReportBalance()
+		{
+			FormClientReportBalance Rapid_ClientReportBalance = new FormClientReportBalance();
+			Rapid_ClientReportBalance.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientReportBalance.Show();
+		}
+		
+		void ОстаткиТМЦToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ReportBalance();
 		}
 	}
 }

@@ -135,3 +135,4 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalOrder.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientJournalOperations.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientOperation.resources
 C:\GIT\Rapid\obj\Debug\Rapid.Service.FormNotePad.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportBalance.resources
