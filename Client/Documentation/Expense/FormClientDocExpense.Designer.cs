@@ -83,12 +83,6 @@ namespace Rapid
 			this.новаяСтрокаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.изменитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.удалитьСтрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.label2 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-			this.printDialog1 = new System.Windows.Forms.PrintDialog();
 			this.dataGridTableStyle1 = new System.Windows.Forms.DataGridTableStyle();
 			this.dataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.dataGridTextBoxColumn2 = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -97,6 +91,12 @@ namespace Rapid
 			this.dataGridTextBoxColumn5 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.dataGridTextBoxColumn6 = new System.Windows.Forms.DataGridTextBoxColumn();
 			this.dataGridTextBoxColumn7 = new System.Windows.Forms.DataGridTextBoxColumn();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.label2 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+			this.printDialog1 = new System.Windows.Forms.PrintDialog();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -118,6 +118,7 @@ namespace Rapid
 			this.button9.Text = "Дт/Кт";
 			this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
 			// label12
 			// 
@@ -608,51 +609,6 @@ namespace Rapid
 			this.удалитьСтрокуToolStripMenuItem.Text = "Удалить строку.";
 			this.удалитьСтрокуToolStripMenuItem.Click += new System.EventHandler(this.УдалитьСтрокуToolStripMenuItemClick);
 			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker1.Location = new System.Drawing.Point(335, 9);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
-			this.dateTimePicker1.TabIndex = 33;
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(301, 12);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 23);
-			this.label2.TabIndex = 32;
-			this.label2.Text = "дата:";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(195, 9);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(100, 20);
-			this.textBox1.TabIndex = 31;
-			this.textBox1.Text = "РН-0000";
-			// 
-			// label1
-			// 
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.ForeColor = System.Drawing.Color.Blue;
-			this.label1.Location = new System.Drawing.Point(12, 12);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(196, 23);
-			this.label1.TabIndex = 30;
-			this.label1.Text = "Расходная накладная.   №:";
-			// 
-			// printDocument1
-			// 
-			this.printDocument1.OriginAtMargins = true;
-			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
-			// 
-			// printDialog1
-			// 
-			this.printDialog1.Document = this.printDocument1;
-			this.printDialog1.UseEXDialog = true;
-			// 
 			// dataGridTableStyle1
 			// 
 			this.dataGridTableStyle1.DataGrid = this.dataGrid1;
@@ -722,6 +678,51 @@ namespace Rapid
 			this.dataGridTextBoxColumn7.HeaderText = "Всего с НДС";
 			this.dataGridTextBoxColumn7.MappingName = "tabularSection_total";
 			this.dataGridTextBoxColumn7.Width = 150;
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePicker1.Location = new System.Drawing.Point(335, 9);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
+			this.dateTimePicker1.TabIndex = 33;
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(301, 12);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(100, 23);
+			this.label2.TabIndex = 32;
+			this.label2.Text = "дата:";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(195, 9);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(100, 20);
+			this.textBox1.TabIndex = 31;
+			this.textBox1.Text = "РН-0000";
+			// 
+			// label1
+			// 
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.ForeColor = System.Drawing.Color.Blue;
+			this.label1.Location = new System.Drawing.Point(12, 12);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(196, 23);
+			this.label1.TabIndex = 30;
+			this.label1.Text = "Расходная накладная.   №:";
+			// 
+			// printDocument1
+			// 
+			this.printDocument1.OriginAtMargins = true;
+			this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument1PrintPage);
+			// 
+			// printDialog1
+			// 
+			this.printDialog1.Document = this.printDocument1;
+			this.printDialog1.UseEXDialog = true;
 			// 
 			// FormClientDocExpense
 			// 

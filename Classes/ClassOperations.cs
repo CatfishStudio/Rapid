@@ -55,7 +55,7 @@ namespace Rapid
 		public static bool OperationDelete(String _docID, String _id)
 		{
 			ClassMySQL_Short _mySQL = new ClassMySQL_Short();
-			if(_docID != "") _mySQL.SqlCommand = "DELETE FROM operations WHERE (operations_id_doc = " + _docID + ")";
+			if(_docID != "") _mySQL.SqlCommand = "DELETE FROM operations WHERE (operations_id_doc = '" + _docID + "')";
 			if(_id != "") _mySQL.SqlCommand = "DELETE FROM operations WHERE (id_operations = " + _id + ")";
 			if (_mySQL.ExecuteNonQuery()){
 				// ИСТОРИЯ: Запись в журнал истории обновлений

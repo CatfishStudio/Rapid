@@ -313,7 +313,7 @@ namespace Rapid
 		{
 			FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
 			Rapid_ClientDocOrderElement.Text = "Новая строка";
-			Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
+			Rapid_ClientDocOrderElement.BuyOrSell = true;					// флаг продажа
 			Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
 			Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
 			Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
@@ -340,7 +340,7 @@ namespace Rapid
 			if(ComingTS_DataSet.Tables["tabularsection"].Rows.Count > 0){
 				FormClientDocTableElement Rapid_ClientDocOrderElement = new FormClientDocTableElement();
 				Rapid_ClientDocOrderElement.Text = "Изменить строку";
-				Rapid_ClientDocOrderElement.BuyOrSell = false;					// флаг продажа
+				Rapid_ClientDocOrderElement.BuyOrSell = true;					// флаг продажа
 				Rapid_ClientDocOrderElement.ActualDate = dateTimePicker1.Text;	// актуальная дата остатков
 				Rapid_ClientDocOrderElement.ParentDataSet = ComingTS_DataSet;	// родительский DataSet
 				Rapid_ClientDocOrderElement.labelSum = labelSum;				// родительская метка "сумма"
@@ -516,6 +516,15 @@ namespace Rapid
 					if(ComingTS_MySQL.ExecuteUpdate(ComingTS_DataSet, "tabularsection")){
 						// ОСТАТКИ: Увеличение остатков
 						ClassBalance.BalancePlus(ComingTS_DataSet);
+						/* ОПЕРАЦИЯ: Создание бухгалтерской проводки
+						 * 			Приобретение товара
+						 * Оприходована партия товара 281 / 631
+						 * Налоговый кредит (НДС) 641 / 631
+						 * Погашена задолженность перед поставщиком 631 / 311
+						*/
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "28", "63", labelSum.Text, "Оприходована партия товара", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "64", "63", labelNDS.Text, "Налоговый кредит (НДС)", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "63", "31", labelTotal.Text, "Погашена задолженность перед поставщиком", DocID);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное создание нового документа Приходная Накладная.", false);
@@ -532,6 +541,16 @@ namespace Rapid
 					if(ComingTS_MySQL.ExecuteUpdate(ComingTS_DataSet, "tabularsection")){
 						// ОСТАТКИ:  обновление остатков после изменений
 						ClassBalance.BalanceUpdatePlus(OldDS, ComingTS_DataSet);
+						/* ОПЕРАЦИЯ: Создание бухгалтерской проводки
+						 * 			Приобретение товара
+						 * Оприходована партия товара 281 / 631
+						 * Налоговый кредит (НДС) 641 / 631
+						 * Погашена задолженность перед поставщиком 631 / 311
+						*/
+						ClassOperations.OperationDelete(DocID, "");
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "28", "63", labelSum.Text, "Оприходована партия товара", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "64", "63", labelNDS.Text, "Налоговый кредит (НДС)", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "63", "31", labelTotal.Text, "Погашена задолженность перед поставщиком", DocID);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное сохранены изменения документа Приходная Накладная.", false);
@@ -556,5 +575,21 @@ namespace Rapid
 		}
 		/*---------------------------------------------------------*/
 		
+		/* Просмотр бухгалтерских проводок данного документа */
+		void OperationShow()
+		{
+			ClassForms.Rapid_ClientJournalOperations = new FormClientJournalOperations();
+			ClassForms.Rapid_ClientJournalOperations.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientJournalOperations.textBox1.Text = DocID;
+			ClassForms.Rapid_ClientJournalOperations.panel1.Enabled = false;
+			ClassForms.Rapid_ClientJournalOperations.contextMenuStrip1.Enabled = false;
+			ClassForms.Rapid_ClientJournalOperations.Show();
+		}
+		
+		void Button9Click(object sender, EventArgs e)
+		{
+			OperationShow();
+		}
+		/*---------------------------------------------------------*/
 	}
 }

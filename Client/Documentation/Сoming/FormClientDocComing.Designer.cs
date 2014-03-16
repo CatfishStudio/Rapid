@@ -675,6 +675,7 @@ namespace Rapid
 			this.button9.Text = "Дт/Кт";
 			this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
 			// FormClientDocComing
 			// 

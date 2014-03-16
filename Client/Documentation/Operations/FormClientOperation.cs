@@ -49,8 +49,7 @@ namespace Rapid
 			if(this.Text == "Изменить операцию."){
 				_dataSet.Clear();
 				_dataSet.DataSetName = "operations";
-				if(ActionID != "") _mySQL.SelectSqlCommand = "SELECT * FROM operations WHERE (id_operations = " + ActionID + ")";
-				if(DocID != "") _mySQL.SelectSqlCommand = "SELECT * FROM operations WHERE (operations_id_doc = " + DocID + ")";
+				_mySQL.SelectSqlCommand = "SELECT * FROM operations WHERE (id_operations = " + ActionID + ")";
 				if(_mySQL.ExecuteFill(_dataSet, "operations"))
 				{
 					// Загрузка полученной информации
@@ -64,7 +63,6 @@ namespace Rapid
 					textBox6.Text = _table.Rows[0]["operations_specification"].ToString();
 				}else{
 					ClassForms.Rapid_Client.MessageConsole("Операция: Ошибка загрузки данных.", true);
-					Close();
 				}
 			}
 		}

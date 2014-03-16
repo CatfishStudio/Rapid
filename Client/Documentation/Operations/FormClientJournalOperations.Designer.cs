@@ -65,6 +65,7 @@ namespace Rapid
 			this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader9 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
 			this.button8 = new System.Windows.Forms.Button();
@@ -276,7 +277,8 @@ namespace Rapid
 									this.columnHeader5,
 									this.columnHeader6,
 									this.columnHeader7,
-									this.columnHeader8});
+									this.columnHeader8,
+									this.columnHeader9});
 			this.listView1.ContextMenuStrip = this.contextMenuStrip1;
 			this.listView1.Cursor = System.Windows.Forms.Cursors.Default;
 			this.listView1.FullRowSelect = true;
@@ -322,6 +324,11 @@ namespace Rapid
 			this.columnHeader6.Text = "Документ";
 			this.columnHeader6.Width = 150;
 			// 
+			// columnHeader9
+			// 
+			this.columnHeader9.Text = "Описание";
+			this.columnHeader9.Width = 500;
+			// 
 			// columnHeader7
 			// 
 			this.columnHeader7.Text = "№";
@@ -360,6 +367,7 @@ namespace Rapid
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ColumnHeader columnHeader9;
 		private System.Windows.Forms.ColumnHeader columnHeader8;
 		private System.Windows.Forms.ToolStripMenuItem создатьОперациюToolStripMenuItem;
 		private System.Windows.Forms.Button button8;
@@ -380,15 +388,15 @@ namespace Rapid
 		private System.Windows.Forms.DateTimePicker dateTimePicker2;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.TextBox textBox1;
+		public System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button button9;
-		private System.Windows.Forms.Panel panel1;
+		public System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.ToolStripMenuItem удалитьДокументToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem изменитьДокументToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ImageList imageList1;
 	}
 }

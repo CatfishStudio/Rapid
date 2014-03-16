@@ -538,6 +538,15 @@ namespace Rapid
 					if(ExpenseTS_MySQL.ExecuteUpdate(ExpenseTS_DataSet, "tabularsection")){
 						// ОСТАТКИ: Уменьшение остатков
 						ClassBalance.BalanceMinus(ExpenseTS_DataSet);
+						/* ОПЕРАЦИЯ: Создание бухгалтерской проводки
+						 * 			Оптовая торговля
+						 * Отгружен товар покупателю и отражен доход от реализации 360 / 702
+						 * Отражено налоговое обязательство по НДС 702 / 641
+						 * Получена оплата от покупателя 311 / 361
+						*/
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "36", "70", labelSum.Text, "Отгружен товар покупателю и отражен доход от реализации", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "70", "64", labelNDS.Text, "Отражено налоговое обязательство по НДС", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "31", "361", labelTotal.Text, "Получена оплата от покупателя", DocID);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное создание нового документа Расходная накладная.", false);
@@ -554,6 +563,16 @@ namespace Rapid
 					if(ExpenseTS_MySQL.ExecuteUpdate(ExpenseTS_DataSet, "tabularsection")){
 						// ОСТАТКИ:  обновление остатков после изменений
 						ClassBalance.BalanceUpdateMinus(OldDS, ExpenseTS_DataSet);
+						/* ОПЕРАЦИЯ: Создание бухгалтерской проводки
+						 * 			Оптовая торговля
+						 * Отгружен товар покупателю и отражен доход от реализации 360 / 702
+						 * Отражено налоговое обязательство по НДС 702 / 641
+						 * Получена оплата от покупателя 311 / 361
+						*/
+						ClassOperations.OperationDelete(DocID, "");
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "36", "70", labelSum.Text, "Отгружен товар покупателю и отражен доход от реализации", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "70", "64", labelNDS.Text, "Отражено налоговое обязательство по НДС", DocID);
+						ClassOperations.OperationAdd(dateTimePicker1.Text, "31", "361", labelTotal.Text, "Получена оплата от покупателя", DocID);
 						// ИСТОРИЯ: Запись в журнал истории обновлений
 						ClassServer.SaveUpdateInBase(9, DateTime.Now.ToString(), "", "Изменение записи.", "");
 						ClassForms.Rapid_Client.MessageConsole("Полный журнал: успешное сохранены изменения документа Расходная Накладная.", false);
@@ -574,6 +593,23 @@ namespace Rapid
 		void DataGrid1Paint(object sender, PaintEventArgs e)
 		{
 			CalculationResults(); // Перерасчёт итогов.
+		}
+		/*---------------------------------------------------------*/
+		
+		/* Просмотр бухгалтерских проводок данного документа */
+		void OperationShow()
+		{
+			ClassForms.Rapid_ClientJournalOperations = new FormClientJournalOperations();
+			ClassForms.Rapid_ClientJournalOperations.MdiParent = ClassForms.Rapid_Client;
+			ClassForms.Rapid_ClientJournalOperations.textBox1.Text = DocID;
+			ClassForms.Rapid_ClientJournalOperations.panel1.Enabled = false;
+			ClassForms.Rapid_ClientJournalOperations.contextMenuStrip1.Enabled = false;
+			ClassForms.Rapid_ClientJournalOperations.Show();
+		}
+		
+		void Button9Click(object sender, EventArgs e)
+		{
+			OperationShow();
 		}
 		/*---------------------------------------------------------*/
 	}
