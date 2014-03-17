@@ -212,6 +212,10 @@
     <Compile Include="Client\Reports\FormClientReportBalance.Designer.cs">
       <DependentUpon>FormClientReportBalance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Reports\FormClientReportSupplier.cs" />
+    <Compile Include="Client\Reports\FormClientReportSupplier.Designer.cs">
+      <DependentUpon>FormClientReportSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Reports\FormClientReportTradeRepresentative.cs" />
     <Compile Include="Client\Reports\FormClientReportTradeRepresentative.Designer.cs">
       <DependentUpon>FormClientReportTradeRepresentative.cs</DependentUpon>
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Reports\FormClientReportBalance.resx">
       <DependentUpon>FormClientReportBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Reports\FormClientReportSupplier.resx">
+      <DependentUpon>FormClientReportSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Reports\FormClientReportTradeRepresentative.resx">
       <DependentUpon>FormClientReportTradeRepresentative.cs</DependentUpon>

@@ -370,7 +370,11 @@ namespace Rapid
 		/* Сохранить текстовый документ */
 		void SaveFile()
 		{
-			ClassForms.NotePad.richTextBox1.SaveFile(ClassForms.NotePad.pathFile, RichTextBoxStreamType.PlainText);
+			try{
+				ClassForms.NotePad.richTextBox1.SaveFile(ClassForms.NotePad.pathFile, RichTextBoxStreamType.PlainText);
+			}catch{
+				
+			}
 		}
 		
 		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
@@ -381,8 +385,12 @@ namespace Rapid
 		void ShowSaveFile()
 		{
 			if(saveFileDialog1.ShowDialog() == DialogResult.OK){
-				ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
-				ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
+				try{
+					ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
+					ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
+				}catch{
+					
+				}
 			}
 		}
 		
@@ -393,33 +401,51 @@ namespace Rapid
 		
 		void ОтменаToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			ClassForms.NotePad.richTextBox1.Undo();
+			try{
+				ClassForms.NotePad.richTextBox1.Undo();
+			}catch{
+			}
 		}
 		
 		void ПовторToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			ClassForms.NotePad.richTextBox1.Redo();
+			try{
+				ClassForms.NotePad.richTextBox1.Redo();
+			}catch{
+			}
 		}
 		
 		void ВырезатьToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			ClassForms.NotePad.richTextBox1.Cut();
+			try{
+				ClassForms.NotePad.richTextBox1.Cut();
+			}catch{
+			}
 		}
 		
 		void КопироватьToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			ClassForms.NotePad.richTextBox1.Copy();
+			try{
+				ClassForms.NotePad.richTextBox1.Copy();
+			}catch{
+			}
 		}
 		
 		void ВставитьToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			ClassForms.NotePad.richTextBox1.Paste();
+			try{
+				ClassForms.NotePad.richTextBox1.Paste();
+			}catch{
+			}
 		}
 		
 		void УдалитьToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			Clipboard.SetDataObject("");
-			ClassForms.NotePad.richTextBox1.Paste();
+			try{
+				Clipboard.SetDataObject("");
+				ClassForms.NotePad.richTextBox1.Paste();
+			}catch{
+			}
 		}
 		/* -------------------------------------------------------------------- */
 		
@@ -461,6 +487,19 @@ namespace Rapid
 		void ОборотнаяВедомостьПоТоргПредставителюToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			ReportTradeRepresentative();
+		}
+		
+		/* Оборотная ведомость по поставщику */
+		void ReportSupplier()
+		{
+			FormClientReportSupplier Rapid_ClientReportSupplier = new FormClientReportSupplier();
+			Rapid_ClientReportSupplier.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientReportSupplier.Show();
+		}
+		
+		void ОборотнаяВедомостьПоПоставщикуToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ReportSupplier();
 		}
 	}
 }
