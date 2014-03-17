@@ -514,5 +514,126 @@ namespace Rapid
 		{
 			ReportBuyer();
 		}
+		
+		/* ПАНЕЛЬ ИНСТРУМЕНТОВ -----------------------------------*/
+		void ToolStripButton1Click(object sender, EventArgs e)
+		{
+			ShowOpenFile();
+		}
+		
+		void ToolStripButton2Click(object sender, EventArgs e)
+		{
+			SaveFile();
+		}
+		
+		void ToolStripButton3Click(object sender, EventArgs e)
+		{
+			ShowConst();
+		}
+		
+		void ToolStripButton4Click(object sender, EventArgs e)
+		{
+			ShowFirm();
+		}
+		
+		void ToolStripButton5Click(object sender, EventArgs e)
+		{
+			ShowTMC();
+		}
+		
+		void ToolStripButton6Click(object sender, EventArgs e)
+		{
+			ShowStore();
+		}
+		
+		void ToolStripButton7Click(object sender, EventArgs e)
+		{
+			ShowUnits();
+		}
+		
+		void ToolStripButton8Click(object sender, EventArgs e)
+		{
+			ShowTypeTax();
+		}
+		
+		void ToolStripButton9Click(object sender, EventArgs e)
+		{
+			ShowStaff();
+		}
+		
+		void ToolStripButton10Click(object sender, EventArgs e)
+		{
+			ShowPlanAccounts();
+		}
+		
+		void ToolStripButton11Click(object sender, EventArgs e)
+		{
+			ShowOrder();
+		}
+		
+		void ToolStripButton12Click(object sender, EventArgs e)
+		{
+			ShowComing();
+		}
+		
+		void ToolStripButton13Click(object sender, EventArgs e)
+		{
+			ShowExpense();
+		}
+		
+		void ToolStripButton14Click(object sender, EventArgs e)
+		{
+			ShowJournalDocs();
+		}
+		
+		void ToolStripButton15Click(object sender, EventArgs e)
+		{
+			ShowJournalComings();
+		}
+		
+		void ToolStripButton16Click(object sender, EventArgs e)
+		{
+			ShowJournalExpense();
+		}
+		
+		void ToolStripButton17Click(object sender, EventArgs e)
+		{
+			ShowJournalOrders();
+		}
+		
+		void ToolStripButton18Click(object sender, EventArgs e)
+		{
+			ShowJournalOperations();
+		}
+		
+		void ToolStripButton19Click(object sender, EventArgs e)
+		{
+			ReportBalance();
+		}
+		
+		void ToolStripButton20Click(object sender, EventArgs e)
+		{
+			ReportAccount();
+		}
+		
+		void ToolStripButton21Click(object sender, EventArgs e)
+		{
+			ReportTradeRepresentative();
+		}
+		
+		void ToolStripButton22Click(object sender, EventArgs e)
+		{
+			ReportSupplier();
+		}
+		
+		void ToolStripButton23Click(object sender, EventArgs e)
+		{
+			ReportBuyer();
+		}
+		
+		void ToolStripButton24Click(object sender, EventArgs e)
+		{
+			ShowCalc();
+		}
 	}
 }

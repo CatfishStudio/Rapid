@@ -653,6 +653,7 @@ namespace Rapid
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton1.Text = "toolStripButton1";
+			this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1Click);
 			// 
 			// toolStripButton2
 			// 
@@ -662,6 +663,7 @@ namespace Rapid
 			this.toolStripButton2.Name = "toolStripButton2";
 			this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton2.Text = "toolStripButton2";
+			this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2Click);
 			// 
 			// toolStripSeparator4
 			// 
@@ -676,6 +678,7 @@ namespace Rapid
 			this.toolStripButton3.Name = "toolStripButton3";
 			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton3.Text = "toolStripButton3";
+			this.toolStripButton3.Click += new System.EventHandler(this.ToolStripButton3Click);
 			// 
 			// toolStripSeparator9
 			// 
@@ -690,6 +693,7 @@ namespace Rapid
 			this.toolStripButton4.Name = "toolStripButton4";
 			this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton4.Text = "toolStripButton4";
+			this.toolStripButton4.Click += new System.EventHandler(this.ToolStripButton4Click);
 			// 
 			// toolStripButton5
 			// 
@@ -699,6 +703,7 @@ namespace Rapid
 			this.toolStripButton5.Name = "toolStripButton5";
 			this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton5.Text = "toolStripButton5";
+			this.toolStripButton5.Click += new System.EventHandler(this.ToolStripButton5Click);
 			// 
 			// toolStripButton6
 			// 
@@ -708,6 +713,7 @@ namespace Rapid
 			this.toolStripButton6.Name = "toolStripButton6";
 			this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton6.Text = "toolStripButton6";
+			this.toolStripButton6.Click += new System.EventHandler(this.ToolStripButton6Click);
 			// 
 			// toolStripButton7
 			// 
@@ -717,6 +723,7 @@ namespace Rapid
 			this.toolStripButton7.Name = "toolStripButton7";
 			this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton7.Text = "toolStripButton7";
+			this.toolStripButton7.Click += new System.EventHandler(this.ToolStripButton7Click);
 			// 
 			// toolStripSeparator10
 			// 
@@ -731,6 +738,7 @@ namespace Rapid
 			this.toolStripButton8.Name = "toolStripButton8";
 			this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton8.Text = "toolStripButton8";
+			this.toolStripButton8.Click += new System.EventHandler(this.ToolStripButton8Click);
 			// 
 			// toolStripButton9
 			// 
@@ -740,6 +748,7 @@ namespace Rapid
 			this.toolStripButton9.Name = "toolStripButton9";
 			this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton9.Text = "toolStripButton9";
+			this.toolStripButton9.Click += new System.EventHandler(this.ToolStripButton9Click);
 			// 
 			// toolStripSeparator11
 			// 
@@ -754,6 +763,7 @@ namespace Rapid
 			this.toolStripButton10.Name = "toolStripButton10";
 			this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton10.Text = "toolStripButton10";
+			this.toolStripButton10.Click += new System.EventHandler(this.ToolStripButton10Click);
 			// 
 			// toolStripSeparator12
 			// 
@@ -768,6 +778,7 @@ namespace Rapid
 			this.toolStripButton11.Name = "toolStripButton11";
 			this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton11.Text = "toolStripButton11";
+			this.toolStripButton11.Click += new System.EventHandler(this.ToolStripButton11Click);
 			// 
 			// toolStripButton12
 			// 
@@ -777,6 +788,7 @@ namespace Rapid
 			this.toolStripButton12.Name = "toolStripButton12";
 			this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton12.Text = "toolStripButton12";
+			this.toolStripButton12.Click += new System.EventHandler(this.ToolStripButton12Click);
 			// 
 			// toolStripButton13
 			// 
@@ -786,6 +798,7 @@ namespace Rapid
 			this.toolStripButton13.Name = "toolStripButton13";
 			this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton13.Text = "toolStripButton13";
+			this.toolStripButton13.Click += new System.EventHandler(this.ToolStripButton13Click);
 			// 
 			// toolStripSeparator13
 			// 
@@ -800,6 +813,7 @@ namespace Rapid
 			this.toolStripButton14.Name = "toolStripButton14";
 			this.toolStripButton14.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton14.Text = "toolStripButton14";
+			this.toolStripButton14.Click += new System.EventHandler(this.ToolStripButton14Click);
 			// 
 			// toolStripButton15
 			// 
@@ -809,6 +823,7 @@ namespace Rapid
 			this.toolStripButton15.Name = "toolStripButton15";
 			this.toolStripButton15.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton15.Text = "toolStripButton15";
+			this.toolStripButton15.Click += new System.EventHandler(this.ToolStripButton15Click);
 			// 
 			// toolStripButton16
 			// 
@@ -818,6 +833,7 @@ namespace Rapid
 			this.toolStripButton16.Name = "toolStripButton16";
 			this.toolStripButton16.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton16.Text = "toolStripButton16";
+			this.toolStripButton16.Click += new System.EventHandler(this.ToolStripButton16Click);
 			// 
 			// toolStripButton17
 			// 
@@ -827,6 +843,7 @@ namespace Rapid
 			this.toolStripButton17.Name = "toolStripButton17";
 			this.toolStripButton17.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton17.Text = "toolStripButton17";
+			this.toolStripButton17.Click += new System.EventHandler(this.ToolStripButton17Click);
 			// 
 			// toolStripSeparator14
 			// 
@@ -841,6 +858,7 @@ namespace Rapid
 			this.toolStripButton18.Name = "toolStripButton18";
 			this.toolStripButton18.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton18.Text = "toolStripButton18";
+			this.toolStripButton18.Click += new System.EventHandler(this.ToolStripButton18Click);
 			// 
 			// toolStripSeparator15
 			// 
@@ -855,6 +873,7 @@ namespace Rapid
 			this.toolStripButton19.Name = "toolStripButton19";
 			this.toolStripButton19.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton19.Text = "toolStripButton19";
+			this.toolStripButton19.Click += new System.EventHandler(this.ToolStripButton19Click);
 			// 
 			// toolStripButton20
 			// 
@@ -864,6 +883,7 @@ namespace Rapid
 			this.toolStripButton20.Name = "toolStripButton20";
 			this.toolStripButton20.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton20.Text = "toolStripButton20";
+			this.toolStripButton20.Click += new System.EventHandler(this.ToolStripButton20Click);
 			// 
 			// toolStripButton21
 			// 
@@ -873,6 +893,7 @@ namespace Rapid
 			this.toolStripButton21.Name = "toolStripButton21";
 			this.toolStripButton21.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton21.Text = "toolStripButton21";
+			this.toolStripButton21.Click += new System.EventHandler(this.ToolStripButton21Click);
 			// 
 			// toolStripButton22
 			// 
@@ -882,6 +903,7 @@ namespace Rapid
 			this.toolStripButton22.Name = "toolStripButton22";
 			this.toolStripButton22.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton22.Text = "toolStripButton22";
+			this.toolStripButton22.Click += new System.EventHandler(this.ToolStripButton22Click);
 			// 
 			// toolStripButton23
 			// 
@@ -891,6 +913,7 @@ namespace Rapid
 			this.toolStripButton23.Name = "toolStripButton23";
 			this.toolStripButton23.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton23.Text = "toolStripButton23";
+			this.toolStripButton23.Click += new System.EventHandler(this.ToolStripButton23Click);
 			// 
 			// toolStripSeparator16
 			// 
@@ -905,6 +928,7 @@ namespace Rapid
 			this.toolStripButton24.Name = "toolStripButton24";
 			this.toolStripButton24.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton24.Text = "toolStripButton24";
+			this.toolStripButton24.Click += new System.EventHandler(this.ToolStripButton24Click);
 			// 
 			// toolStripSeparator18
 			// 

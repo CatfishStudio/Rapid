@@ -30,11 +30,15 @@ namespace Rapid
 			//
 		}
 		
-		void СоздатьКонфигурациюToolStripMenuItemClick(object sender, EventArgs e)
+		void CreateConfig()
 		{
 			ClassForms.Rapid_CreateConfig = new FormAdminCreateConfig();
 			ClassForms.Rapid_CreateConfig.MdiParent = ClassForms.Rapid_Administrator;
 			ClassForms.Rapid_CreateConfig.Show();
+		}
+		void СоздатьКонфигурациюToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			CreateConfig();
 		}
 		
 		void FormAdministratorLoad(object sender, EventArgs e)
@@ -50,7 +54,7 @@ namespace Rapid
 			Application.Exit();	//закрытие приложения
 		}
 		
-		void ПользователиToolStripMenuItemClick(object sender, EventArgs e)
+		void ShowUsers()
 		{
 			//Окно редактирования пользователей системы
 			if(!ClassForms.OpenCloseFormUser){
@@ -60,16 +64,26 @@ namespace Rapid
 			}
 		}
 		
+		void ПользователиToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowUsers();
+		}
+		
 		void Timer1Tick(object sender, EventArgs e)
 		{
 			ClassServer.CheckBaseUpdate();
 		}
 		
-		void КонструкторЗапросовToolStripMenuItemClick(object sender, EventArgs e)
+		void ShowQuery()
 		{
 			FormAdminQuerySQL Rapid_AdminQuerySQL = new FormAdminQuerySQL();
 			Rapid_AdminQuerySQL.MdiParent = ClassForms.Rapid_Administrator;
 			Rapid_AdminQuerySQL.Show();
+		}
+		
+		void КонструкторЗапросовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowQuery();
 		}
 		
 		/* КОНСОЛЬ: отображение сообщений */
@@ -83,14 +97,19 @@ namespace Rapid
 			}
 		}
 		
-		void МониторАктивностиToolStripMenuItemClick(object sender, EventArgs e)
+		void ShowMonitor()
 		{
 			if(panel1.Visible) panel1.Visible = false;
 			else panel1.Visible = true;
 		}
 		
+		void МониторАктивностиToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowMonitor();
+		}
+		
 		/* Открыть текстовый документ */
-		void ОткрытьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		void OpenFile()
 		{
 			if(openFileDialog1.ShowDialog() == DialogResult.OK){
 				FormNotePad NotePad = new FormNotePad();
@@ -100,11 +119,20 @@ namespace Rapid
 				NotePad.Show();
 			}
 		}
+		void ОткрытьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			OpenFile();
+		}
 		
 		/* Сохранить текстовый документ */
-		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		void SaveFile()
 		{
 			ClassForms.NotePad.richTextBox1.SaveFile(ClassForms.NotePad.pathFile, RichTextBoxStreamType.PlainText);			
+		}
+		
+		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			SaveFile();
 		}
 		
 		void СохранитьФайлКакToolStripMenuItemClick(object sender, EventArgs e)
@@ -113,6 +141,36 @@ namespace Rapid
 				ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
 				ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
 			}			
+		}
+		
+		void ToolStripButton1Click(object sender, EventArgs e)
+		{
+			OpenFile();
+		}
+		
+		void ToolStripButton2Click(object sender, EventArgs e)
+		{
+			SaveFile();
+		}
+		
+		void ToolStripButton3Click(object sender, EventArgs e)
+		{
+			ShowUsers();
+		}
+		
+		void ToolStripButton4Click(object sender, EventArgs e)
+		{
+			CreateConfig();
+		}
+		
+		void ToolStripButton5Click(object sender, EventArgs e)
+		{
+			ShowQuery();
+		}
+		
+		void ToolStripButton6Click(object sender, EventArgs e)
+		{
+			ShowMonitor();
 		}
 	}
 }
