@@ -62,6 +62,7 @@ namespace Rapid
 		
 		void PrintDocument1PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
 		{
+			double total = 0;
 			// ЗАГОЛОВОК ОТЧЁТА:
 			if(checkBox1.Checked){
 				e.Graphics.DrawString("Отчёт: остатки ТМЦ.", new Font("Microsoft Sans Serif", 14, FontStyle.Regular), Brushes.Black, 20, 20);
@@ -82,10 +83,20 @@ namespace Rapid
 				e.Graphics.FillRectangle(Brushes.White, new Rectangle(0, PosY, 500, 25));
 				e.Graphics.DrawString(row["balance_tmc"].ToString(), new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 5, PosY);
 				//    Количество
+				total = total + ClassConversion.StringToDouble(row["balance_number"].ToString());
 				e.Graphics.FillRectangle(Brushes.White, new Rectangle(505, PosY, 120, 25));
 				e.Graphics.DrawString(ClassConversion.StringToMoney(row["balance_number"].ToString()), new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 510, PosY);
 			
 			}
+			PosY += 30;
+			e.Graphics.DrawLine(new Pen(Color.Black), 0, PosY, 650, PosY);
+			PosY += 10;
+			//    Всего
+			e.Graphics.DrawString("Всего:", new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 450, PosY);
+			//    Общее количество
+			e.Graphics.FillRectangle(Brushes.White, new Rectangle(505, PosY, 120, 25));
+			e.Graphics.DrawString(ClassConversion.StringToMoney(total.ToString()), new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 510, PosY);
+			
 		}
 	}
 }

@@ -85,7 +85,7 @@ namespace Rapid
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(63, 101);
+			this.button1.Location = new System.Drawing.Point(58, 101);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(103, 23);
 			this.button1.TabIndex = 19;
@@ -95,7 +95,7 @@ namespace Rapid
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(181, 101);
+			this.button2.Location = new System.Drawing.Point(167, 101);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 20;

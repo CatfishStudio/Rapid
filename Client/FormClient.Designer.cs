@@ -552,6 +552,7 @@ namespace Rapid
 			this.оборотнаяВедомостьПоТоргПредставителюToolStripMenuItem.Name = "оборотнаяВедомостьПоТоргПредставителюToolStripMenuItem";
 			this.оборотнаяВедомостьПоТоргПредставителюToolStripMenuItem.Size = new System.Drawing.Size(330, 22);
 			this.оборотнаяВедомостьПоТоргПредставителюToolStripMenuItem.Text = "Оборотная ведомость по торг. представителю";
+			this.оборотнаяВедомостьПоТоргПредставителюToolStripMenuItem.Click += new System.EventHandler(this.ОборотнаяВедомостьПоТоргПредставителюToolStripMenuItemClick);
 			// 
 			// оборотнаяВедомостьПоПоставщикуToolStripMenuItem
 			// 

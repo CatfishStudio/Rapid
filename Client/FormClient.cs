@@ -89,8 +89,8 @@ namespace Rapid
 			}
 		}
 		
-		/* КОНСТАНТЫ */
-		void КонстантыToolStripMenuItemClick(object sender, EventArgs e)
+		/* КОНСТАНТЫ ---------------------------------------------------*/
+		void ShowConst()
 		{
 			// Отображение окна констант
 			if(!ClassForms.OpenCloseFormConst){
@@ -100,8 +100,13 @@ namespace Rapid
 			}
 		}
 		
-		/* ФИРМЫ */
-		void ФирмыToolStripMenuItemClick(object sender, EventArgs e)
+		void КонстантыToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowConst();
+		}
+		
+		/* ФИРМЫ -------------------------------------------------------*/
+		void ShowFirm()
 		{
 			// Отображение окна фирм
 			if(!ClassForms.OpenCloseFormFirms){
@@ -111,14 +116,19 @@ namespace Rapid
 			}
 		}
 		
+		void ФирмыToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowFirm();
+		}
+		
 		/* СЕРВЕР: проверка обновления */
 		void Timer1Tick(object sender, EventArgs e)
 		{
 			ClassServer.CheckBaseUpdate();
 		}
 		
-		/* ТМЦ */
-		void ТоварToolStripMenuItemClick(object sender, EventArgs e)
+		/* ТМЦ ----------------------------------------------------------*/
+		void ShowTMC()
 		{
 			// Отображение окна тмц
 			if(!ClassForms.OpenCloseFormTmc){
@@ -128,8 +138,13 @@ namespace Rapid
 			}
 		}
 		
-		/* Склады */
-		void СкладToolStripMenuItemClick(object sender, EventArgs e)
+		void ТоварToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowTMC();
+		}
+		
+		/* Склады --------------------------------------------------------*/
+		void ShowStore()
 		{
 			// Отображение окна склады
 			if(!ClassForms.OpenCloseFormStore){
@@ -139,8 +154,13 @@ namespace Rapid
 			}
 		}
 		
-		/* Единицы измерения */
-		void ЕдИзмToolStripMenuItemClick(object sender, EventArgs e)
+		void СкладToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowStore();
+		}
+		
+		/* Единицы измерения ---------------------------------------------*/
+		void ShowUnits()
 		{
 			if(!ClassForms.OpenCloseFormUnits){
 				ClassForms.Rapid_ClientUnits = new FormClientUnits();
@@ -149,8 +169,13 @@ namespace Rapid
 			}
 		}
 		
-		/* Вид налога */
-		void ВидНалогаToolStripMenuItemClick(object sender, EventArgs e)
+		void ЕдИзмToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowUnits();
+		}
+		
+		/* Вид налога --------------------------------------------------*/
+		void ShowTypeTax()
 		{
 			if(!ClassForms.OpenCloseFormTypeTax){
 				ClassForms.Rapid_ClientTypeTax = new FormClientTypeTax();
@@ -159,8 +184,13 @@ namespace Rapid
 			}
 		}
 		
-		/* Сотрудники */
-		void СотрудникиToolStripMenuItemClick(object sender, EventArgs e)
+		void ВидНалогаToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowTypeTax();
+		}
+		
+		/* Сотрудники -------------------------------------------------*/
+		void ShowStaff()
 		{
 			if(!ClassForms.OpenCloseFormStaff){
 				ClassForms.Rapid_ClientStaff = new FormClientStaff();
@@ -169,8 +199,13 @@ namespace Rapid
 			}
 		}
 		
-		/* План счетов */
-		void ПранСчетовToolStripMenuItemClick(object sender, EventArgs e)
+		void СотрудникиToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowStaff();
+		}
+		
+		/* План счетов ------------------------------------------------*/
+		void ShowPlanAccounts()
 		{
 			if(!ClassForms.OpenCloseFormPlanAccounts){
 				ClassForms.Rapid_ClientPlanAccounts = new FormClientPlanAccounts();
@@ -179,8 +214,13 @@ namespace Rapid
 			}
 		}
 		
-		/* документ Заказ */
-		void ЗаказToolStripMenuItemClick(object sender, EventArgs e)
+		void ПранСчетовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowPlanAccounts();
+		}
+		
+		/* документ Заказ --------------------------------------------*/
+		void ShowOrder()
 		{
 			FormClientDocOrder Rapid_ClientDocOrder = new FormClientDocOrder();
 			Rapid_ClientDocOrder.MdiParent = ClassForms.Rapid_Client;
@@ -188,8 +228,13 @@ namespace Rapid
 			Rapid_ClientDocOrder.Show();
 		}
 		
-		/* документ Приходная накладная */
-		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		void ЗаказToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowOrder();
+		}
+		
+		/* документ Приходная накладная ------------------------------*/
+		void ShowComing()
 		{
 			FormClientDocComing Rapid_ClientDocComing = new FormClientDocComing();
 			Rapid_ClientDocComing.MdiParent = ClassForms.Rapid_Client;
@@ -197,8 +242,13 @@ namespace Rapid
 			Rapid_ClientDocComing.Show();
 		}
 		
-		/* документ Расходная накладная */
-		void РасходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		void ПриходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowComing();
+		}
+		
+		/* документ Расходная накладная ------------------------------*/
+		void ShowExpense()
 		{
 			FormClientDocExpense Rapid_ClientDocExpense = new FormClientDocExpense();
 			Rapid_ClientDocExpense.MdiParent = ClassForms.Rapid_Client;
@@ -206,8 +256,13 @@ namespace Rapid
 			Rapid_ClientDocExpense.Show();
 		}
 		
-		/* журнал: Полный журнал */
-		void ПолныйЖурналToolStripMenuItemClick(object sender, EventArgs e)
+		void РасходнаяНакладнаяToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowExpense();
+		}
+		
+		/* журнал: Полный журнал --------------------------------------*/
+		void ShowJournalDocs()
 		{
 			if(!ClassForms.OpenCloseFormJournalDoc){
 				ClassForms.Rapid_ClientJournalDoc = new FormClientJournalDoc();
@@ -216,8 +271,13 @@ namespace Rapid
 			}
 		}
 		
-		/* журнал: Заказов */
-		void ЖурналЗаказовToolStripMenuItemClick(object sender, EventArgs e)
+		void ПолныйЖурналToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowJournalDocs();
+		}
+		
+		/* журнал: Заказов ---------------------------------------------*/
+		void ShowJournalOrders()
 		{
 			if(!ClassForms.OpenCloseFormJournalOrder){
 				ClassForms.Rapid_ClientJournalOrder = new FormClientJournalOrder();
@@ -226,8 +286,13 @@ namespace Rapid
 			}
 		}
 		
-		/* журнал: приходных накладных */
-		void ЖурналНакладныхToolStripMenuItemClick(object sender, EventArgs e)
+		void ЖурналЗаказовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowJournalOrders();
+		}
+		
+		/* журнал: приходных накладных ---------------------------------*/
+		void ShowJournalComings()
 		{
 			if(!ClassForms.OpenCloseFormJournalComing){
 				ClassForms.Rapid_ClientJournalComing = new FormClientJournalComing();
@@ -236,8 +301,13 @@ namespace Rapid
 			}
 		}
 		
-		/* журнал: расходных накладных */
-		void ЖурналРасходныхНакладныхToolStripMenuItemClick(object sender, EventArgs e)
+		void ЖурналНакладныхToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowJournalComings();
+		}
+		
+		/* журнал: расходных накладных ---------------------------------*/
+		void ShowJournalExpense()
 		{
 			if(!ClassForms.OpenCloseFormJournalExpense){
 				ClassForms.Rapid_ClientJournalExpense = new FormClientJournalExpense();
@@ -246,8 +316,13 @@ namespace Rapid
 			}
 		}
 		
-		/* журнал: бухгалтерские операции*/
-		void БухгалтерскиеОперацииToolStripMenuItemClick(object sender, EventArgs e)
+		void ЖурналРасходныхНакладныхToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowJournalExpense();
+		}
+		
+		/* журнал: бухгалтерские операции -------------------------------*/
+		void ShowJournalOperations()
 		{
 			if(!ClassForms.OpenCloseFormJournalOperations){
 				ClassForms.Rapid_ClientJournalOperations = new FormClientJournalOperations();
@@ -256,8 +331,13 @@ namespace Rapid
 			}
 		}
 		
-		/* калькулятор */
-		void КалькуляторToolStripMenuItemClick(object sender, EventArgs e)
+		void БухгалтерскиеОперацииToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowJournalOperations();
+		}
+		
+		/* калькулятор --------------------------------------------------*/
+		void ShowCalc()
 		{
 			FormServiceCalculator Calc = new FormServiceCalculator(true);
 			Calc.valuePaste = false;
@@ -265,8 +345,13 @@ namespace Rapid
 			Calc.Show();
 		}
 		
-		/* Открыть текстовый документ */
-		void ОткрытьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		void КалькуляторToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowCalc();
+		}
+		
+		/* Открыть текстовый документ ----------------------------------*/
+		void ShowOpenFile()
 		{
 			if(openFileDialog1.ShowDialog() == DialogResult.OK){
 				FormNotePad NotePad = new FormNotePad();
@@ -277,18 +362,33 @@ namespace Rapid
 			}
 		}
 		
+		void ОткрытьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowOpenFile();
+		}
+		
 		/* Сохранить текстовый документ */
-		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		void SaveFile()
 		{
 			ClassForms.NotePad.richTextBox1.SaveFile(ClassForms.NotePad.pathFile, RichTextBoxStreamType.PlainText);
 		}
 		
-		void СохранитьКакToolStripMenuItemClick(object sender, EventArgs e)
+		void СохранитьФайлToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			SaveFile();
+		}
+		
+		void ShowSaveFile()
 		{
 			if(saveFileDialog1.ShowDialog() == DialogResult.OK){
 				ClassForms.NotePad.richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
 				ClassForms.NotePad.pathFile = saveFileDialog1.FileName;
 			}
+		}
+		
+		void СохранитьКакToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowSaveFile();
 		}
 		
 		void ОтменаToolStripMenuItemClick(object sender, EventArgs e)
@@ -348,6 +448,19 @@ namespace Rapid
 		void ОтчетПоСчетуToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			ReportAccount();
+		}
+		
+		/* Оборотная ведомость по торг. представителю */
+		void ReportTradeRepresentative()
+		{
+			FormClientReportTradeRepresentative Rapid_ClientReportTradeRepresentative = new FormClientReportTradeRepresentative();
+			Rapid_ClientReportTradeRepresentative.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientReportTradeRepresentative.Show();
+		} 
+		
+		void ОборотнаяВедомостьПоТоргПредставителюToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ReportTradeRepresentative();
 		}
 	}
 }

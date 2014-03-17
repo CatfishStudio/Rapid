@@ -212,6 +212,10 @@
     <Compile Include="Client\Reports\FormClientReportBalance.Designer.cs">
       <DependentUpon>FormClientReportBalance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\Reports\FormClientReportTradeRepresentative.cs" />
+    <Compile Include="Client\Reports\FormClientReportTradeRepresentative.Designer.cs">
+      <DependentUpon>FormClientReportTradeRepresentative.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditListConnect.cs" />
     <Compile Include="FormEditListConnect.Designer.cs">
       <DependentUpon>FormEditListConnect.cs</DependentUpon>
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Reports\FormClientReportBalance.resx">
       <DependentUpon>FormClientReportBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Reports\FormClientReportTradeRepresentative.resx">
+      <DependentUpon>FormClientReportTradeRepresentative.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditListConnect.resx">
       <DependentUpon>FormEditListConnect.cs</DependentUpon>

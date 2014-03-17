@@ -137,3 +137,4 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientOperation.resources
 C:\GIT\Rapid\obj\Debug\Rapid.Service.FormNotePad.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportBalance.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportAccount.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportTradeRepresentative.resources
