@@ -84,7 +84,7 @@ namespace Rapid
 		{
 			double total = 0;
 			// ЗАГОЛОВОК ОТЧЁТА:
-			e.Graphics.DrawString("Оборотная ведомость по поставщику: ", new Font("Microsoft Sans Serif", 14, FontStyle.Regular), Brushes.Black, 20, 20);
+			e.Graphics.DrawString("Оборотная ведомость по поставщику: ", new Font("Microsoft Sans Serif", 14, FontStyle.Regular), Brushes.Black, 20, 0);
 			e.Graphics.DrawString("наименование: " + textBox3.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 45);
 			e.Graphics.DrawString("на период с " + dateTimePicker1.Text + " по " + dateTimePicker2.Text, new Font("Microsoft Sans Serif", 12, FontStyle.Regular), Brushes.Black, 20, 70);
 			// ТАБЛИЦА

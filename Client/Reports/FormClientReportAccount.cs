@@ -81,7 +81,7 @@ namespace Rapid
 			double totalDT = 0;
 			double totalKT = 0;
 			// ЗАГОЛОВОК ОТЧЁТА:
-			e.Graphics.DrawString("Оборотная ведомость по счёту №" + textBox3.Text + "    с " + dateTimePicker1.Text + " по " + dateTimePicker2.Text, new Font("Microsoft Sans Serif", 14, FontStyle.Regular), Brushes.Black, 20, 20);
+			e.Graphics.DrawString("Оборотная ведомость по счёту №" + textBox3.Text + "    с " + dateTimePicker1.Text + " по " + dateTimePicker2.Text, new Font("Microsoft Sans Serif", 14, FontStyle.Regular), Brushes.Black, 20, 0);
 			// ТАБЛИЦА
 			//    Дата
 			e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(0, 60, 150, 25));

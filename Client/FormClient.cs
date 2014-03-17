@@ -501,5 +501,18 @@ namespace Rapid
 		{
 			ReportSupplier();
 		}
+		
+		/* Оборотная ведомость по покупателю */
+		void ReportBuyer()
+		{
+			FormClientReportBuyer Rapid_ClientReportBuyer = new FormClientReportBuyer();
+			Rapid_ClientReportBuyer.MdiParent = ClassForms.Rapid_Client;
+			Rapid_ClientReportBuyer.Show();
+		}
+		
+		void ОборотнаяВедомостьПоПокупателюToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ReportBuyer();
+		}
 	}
 }

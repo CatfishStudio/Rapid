@@ -139,3 +139,4 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportBalance.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportAccount.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportTradeRepresentative.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportSupplier.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportBuyer.resources

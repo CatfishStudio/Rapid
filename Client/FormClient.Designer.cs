@@ -568,6 +568,7 @@ namespace Rapid
 			this.оборотнаяВедомостьПоПокупателюToolStripMenuItem.Name = "оборотнаяВедомостьПоПокупателюToolStripMenuItem";
 			this.оборотнаяВедомостьПоПокупателюToolStripMenuItem.Size = new System.Drawing.Size(330, 22);
 			this.оборотнаяВедомостьПоПокупателюToolStripMenuItem.Text = "Оборотная ведомость по покупателю";
+			this.оборотнаяВедомостьПоПокупателюToolStripMenuItem.Click += new System.EventHandler(this.ОборотнаяВедомостьПоПокупателюToolStripMenuItemClick);
 			// 
 			// сервисToolStripMenuItem
 			// 
@@ -581,7 +582,7 @@ namespace Rapid
 			// 
 			this.калькуляторToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("калькуляторToolStripMenuItem.Image")));
 			this.калькуляторToolStripMenuItem.Name = "калькуляторToolStripMenuItem";
-			this.калькуляторToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.калькуляторToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.калькуляторToolStripMenuItem.Text = "Калькулятор.";
 			this.калькуляторToolStripMenuItem.Click += new System.EventHandler(this.КалькуляторToolStripMenuItemClick);
 			// 
