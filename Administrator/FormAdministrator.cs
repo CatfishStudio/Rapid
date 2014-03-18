@@ -172,5 +172,41 @@ namespace Rapid
 		{
 			ShowMonitor();
 		}
+		
+		/* калькулятор --------------------------------------------------*/
+		void ShowCalc()
+		{
+			FormServiceCalculator Calc = new FormServiceCalculator(true);
+			Calc.valuePaste = false;
+			Calc.MdiParent = ClassForms.Rapid_Administrator;
+			Calc.Show();
+		}
+		
+		void КалькуляторToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowCalc();
+		}
+		
+		void ToolStripButton7Click(object sender, EventArgs e)
+		{
+			ShowCalc();
+		}
+		
+		void ShowAbout()
+		{
+			FormAbout Rapid_About = new FormAbout();
+			Rapid_About.MdiParent = ClassForms.Rapid_Administrator;
+			Rapid_About.Show();
+		}
+		
+		void ОПрограммеToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowAbout();
+		}
+		
+		void ToolStripButton8Click(object sender, EventArgs e)
+		{
+			ShowAbout();
+		}
 	}
 }

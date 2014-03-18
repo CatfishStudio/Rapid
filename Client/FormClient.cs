@@ -635,5 +635,22 @@ namespace Rapid
 		{
 			ShowCalc();
 		}
+		
+		void ShowAbout()
+		{
+			FormAbout Rapid_About = new FormAbout();
+			Rapid_About.MdiParent = ClassForms.Rapid_Client;
+			Rapid_About.Show();
+		}
+		
+		void ОПрограммеToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			ShowAbout();
+		}
+		
+		void ToolStripButton25Click(object sender, EventArgs e)
+		{
+			ShowAbout();
+		}
 	}
 }
