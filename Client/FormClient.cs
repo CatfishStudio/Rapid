@@ -124,7 +124,12 @@ namespace Rapid
 		/* СЕРВЕР: проверка обновления */
 		void Timer1Tick(object sender, EventArgs e)
 		{
-			ClassServer.CheckBaseUpdate();
+			if(ClassServer.CheckBaseUpdate() == false){
+				timer1.Stop();
+				if(MessageBox.Show("Связь с сервером потерята, повторить обращение к серверу?","Сообщение", MessageBoxButtons.OKCancel) == DialogResult.OK){
+					timer1.Start();
+				} else Application.Exit();
+			}
 		}
 		
 		/* ТМЦ ----------------------------------------------------------*/

@@ -34,14 +34,14 @@ namespace Rapid
 		/* ПРОВЕРКА ОБНОВЛЕНИЙ НА СЕРВЕРЕ */
 		private static ClassMySQL_Full _serverMySQL = new ClassMySQL_Full();
 		private static DataSet _serverDataSet = new DataSet();
-		public static void CheckBaseUpdate()
+		public static bool CheckBaseUpdate()
 		{
 			_serverDataSet.Clear();
 			_serverDataSet.DataSetName = "historyupdate";
 			_serverMySQL.SelectSqlCommand = "SELECT * FROM historyupdate";
 			if(_serverMySQL.ExecuteFill(_serverDataSet, "historyupdate") == false){
 				ClassForms.Rapid_Client.MessageConsole("Сервер: Ошибка выполнения обращения к журналу истории обновлений.", true);
-				return;
+				return false;
 			}
 			DataTable _table = _serverDataSet.Tables["historyupdate"];
 			
@@ -61,6 +61,7 @@ namespace Rapid
 					else ClassForms.Rapid_Administrator.MessageConsole("Сервер: обновление журнала таблица: '" + ClassServer.TableUpdate[i,2] + "'  (дата и время: " + ClassServer.TableUpdate[i,3] + ").", false, _table.Rows[i]["history_client"].ToString());
 				}	
 			}
+			return true;
 		}
 		
 		

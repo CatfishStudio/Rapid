@@ -76,11 +76,12 @@ namespace Rapid
 				return true;
 			}catch(Exception ex){
 				_MySql_Connection.Close();
-				if(MessageBox.Show("Ошибка выполнения SQL запроса." + System.Environment.NewLine + "Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
+				return false; //произошла ошибка.
+				/*if(MessageBox.Show("Ошибка выполнения SQL запроса." + System.Environment.NewLine + "Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
 				{
 					MessageBox.Show(ex.ToString());
 				}
-				return false; //произошла ошибка.
+				*/
 			}
 		}
 		
