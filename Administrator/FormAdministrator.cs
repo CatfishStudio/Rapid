@@ -73,9 +73,9 @@ namespace Rapid
 		{
 			if(ClassServer.CheckBaseUpdate() == false){
 				timer1.Stop();
-				if(MessageBox.Show("Связь с сервером потерята, повторить обращение к серверу?","Сообщение", MessageBoxButtons.OKCancel) == DialogResult.OK){
-					timer1.Start();
-				} else Application.Exit();
+				if(MessageBox.Show("Связь с сервером потерята, закрыть приложение (ОК) или продолжить?","Сообщение", MessageBoxButtons.OKCancel) == DialogResult.OK){
+					Application.Exit();
+				} else timer1.Start();
 			}
 		}
 		
