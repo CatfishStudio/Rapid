@@ -44,6 +44,7 @@ namespace Rapid
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,6 +52,8 @@ namespace Rapid
 			this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.открытьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +64,7 @@ namespace Rapid
 			this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.конфигурацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.удалениеПомеченныхОбъектовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.создатьКонфигурациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,8 +79,6 @@ namespace Rapid
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
 			this.toolStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -97,6 +99,7 @@ namespace Rapid
 									this.toolStripButton2,
 									this.toolStripSeparator4,
 									this.toolStripButton3,
+									this.toolStripButton9,
 									this.toolStripSeparator5,
 									this.toolStripButton4,
 									this.toolStripSeparator6,
@@ -146,6 +149,16 @@ namespace Rapid
 			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton3.Text = "Пользователи";
 			this.toolStripButton3.Click += new System.EventHandler(this.ToolStripButton3Click);
+			// 
+			// toolStripButton9
+			// 
+			this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+			this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton9.Name = "toolStripButton9";
+			this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton9.Text = "Удаленить помеченные объекты.";
+			this.toolStripButton9.Click += new System.EventHandler(this.ToolStripButton9Click);
 			// 
 			// toolStripSeparator5
 			// 
@@ -201,6 +214,21 @@ namespace Rapid
 			this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
 			this.toolStripButton7.Text = "Калькулятор";
 			this.toolStripButton7.Click += new System.EventHandler(this.ToolStripButton7Click);
+			// 
+			// toolStripSeparator9
+			// 
+			this.toolStripSeparator9.Name = "toolStripSeparator9";
+			this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButton8
+			// 
+			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton8.Name = "toolStripButton8";
+			this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton8.Text = "О программе.";
+			this.toolStripButton8.Click += new System.EventHandler(this.ToolStripButton8Click);
 			// 
 			// menuStrip1
 			// 
@@ -272,6 +300,7 @@ namespace Rapid
 			// 
 			this.конфигурацияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.пользователиToolStripMenuItem,
+									this.удалениеПомеченныхОбъектовToolStripMenuItem,
 									this.toolStripSeparator3,
 									this.создатьКонфигурациюToolStripMenuItem});
 			this.конфигурацияToolStripMenuItem.Name = "конфигурацияToolStripMenuItem";
@@ -282,20 +311,28 @@ namespace Rapid
 			// 
 			this.пользователиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("пользователиToolStripMenuItem.Image")));
 			this.пользователиToolStripMenuItem.Name = "пользователиToolStripMenuItem";
-			this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+			this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
 			this.пользователиToolStripMenuItem.Text = "Пользователи.";
 			this.пользователиToolStripMenuItem.Click += new System.EventHandler(this.ПользователиToolStripMenuItemClick);
+			// 
+			// удалениеПомеченныхОбъектовToolStripMenuItem
+			// 
+			this.удалениеПомеченныхОбъектовToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("удалениеПомеченныхОбъектовToolStripMenuItem.Image")));
+			this.удалениеПомеченныхОбъектовToolStripMenuItem.Name = "удалениеПомеченныхОбъектовToolStripMenuItem";
+			this.удалениеПомеченныхОбъектовToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+			this.удалениеПомеченныхОбъектовToolStripMenuItem.Text = "Удаленить помеченные объекты.";
+			this.удалениеПомеченныхОбъектовToolStripMenuItem.Click += new System.EventHandler(this.УдалениеПомеченныхОбъектовToolStripMenuItemClick);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(204, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(255, 6);
 			// 
 			// создатьКонфигурациюToolStripMenuItem
 			// 
 			this.создатьКонфигурациюToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("создатьКонфигурациюToolStripMenuItem.Image")));
 			this.создатьКонфигурациюToolStripMenuItem.Name = "создатьКонфигурациюToolStripMenuItem";
-			this.создатьКонфигурациюToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+			this.создатьКонфигурациюToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
 			this.создатьКонфигурациюToolStripMenuItem.Text = "Создать конфигурацию.";
 			this.создатьКонфигурациюToolStripMenuItem.Click += new System.EventHandler(this.СоздатьКонфигурациюToolStripMenuItemClick);
 			// 
@@ -390,21 +427,6 @@ namespace Rapid
 			// 
 			this.saveFileDialog1.Filter = "*.txt|*.txt";
 			// 
-			// toolStripSeparator9
-			// 
-			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
-			// 
-			// toolStripButton8
-			// 
-			this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-			this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton8.Name = "toolStripButton8";
-			this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton8.Text = "toolStripButton8";
-			this.toolStripButton8.Click += new System.EventHandler(this.ToolStripButton8Click);
-			// 
 			// FormAdministrator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +452,8 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem удалениеПомеченныхОбъектовToolStripMenuItem;
+		private System.Windows.Forms.ToolStripButton toolStripButton9;
 		private System.Windows.Forms.ToolStripButton toolStripButton8;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
 		private System.Windows.Forms.ToolStripButton toolStripButton7;

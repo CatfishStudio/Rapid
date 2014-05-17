@@ -213,5 +213,23 @@ namespace Rapid
 		{
 			ShowAbout();
 		}
+		
+		/* Окно удаления отмеченных записей в таблице */
+		void Removing()
+		{
+			FormAdminRemoving Rapid_Removing = new FormAdminRemoving();
+			Rapid_Removing.MdiParent = ClassForms.Rapid_Administrator;
+			Rapid_Removing.Show();
+		}
+		
+		void УдалениеПомеченныхОбъектовToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			Removing();
+		}
+		
+		void ToolStripButton9Click(object sender, EventArgs e)
+		{
+			Removing();
+		}
 	}
 }

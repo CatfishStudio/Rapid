@@ -68,6 +68,10 @@
     <Compile Include="Administrator\FormAdminQuerySQL.Designer.cs">
       <DependentUpon>FormAdminQuerySQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\FormAdminRemoving.cs" />
+    <Compile Include="Administrator\FormAdminRemoving.Designer.cs">
+      <DependentUpon>FormAdminRemoving.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrator\FormAdminUserEdit.cs" />
     <Compile Include="Administrator\FormAdminUserEdit.Designer.cs">
       <DependentUpon>FormAdminUserEdit.cs</DependentUpon>
@@ -267,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\FormAdminQuerySQL.resx">
       <DependentUpon>FormAdminQuerySQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\FormAdminRemoving.resx">
+      <DependentUpon>FormAdminRemoving.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\FormAdminUserEdit.resx">
       <DependentUpon>FormAdminUserEdit.cs</DependentUpon>

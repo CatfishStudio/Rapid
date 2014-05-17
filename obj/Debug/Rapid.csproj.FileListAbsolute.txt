@@ -141,3 +141,4 @@ C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportTradeRepresentative.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportSupplier.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormClientReportBuyer.resources
 C:\GIT\Rapid\obj\Debug\Rapid.FormAbout.resources
+C:\GIT\Rapid\obj\Debug\Rapid.FormAdminRemoving.resources

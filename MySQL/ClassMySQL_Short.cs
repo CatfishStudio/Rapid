@@ -45,9 +45,14 @@ namespace Rapid
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				_MySql_Connection.Close();
 				return true;
-			}catch{
+			}catch(Exception ex){
 				_MySql_Connection.Close();
-				MessageBox.Show("Ошибка выполнения SQL запроса.");	//Сообщение об ошибке
+				
+				if(MessageBox.Show("Ошибка выполнения SQL запроса." + System.Environment.NewLine + "Показать полное сообщение?","Ошибка:", MessageBoxButtons.YesNo) == DialogResult.Yes)	//Сообщение об ошибке
+				{
+					MessageBox.Show(ex.ToString());
+				}
+				
 				return false; //произошла ошибка.
 			}
 		}
