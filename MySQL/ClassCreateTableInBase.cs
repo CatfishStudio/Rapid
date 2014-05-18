@@ -62,95 +62,70 @@ namespace Rapid
 				_MySql_Connection.ConnectionString = "server=" + _server + ";database=" + _database + ";uid=" + _userid + ";pwd=" + _pass + ";";
 				_MySql_Connection.Open();
 				
-				/*Создание таблицы "Пользователи" (users)
-				 * id_user				- идентификатор
-				 * user_name			- имя пользователя
-				 * user_pass			- пароль
-				 * user_right			- права
-				 * user_additionally	- дополнительно
+				/*Создать таблицу "Полный журнал документов" (journal)
+				 * id_journal			- идентификатор
+				 * journal_id_doc		- идентификатор документа (для табличной части и операции)
+				 * journal_date			- дата документа
+				 * journal_number		- номер документа
+				 * journal_user_autor	- пользователь (автор документа) +
+				 * journal_type			- тип документа (приход / расход / заказ / перемещение)
+				 * journal_store		- склад +
+				 * journal_firm_buyer	- покупатель +
+				 * journal_firm_buyer_details			- реквизиты покупателя +
+				 * journal_firm_seller	- продавец +
+				 * journal_firm_seller_details			- реквизиты продавца +
+				 * journal_staff_trade_representative	- торговый представитель +
+				 * journal_typeTax		- вид налога +
+				 * journal_sum			- сумма
+				 * journal_tax			- налог
+				 * journal_total		- итого
+				 * journal_delete		- флаг удаления
 				 */
-				_SqlCommand = "CREATE TABLE users (id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"user_name VARCHAR(250) DEFAULT '' UNIQUE, " +
-					"user_pass VARCHAR(250) DEFAULT '', " +
-					"user_right VARCHAR(100) DEFAULT '', " +
-					"user_additionally TEXT DEFAULT '')";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO users (user_name, user_pass, user_right, user_additionally) VALUES ('Администратор', '12345', 'admin', 'Администратор конфигурации')";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO users (user_name, user_pass, user_right, user_additionally) VALUES ('Пользователь', '', 'user', 'Пользователь конфигурации')";
+				_SqlCommand = "CREATE TABLE journal (id_journal INT NOT NULL AUTO_INCREMENT, " +
+					"journal_id_doc VARCHAR(250) NOT NULL DEFAULT '' UNIQUE, " +
+					"journal_date DATE NOT NULL, " +
+					"journal_number VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_user_autor VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_type VARCHAR(100) NOT NULL DEFAULT '', " +
+					"journal_store VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_firm_buyer VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_firm_buyer_details TEXT DEFAULT '', " +
+					"journal_firm_seller VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_firm_seller_details TEXT DEFAULT '', " +
+					"journal_staff_trade_representative VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_typeTax VARCHAR(250) NOT NULL DEFAULT '', " +
+					"journal_sum DOUBLE(10,2) DEFAULT 0.00, " +
+					"journal_tax DOUBLE(10,2) DEFAULT 0.00, " +
+					"journal_total DOUBLE(10,2) DEFAULT 0.00, " +
+					"journal_delete INT(1) DEFAULT 0, " +
+					"PRIMARY KEY (id_journal, journal_firm_buyer, journal_firm_seller, journal_typeTax, journal_store)"+
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
-				/*Создание таблицы "Константы" (constants)
-				 * id_const				- идентификатор
-				 * const_name			- наименование
-				 * const_value			- значение
-				 * const_additionally	- дополнительно
-				 * const_delete			- флаг удаления
+				/*Создать таблицу "Табличная часть Документа" (tabularSection)
+				 * id_tabularSection	- идентификатор
+				 * tabularSection_tmc	- ТМЦ
+				 * tabularSection_units	- ед. измерения
+				 * tabularSection_number- количество
+				 * tabularSection_price	- цена
+				 * tabularSection_NDS	- НДС
+				 * tabularSection_sum	- сумма
+				 * tabularSection_total	- всего
+				 * tabularSection_id_doc- документ (внешний ключ)
 				 */
-				_SqlCommand = "CREATE TABLE constants (id_const INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"const_name VARCHAR(250) DEFAULT '' UNIQUE, " +
-					"const_value VARCHAR(250) DEFAULT '', " +
-					"const_additionally TEXT DEFAULT '', " +
-					"const_delete INT(1) DEFAULT 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Наша фирма', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Поставщик', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Покупатель', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Вид НДС', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Основной склад', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Ед. измерения', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Директор', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Главный бухгалтер', '', '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				
-				/*Создать таблицу "Фирмы" (firms)
-				 * id_firm						- идентификатор
-				 * firm_name					- наименование
-				 * firm_details					- реквизиты
-				 * firm_address_phone			- адрес и телефон
-				 * firm_trade_representative	- сотрудник (торг. представитель) +
-				 * firm_additionally			- дополнительно
-				 * firm_type					- флаг тип записи (папка / запись)
-				 * firm_folder					- имя родительской папки
-				 * firm_delete					- флаг удаления
-				 */
-				_SqlCommand = "CREATE TABLE firms (id_firm INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"firm_name VARCHAR(250) DEFAULT '' UNIQUE, " +
-					"firm_details TEXT DEFAULT '', " +
-					"firm_address_phone TEXT DEFAULT '', " +
-					"firm_trade_representative VARCHAR(250) DEFAULT '', " +
-					"firm_additionally TEXT DEFAULT '', " +
-					"firm_type INT(1) DEFAULT 0, " +
-					"firm_folder VARCHAR(250) DEFAULT '', " +
-					"firm_delete INT(1) DEFAULT 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO firms (firm_name, firm_details, firm_address_phone, firm_trade_representative, firm_additionally, firm_type, firm_folder, firm_delete) VALUES ('Поставщики', '', '', '', '', 1, '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO firms (firm_name, firm_details, firm_address_phone, firm_trade_representative, firm_additionally, firm_type, firm_folder, firm_delete) VALUES ('Покупатели', '', '', '', '', 1, '', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO firms (firm_name, firm_details, firm_address_phone, firm_trade_representative, firm_additionally, firm_type, firm_folder, firm_delete) VALUES ('Наша Фирма', '', '', '', '', 0, '', 0)";
+				_SqlCommand = "CREATE TABLE tabularSection (id_tabularSection INT NOT NULL AUTO_INCREMENT, " +
+					"tabularSection_tmc VARCHAR(250) NOT NULL DEFAULT '', " +
+					"tabularSection_units VARCHAR(250) NOT NULL DEFAULT '', " +
+					"tabularSection_number DOUBLE(10,2) DEFAULT 0.00, " +
+					"tabularSection_price DOUBLE(10,2) DEFAULT 0.00, " +
+					"tabularSection_NDS DOUBLE(10,2) DEFAULT 0.00, " +
+					"tabularSection_sum DOUBLE(10,2) DEFAULT 0.00, " +
+					"tabularSection_total DOUBLE(10,2) DEFAULT 0.00, " +
+					"tabularSection_id_doc VARCHAR(250) NOT NULL, " +
+					"PRIMARY KEY (id_tabularSection, tabularSection_tmc), "+
+					"FOREIGN KEY (tabularSection_id_doc) REFERENCES journal(journal_id_doc) ON UPDATE CASCADE ON DELETE RESTRICT" +
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
@@ -167,7 +142,7 @@ namespace Rapid
 				 * tmc_folder			- имя родительской папки
 				 * tmc_delete			- флаг удаления
 				 */
-				_SqlCommand = "CREATE TABLE tmc (id_tmc INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+				_SqlCommand = "CREATE TABLE tmc (id_tmc INT NOT NULL AUTO_INCREMENT, " +
 					"tmc_name VARCHAR(250) DEFAULT '' UNIQUE, " +
 					"tmc_type_tax VARCHAR(250) DEFAULT '', " +
 					"tmc_units VARCHAR(250) DEFAULT '', " +
@@ -177,26 +152,13 @@ namespace Rapid
 					"tmc_additionally TEXT DEFAULT '', " +
 					"tmc_type INT(1) DEFAULT 0, " +
 					"tmc_folder VARCHAR(250) DEFAULT '', " +
-					"tmc_delete INT(1) DEFAULT 0)";
+					"tmc_delete INT(1) DEFAULT 0, " +
+					"INDEX (tmc_name), " +
+					"PRIMARY KEY (id_tmc)" +
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
-				/*Создать таблицу "Склады" (store)
-				 * id_store				- идентификатор
-				 * store_name			- наименование
-				 * store_additionally	- дополнительно
-				 * store_delete			- флаг удаления
-				 */
-				_SqlCommand = "CREATE TABLE store (id_store INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"store_name VARCHAR(250) DEFAULT '' UNIQUE, " +
-					"store_additionally TEXT DEFAULT '', " +
-					"store_delete INT(1) DEFAULT 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				_SqlCommand = "INSERT INTO store (store_name, store_additionally, store_delete) VALUES ('Основной', 'Основной склад по умолчанию.', 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-								
 				/*Создать таблицу "Единицы измерения" (units)
 				 * id_units				- идентификатор
 				 * units_name			- наименование
@@ -206,7 +168,9 @@ namespace Rapid
 				_SqlCommand = "CREATE TABLE units (id_units INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
 					"units_name VARCHAR(250) DEFAULT '' UNIQUE, " +
 					"units_additionally TEXT DEFAULT '', " +
-					"units_delete INT(1) DEFAULT 0)";
+					"units_delete INT(1) DEFAULT 0, " +
+					"INDEX (units_name)" +
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				_SqlCommand = "INSERT INTO units (units_name, units_additionally, units_delete) VALUES ('шт.', 'Штуки.', 0)";
@@ -228,6 +192,74 @@ namespace Rapid
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
+				
+				/*Создать таблицу "Склады" (store)
+				 * id_store				- идентификатор
+				 * store_name			- наименование
+				 * store_additionally	- дополнительно
+				 * store_delete			- флаг удаления
+				 */
+				_SqlCommand = "CREATE TABLE store (id_store INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+					"store_name VARCHAR(250) DEFAULT '' UNIQUE, " +
+					"store_additionally TEXT DEFAULT '', " +
+					"store_delete INT(1) DEFAULT 0, " +
+					"INDEX (store_name)" +
+					")";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO store (store_name, store_additionally, store_delete) VALUES ('Основной', 'Основной склад по умолчанию.', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/*Создать таблицу "Остатки" (balance)
+				 * id_balance			- идентификатор
+				 * balance_tmc			- ТМЦ
+				 * balance_date			- дата
+				 * balance_number		- количество
+				 */
+				_SqlCommand = "CREATE TABLE balance (id_balance INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+					"balance_tmc VARCHAR(250) NOT NULL DEFAULT '', " +
+					"balance_date DATE NOT NULL, " +
+					"balance_number DOUBLE(10,2) DEFAULT 0.00, " +
+					"FOREIGN KEY (balance_tmc) REFERENCES tmc(tmc_name) ON UPDATE CASCADE ON DELETE CASCADE" +
+					")";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/*Создать таблицу "Фирмы" (firms)
+				 * id_firm						- идентификатор
+				 * firm_name					- наименование
+				 * firm_details					- реквизиты
+				 * firm_address_phone			- адрес и телефон
+				 * firm_trade_representative	- сотрудник (торг. представитель) +
+				 * firm_additionally			- дополнительно
+				 * firm_type					- флаг тип записи (папка / запись)
+				 * firm_folder					- имя родительской папки
+				 * firm_delete					- флаг удаления
+				 */
+				_SqlCommand = "CREATE TABLE firms (id_firm INT NOT NULL AUTO_INCREMENT, " +
+					"firm_name VARCHAR(250) DEFAULT '' UNIQUE, " +
+					"firm_details TEXT DEFAULT '', " +
+					"firm_address_phone TEXT DEFAULT '', " +
+					"firm_trade_representative VARCHAR(250) DEFAULT '', " +
+					"firm_additionally TEXT DEFAULT '', " +
+					"firm_type INT(1) DEFAULT 0, " +
+					"firm_folder VARCHAR(250) DEFAULT '', " +
+					"firm_delete INT(1) DEFAULT 0, " +
+					"PRIMARY KEY (id_firm)" +
+					")";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO firms (firm_name, firm_details, firm_address_phone, firm_trade_representative, firm_additionally, firm_type, firm_folder, firm_delete) VALUES ('Поставщики', '', '', '', '', 1, '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO firms (firm_name, firm_details, firm_address_phone, firm_trade_representative, firm_additionally, firm_type, firm_folder, firm_delete) VALUES ('Покупатели', '', '', '', '', 1, '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO firms (firm_name, firm_details, firm_address_phone, firm_trade_representative, firm_additionally, firm_type, firm_folder, firm_delete) VALUES ('Наша Фирма', '', '', '', '', 0, '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
 				/*Создать таблицу "Вид налога" (typeTax)
 				 * id_typeTax			- идентификатор
 				 * typeTax_name			- наименование
@@ -239,7 +271,9 @@ namespace Rapid
 					"typeTax_name VARCHAR(250) DEFAULT '' UNIQUE, " +
 					"typeTax_rating DOUBLE(10,2) DEFAULT 0.00, " +
 					"typeTax_additionally TEXT DEFAULT '', " +
-					"typeTax_delete INT(1) DEFAULT 0)";
+					"typeTax_delete INT(1) DEFAULT 0, " +
+					"INDEX (typeTax_name)" +
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				_SqlCommand = "INSERT INTO typeTax (typeTax_name, typeTax_rating, typeTax_additionally, typeTax_delete) VALUES ('Налог 20%', 20, 'Ставка НДС 20%', 0)";
@@ -273,84 +307,30 @@ namespace Rapid
 					"staff_additionally TEXT DEFAULT '', " +
 					"staff_type INT(1) DEFAULT 0, " +
 					"staff_folder VARCHAR(250) DEFAULT '', " +
-					"staff_delete INT(1) DEFAULT 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				
-				/*Создать таблицу "Полный журнал документов" (journal)
-				 * id_journal			- идентификатор
-				 * journal_id_doc		- идентификатор документа (для табличной части и операции)
-				 * journal_date			- дата документа
-				 * journal_number		- номер документа
-				 * journal_user_autor	- пользователь (автор документа) +
-				 * journal_type			- тип документа (приход / расход / заказ / перемещение)
-				 * journal_store		- склад +
-				 * journal_firm_buyer	- покупатель +
-				 * journal_firm_buyer_details			- реквизиты покупателя +
-				 * journal_firm_seller	- продавец +
-				 * journal_firm_seller_details			- реквизиты продавца +
-				 * journal_staff_trade_representative	- торговый представитель +
-				 * journal_typeTax		- вид налога +
-				 * journal_sum			- сумма
-				 * journal_tax			- налог
-				 * journal_total		- итого
-				 * journal_delete		- флаг удаления
-				 */
-				_SqlCommand = "CREATE TABLE journal (id_journal INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"journal_id_doc VARCHAR(250) NOT NULL DEFAULT '' UNIQUE, " +
-					"journal_date DATE NOT NULL, " +
-					"journal_number VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_user_autor VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_type VARCHAR(100) NOT NULL DEFAULT '', " +
-					"journal_store VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_firm_buyer VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_firm_buyer_details TEXT DEFAULT '', " +
-					"journal_firm_seller VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_firm_seller_details TEXT DEFAULT '', " +
-					"journal_staff_trade_representative VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_typeTax VARCHAR(250) NOT NULL DEFAULT '', " +
-					"journal_sum DOUBLE(10,2) DEFAULT 0.00, " +
-					"journal_tax DOUBLE(10,2) DEFAULT 0.00, " +
-					"journal_total DOUBLE(10,2) DEFAULT 0.00, " +
-					"journal_delete INT(1) DEFAULT 0)";
-				_MySql_Command.CommandText = _SqlCommand;
-				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
-				
-				/*Создать таблицу "Табличная часть Документа" (tabularSection)
-				 * id_tabularSection	- идентификатор
-				 * tabularSection_tmc	- ТМЦ
-				 * tabularSection_units	- ед. измерения
-				 * tabularSection_number- количество
-				 * tabularSection_price	- цена
-				 * tabularSection_NDS	- НДС
-				 * tabularSection_sum	- сумма
-				 * tabularSection_total	- всего
-				 * tabularSection_id_doc- документ (внешний ключ)
-				 */
-				_SqlCommand = "CREATE TABLE tabularSection (id_tabularSection INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"tabularSection_tmc VARCHAR(250) NOT NULL DEFAULT '', " +
-					"tabularSection_units VARCHAR(250) NOT NULL DEFAULT '', " +
-					"tabularSection_number DOUBLE(10,2) DEFAULT 0.00, " +
-					"tabularSection_price DOUBLE(10,2) DEFAULT 0.00, " +
-					"tabularSection_NDS DOUBLE(10,2) DEFAULT 0.00, " +
-					"tabularSection_sum DOUBLE(10,2) DEFAULT 0.00, " +
-					"tabularSection_total DOUBLE(10,2) DEFAULT 0.00, " +
-					"tabularSection_id_doc VARCHAR(250) NOT NULL, " +
-					"FOREIGN KEY (tabularSection_id_doc) REFERENCES journal(journal_id_doc) ON UPDATE CASCADE ON DELETE RESTRICT" +
+					"staff_delete INT(1) DEFAULT 0" +
 					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
-				/*Создать таблицу "Остатки" (balance)
-				 * id_balance			- идентификатор
-				 * balance_tmc			- ТМЦ
-				 * balance_date			- дата
-				 * balance_number		- количество
+				
+				/*Создание таблицы "Пользователи" (users)
+				 * id_user				- идентификатор
+				 * user_name			- имя пользователя
+				 * user_pass			- пароль
+				 * user_right			- права
+				 * user_additionally	- дополнительно
 				 */
-				_SqlCommand = "CREATE TABLE balance (id_balance INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
-					"balance_tmc VARCHAR(250) NOT NULL DEFAULT '', " +
-					"balance_date DATE NOT NULL, " +
-					"balance_number DOUBLE(10,2) DEFAULT 0.00)";
+				_SqlCommand = "CREATE TABLE users (id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+					"user_name VARCHAR(250) DEFAULT '' UNIQUE, " +
+					"user_pass VARCHAR(250) DEFAULT '', " +
+					"user_right VARCHAR(100) DEFAULT '', " +
+					"user_additionally TEXT DEFAULT '')";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO users (user_name, user_pass, user_right, user_additionally) VALUES ('Администратор', '12345', 'admin', 'Администратор конфигурации')";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO users (user_name, user_pass, user_right, user_additionally) VALUES ('Пользователь', '', 'user', 'Пользователь конфигурации')";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
@@ -363,13 +343,15 @@ namespace Rapid
 				 * operations_sum		- сумма
 				 * operations_specification - описание
 				 */
-				_SqlCommand = "CREATE TABLE operations (id_operations INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+				_SqlCommand = "CREATE TABLE operations (id_operations INT NOT NULL AUTO_INCREMENT, " +
 					"operations_date DATE NOT NULL, " +
 					"operations_id_doc VARCHAR(250) DEFAULT '', " +
 					"operations_DT INT(3) NOT NULL DEFAULT 0, " +
 					"operations_KT INT(3) NOT NULL DEFAULT 0, " +
 					"operations_sum DOUBLE(10,2) DEFAULT 0.00, " +
-					"operations_specification VARCHAR(50) DEFAULT '')";
+					"operations_specification VARCHAR(50) DEFAULT '', " +
+					"PRIMARY KEY (id_operations, operations_DT, operations_KT)" +
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
@@ -385,7 +367,9 @@ namespace Rapid
 					"planAccounts_name VARCHAR(250) NOT NULL DEFAULT '', " +
 					"planAccounts_account INT(3) NOT NULL DEFAULT 0 UNIQUE, " +
 					"planAccounts_type VARCHAR(5) NOT NULL DEFAULT 'АП', " +
-					"planAccounts_delete INT(1) DEFAULT 0)";
+					"planAccounts_delete INT(1) DEFAULT 0, " +
+					"INDEX (planAccounts_account)" +
+					")";
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				_SqlCommand = "INSERT INTO planAccounts (planAccounts_name, planAccounts_account, planAccounts_type, planAccounts_delete) VALUES ('Основные средства', 10, 'АП', 0)";
@@ -623,6 +607,46 @@ namespace Rapid
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
+				/*Создание таблицы "Константы" (constants)
+				 * id_const				- идентификатор
+				 * const_name			- наименование
+				 * const_value			- значение
+				 * const_additionally	- дополнительно
+				 * const_delete			- флаг удаления
+				 */
+				_SqlCommand = "CREATE TABLE constants (id_const INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+					"const_name VARCHAR(250) DEFAULT '' UNIQUE, " +
+					"const_value VARCHAR(250) DEFAULT '', " +
+					"const_additionally TEXT DEFAULT '', " +
+					"const_delete INT(1) DEFAULT 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Наша фирма', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Поставщик', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Покупатель', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Вид НДС', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Основной склад', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Ед. измерения', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Директор', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "INSERT INTO constants (const_name, const_value, const_additionally, const_delete) VALUES ('Главный бухгалтер', '', '', 0)";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				
 				/*Создать таблицу "История Обновлений" (historyUpdate)
 				 * id_history			- идентификатор
 				 * history_table_name	- имя таблицы
@@ -685,6 +709,41 @@ namespace Rapid
 				_MySql_Command.CommandText = _SqlCommand;
 				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
 				
+				
+				/*Создание связей ========================================*/
+				
+				/* Связь tableSection и tmc */
+				_SqlCommand = "ALTER TABLE tabularSection ADD FOREIGN KEY (tabularSection_tmc) REFERENCES "+ _database +".tmc (tmc_name) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/* Связь journal и firms */
+				_SqlCommand = "ALTER TABLE journal ADD FOREIGN KEY (journal_firm_buyer) REFERENCES "+ _database +".firms (firm_name) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "ALTER TABLE journal ADD FOREIGN KEY (journal_firm_buyer) REFERENCES "+ _database +".firms (firm_name) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/* Связь journal и typeTax */
+				_SqlCommand = "ALTER TABLE journal ADD FOREIGN KEY (journal_typeTax) REFERENCES "+ _database +".typeTax (typeTax_name) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/* Связь journal и store */
+				_SqlCommand = "ALTER TABLE journal ADD FOREIGN KEY (journal_store) REFERENCES "+ _database +".store (store_name) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/* Связь operation и planAccounts */
+				_SqlCommand = "ALTER TABLE operations ADD FOREIGN KEY (operations_DT) REFERENCES "+ _database +".planAccounts (planAccounts_account) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				_SqlCommand = "ALTER TABLE operations ADD FOREIGN KEY (operations_KT) REFERENCES "+ _database +".planAccounts (planAccounts_account) ON DELETE CASCADE ON UPDATE CASCADE";
+				_MySql_Command.CommandText = _SqlCommand;
+				_MySql_Command.ExecuteNonQuery();	//выполнение запроса
+				
+				/*=========================================================*/
 				
 				
 				_MySql_Connection.Close();

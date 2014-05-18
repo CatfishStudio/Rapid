@@ -22,6 +22,7 @@ namespace Rapid
 		private ClassMySQL_Full _MySQL = new ClassMySQL_Full();
 		private DataSet _DataSet = new DataSet(); // элементы
 		private int selectTableLine = 0;	// выбранная строка в таблице
+		public bool openDoc = false;	//флаг открыт документом
 		
 		public FormClientJournalOperations()
 		{
@@ -53,7 +54,8 @@ namespace Rapid
 				_DataSet.Clear();
 				_DataSet.DataSetName = "operations";
 				
-				_MySQL.SelectSqlCommand = "SELECT operations.*, journal.* FROM operations, journal WHERE (operations_date BETWEEN '" + dateTimePicker1.Text + "' AND '" + dateTimePicker2.Text + "' AND (operations_id_doc LIKE '%" + textBox1.Text + "%' OR operations_sum LIKE '%" + textBox1.Text + "%') AND (journal.journal_id_doc = operations.operations_id_doc)) ORDER BY operations_date ASC";
+				if(openDoc) _MySQL.SelectSqlCommand = "SELECT operations.*, journal.* FROM operations, journal WHERE (operations_date BETWEEN '" + dateTimePicker1.Text + "' AND '" + dateTimePicker2.Text + "' AND (operations_id_doc LIKE '%" + textBox1.Text + "%' OR operations_sum LIKE '%" + textBox1.Text + "%') AND (journal.journal_id_doc = operations.operations_id_doc)) ORDER BY operations_date ASC";
+				else _MySQL.SelectSqlCommand = "SELECT operations.*, journal.* FROM operations, journal WHERE (operations_date BETWEEN '" + dateTimePicker1.Text + "' AND '" + dateTimePicker2.Text + "' AND (operations_id_doc LIKE '%" + textBox1.Text + "%' OR operations_sum LIKE '%" + textBox1.Text + "%')) ORDER BY operations_date ASC";
 				
 				if(_MySQL.ExecuteFill(_DataSet, "operations") == false){
 					ClassForms.Rapid_Client.MessageConsole("Журнал Бухгалтерских операций: Ошибка выполнения запроса к таблице 'Операции' при отборе операций.", true);
