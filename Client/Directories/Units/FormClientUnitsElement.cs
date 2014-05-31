@@ -110,7 +110,8 @@ namespace Rapid
 		
 		void Button1Click(object sender, EventArgs e)
 		{
-			SaveData(); // созранение данных			
+			if(textBox1.Text != "") SaveData(); // созранение данных	
+			else MessageBox.Show("Вы не ввели значение наименование!","Сообщение",MessageBoxButtons.OK);			
 		}
 		/*----------------------------------------------------------------*/
 	}

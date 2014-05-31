@@ -505,7 +505,8 @@ namespace Rapid
 		
 		void Button13Click(object sender, EventArgs e)
 		{
-			SaveInTable(); // сохранить данные в таблицу.
+			if(textBox1.Text != "") SaveInTable(); // сохранить данные в таблицу.
+			else MessageBox.Show("Вы не выбрали товар!","Сообщение",MessageBoxButtons.OK);
 		}
 		/*----------------------------------------------------------------*/
 	}

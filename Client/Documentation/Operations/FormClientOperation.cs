@@ -188,7 +188,8 @@ namespace Rapid
 		
 		void Button2Click(object sender, EventArgs e)
 		{
-			SaveOperation();
+			if(textBox3.Text != "" && textBox4.Text != "" && textBox2.Text != "") SaveOperation();
+			else MessageBox.Show("Не указан документ! (или вы не указали Дт, Кт)","Сообщение",MessageBoxButtons.OK);
 		}
 	}
 }

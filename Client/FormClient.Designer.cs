@@ -130,6 +130,7 @@ namespace Rapid
 			this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton25 = new System.Windows.Forms.ToolStripButton();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -954,6 +955,7 @@ namespace Rapid
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel1.Controls.Add(this.button1);
 			this.panel1.Controls.Add(this.richTextBox1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 401);
@@ -961,6 +963,17 @@ namespace Rapid
 			this.panel1.Size = new System.Drawing.Size(784, 138);
 			this.panel1.TabIndex = 4;
 			this.panel1.Visible = false;
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(728, 108);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(30, 23);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "X";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// richTextBox1
 			// 
@@ -1038,6 +1051,7 @@ namespace Rapid
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ToolStripButton toolStripButton25;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
 		private System.Windows.Forms.ToolStripButton toolStripButton24;

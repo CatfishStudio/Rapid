@@ -546,7 +546,8 @@ namespace Rapid
 		
 		void Button11Click(object sender, EventArgs e)
 		{
-			SaveDoc(); //сохранение документа.
+			if(textBox2.Text != "" && textBox5.Text != "" && textBox6.Text != "") SaveDoc(); //сохранение документа.
+			else MessageBox.Show("Вы не заполнили данные о складе, покупателе и продавце!","Сообщение",MessageBoxButtons.OK);
 		}
 		/*---------------------------------------------------------*/
 		

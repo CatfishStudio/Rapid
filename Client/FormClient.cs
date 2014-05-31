@@ -657,5 +657,11 @@ namespace Rapid
 		{
 			ShowAbout();
 		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			panel1.Visible = false;
+			консольСообщенийToolStripMenuItem.Checked = false;			
+		}
 	}
 }

@@ -156,11 +156,35 @@ namespace Rapid
 			if(_tableName == "Вид налога") _deleteMySQL.SqlCommand = "DELETE FROM typeTax WHERE (typeTax_name = '" + _value + "' AND typeTax_delete = 1)";
 			if(_tableName == "Сотрудники") _deleteMySQL.SqlCommand = "DELETE FROM staff WHERE (staff_name = '" + _value + "' AND staff_delete = 1)";
 			if(_tableName == "План счетов") _deleteMySQL.SqlCommand = "DELETE FROM planAccounts WHERE (planAccounts_name = '" + _value + "' AND planAccounts_delete = 1)";
-			if(_tableName == "Документ") _deleteMySQL.SqlCommand = "DELETE FROM journal WHERE (journal_number = '" + _value + "' AND journal_delete = 1)";
-			if(_deleteMySQL.ExecuteNonQuery())
-			{
-				listBox1.Items.Add("[" + _tableName + "]  " + _value + " - - - Запись удалена!");
+			if(_tableName == "Документ") {
+				
+				
+				ClassMySQL_Full _removeDocMySQL = new ClassMySQL_Full();
+				DataSet _removeDocDataSet = new DataSet();
+				_removeDocMySQL.SelectSqlCommand = "SELECT * FROM journal WHERE (journal_number = '" + _value + "' AND journal_delete = 1)";
+				_removeDocDataSet.Clear();
+				_removeDocDataSet.DataSetName = "journal";
+				if(_removeDocMySQL.ExecuteFill(_removeDocDataSet, "journal")){
+					_deleteMySQL.SqlCommand = "DELETE FROM tabularSection WHERE (tabularSection_id_doc = '" + _removeDocDataSet.Tables["journal"].Rows[0]["journal_id_doc"].ToString() + "')";
+					if(_deleteMySQL.ExecuteNonQuery())
+					{
+						_deleteMySQL.SqlCommand = "DELETE FROM journal WHERE (journal_number = '" + _value + "' AND journal_delete = 1)";
+						if(_deleteMySQL.ExecuteNonQuery())
+						{
+							listBox1.Items.Add("[" + _tableName + "]  " + _value + " - - - Запись удалена!");
+						}
+					}
+				}
+		
+			}else{
+				if(_deleteMySQL.ExecuteNonQuery())
+				{
+					listBox1.Items.Add("[" + _tableName + "]  " + _value + " - - - Запись удалена!");
+				}
 			}
+			
+			
+			
 			
 			
 		}
