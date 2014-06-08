@@ -589,6 +589,7 @@ namespace Rapid
 			ClassForms.Rapid_ClientJournalOperations.panel1.Enabled = false;
 			ClassForms.Rapid_ClientJournalOperations.contextMenuStrip1.Enabled = false;
 			ClassForms.Rapid_ClientJournalOperations.openDoc = true;
+			ClassForms.Rapid_ClientJournalOperations.dateTimePicker1.Text = this.dateTimePicker1.Text;
 			ClassForms.Rapid_ClientJournalOperations.Show();
 		}
 		

@@ -384,8 +384,8 @@ namespace Rapid
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker2;
+		public System.Windows.Forms.DateTimePicker dateTimePicker1;
+		public System.Windows.Forms.DateTimePicker dateTimePicker2;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Panel panel4;
 		public System.Windows.Forms.TextBox textBox1;
